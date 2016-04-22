@@ -12,9 +12,9 @@ Requirements:
 
 To run the site locally:
 1. Clone this repository:  
-  `git clone https://github.com/origo-map/api-documentation.git`
-2. `npm install`
-3. `npm start`
+  `git clone https://github.com/origo-map/api-documentation.git`  
+2. `npm install`  
+3. `npm start`  
 4. Open http://localhost:9966/
 
 ## Deployment
