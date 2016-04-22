@@ -1,5 +1,5 @@
 # Api documentation for Origo
-Api documentation for the Origo web map framework.
+Api documentation for the [Origo](https://github.com/origo-map/origo) web map framework.
 
 ## Writing documentation
 Documentation is written as Markdown files in the `content` directory, and is organized by the `custom/content.js` file - that file requires each documentation page and puts them in order
@@ -15,7 +15,7 @@ To run the site locally:
   `git clone https://github.com/origo-map/api-documentation.git`  
 2. `npm install`  
 3. `npm start`  
-4. Open http://localhost:9966/
+4. Open [http://localhost:9966/](http://localhost:9966/)
 
 ## Deployment
 The npm run build command builds a bundle.js file that contains all the JavaScript code and content needed for deployment, and creates an index.html file that already contains the site content. Note that this replaces the existing index.html file, so it's best to run this only when deploying the site and to undo changes to index.html if you want to keep working on content.
