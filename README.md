@@ -10,7 +10,7 @@ Requirements:
 * NPM
 * Git
 
-To run the site locally:
+To run the site locally:  
 1. Clone this repository:  
   `git clone https://github.com/origo-map/api-documentation.git`  
 2. `npm install`  
