@@ -1,0 +1,7 @@
+.origo-icon:before {
+  font-family: Arial;
+  text-align: center;
+}
+.origo-icon.origo:before {
+  content: "\004F";
+}

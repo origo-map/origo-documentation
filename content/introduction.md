@@ -1,3 +1,3 @@
-## Our API
+## Origo API
 
-Welcome to coolcorp biz! This is our API documentation.
+API documentation for the Origo map framework.

@@ -5,21 +5,21 @@
  * media queries.
  */
 module.exports.brandNames = {
-  desktop: 'Wobble API Documentation',
-  tablet: 'Wobble API Docs',
+  desktop: 'Origo API Documentation',
+  tablet: 'Origo API Docs',
   mobile: 'API Docs'
 };
 
 /**
  * Classes that define the top-left brand box.
  */
-module.exports.brandClasses = 'fill-red';
+module.exports.brandClasses = 'fill-blue origo-icon origo';
 
 
 /**
  * Text for the link back to the linking website.
  */
-module.exports.backLink = 'Back to wobbles.com';
+module.exports.backLink = 'Back to origo-api';
 
 /**
  * Runs after highlighting code samples. You can use this
