@@ -11,8 +11,8 @@ import qs from 'querystring';
 let slugger = new GithubSlugger();
 let slug = title => { slugger.reset(); return slugger.slug(title); };
 
-let languageOptions = ['cURL', 'CLI', 'Python', 'JavaScript'];
-let defaultLanguage = 'cURL';
+let languageOptions = ['JavaScript'];
+let defaultLanguage = 'JavaScript';
 
 let debouncedReplaceState = debounce(hash => {
   window.history.replaceState('', '', hash);
