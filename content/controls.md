@@ -199,6 +199,8 @@ Option | Description
 ```json
 {
   "name": "editor",
-  "options": ["roads", "buildings"]
+  "options": {
+      "editableLayers": ["roads", "buildings"]
+  }
 }
 ```
