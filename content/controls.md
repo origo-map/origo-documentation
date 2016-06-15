@@ -53,10 +53,11 @@ Option | Description
 ---|---
 `url` | url to the search endpoint
 `searchAttribute` | the attribute that will be queried
-`northing` | the attribute for northing coordinates
-`easting` | the attribute for easting coordinates
+`northing` | the attribute for northing coordinates. Only if geometryAttribute is not provided
+`easting` | the attribute for easting coordinates. Only if geometryAttribute is not provided
 `title` | title for the popup presenting the search result
-
+`hint` | placeholder text for the search input
+`geometryAttribute` | geometry attribute if northing and easting is not used
 
 #### Example search control
 
@@ -68,7 +69,8 @@ Option | Description
       "searchAttribute": "NAMN",
       "northing": "N",
       "easting": "E",
-      "title": "Adress"
+      "title": "Adress",
+      "Sök adress eller platser..."
   }
 }
 ```
