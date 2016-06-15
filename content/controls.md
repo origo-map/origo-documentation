@@ -192,12 +192,13 @@ Property | Description
 
 Option | Description
 ---|---
-`-` | -
+`editableLayers` | Layers that will we handled as editable layers. The name of the layer is used as identifier to get the settings for the layer as defined in layers.
 
 #### Example editor control
 
 ```json
 {
-  "name": "editor"
+  "name": "editor",
+  "options": ["roads", "buildings"]
 }
 ```
