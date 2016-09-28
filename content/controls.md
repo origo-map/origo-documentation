@@ -201,3 +201,19 @@ Option | Description
   "name": "editor"
 }
 ```
+
+### Measure control
+
+Adds a measure control. Measure length or area in the map.
+
+Property | Description
+---|---
+`name` | the name of the control
+
+#### Example measure control
+
+```json
+{
+  "name": "measure"
+}
+```
