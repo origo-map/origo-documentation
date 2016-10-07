@@ -85,6 +85,28 @@ Option | Description
 }
 ```
 
+### Home control
+
+Property | Description
+---|---
+`name` | the name of the control
+`options` | options for the control
+
+Option | Description
+---|---
+`extent` | The extent to zoom to. If no extent is provided the initial extent of the map will be used.
+
+#### Example home control
+
+```json
+{
+  "name": "home",
+  "options": {
+    "extent": [134966, 6593080, 176372, 6636922]
+  }
+}
+```
+
 ### Legend control
 
 Adds a legend control. Legend is added to menu and as a map legend to the map.
