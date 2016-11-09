@@ -53,19 +53,11 @@ Option | Description
 ---|---
 `url` | url to the search endpoint
 `searchAttribute` | the attribute that will be queried
-`idAttribute` | id attribute for a layer
-`layerNameAttribute` | attribute with information of layer name in the search response
-`layerName` | layer name
-`titleAttribute` | Attribute with title in the search response
-`contentAttribute` | Attribute with content in the search response
 `northing` | the attribute for northing coordinates. Only if geometryAttribute is not provided
 `easting` | the attribute for easting coordinates. Only if geometryAttribute is not provided
 `title` | title for the popup presenting the search result
-`hintText` | placeholder text for the search input
-`hint` | true or false to show hints
-`highlight` | true or false to highlight results
+`hint` | placeholder text for the search input
 `geometryAttribute` | geometry attribute if northing and easting is not used
-`maxZoomLevel` | max zoom level to zoom in selection
 
 #### Example search control
 
@@ -212,28 +204,6 @@ Option | Description
 ```json
 {
   "name": "mapwindow"
-}
-```
-
-### Print control
-
-Property | Description
----|---
-`name` | the name of the control
-`options` | options for the control
-
-Option | Description
----|---
-`attribution` | optional attribution text such as copyright
-
-#### Example print control
-
-```json
-{
-  "name": "print",
-  "options": {
-    "attribution": "© Lantmäteriet Geodatasamverkan"
-  }
 }
 ```
 
