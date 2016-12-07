@@ -108,6 +108,8 @@ An icon style can be defined with the OpenLayers options for an [Icon](https://o
 
 A text style can be defined with the OpenLayers options for a [Text](https://openlayers.org/en/latest/apidoc/ol.style.Text.html). The fill option sets the font color and the stroke option is used to create halo effects.
 
+Arbitrary text can be provided as text value. For cluster layers the reserved word "size" can be used to show number of features of the cluster.
+
 #### Text example
 
 ```json
@@ -117,7 +119,7 @@ A text style can be defined with the OpenLayers options for a [Text](https://ope
     "textAlign": "center",
     "offsetX": 10,
     "offsetY": -10,
-    "text": "size",
+    "text": "My label text",
     "fill": {
       "color": "rgba(0,0,0,1.0)"
     },
