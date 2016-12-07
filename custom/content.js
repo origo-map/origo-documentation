@@ -13,6 +13,8 @@ module.exports =
   '# Introduction\n' +
   fs.readFileSync('./content/introduction.md', 'utf8') + '\n' +
   '# Settings\n' +
-  fs.readFileSync('./content/settings.md', 'utf8') + '\n' + 
+  fs.readFileSync('./content/settings.md', 'utf8') + '\n' +
   '# Controls\n' +
-  fs.readFileSync('./content/controls.md', 'utf8') + '\n';
+  fs.readFileSync('./content/controls.md', 'utf8') + '\n' +
+  '# Styles\n' +
+  fs.readFileSync('./content/styles.md', 'utf8') + '\n';
