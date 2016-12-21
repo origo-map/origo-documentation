@@ -16,5 +16,7 @@ module.exports =
   fs.readFileSync('./content/settings.md', 'utf8') + '\n' +
   '# Controls\n' +
   fs.readFileSync('./content/controls.md', 'utf8') + '\n' +
+  '# Layers\n' +
+  fs.readFileSync('./content/layers.md', 'utf8') + '\n' +  
   '# Styles\n' +
   fs.readFileSync('./content/styles.md', 'utf8') + '\n';

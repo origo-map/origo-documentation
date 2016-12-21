@@ -44,6 +44,22 @@ screen. They can involve user input (buttons), or be informational only. The con
 
 Adds a search control. The search control requires a search end point to function.
 
+The search control uses autocomplete. There are several ways to configure how selected search result should be handled.
+* Option 1. Feature info is requested from a map service.
+In this case idAttribute and layerNameAttribute must be provided.
+A map service is used to get the geometry and attributes. The layer is defined
+as an ordinary layer in the layer config section.
+* Option 2. Same as option 1 but for single layer search. layerName is defined
+as an option and is not included in the search response.
+In this case geometryAttribute and layerName must be provided.
+* Option 3. Complete feature info is included in the search result.
+In this case titleAttribute, contentAttribute and geometryAttribute must be provided.
+* Option 4. This is a single table search. No layer is defined.
+In this case geometryAttribute and title must be defined.
+* Option 5. Feature info is shown without selection in the map.
+This is a simple single table search. In this case title, northing and easting
+must be defined.
+
 Property | Description
 ---|---
 `name` | the name of the control
@@ -52,12 +68,20 @@ Property | Description
 Option | Description
 ---|---
 `url` | url to the search endpoint
-`searchAttribute` | the attribute that will be queried
-`northing` | the attribute for northing coordinates. Only if geometryAttribute is not provided
-`easting` | the attribute for easting coordinates. Only if geometryAttribute is not provided
+`searchAttribute` | the attribute that will be queried.
+`northing` | the attribute for northing coordinates. Only if geometryAttribute is not provided.
+`easting` | the attribute for easting coordinates. Only if geometryAttribute is not provided.
 `title` | title for the popup presenting the search result
-`hint` | placeholder text for the search input
-`geometryAttribute` | geometry attribute if northing and easting is not used
+`hint` | if hint text should be shown in search input. Default is true.
+`hintText` | placeholder text for the search input. Default is Sök.
+`highlight` | if matching search string should be highlighted. Default is true.
+`geometryAttribute` | geometry attribute if northing and easting is not used.
+`maxZoomLevel` | maximum zoom level after selection. Default is 2.
+`idAttribute` | attribute in the response storing the feature id.
+`layerNameAttribute` | attribute in the response storing the layer name. The layer must be defined in the map.
+`layerName` | layer defined in map if not included in the search response.
+`titleAttribute` | attribute in response storing the featureinfo title.
+`contentAttribute` | attribute in response storing the featureinfo content.
 
 #### Example search control
 

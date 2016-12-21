@@ -1,6 +1,6 @@
-## Settings
+## Basic settings
 
-General settings for the application
+Basic settings for the application include map options such as projection and extent.
 
 ### Map projection
 The map projection is defined with the two mandatory properties proj4Defs and projectionCode. An optional projection extent can also be set. Projections are handled with the proj4js library. The Proj4js definitions can be found on [epsg.io](http://epsg.io/).
