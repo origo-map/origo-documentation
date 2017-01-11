@@ -34,6 +34,38 @@ Property | Description
 }
 ```
 
+### TopoJSON
+
+Property | Description
+---|---
+`name` | the unique name of the layer used internally. White spaces and special characters should be avoided.
+`title` | title for the layer visible to the user.
+`type` | type of source for the layer. For GeoJSON source the type is GEOJSON.
+`source` | url to the layer.
+`style` | the name of the referenced [style](#style-basics) to be used for the layer.
+`group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
+`queryable` | if featureinfo should be enabled for the layer. Default is true.
+`opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
+`legend` | if the layer should be included in the map legend. Default is false.
+`attribution` | attribution for the layer. Optional.
+`visible` | if the layer should be visible. Default is true.
+`extent` | extent of the layer. Map extent is default.
+`minResolution` | the minmum scale the layer is visible. Optional.
+`maxResolution` | the maximum scale the layer is visible. Optional.
+`attributes` | definition of [attributes](#attributes) and how they should be presented in featureinfo. If not provided all available attributes will be shown with a standard template.
+
+#### Basic example TopoJSON
+
+```json
+{
+  "name": "mytopojson",
+  "title": "My topojson",
+  "source": "data/mytopojson.json",
+  "style": "mask",
+  "type": "TOPOJSON"
+}
+```
+
 ### WFS
 
 Property | Description
