@@ -10,7 +10,18 @@ The map is typically initialized with a json configuration as in the example to 
 
 Property | Description
 ---|---
-`options` | json path, json or an origo url
+`map configuration` | json path, json or an origo url with the map configuration
+`options` | optional configuration that is set before the map configuration is read.
+
+Option | Description
+---|---
+`crossDomain` | option to allow cross origin request of map configuration. Default is true.
+`target` | element id of the container for the map. Default is app-wrapper.
+`baseUrl` | baseUrl for the root url that is used to request map resouces with relative paths. If not provided the baseUrl is set when the map is initialized.
+`authorizationUrl` | an url that triggers authorization. It can for example be used to send a wms request that will trigger authorization before the map is loaded.
+`svgSpritePath` | path for svg sprites. Default is 'css/svg/'.
+`svgSprites` | list of svg sprites that should be requested.
+
 
 #### Example map with json
 
@@ -19,6 +30,7 @@ Property | Description
   origo.map.init('index.json');
 </script>
 ```
+
 
 #### Example map with origo url
 
