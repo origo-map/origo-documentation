@@ -271,3 +271,27 @@ Property | Description
   "name": "measure"
 }
 ```
+
+### External link control
+
+Property | Description
+---|---
+`name` | the name of the control
+`options` | options for the control
+
+Option | Description
+---|---
+`title` | Sets the title of the control.
+`url` | Sets the address fro the link.
+
+#### Example externallink control
+
+```json
+{
+  "name": "externallink",
+  "options": {
+      "title": "Origo",
+      "url": "https://github.com/origo-map/origo"
+  }
+}
+```
