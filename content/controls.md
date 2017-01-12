@@ -272,7 +272,7 @@ Property | Description
 }
 ```
 
-### External link control
+### Link control
 
 Property | Description
 ---|---
@@ -281,14 +281,14 @@ Property | Description
 
 Option | Description
 ---|---
-`title` | Sets the title of the control.
-`url` | Sets the address fro the link.
+`title` | Sets the link title of the control.
+`url` | Sets the address for the link.
 
-#### Example externallink control
+#### Example link control
 
 ```json
 {
-  "name": "externallink",
+  "name": "link",
   "options": {
       "title": "Origo",
       "url": "https://github.com/origo-map/origo"
