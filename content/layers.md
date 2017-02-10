@@ -290,6 +290,32 @@ Source options | Description
 }
 ```
 
+### OSM
+A tiled layer from the OpenStreetMap tile server. Source is OpenLayers default and not configurable.
+
+Property | Description
+---|---
+`name` | the unique name of the layer used internally. White spaces and special characters should be avoided.
+`title` | title for the layer visible to the user.
+`type` | type of source for the layer. For OpenStreetMap layer the type is OSM.
+`style` | the name of the referenced [style](#style-basics) to be used for the layer. Only visible in the legend, not for styling the layer.
+`group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
+`opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
+`visible` | if the layer should be visible. Default is true.
+`extent` | extent of the layer. Map extent is default.
+
+#### Basic example OSM
+
+```json
+{
+  "name": "my_osm_layer",
+  "title": "OpenStreetMap",
+  "group": "background",
+  "type": "OSM",
+  "style": "mask"
+}
+```
+
 ## Source
 
 Sources defined for the map are named under source. Each source is available for a layer by referencing its name.
