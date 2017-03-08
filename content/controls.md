@@ -193,6 +193,34 @@ Option | Description
 }
 ```
 
+### About control
+
+Adds an about map control. A button is added to the menu. On button click, a splash popup will show general info about the map. **NOTE** - requires mapmenu control.
+
+Property | Description
+---|---
+`name` | the name of the control
+`options` | options for the control
+
+Option | Description
+---|---
+`buttontext` | the button text shown in the menu
+`title` | popup header text
+`content` | popup content text
+
+#### Example about control
+
+```json
+{
+  "name": "about",
+  "options": {
+    "buttontext": "Om Origo",
+    "title": "Om Origo",
+    "content": "<p>Origo är ett ramverk för webbkartor. Ramverket bygger på JavaScript-biblioteket OpenLayers 3...</p>"
+  }
+}
+```
+
 ### Sharemap control
 
 Property | Description
