@@ -80,13 +80,14 @@ Name | Type | Description
 
 Name | Type | Description
 ---|---|---
-`groups` | array | Define groups to organise layers. The group names are used in the legend control. Each group is defined as an object.
+`groups` | array | Define groups to organise layers. The group names are used in the legend control. Each group is defined as an object. A group can contain subgroups, defined as groups within a group.
 
 Name | Type | Description
 ---|---|---
 `name` | string | Name of the group that identifies the group. Each name must be unique.
 `title` | string | A title for the group. The title is visible for the user in the legend control.
 `expanded` | boolean | Whether the group should be expanded not. Used by the legend control. Default is false.
+`groups` | array | Array of group objects defining subgroups. Optional.
 
 ### featureinfoOptions
 
