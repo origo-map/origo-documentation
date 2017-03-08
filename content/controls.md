@@ -299,3 +299,27 @@ Property | Description
   "name": "measure"
 }
 ```
+
+### Link control
+
+Property | Description
+---|---
+`name` | the name of the control
+`options` | options for the control
+
+Option | Description
+---|---
+`title` | Sets the link title of the control.
+`url` | Sets the address for the link.
+
+#### Example link control
+
+```json
+{
+  "name": "link",
+  "options": {
+      "title": "Origo",
+      "url": "https://github.com/origo-map/origo"
+  }
+}
+```
