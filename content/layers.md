@@ -8,6 +8,7 @@ Property | Description
 ---|---
 `name` | the unique name of the layer used internally. White spaces and special characters should be avoided.
 `title` | title for the layer visible to the user.
+`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
 `type` | type of source for the layer. For GeoJSON source the type is GEOJSON.
 `source` | url to the layer.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
@@ -40,6 +41,7 @@ Property | Description
 ---|---
 `name` | the unique name of the layer used internally. White spaces and special characters should be avoided.
 `title` | title for the layer visible to the user.
+`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
 `type` | type of source for the layer. For GeoJSON source the type is GEOJSON.
 `source` | url to the layer.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
@@ -72,6 +74,7 @@ Property | Description
 ---|---
 `name` | the unique name of the layer used internally and the name of the layer in the wfs service. White spaces and special characters should be avoided.
 `title` | title for the layer visible to the user.
+`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
 `type` | type of source for the layer. For WFS source the type is WFS.
 `source` | named source of the layer. The [source](#source) must be defined.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
@@ -127,6 +130,7 @@ Property | Description
 `name` | the unique name of the layer used internally. White spaces and special characters should be avoided.
 `id` | the id of the layer in ArcGIS Server.
 `title` | title for the layer visible to the user.
+`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
 `type` | type of source for the layer. For ArcGIS Server feature service the type is AGS_FEATURE.
 `source` | named source of the layer. The [source](#source) must be defined.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
@@ -180,6 +184,7 @@ Property | Description
 ---|---
 `name` | the unique name of the layer used internally and the name of the layer in the WMS service. White spaces and special characters should be avoided.
 `title` | title for the layer visible to the user.
+`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
 `type` | type of source for the layer. For WMS the type is WMS.
 `source` | named source of the layer. The [source](#source) must be defined with the layers source options.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
@@ -218,6 +223,7 @@ Property | Description
 ---|---
 `name` | the unique name of the layer used internally and the name of the layer in the WMTS service. White spaces and special characters should be avoided.
 `title` | title for the layer visible to the user.
+`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
 `type` | type of source for the layer. For WMTS the type is WMTS.
 `source` | named source of the layer. The [source](#source) must be defined.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
@@ -259,6 +265,7 @@ Property | Description
 `name` | the unique name of the layer used internally. White spaces and special characters should be avoided.
 `id` | the id of the layer in ArcGIS Server.
 `title` | title for the layer visible to the user.
+`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
 `type` | type of source for the layer. For ArcGIS Server map service the type is AGS_TILE.
 `source` | named source of the layer. The [source](#source) must be defined.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
@@ -297,6 +304,7 @@ Property | Description
 ---|---
 `name` | the unique name of the layer used internally. White spaces and special characters should be avoided.
 `title` | title for the layer visible to the user.
+`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
 `type` | type of source for the layer. For OpenStreetMap layer the type is OSM.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer. Only visible in the legend, not for styling the layer.
 `group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
