@@ -2,6 +2,15 @@
 
 Basic settings for the application include map options such as projection and extent.
 
+### footer
+
+Name | Type | Description
+---|---|---
+`img` | string | URL or file path to an image.
+`text` | string | Text to be displayed.
+`url` | string | Sets the URL for a link.
+`urlText` | string | The text to display for the link set in the url option.
+
 ### Map projection
 The map projection is defined with the two mandatory properties proj4Defs and projectionCode. An optional projection extent can also be set. Projections are handled with the proj4js library. The Proj4js definitions can be found on [epsg.io](http://epsg.io/).
 
