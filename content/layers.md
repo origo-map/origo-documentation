@@ -19,8 +19,8 @@ Property | Description
 `attribution` | attribution for the layer. Optional.
 `visible` | if the layer should be visible. Default is true.
 `extent` | extent of the layer. Map extent is default.
-`minResolution` | the minmum scale the layer is visible. Optional.
-`maxResolution` | the maximum scale the layer is visible. Optional.
+`minScale` | the minmum scale the layer is visible. Optional.
+`maxScale` | the maximum scale the layer is visible. Optional.
 `attributes` | definition of [attributes](#attributes) and how they should be presented in featureinfo. If not provided all available attributes will be shown with a standard template.
 
 #### Basic example GeoJSON
@@ -52,8 +52,8 @@ Property | Description
 `attribution` | attribution for the layer. Optional.
 `visible` | if the layer should be visible. Default is true.
 `extent` | extent of the layer. Map extent is default.
-`minResolution` | the minmum scale the layer is visible. Optional.
-`maxResolution` | the maximum scale the layer is visible. Optional.
+`minScale` | the minmum scale the layer is visible. Optional.
+`maxScale` | the maximum scale the layer is visible. Optional.
 `attributes` | definition of [attributes](#attributes) and how they should be presented in featureinfo. If not provided all available attributes will be shown with a standard template.
 
 #### Basic example TopoJSON
@@ -85,8 +85,8 @@ Property | Description
 `attribution` | attribution for the layer. Optional.
 `visible` | if the layer should be visible. Default is true.
 `extent` | extent of the layer. Map extent is default.
-`minResolution` | the minmum scale the layer is visible. Optional.
-`maxResolution` | the maximum scale the layer is visible. Optional.
+`minScale` | the minmum scale the layer is visible. Optional.
+`maxScale` | the maximum scale the layer is visible. Optional.
 `attributes` | definition of [attributes](#attributes) and how they should be presented in featureinfo. If not provided all available attributes will be shown with a standard template.
 `layerType` | option to set how the vector layer should be rendered. The options are cluster, [image](https://openlayers.org/en/latest/apidoc/ol.source.ImageVector.html) or vector. Default is vector.
 `clusterStyle` | the style to be used for clustered features. Is required if layerType cluster is used.
@@ -141,8 +141,8 @@ Property | Description
 `attribution` | attribution for the layer. Optional.
 `visible` | if the layer should be visible. Default is true.
 `extent` | extent of the layer. Map extent is default.
-`minResolution` | the minmum scale the layer is visible. Optional.
-`maxResolution` | the maximum scale the layer is visible. Optional.
+`minScale` | the minmum scale the layer is visible. Optional.
+`maxScale` | the maximum scale the layer is visible. Optional.
 `attributes` | definition of [attributes](#attributes) and how they should be presented in featureinfo. If not provided all available attributes will be shown with a standard template.
 `layerType` | option to set how the vector layer should be rendered. The options are cluster, [image](https://openlayers.org/en/latest/apidoc/ol.source.ImageVector.html) or vector. Default is vector.
 `clusterStyle` | the style to be used for clustered features. Is required if layerType cluster is used.
@@ -195,8 +195,8 @@ Property | Description
 `attribution` | attribution for the layer. Optional.
 `visible` | if the layer should be visible. Default is true.
 `extent` | extent of the layer. Map extent is default.
-`minResolution` | the minmum scale the layer is visible. Optional.
-`maxResolution` | the maximum scale the layer is visible. Optional.
+`minScale` | the minmum scale the layer is visible. Optional.
+`maxScale` | the maximum scale the layer is visible. Optional.
 `attributes` | definition of [attributes](#attributes) and how they should be presented in featureinfo. If not provided all available attributes will be shown with a standard template.
 `gutter` | gutter setting for the layer. Default is 0.
 `featureinfoLayer` | the named layer this layer should use for featureinfo requests. Optional.
@@ -234,8 +234,8 @@ Property | Description
 `attribution` | attribution for the layer. Optional.
 `visible` | if the layer should be visible. Default is true.
 `extent` | extent of the layer. Map extent is default.
-`minResolution` | the minmum scale the layer is visible. Optional.
-`maxResolution` | the maximum scale the layer is visible. Optional.
+`minScale` | the minmum scale the layer is visible. Optional.
+`maxScale` | the maximum scale the layer is visible. Optional.
 `attributes` | definition of [attributes](#attributes) and how they should be presented in featureinfo. If not provided all available attributes will be shown with a standard template.
 `format` | the image format to use. Default is image/png.
 `featureinfoLayer` | the named layer this layer should use for featureinfo requests. Optional.
@@ -276,8 +276,8 @@ Property | Description
 `attribution` | attribution for the layer. Optional.
 `visible` | if the layer should be visible. Default is true.
 `extent` | extent of the layer. Map extent is default.
-`minResolution` | the minmum scale the layer is visible. Optional.
-`maxResolution` | the maximum scale the layer is visible. Optional.
+`minScale` | the minmum scale the layer is visible. Optional.
+`maxScale` | the maximum scale the layer is visible. Optional.
 `attributes` | definition of [attributes](#attributes) and how they should be presented in featureinfo. If not provided all available attributes will be shown with a standard template.
 
 Source options | Description
