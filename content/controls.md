@@ -9,7 +9,10 @@ screen. They can involve user input (buttons), or be informational only. The con
 {
 "controls": [
   {
-    "name": "geoposition"
+    "name": "geoposition",
+    "options": {
+        "zoomLevel": 15
+    }
   },
   {
     "name": "mapmenu"
@@ -164,13 +167,16 @@ Property | Description
 
 Option | Description
 ---|---
-`-` | -
+`zoomLevel` | Specifies the zoom level that will be used when a position has been aquired. If it is not specified, the map will be zoomed to the fourth closest resolution.
 
 #### Example geoposition control
 
 ```json
 {
-  "name": "geoposition"
+  "name": "geoposition",
+  "options": {
+      "zoomLevel": 15
+  }
 }
 ```
 
