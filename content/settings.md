@@ -12,9 +12,7 @@ Name | Type | Description
 `urlText` | string | The text to display for the link set in the url option.
 
 ### Map projection
-The map projection is defined with the two mandatory properties proj4Defs and projectionCode. An optional projection extent can also be set. Projections are handled with the proj4js library. The Proj4js definitions can be found on [epsg.io](http://epsg.io/).
-
-If projection is not set Spherical mercator EPSG:3857 will be assumed. In this case resolutions is not mandatory.
+The map projection is defined with the mandatory property projectionCode. If the projection is EPSG:3857 (Web mercator) or EPSG:4326 (WGS84) then the proj4Defs is optional, otherwise it is mandatory. An optional projection extent can also be set. Projections are handled with the proj4js library. The Proj4js definitions can be found on [epsg.io](http://epsg.io/).
 
 #### Example projection definition
 
@@ -41,7 +39,7 @@ If projection is not set Spherical mercator EPSG:3857 will be assumed. In this c
 
 Name | Type | Description
 ---|---|---
-`proj4Defs` | array | The proj4 definitions for projections used in the map. Several projections can be definied but the projection set as projectionCode will be the map projection. Each projection is defined as an object. Visit [epsg.io](http://epsg.io/) to find proj4 definitions.
+`proj4Defs` | array | The proj4 definitions for projections used in the map. Several projections can be definied but the projection set as projectionCode will be the map projection. Each projection is defined as an object. Visit [epsg.io](http://epsg.io/) to find proj4 definitions. EPSG:3857 (Web mercator) and EPSG:4326 (WGS84) doesn't need to be defined.
 
 Name | Type | Description
 ---|---|---
