@@ -80,7 +80,7 @@ Property | Description
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
 `group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
 `queryable` | if featureinfo should be enabled for the layer. Default is true.
-`editable` | Boolean value that determines if the layer should be editable. Requires the editor control.
+`editable` | boolean value that determines if the layer should be editable. Requires the editor control.
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
 `legend` | if the layer should be included in the map legend. Default is false.
 `attribution` | attribution for the layer. Optional.
@@ -139,7 +139,7 @@ Property | Description
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
 `group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
 `queryable` | if featureinfo should be enabled for the layer. Default is true.
-`editable` | Boolean value that determines if the layer should be editable. Requires the editor control.
+`editable` | boolean value that determines if the layer should be editable. Requires the editor control.
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
 `legend` | if the layer should be included in the map legend. Default is false.
 `attribution` | attribution for the layer. Optional.
