@@ -246,25 +246,6 @@ Option | Description
 }
 ```
 
-### Mapwindow control
-
-Property | Description
----|---
-`name` | the name of the control
-`options` | options for the control
-
-Option | Description
----|---
-`-` | -
-
-#### Example mapwindow control
-
-```json
-{
-  "name": "mapwindow"
-}
-```
-
 ### Editor control
 
 Property | Description
