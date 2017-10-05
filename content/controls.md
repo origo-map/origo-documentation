@@ -311,3 +311,29 @@ Option | Description
   }
 }
 ```
+
+### Splash control
+
+Adds a splash control. It will show a modal window when the map is loaded. The content can defined in the content option or as a html file.
+
+Property | Description
+---|---
+`name` | the name of the control
+`options` | options for the control
+
+Option | Description
+---|---
+`title` | modal title text
+`url` | url to a html file
+`content` | content text of the modal
+
+#### Example about control
+
+```json
+{
+  "name": "splash",
+  "options": {
+    "url": "examples/splash-content.html"
+  }
+},
+```
