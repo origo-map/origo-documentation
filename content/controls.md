@@ -43,6 +43,187 @@ screen. They can involve user input (buttons), or be informational only. The con
 }
 ```
 
+### About control
+
+Adds an about map control. A button is added to the menu. On button click, a splash popup will show general info about the map. **NOTE** - requires mapmenu control.
+
+Property | Description
+---|---
+`name` | the name of the control
+`options` | options for the control
+
+Option | Description
+---|---
+`buttontext` | the button text shown in the menu
+`title` | popup header text
+`content` | popup content text
+
+#### Example about control
+
+```json
+{
+  "name": "about",
+  "options": {
+    "buttontext": "Om Origo",
+    "title": "Om Origo",
+    "content": "<p>Origo är ett ramverk för webbkartor. Ramverket bygger på JavaScript-biblioteket OpenLayers 3...</p>"
+  }
+}
+```
+
+### Editor control
+
+Property | Description
+---|---
+`name` | the name of the control
+`options` | options for the control
+
+Option | Description
+---|---
+`editableLayers` | Layers that will we handled as editable layers. The name of the layer is used as identifier to get the settings for the layer as defined in layers. Can also be configured on a per layer basis.
+`autoForm` | If set to true, the attribute form will be displayed automatically after a feature has been drawn. Default is false.
+`isActive` | option to set if the editor toolbar should be opened and activated by default. Default is false.
+`snap` | option to enable/disable snapping. Default is true.
+`snapLayers` | List of layers that should have snapping enabled. Default is editableLayers.
+
+#### Example editor control
+
+```json
+{
+  "name": "editor",
+  "options": {
+      "editableLayers": ["roads", "buildings"]
+  }
+}
+```
+
+### Geoposition control
+
+Property | Description
+---|---
+`name` | the name of the control
+`options` | options for the control
+
+Option | Description
+---|---
+`zoomLevel` | Specifies the zoom level that will be used when a position has been aquired. If it is not specified, the map will be zoomed to the fourth closest resolution.
+
+#### Example geoposition control
+
+```json
+{
+  "name": "geoposition",
+  "options": {
+      "zoomLevel": 15
+  }
+}
+```
+
+### Home control
+
+Property | Description
+---|---
+`name` | the name of the control
+`options` | options for the control
+
+Option | Description
+---|---
+`extent` | The extent to zoom to. If no extent is provided the initial extent of the map will be used.
+
+#### Example home control
+
+```json
+{
+  "name": "home",
+  "options": {
+    "extent": [134966, 6593080, 176372, 6636922]
+  }
+}
+```
+
+### Legend control
+
+Adds a legend control. Legend is added to menu and as a map legend to the map.
+
+Property | Description
+---|---
+`name` | the name of the control
+`options` | options for the control
+
+Option | Description
+---|---
+`hasMapLegend` | true or false to add the map legend. Default is true.
+
+#### Example legend control
+
+```json
+{
+  "name": "legend",
+  "options": {
+      "hasMapLegend": false
+  }
+}
+```
+
+### Link control
+
+Property | Description
+---|---
+`name` | the name of the control
+`options` | options for the control
+
+Option | Description
+---|---
+`title` | Sets the link title of the control.
+`url` | Sets the address for the link.
+
+#### Example link control
+
+```json
+{
+  "name": "link",
+  "options": {
+      "title": "Origo",
+      "url": "https://github.com/origo-map/origo"
+  }
+}
+```
+
+### Mapmenu control
+
+Property | Description
+---|---
+`name` | the name of the control
+`options` | options for the control
+
+Option | Description
+---|---
+`-` | -
+
+#### Example mapmenu control
+
+```json
+{
+  "name": "mapmenu"
+}
+```
+
+### Measure control
+
+Adds a measure control. Measure length or area in the map.
+
+Property | Description
+---|---
+`name` | the name of the control
+
+#### Example measure control
+
+```json
+{
+  "name": "measure"
+}
+```
+
 ### Search control
 
 Adds a search control. The search control requires a search end point to function.
@@ -112,121 +293,6 @@ Option | Description
 }
 ```
 
-### Home control
-
-Property | Description
----|---
-`name` | the name of the control
-`options` | options for the control
-
-Option | Description
----|---
-`extent` | The extent to zoom to. If no extent is provided the initial extent of the map will be used.
-
-#### Example home control
-
-```json
-{
-  "name": "home",
-  "options": {
-    "extent": [134966, 6593080, 176372, 6636922]
-  }
-}
-```
-
-### Legend control
-
-Adds a legend control. Legend is added to menu and as a map legend to the map.
-
-Property | Description
----|---
-`name` | the name of the control
-`options` | options for the control
-
-Option | Description
----|---
-`hasMapLegend` | true or false to add the map legend. Default is true.
-
-#### Example legend control
-
-```json
-{
-  "name": "legend",
-  "options": {
-      "hasMapLegend": false
-  }
-}
-```
-
-### Geoposition control
-
-Property | Description
----|---
-`name` | the name of the control
-`options` | options for the control
-
-Option | Description
----|---
-`zoomLevel` | Specifies the zoom level that will be used when a position has been aquired. If it is not specified, the map will be zoomed to the fourth closest resolution.
-
-#### Example geoposition control
-
-```json
-{
-  "name": "geoposition",
-  "options": {
-      "zoomLevel": 15
-  }
-}
-```
-
-### Mapmenu control
-
-Property | Description
----|---
-`name` | the name of the control
-`options` | options for the control
-
-Option | Description
----|---
-`-` | -
-
-#### Example mapmenu control
-
-```json
-{
-  "name": "mapmenu"
-}
-```
-
-### About control
-
-Adds an about map control. A button is added to the menu. On button click, a splash popup will show general info about the map. **NOTE** - requires mapmenu control.
-
-Property | Description
----|---
-`name` | the name of the control
-`options` | options for the control
-
-Option | Description
----|---
-`buttontext` | the button text shown in the menu
-`title` | popup header text
-`content` | popup content text
-
-#### Example about control
-
-```json
-{
-  "name": "about",
-  "options": {
-    "buttontext": "Om Origo",
-    "title": "Om Origo",
-    "content": "<p>Origo är ett ramverk för webbkartor. Ramverket bygger på JavaScript-biblioteket OpenLayers 3...</p>"
-  }
-}
-```
-
 ### Sharemap control
 
 Property | Description
@@ -246,72 +312,6 @@ Option | Description
 }
 ```
 
-### Editor control
-
-Property | Description
----|---
-`name` | the name of the control
-`options` | options for the control
-
-Option | Description
----|---
-`editableLayers` | Layers that will we handled as editable layers. The name of the layer is used as identifier to get the settings for the layer as defined in layers. Can also be configured on a per layer basis.
-`autoForm` | If set to true, the attribute form will be displayed automatically after a feature has been drawn. Default is false.
-`isActive` | option to set if the editor toolbar should be opened and activated by default. Default is false.
-`snap` | option to enable/disable snapping. Default is true.
-`snapLayers` | List of layers that should have snapping enabled. Default is editableLayers.
-
-#### Example editor control
-
-```json
-{
-  "name": "editor",
-  "options": {
-      "editableLayers": ["roads", "buildings"]
-  }
-}
-```
-
-### Measure control
-
-Adds a measure control. Measure length or area in the map.
-
-Property | Description
----|---
-`name` | the name of the control
-
-#### Example measure control
-
-```json
-{
-  "name": "measure"
-}
-```
-
-### Link control
-
-Property | Description
----|---
-`name` | the name of the control
-`options` | options for the control
-
-Option | Description
----|---
-`title` | Sets the link title of the control.
-`url` | Sets the address for the link.
-
-#### Example link control
-
-```json
-{
-  "name": "link",
-  "options": {
-      "title": "Origo",
-      "url": "https://github.com/origo-map/origo"
-  }
-}
-```
-
 ### Splash control
 
 Adds a splash control. It will show a modal window when the map is loaded. The content can defined in the content option or as a html file.
@@ -327,7 +327,7 @@ Option | Description
 `url` | url to a html file
 `content` | content text of the modal
 
-#### Example about control
+#### Example splash control
 
 ```json
 {
@@ -335,5 +335,5 @@ Option | Description
   "options": {
     "url": "examples/splash-content.html"
   }
-},
+}
 ```
