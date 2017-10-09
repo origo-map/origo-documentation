@@ -259,6 +259,8 @@ Option | Description
 `hint` | if hint text should be shown in search input. Default is true.
 `hintText` | placeholder text for the search input. Default is Sök.
 `highlight` | if matching search string should be highlighted. Default is true.
+`limit` | the max number of suggestions to be displayed. Default is 9.
+`minLength` | minimum number of characters to trigger search. Default is 4.
 `geometryAttribute` | geometry attribute if northing and easting is not used.
 `maxZoomLevel` | maximum zoom level after selection. Default is 2.
 `idAttribute` | attribute in the response storing the feature id.
