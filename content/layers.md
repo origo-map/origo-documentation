@@ -79,6 +79,7 @@ Property | Description
 `source` | named source of the layer. The [source](#source) must be defined.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
 `group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
+`editable` | if the layer should be editable or not. Defaults to false. Optional.
 `queryable` | if featureinfo should be enabled for the layer. Default is true.
 `editable` | boolean value that determines if the layer should be editable. Requires the editor control.
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
@@ -138,6 +139,7 @@ Property | Description
 `source` | named source of the layer. The [source](#source) must be defined.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
 `group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
+`editable` | if the layer should be editable or not. Defaults to false. Optional.
 `queryable` | if featureinfo should be enabled for the layer. Default is true.
 `editable` | boolean value that determines if the layer should be editable. Requires the editor control.
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.

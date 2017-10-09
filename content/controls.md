@@ -80,11 +80,14 @@ Property | Description
 
 Option | Description
 ---|---
-`editableLayers` | Layers that will we handled as editable layers. The name of the layer is used as identifier to get the settings for the layer as defined in layers. Can also be configured on a per layer basis.
+`editableLayers` | Layers that will we handled as editable layers. The name of the layer is used as identifier to get the settings for the layer as defined in layers. Can also be configured on a per layer basis. This will be deprecated in future releases of Origo. Editable can be set as a layer property.
+`defaultLayer` | Editable layer that should be chosen as default editable layer.
 `autoForm` | If set to true, the attribute form will be displayed automatically after a feature has been drawn. Default is false.
 `isActive` | option to set if the editor toolbar should be opened and activated by default. Default is false.
+`autoSave` | if edits should be autosaved or not. Defaults to true.
 `snap` | option to enable/disable snapping. Default is true.
 `snapLayers` | List of layers that should have snapping enabled. Default is editableLayers.
+`drawTools` | Extra draw tools besides the standard tools for Point, Line and Polygon. The tool is set for each geomtry type. Currently 'box' for 'Polygon' is the only draw tool that can be added.
 
 #### Example editor control
 
@@ -92,7 +95,12 @@ Option | Description
 {
   "name": "editor",
   "options": {
-      "editableLayers": ["roads", "buildings"]
+    "isActive": true,
+    "autoSave": false,
+    "defaultLayer": "editor_polygon",
+    "drawTools": {
+      "Polygon": ["box"]
+    }
   }
 }
 ```
