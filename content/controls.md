@@ -224,6 +224,50 @@ Property | Description
 }
 ```
 
+### Position
+
+Control to show coordinates. Mouse position and center position of the map can be toggled. Coordinates can be searched on in the center position mode.  
+
+Property | Description
+---|---
+`name` | the name of the control
+
+Option | Description
+---|---
+`title` | alias name of the current map projection to be displayed.
+`projections` | object of projections to toggle between. Projection code and alias name is required for each projection. The projection must be defined in proj4Defs, except EPSG:4326 and EPS:3857 which are included by default.
+
+
+#### Example position control
+
+```json
+{
+  "name": "position",
+  "options": {
+    "title": "Sweref99 16.30",
+    "projections": {
+      "EPSG:4326": "WGS84",
+      "EPSG:3006": "Sweref99 TM"
+    }
+  }
+}
+```
+```json
+{
+"proj4Defs": [
+    {
+        "code": "EPSG:3010",
+        "alias": "urn:ogc:def:crs:EPSG::3010",
+        "projection": "+proj=tmerc +lat_0=0 +lon_0=16.5 +k=1 +x_0=150000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"
+    },
+    {
+      "code": "EPSG:3006",
+      "projection": "+proj=utm +zone=33 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"
+    }
+]
+}
+```
+
 ### Search control
 
 Adds a search control. The search control requires a search end point to function.
