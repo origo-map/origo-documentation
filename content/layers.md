@@ -194,6 +194,7 @@ Property | Description
 `type` | type of source for the layer. For WMS the type is WMS.
 `source` | named source of the layer. The [source](#source) must be defined with the layers source options.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
+`format` | the image format used for the layer. Default is 'image/png' unless format is set for the source.
 `group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
 `queryable` | if featureinfo should be enabled for the layer. Default is true.
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
@@ -209,6 +210,7 @@ Property | Description
 
 Source options | Description
 ---|---
+`format` | the image format used for the layer unless format is set on layer-level. Default is 'image/png'.
 `url` | url to the wms endpoint
 `version` | the OGC WMS version. Default is 1.1.1.
 
