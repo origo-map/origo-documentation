@@ -126,6 +126,7 @@ Property | Type | Description
 ```
 
 ### clusterOptions
+Can also be set on layer or source level.
 
 Property | Type | Description
 ---|---|---
