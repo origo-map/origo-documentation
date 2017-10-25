@@ -92,6 +92,7 @@ Property | Description
 `attributes` | definition of [attributes](#attributes) and how they should be presented in featureinfo. If not provided all available attributes will be shown with a standard template.
 `layerType` | option to set how the vector layer should be rendered. The options are cluster, [image](https://openlayers.org/en/latest/apidoc/ol.source.ImageVector.html) or vector. Default is vector.
 `clusterStyle` | the style to be used for clustered features. Is required if layerType cluster is used.
+`clusterOptions` | options for clustering. See the settings page for details.
 `geometryName` | geometry attribute name. Default is geom.
 `filter` | filter provided as [cql](http://docs.geoserver.org/latest/en/user/tutorials/cql/cql_tutorial.html). Optional.
 `strategy` | the ol.loadingstrategy for the layer. Can also be set on source. The options are tile, bbox or all. Default is bbox.
@@ -100,6 +101,7 @@ Source options | Description
 ---|---
 `url` | url to the wfs endpoint
 `strategy` | the ol.loadingstrategy for the layer. Can also be set on layer. The options are tile, bbox or all. Default is bbox.
+`clusterOptions` | options for clustering. See the settings page for details.
 
 #### Basic example WFS
 
@@ -152,12 +154,14 @@ Property | Description
 `attributes` | definition of [attributes](#attributes) and how they should be presented in featureinfo. If not provided all available attributes will be shown with a standard template.
 `layerType` | option to set how the vector layer should be rendered. The options are cluster, [image](https://openlayers.org/en/latest/apidoc/ol.source.ImageVector.html) or vector. Default is vector.
 `clusterStyle` | the style to be used for clustered features. Is required if layerType cluster is used.
+`clusterOptions` | options for clustering. See the settings page for details.
 `geometryName` | geometry attribute name. Default is geom.
 `filter` | filter are used with query filter [where](http://resources.arcgis.com/en/help/rest/apiref/query.html). Optional.
 
 Source options | Description
 ---|---
 `url` | url to the ArcGIS Server endpoint
+`clusterOptions` | options for clustering. See the settings page for details.
 
 #### Basic example AGS_FEATURE
 
