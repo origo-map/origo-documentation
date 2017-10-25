@@ -83,6 +83,12 @@ Name | Type | Description
 ---|---|---
 `resolutions` | array | The resolutions used to define available zoom levels for the map. The resolutions should be valid for the base maps.
 
+### enableRotation
+
+Name | Type | Description
+---|---|---
+`enableRotation` | boolean | To be able to rotate the map or not. Default is true.
+
 ### groups
 
 Name | Type | Description
@@ -115,6 +121,24 @@ Property | Type | Description
       "overlay": false,
       "pinning": false,
       "hitTolerance": 3
+  }
+}
+```
+
+### clusterOptions
+
+Property | Type | Description
+---|---|---
+`clusterDistance` | number | The distance in pixels within which features will be clustered. Default is 60.
+`clusterMaxZoom` | number | The zoom level where the features no longer will be clustered. Default is the last zoom level.
+
+#### Example clusterOptions
+
+```json
+{
+  "clusterOptions": {
+    "clusterDistance" : 40,
+    "clusterMaxZoom" : 2
   }
 }
 ```
