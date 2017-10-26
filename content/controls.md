@@ -223,12 +223,22 @@ Adds a measure control. Measure length or area in the map.
 Property | Description
 ---|---
 `name` | the name of the control
+`options` | options for the control
+
+Option | Description
+---|---
+`measureTools` | Array of tools to use. Valid are 'length' and 'area'. Default is ["length", "area"].
+`default` | What tool to use as default. Default is 'length'
 
 #### Example measure control
 
 ```json
 {
-  "name": "measure"
+  "name": "measure",
+  "options": {
+    "measureTools": ["length", "area"],
+    "default": "length"
+  }
 }
 ```
 
