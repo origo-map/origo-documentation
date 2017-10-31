@@ -22,6 +22,9 @@ Property | Description
 `minScale` | the minmum scale the layer is visible. Optional.
 `maxScale` | the maximum scale the layer is visible. Optional.
 `attributes` | definition of [attributes](#attributes) and how they should be presented in featureinfo. If not provided all available attributes will be shown with a standard template.
+`layerType` | option to set how the vector layer should be rendered. The options are cluster, [image](https://openlayers.org/en/latest/apidoc/ol.source.ImageVector.html) or vector. Default is vector.
+`clusterStyle` | the style to be used for clustered features. Is required if layerType cluster is used.
+`clusterOptions` | options for clustering. See the settings page for details.
 
 #### Basic example GeoJSON
 
@@ -55,6 +58,9 @@ Property | Description
 `minScale` | the minmum scale the layer is visible. Optional.
 `maxScale` | the maximum scale the layer is visible. Optional.
 `attributes` | definition of [attributes](#attributes) and how they should be presented in featureinfo. If not provided all available attributes will be shown with a standard template.
+`layerType` | option to set how the vector layer should be rendered. The options are cluster, [image](https://openlayers.org/en/latest/apidoc/ol.source.ImageVector.html) or vector. Default is vector.
+`clusterStyle` | the style to be used for clustered features. Is required if layerType cluster is used.
+`clusterOptions` | options for clustering. See the settings page for details.
 
 #### Basic example TopoJSON
 
