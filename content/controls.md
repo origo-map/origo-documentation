@@ -206,13 +206,17 @@ Property | Description
 
 Option | Description
 ---|---
-`-` | -
+`isActive` | option to set if the mapmenu should be open on load. Default is false.
+`breakPointSize` | sets the breakpoint below which the mapmenu will be closed on load by default. Accepted values are 'xs', 's', 'm', and 'l', corresponding to the breakpoints set in conf/origoConfig.js. Default is 'l' (768px).
 
 #### Example mapmenu control
 
 ```json
 {
-  "name": "mapmenu"
+  "name": "mapmenu",
+  "options": {
+    "isActive": true
+  }
 }
 ```
 
