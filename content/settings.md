@@ -34,7 +34,7 @@ Name | Type | Description
 
 Name | Type | Description
 ---|---|---
-`visibility` | boolean | Sets the visibility of the map grid. Default is false.
+`visible` | boolean | Sets the visibility of the map grid. Default is false.
 
 ### Map projection
 The map projection is defined with the mandatory property projectionCode. If the projection is EPSG:3857 (Web mercator) or EPSG:4326 (WGS84) then the proj4Defs is optional, otherwise it is mandatory. An optional projection extent can also be set. Projections are handled with the proj4js library. The Proj4js definitions can be found on [epsg.io](http://epsg.io/).
