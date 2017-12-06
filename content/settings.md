@@ -2,6 +2,25 @@
 
 Basic settings for the application include map options such as projection and extent.
 
+### Page settings
+
+With the pageSettings object you can define a footer and control the visibility of the map grid.
+
+#### Example page settings definition
+
+```json
+"pageSettings": {
+"footer": {
+  "img": "img/png/logo.png",
+  "url" : "https://github.com/origo-map/origo",
+  "urlText": "Origo"
+},
+"mapGrid": {
+  "visible": true
+}
+}
+```
+
 ### footer
 
 Name | Type | Description
@@ -10,6 +29,12 @@ Name | Type | Description
 `text` | string | Text to be displayed.
 `url` | string | Sets the URL for a link.
 `urlText` | string | The text to display for the link set in the url option.
+
+### mapGrid
+
+Name | Type | Description
+---|---|---
+`visibility` | boolean | Sets the visibility of the map grid. Default is false.
 
 ### Map projection
 The map projection is defined with the mandatory property projectionCode. If the projection is EPSG:3857 (Web mercator) or EPSG:4326 (WGS84) then the proj4Defs is optional, otherwise it is mandatory. An optional projection extent can also be set. Projections are handled with the proj4js library. The Proj4js definitions can be found on [epsg.io](http://epsg.io/).
