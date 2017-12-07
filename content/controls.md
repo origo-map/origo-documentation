@@ -322,9 +322,7 @@ Option | Description
 `northing` | the attribute for northing coordinates. Only if geometryAttribute is not provided.
 `easting` | the attribute for easting coordinates. Only if geometryAttribute is not provided.
 `title` | title for the popup presenting the search result
-`hint` | if hint text should be shown in search input. Default is true.
 `hintText` | placeholder text for the search input. Default is Sök.
-`highlight` | if matching search string should be highlighted. Default is true.
 `limit` | the max number of suggestions to be displayed. Default is 9.
 `minLength` | minimum number of characters to trigger search. Default is 4.
 `geometryAttribute` | geometry attribute if northing and easting is not used.
@@ -408,7 +406,7 @@ Option | Description
 
 ### Offline control
 
-Adds a control to manage offline layers. The manager is opened from the map menu. Currently vector layers in Origo can be saved and edited offline. To make a layer available 
+Adds a control to manage offline layers. The manager is opened from the map menu. Currently vector layers in Origo can be saved and edited offline. To make a layer available
 offline, simply add the propery offline and set it to true.
 
 Property | Description
