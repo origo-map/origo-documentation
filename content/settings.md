@@ -173,16 +173,16 @@ Property | Type | Description
 
 Property | Type | Description
 ---|---|---
-`alignTopLeft` | boolean | Whether to align grid to top or bottom left corner. Default is true.
-`tileSize` | array | Size of tiles in the tileGrid. Default is [256,256]
+`alignBottomLeft` | boolean | Whether to align grid to top or bottom left corner. Default is true.
+`tileSize` | array | Size of tiles in the tileGrid. Default is 256
 
 #### Example tileGrid
 
 ```json
 {
   "tileGrid": {
-      "alignTopLeft": false,
-      "tileSize": [512,512]
+      "alignBottomLeft": false,
+      "tileSize": 512
   }
 }
 ```
