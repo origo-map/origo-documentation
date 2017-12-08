@@ -404,6 +404,30 @@ Option | Description
 }
 ```
 
+### Scale control
+
+Adds a scale control that will show an approximation of the current scale in text.
+
+Property | Description
+---|---
+`name` | the name of the control
+`options` | options for the control
+
+Option | Description
+---|---
+`scaleText` | text to show before the scale value.
+
+#### Example scale control
+
+```json
+{
+  "name": "scale",
+  "options": {
+    "scaleText": "1:"
+  }
+}
+```
+
 ### Offline control
 
 Adds a control to manage offline layers. The manager is opened from the map menu. Currently vector layers in Origo can be saved and edited offline. To make a layer available
