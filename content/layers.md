@@ -216,6 +216,7 @@ Property | Description
 Source options | Description
 ---|---
 `url` | url to the vector tiles endpoint. E.g. http://yourhost/geoserver/gwc/service/tms/1.0.0/
+`tileGrid` | custom tilGrid for the vector tile source. extent, alignBottomLeft, resolutions and tileSize can be set.
 
 #### Basic example VECTORTILE
 
