@@ -4,7 +4,9 @@ Styles are primarily used to style vector features in Origo but are also used to
 
 Styles are created using [OpenLayers styles](https://openlayers.org/en/latest/apidoc/ol.style.html). In OpenLayers styles are created as JavaScript functions but in Origo the creation is simplified and only json syntax is used. All styles must have a name which is used to reference the style from a layer. A simple GeoJson layer example can be seen to the right.
 
-Styles can be compared to building blocks. The smallest building block is a style which can be a fill, stroke, circle, icon or text. These styling blocks can be put together for example to style a polygon layer with a fill, stroke and text style. By combining these blocks more complex styling can be made. Two levels of styling are available where each level is delimited by brackets. The outer level is used to separate styles with filters, see the example [thematic styling](#thematic-styling). The inner level is used to add layers of various styles, see the example [combining styles](#styles-combined). The two levels of brackets must always be provided even if only one fill style is used.
+Styles can be compared to building blocks. The smallest building block is a style which can be a fill, stroke, circle, icon or text. These styling blocks can be put together for example to style a polygon layer with a fill, stroke and text style. By combining these blocks more complex styling can be made. Two levels of styling are available where each level is delimited by brackets. The outer level is used to separate styles with filters, see the example [thematic styling](#thematic-styling). The inner level is used to add layers of various styles, see the example [combining styles](#combining-styles). The two levels of brackets must always be provided even if only one fill style is used.
+
+For more advanced styling it is possible to use a custom style function. This function has to be included in the /src/style/stylefunctions.js. You will still need an usual style/icon for display in the legend. [Example](#custom-style-function)
 
 #### Example defining a layer style
 
@@ -319,6 +321,29 @@ When creating a style for a cluster layer it is usually desired to show the numb
               "color": "rgba(103,60,31,0.9",
               "width": 2
             }
+          }
+        }
+      ]
+    ]    
+  }
+}
+```
+
+### Custom style function
+For more advanced styling you can use a custom style function and for instance style features depending on multiple attribute values or use more complex filters and styling techniques.
+
+#### Style function included in src/style/stylefunctions.js with a .png-icon for presentation in the legend.
+
+```json
+{
+  "styles": {
+    "basemap": [
+      [
+        {
+          "custom": "basemapStyle",
+          "icon": {
+            "src": "img/png/basemap.png",
+            "size": [20,20]
           }
         }
       ]
