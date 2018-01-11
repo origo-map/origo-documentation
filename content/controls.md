@@ -332,6 +332,8 @@ Option | Description
 `layerName` | layer defined in map if not included in the search response.
 `titleAttribute` | attribute in response storing the featureinfo title.
 `contentAttribute` | attribute in response storing the featureinfo content.
+`includeSearchableLayers` | whether to include searchable layers in query string or not. Defaults to false.
+`searchableDefault` | default value for searchable. 'always', true (searchable when visible) or false. Defaults to false.
 
 #### Example search control
 
