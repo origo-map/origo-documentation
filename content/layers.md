@@ -25,6 +25,7 @@ Property | Description
 `layerType` | option to set how the vector layer should be rendered. The options are cluster, [image](https://openlayers.org/en/latest/apidoc/ol.source.ImageVector.html) or vector. Default is vector.
 `clusterStyle` | the style to be used for clustered features. Is required if layerType cluster is used.
 `clusterOptions` | options for clustering. See the settings page for details.
+`searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 
 #### Basic example GeoJSON
 
@@ -61,6 +62,7 @@ Property | Description
 `layerType` | option to set how the vector layer should be rendered. The options are cluster, [image](https://openlayers.org/en/latest/apidoc/ol.source.ImageVector.html) or vector. Default is vector.
 `clusterStyle` | the style to be used for clustered features. Is required if layerType cluster is used.
 `clusterOptions` | options for clustering. See the settings page for details.
+`searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 
 #### Basic example TopoJSON
 
@@ -101,6 +103,7 @@ Property | Description
 `geometryName` | geometry attribute name. Default is geom.
 `filter` | filter provided as [cql](http://docs.geoserver.org/latest/en/user/tutorials/cql/cql_tutorial.html). Optional.
 `strategy` | the ol.loadingstrategy for the layer. Can also be set on source. The options are tile, bbox or all. Default is bbox.
+`searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 
 Source options | Description
 ---|---
@@ -161,6 +164,7 @@ Property | Description
 `clusterOptions` | options for clustering. See the settings page for details.
 `geometryName` | geometry attribute name. Default is geom.
 `filter` | filter are used with query filter [where](http://resources.arcgis.com/en/help/rest/apiref/query.html). Optional.
+`searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 
 Source options | Description
 ---|---
@@ -212,6 +216,7 @@ Property | Description
 `attribution` | attribution for the layer. Optional.
 `visible` | if the layer should be visible. Default is true.
 `extent` | extent of the layer. Map extent is default.
+`searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 
 Source options | Description
 ---|---
@@ -255,6 +260,7 @@ Property | Description
 `attributes` | definition of [attributes](#attributes) and how they should be presented in featureinfo. If not provided all available attributes will be shown with a standard template.
 `gutter` | gutter setting for the layer. Default is 0.
 `featureinfoLayer` | the named layer this layer should use for featureinfo requests. Optional.
+`searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 
 Source options | Description
 ---|---
@@ -296,6 +302,7 @@ Property | Description
 `format` | the image format to use. Default is image/png.
 `featureinfoLayer` | the named layer this layer should use for featureinfo requests. Optional.
 `matrixSet` | the named matrixSet if provided for the source. Default matrixSet is the matrixSet created for the map and depends on the map resolutios.
+`searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 
 Source options | Description
 ---|---
@@ -335,6 +342,7 @@ Property | Description
 `minScale` | the minmum scale the layer is visible. Optional.
 `maxScale` | the maximum scale the layer is visible. Optional.
 `attributes` | definition of [attributes](#attributes) and how they should be presented in featureinfo. If not provided all available attributes will be shown with a standard template.
+`searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 
 Source options | Description
 ---|---
