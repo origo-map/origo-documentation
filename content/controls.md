@@ -71,6 +71,30 @@ Option | Description
 }
 ```
 
+### Drag-and-drop control
+
+Adds the ability to drag-and-drop GeoJSON, GPX, IGC, KML and TopoJSON files to the map. Note that the layers are only temporarily available, once the map is closed the layers are lost. It is possible to drag-and-drop multiple files at once.
+
+Property | Description
+---|---
+`name` | the name of the control
+`options` | options for the control
+
+Option | Description
+---|---
+`groupTitle` | the name of the group containing the added layers. Defaults to "Egna lager".
+
+#### Example drag-and-drop control
+
+```json
+{
+  "name": "draganddrop",
+  "options": {
+    "groupTitle": "Drag-and-drop layers"
+  }
+}
+```
+
 ### Editor control
 
 Property | Description
