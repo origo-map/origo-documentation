@@ -120,7 +120,7 @@ Source options | Description
   "group": "test",
   "source": "local_wfs",
   "style": "mask",
-  "type": "WFS",
+  "type": "WFS"
 }
 ```
 #### Filter example WFS
@@ -133,7 +133,7 @@ Source options | Description
   "source": "local_wfs",
   "style": "mask",
   "type": "WFS",
-  "filter": "type = 'urban'",
+  "filter": "type = 'urban'"
 }
 ```
 ### AGS_FEATURE
@@ -193,7 +193,7 @@ Source options | Description
   "title": "My ags feature",
   "type": "AGS_FEATURE",
   "style": "mask",
-  "filter": "type='urban'",
+  "filter": "type='urban'"
 }
 ```
 ### VECTORTILE
@@ -437,7 +437,7 @@ Attribute options | Description
       "title": "Name: ",
       "url": "PAGEID",
       "urlPrefix":"http://my.link.com/",
-      "urlSuffix":".html",      
+      "urlSuffix":".html"      
     },
     {
       "html": "<p>For more information contact {{CONTACT}} at {{PHONE}}</p>"
