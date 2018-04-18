@@ -81,7 +81,7 @@ Property | Description
 Property | Description
 ---|---
 `name` | the unique name of the layer used internally and the name of the layer in the wfs service. White spaces and special characters should be avoided.
-`id` | can be used as alias instead of name. White spaces and special characters should be avoided.
+`id` | the id of the layer in map Server. White spaces and special characters should be avoided.
 `title` | title for the layer visible to the user.
 `abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
 `type` | type of source for the layer. For WFS source the type is WFS.
