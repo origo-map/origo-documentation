@@ -137,6 +137,30 @@ Source options | Description
   "filter": "type = 'urban'"
 }
 ```
+#### Multiple layers filter example WFS
+
+```json
+{
+  "name": "my_custom_name",
+  "id": "name_on_server",
+  "title": "Urban",
+  "group": "Urban group",
+  "source": "mapserver_wfs",
+  "style": "urbanStyle",
+  "type": "WFS",
+  "filter": "type = 'urban'"
+},
+{
+  "name": "my_custom_name",
+  "id": "name_on_server",
+  "title": "Parklands",
+  "group": "Parklands group",
+  "source": "mapserver_wfs",
+  "style": "parklandsStyle",
+  "type": "WFS",
+  "filter": "type = 'parklands'"
+}
+```
 ### AGS_FEATURE
 A vector layer created with an ArcGIS Server feature service.
 
