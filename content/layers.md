@@ -81,6 +81,7 @@ Property | Description
 Property | Description
 ---|---
 `name` | the unique name of the layer used internally and the name of the layer in the wfs service. White spaces and special characters should be avoided.
+`id` | the id or ids used to identify the layers in the map server. White spaces and special characters should be avoided.
 `title` | title for the layer visible to the user.
 `abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
 `type` | type of source for the layer. For WFS source the type is WFS.
@@ -134,6 +135,30 @@ Source options | Description
   "style": "mask",
   "type": "WFS",
   "filter": "type = 'urban'"
+}
+```
+#### Multiple layers filter example WFS
+
+```json
+{
+  "name": "my_custom_name",
+  "id": "name_on_server",
+  "title": "Urban",
+  "group": "Urban group",
+  "source": "mapserver_wfs",
+  "style": "urbanStyle",
+  "type": "WFS",
+  "filter": "type = 'urban'"
+},
+{
+  "name": "my_custom_name",
+  "id": "name_on_server",
+  "title": "Parklands",
+  "group": "Parklands group",
+  "source": "mapserver_wfs",
+  "style": "parklandsStyle",
+  "type": "WFS",
+  "filter": "type = 'parklands'"
 }
 ```
 ### AGS_FEATURE
