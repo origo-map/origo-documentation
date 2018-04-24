@@ -217,6 +217,7 @@ Property | Description
 `visible` | if the layer should be visible. Default is true.
 `extent` | extent of the layer. Map extent is default.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
+`tileGrid` | custom tileGrid for the vector tile layer. extent, alignBottomLeft, resolutions and tileSize can be set.
 
 Source options | Description
 ---|---
@@ -261,12 +262,14 @@ Property | Description
 `gutter` | gutter setting for the layer. Default is 0.
 `featureinfoLayer` | the named layer this layer should use for featureinfo requests. Optional.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
+`tileGrid` | custom tileGrid for the WMS layer. extent, alignBottomLeft, resolutions and tileSize can be set.
 
 Source options | Description
 ---|---
 `format` | the image format used for the layer unless format is set on layer-level. Default is 'image/png'.
 `url` | url to the wms endpoint
 `version` | the OGC WMS version. Default is 1.1.1.
+`tileGrid` | custom tileGrid for the WMS source. extent, alignBottomLeft, resolutions and tileSize can be set.
 
 #### Basic example WMS
 
@@ -343,10 +346,12 @@ Property | Description
 `maxScale` | the maximum scale the layer is visible. Optional.
 `attributes` | definition of [attributes](#attributes) and how they should be presented in featureinfo. If not provided all available attributes will be shown with a standard template.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
+`tileGrid` | custom tileGrid for the AGS tile layer. extent, alignBottomLeft, resolutions and tileSize can be set.
 
 Source options | Description
 ---|---
 `url` | url to the ArcGIS Server endpoint
+`tileGrid` | custom tileGrid for the AGS tile source. extent, alignBottomLeft, resolutions and tileSize can be set.
 
 #### Basic example AGS_TILE
 
