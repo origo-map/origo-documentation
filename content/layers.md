@@ -288,6 +288,7 @@ Property | Description
 `featureinfoLayer` | the named layer this layer should use for featureinfo requests. Optional.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `tileGrid` | custom tileGrid for the WMS layer. extent, alignBottomLeft, resolutions and tileSize can be set.
+`renderMode` | whether to render the layer tiled ('tile') or single tiled ('image'). Defaults to 'tile'.
 
 Source options | Description
 ---|---
