@@ -1,5 +1,5 @@
 # Api documentation for Origo
-Api documentation for the [Origo](https://github.com/origo-map/origo) web map framework.
+[Api documentation](https://origo-map.github.io/api-documentation/latest/) for the [Origo](https://github.com/origo-map/origo) web map framework.
 
 ## Writing documentation
 Documentation is written as Markdown files in the `content` directory, and is organized by the `custom/content.js` file - that file requires each documentation page and puts them in order
