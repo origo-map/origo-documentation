@@ -97,6 +97,8 @@ Option | Description
 
 ### Editor control
 
+Enables layer editing.
+
 Property | Description
 ---|---
 `name` | the name of the control
@@ -131,6 +133,8 @@ Option | Description
 
 ### Geoposition control
 
+Adds a button that when clicked centers and zooms the map to the current position.
+
 Property | Description
 ---|---
 `name` | the name of the control
@@ -152,6 +156,8 @@ Option | Description
 ```
 
 ### Home control
+
+Sets the map extent to the one specified in the options for the control.
 
 Property | Description
 ---|---
@@ -199,6 +205,8 @@ Option | Description
 
 ### Link control
 
+Adds a button to the map menu that when clicked opens a new browser tab with the specified url.
+
 Property | Description
 ---|---
 `name` | the name of the control
@@ -222,6 +230,8 @@ Option | Description
 ```
 
 ### Mapmenu control
+
+Creates a menu on the top right for controls.
 
 Property | Description
 ---|---
@@ -272,7 +282,7 @@ Option | Description
 
 ### Position
 
-Control to show coordinates. Mouse position and center position of the map can be toggled. Coordinates can be searched on in the center position mode.  
+Control to show coordinates. Mouse position and center position of the map can be toggled. Coordinates can be searched on in the center position mode.
 
 Property | Description
 ---|---
@@ -386,6 +396,8 @@ Option | Description
 ```
 
 ### Sharemap control
+
+Creates a shareable link to the map. Current extent and zoom, visible layers and the map pin (if applicable) will be shared.
 
 Property | Description
 ---|---
