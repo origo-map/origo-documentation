@@ -215,7 +215,7 @@ Different styles can be combined to create complex styles. In this example the f
 ```
 
 ### Thematic styling
-By applying filters thematic styling can be made. In this example features with the attribute type equal to vegetation will be green and features with the attribute type equal to water will be blue. The style settings for each type are grouped by brackets.
+By applying filters thematic styling can be made. In this example features with the attribute type equal to vegetation will be green and features with the attribute type equal to water will be blue. The style settings for each type are grouped by brackets. You are also able to add a label to each filter.
 
 #### Thematic styling
 
@@ -232,7 +232,8 @@ By applying filters thematic styling can be made. In this example features with 
     			  "color": "rgba(0,255,0,1)",
     			  "width": 2
     			},
-    			"filter": "[type] == 'vegetation'"
+    			"filter": "[type] == 'vegetation'",
+          "label": "Vegetation"
   		  }
   		],
   		[
@@ -244,7 +245,8 @@ By applying filters thematic styling can be made. In this example features with 
     			  "color": "rgba(0,0,255,1)",
     			  "width": 2
     			},
-    			"filter": "[type] == 'water'"
+    			"filter": "[type] == 'water'",
+          "label": "Water"
   		  }
   		]    
     ]  
