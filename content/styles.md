@@ -233,7 +233,7 @@ By applying filters thematic styling can be made. In this example features with 
     			  "width": 2
     			},
     			"filter": "[type] == 'vegetation'",
-          "label": "Vegetation"
+    			"label": "Vegetation"
   		  }
   		],
   		[
@@ -246,7 +246,7 @@ By applying filters thematic styling can be made. In this example features with 
     			  "width": 2
     			},
     			"filter": "[type] == 'water'",
-          "label": "Water"
+    			"label": "Water"
   		  }
   		]    
     ]  
