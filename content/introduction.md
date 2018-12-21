@@ -27,7 +27,7 @@ Option | Description
 
 ```javascript
 <script type="text/javascript">
-  origo.map.init('index.json');
+  Origo('index.json');
 </script>
 ```
 

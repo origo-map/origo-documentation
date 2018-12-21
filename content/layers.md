@@ -349,7 +349,7 @@ Source options | Description
 }
 ```
 
-### AGS_TILE
+### AGS_MAP
 A tiled layer created with an ArcGIS Server map service.
 
 Property | Description
@@ -364,6 +364,7 @@ Property | Description
 `group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
 `queryable` | if featureinfo should be enabled for the layer. Default is true.
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
+`renderMode` | can be either image or tile. Default is tile.
 `legend` | if the layer should be included in the map legend. Default is false.
 `attribution` | attribution for the layer. Optional.
 `visible` | if the layer should be visible. Default is true.
@@ -379,7 +380,7 @@ Source options | Description
 `url` | url to the ArcGIS Server endpoint
 `tileGrid` | custom tileGrid for the AGS tile source. extent, alignBottomLeft, resolutions and tileSize can be set.
 
-#### Basic example AGS_TILE
+#### Basic example AGS_MAP
 
 ```json
 {
@@ -387,7 +388,8 @@ Source options | Description
   "id": "0",
   "source": "local_ags_tile",
   "title": "My ags tile",
-  "type": "AGS_TILE",
+  "type": "AGS_MAP",
+  "renderMode": "image",
   "style": "mask"
 }
 ```
