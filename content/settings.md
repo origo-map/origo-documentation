@@ -133,7 +133,7 @@ Name | Type | Description
 Property | Type | Description
 ---|---|---
 `clusterFeatureinfoLevel` | number | Zoom level where cluster layers will be identifiable. Default is 1.
-`overlay` | boolean | Option to show featureinfo in overlay or sidebar. Default is true.
+`showOverlay` | boolean | Option to show featureinfo in overlay or sidebar. Default is true.
 `pinning` | boolean | Option to enable/disable pinning. If enabled a pin will be placed where clicked in places with no identifiable features. Default is true.
 `hitTolerance` | number | Option to set the hit tolerance in pixels. Features within this tolerance from a click will be considered. This makes it easier to click features on touch devices. Default is 0.
 
@@ -143,7 +143,7 @@ Property | Type | Description
 {
   "featureinfoOptions": {
       "clusterFeatureinfoLevel": 3,
-      "overlay": false,
+      "showOverlay": false,
       "pinning": false,
       "hitTolerance": 3
   }
