@@ -26,6 +26,7 @@ Property | Description
 `clusterStyle` | the style to be used for clustered features. Is required if layerType cluster is used.
 `clusterOptions` | options for clustering. See the settings page for details.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
+`featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
 
 #### Basic example GeoJSON
 
@@ -46,7 +47,7 @@ Property | Description
 `name` | the unique name of the layer used internally. White spaces and special characters should be avoided.
 `title` | title for the layer visible to the user.
 `abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
-`type` | type of source for the layer. For GeoJSON source the type is GEOJSON.
+`type` | type of source for the layer. For TopoJSON source the type is TopoJSON.
 `source` | url to the layer.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
 `group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
@@ -63,6 +64,7 @@ Property | Description
 `clusterStyle` | the style to be used for clustered features. Is required if layerType cluster is used.
 `clusterOptions` | options for clustering. See the settings page for details.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
+`featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
 
 #### Basic example TopoJSON
 
@@ -105,6 +107,7 @@ Property | Description
 `filter` | filter provided as [cql](http://docs.geoserver.org/latest/en/user/tutorials/cql/cql_tutorial.html). Optional.
 `strategy` | the ol.loadingstrategy for the layer. Can also be set on source. The options are tile, bbox or all. Default is bbox.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
+`featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
 
 Source options | Description
 ---|---
@@ -190,6 +193,7 @@ Property | Description
 `geometryName` | geometry attribute name. Default is geom.
 `filter` | filter are used with query filter [where](http://resources.arcgis.com/en/help/rest/apiref/query.html). Optional.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
+`featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
 
 Source options | Description
 ---|---
