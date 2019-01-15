@@ -8,7 +8,7 @@ Property | Description
 ---|---
 `name` | the unique name of the layer used internally. White spaces and special characters should be avoided.
 `title` | title for the layer visible to the user.
-`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
+`abstract` | short description of the layer that is shown when the layer name is clicked in the legend. Optional.
 `type` | type of source for the layer. For GeoJSON source the type is GEOJSON.
 `source` | url to the layer.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
