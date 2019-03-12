@@ -136,16 +136,56 @@ Property | Type | Description
 `showOverlay` | boolean | Option to show featureinfo in overlay or sidebar. Default is true.
 `pinning` | boolean | Option to enable/disable pinning. If enabled a pin will be placed where clicked in places with no identifiable features. Default is true.
 `hitTolerance` | number | Option to set the hit tolerance in pixels. Features within this tolerance from a click will be considered. This makes it easier to click features on touch devices. Default is 0.
+`selectionStyles` | object | Option to set custom selection style. Optional.
 
 #### Example featureinfoOptions
 
 ```json
 {
   "featureinfoOptions": {
-      "clusterFeatureinfoLevel": 3,
-      "showOverlay": false,
-      "pinning": false,
-      "hitTolerance": 3
+    "clusterFeatureinfoLevel": 3,
+    "showOverlay": false,
+    "pinning": false,
+    "hitTolerance": 3,
+    "selectionStyles": {
+      "Point": [{
+        "circle": {
+          "radius": 5,
+          "stroke": {
+            "color": [0, 153, 255, 1],
+            "width": 0
+          },
+          "fill": {
+            "color": [0, 153, 255, 1]
+          }
+        }
+      }],
+      "LineString": [{
+        "stroke": {
+          "color": [255, 255, 255, 1],
+          "width": 5
+        }
+      },
+      {
+        "stroke": {
+          "color": [0, 153, 255, 1],
+          "width": 3
+        }
+      }],
+      "Polygon": [{
+        "stroke": {
+          "color": [255, 255, 255, 1],
+            "width": 5
+          }
+        },
+        {
+          "stroke": {
+            "color": [0, 153, 255, 1],
+            "width": 3
+          }
+        }
+      ]
+    }
   }
 }
 ```
