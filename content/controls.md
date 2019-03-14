@@ -26,7 +26,7 @@ screen. They can involve user input (buttons), or be informational only. The con
   {
     "name": "legend",
     "options": {
-        "hasMapLegend": false
+        "expanded": false
     }
   },
   {
@@ -190,7 +190,12 @@ Property | Description
 
 Option | Description
 ---|---
-`hasMapLegend` | true or false to add the map legend. Default is true.
+`cls` | option to add css class references to the legend element.
+`style` | option to add inline HTML style properties to the legend element.
+`expanded` | true or false if the legend should be expanded or collapsed on load. Default is true.
+`contentCls` | option to add css class references to the legend content element.
+`contentStyle` | option to add inline HTML style properties to the legend content element.
+`name` | option to set the legend UI component name. Default is 'legend'.
 
 #### Example legend control
 
@@ -198,7 +203,7 @@ Option | Description
 {
   "name": "legend",
   "options": {
-      "hasMapLegend": false
+      "expanded": false
   }
 }
 ```
