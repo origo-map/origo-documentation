@@ -16,7 +16,7 @@ Property | Description
 Option | Description
 ---|---
 `crossDomain` | option to allow cross origin request of map configuration. Default is true.
-`target` | element id of the container for the map. Default is app-wrapper.
+`target` | element id of the container for the map. Default is '#app-wrapper'.
 `baseUrl` | baseUrl for the root url that is used to request map resouces with relative paths. If not provided the baseUrl is set when the map is initialized.
 `authorizationUrl` | an url that triggers authorization. It can for example be used to send a wms request that will trigger authorization before the map is loaded.
 `svgSpritePath` | path for svg sprites. Default is 'css/svg/'.
@@ -27,7 +27,7 @@ Option | Description
 
 ```javascript
 <script type="text/javascript">
-  Origo('index.json');
+  var origo = Origo('index.json');
 </script>
 ```
 
@@ -36,6 +36,6 @@ Option | Description
 
 ```javascript
 <script type="text/javascript">
-  origo.map.init('http://www.malardalskartan.se/app/#layers=topowebbkartan_nedtonad/v/1/s/0,vasteras/v/1/s/0,samhalls_projekt/v/1/s/0&center=172605,6596280&zoom=2&pin=348078,6686310&map=malardalskartan');
+  var origo = Origo('http://www.malardalskartan.se/app/#layers=topowebbkartan_nedtonad/v/1/s/0,vasteras/v/1/s/0,samhalls_projekt/v/1/s/0&center=172605,6596280&zoom=2&pin=348078,6686310&map=malardalskartan');
 </script>
 ```
