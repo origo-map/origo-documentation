@@ -147,6 +147,19 @@ The image style is not used to style features. It is only used for legend purpos
 }
 ```
 
+### Label
+
+The label shown for the style in the layermanager/legend when clicking the layer name. If omitted, none is shown. 
+
+#### Label
+
+```json
+{
+  "label": "Label for the layer"
+  }
+}
+```
+
 ## Style examples
 To get started some common use cases are provided.
 
