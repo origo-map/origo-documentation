@@ -27,6 +27,7 @@ Property | Description
 `clusterOptions` | options for clustering. See the settings page for details.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
+`removable` | Adds an remove button next to the layer name if set to true. Optional.
 
 #### Basic example GeoJSON
 
@@ -65,6 +66,7 @@ Property | Description
 `clusterOptions` | options for clustering. See the settings page for details.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
+`removable` | Adds an remove button next to the layer name if set to true. Optional.
 
 #### Basic example TopoJSON
 
@@ -108,6 +110,7 @@ Property | Description
 `strategy` | the ol.loadingstrategy for the layer. Can also be set on source. The options are tile, bbox or all. Default is bbox.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
+`removable` | Adds an remove button next to the layer name if set to true. Optional.
 
 Source options | Description
 ---|---
@@ -194,6 +197,7 @@ Property | Description
 `filter` | filter are used with query filter [where](http://resources.arcgis.com/en/help/rest/apiref/query.html). Optional.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
+`removable` | Adds an remove button next to the layer name if set to true. Optional.
 
 Source options | Description
 ---|---
@@ -247,6 +251,7 @@ Property | Description
 `extent` | extent of the layer. Map extent is default.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `tileGrid` | custom tileGrid for the vector tile layer. extent, alignBottomLeft, resolutions and tileSize can be set.
+`removable` | Adds an remove button next to the layer name if set to true. Optional.
 
 Source options | Description
 ---|---
@@ -293,6 +298,7 @@ Property | Description
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `tileGrid` | custom tileGrid for the WMS layer. extent, alignBottomLeft, resolutions and tileSize can be set.
 `renderMode` | whether to render the layer tiled ('tile') or single tiled ('image'). Defaults to 'tile'.
+`removable` | Adds an remove button next to the layer name if set to true. Optional.
 
 Source options | Description
 ---|---
@@ -336,6 +342,7 @@ Property | Description
 `featureinfoLayer` | the named layer this layer should use for featureinfo requests. Optional.
 `matrixSet` | the named matrixSet if provided for the source. Default matrixSet is the matrixSet created for the map and depends on the map resolutios.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
+`removable` | Adds an remove button next to the layer name if set to true. Optional.
 
 Source options | Description
 ---|---
@@ -378,6 +385,7 @@ Property | Description
 `attributes` | definition of [attributes](#attributes) and how they should be presented in featureinfo. If not provided all available attributes will be shown with a standard template.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `tileGrid` | custom tileGrid for the AGS tile layer. extent, alignBottomLeft, resolutions and tileSize can be set.
+`removable` | Adds an remove button next to the layer name if set to true. Optional.
 
 Source options | Description
 ---|---
@@ -412,6 +420,7 @@ Property | Description
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
 `visible` | if the layer should be visible. Default is true.
 `extent` | extent of the layer. Map extent is default.
+`removable` | Adds an remove button next to the layer name if set to true. Optional.
 
 #### Basic example OSM
 
@@ -439,7 +448,7 @@ Sources defined for the map are named under source. Each source is available for
     },
     "local_wmts": {
       "url": "http://localhost/geowebcache/service/wmts"
-    }    
+    }
   }
 }
 ```
@@ -474,11 +483,11 @@ Attribute options | Description
       "title": "Name: ",
       "url": "PAGEID",
       "urlPrefix":"http://my.link.com/",
-      "urlSuffix":".html"      
+      "urlSuffix":".html"
     },
     {
       "html": "<p>For more information contact {{CONTACT}} at {{PHONE}}</p>"
-    }    
+    }
   ]
 }
 ```
