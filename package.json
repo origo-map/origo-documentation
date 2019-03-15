@@ -1,6 +1,6 @@
 {
   "name": "api-documentation",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "api documentation for origo",
   "main": "index.js",
   "scripts": {
