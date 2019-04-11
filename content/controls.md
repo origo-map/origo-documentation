@@ -203,7 +203,13 @@ Option | Description
 {
   "name": "legend",
   "options": {
-      "expanded": false
+    "expanded": false,
+    "style": {
+      "width": "300px"
+    },
+    "contentStyle": {
+      "width": "300px"
+    }
   }
 }
 ```
