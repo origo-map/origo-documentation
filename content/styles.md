@@ -160,6 +160,21 @@ The label shown for the style in the layermanager/legend when clicking the layer
 }
 ```
 
+### Alternative WMS style
+
+Option to pick an alternative layer style for WMS layers. Requires alternative style to be published on map server.
+
+#### Alternative WMS style
+
+```json
+{
+  "icon": {
+    "src": "..."
+  },
+  "wmsStyle": "Name of alternative WMS style"
+}
+```
+
 ## Style examples
 To get started some common use cases are provided.
 
