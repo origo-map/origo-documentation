@@ -510,3 +510,20 @@ Property | Description
   "offline": true
 }
 ```
+
+### Progressbar
+
+Adds a control to show the load progress of all the layers in the map. The progressbar is located at the bottom of the application above the footer.
+
+Property | Description
+---|---
+`name` | the name of the control
+
+
+#### Example offline control
+
+```json
+{
+  "name": "progressbar"
+}
+```
