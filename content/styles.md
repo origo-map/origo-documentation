@@ -147,6 +147,21 @@ The image style is not used to style features. It is only used for legend purpos
 }
 ```
 
+### Legend graphics
+
+Map server legend graphics (WMS only) can be used in the legend. Please note that this will not change the layer style.
+
+#### Legend graphics
+
+```json
+{
+  "icon": {
+    "src": "URL for GetLegendGraphic request (or any other static image asset)"
+   },
+  "extendedLegend": true
+}
+```
+
 ### Label
 
 The label shown for the style in the layermanager/legend when clicking the layer name. If omitted, none is shown. 
