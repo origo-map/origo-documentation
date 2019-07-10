@@ -408,7 +408,7 @@ Option | Description
 
 ### Sharemap control
 
-Creates a shareable link to the map. Current extent and zoom, visible layers and the map pin (if applicable) will be shared.
+Creates a shareable link to the map. Current extent and zoom, visible layers and the map pin (if applicable) will be shared. The sharemap control also comes with the option to save map state on the server (requires Origo Server). A saved map state is retrieved with an ID instead of an URL.
 
 Property | Description
 ---|---
@@ -417,7 +417,8 @@ Property | Description
 
 Option | Description
 ---|---
-`-` | -
+`storeMethod` | Should be set to `saveStateToServer` in order to utilize the save-to-server feature.
+`serviceEndpoint` | URL to the Origo Server service endpoint, for example `https://www.mydomain.com/mapstate`.
 
 #### Example sharemap control
 
