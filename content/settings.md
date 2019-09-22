@@ -126,6 +126,7 @@ Name | Type | Description
 `title` | string | A title for the group. The title is visible for the user in the legend control.
 `abstract` | short description of the group. Adds a show info button to the layer in legend. Optional.
 `expanded` | boolean | Whether the group should be expanded not. Used by the legend control. Default is false.
+`autoExpand` | boolean | For subgroups. Whether the subgroup should be expanded/collapsed when toggling the subgroups checkbox. Used by the legend control. Default is true.
 `groups` | array | Array of group objects defining subgroups. Optional.
 
 ### featureinfoOptions
