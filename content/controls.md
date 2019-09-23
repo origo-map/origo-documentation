@@ -443,6 +443,7 @@ Option | Description
 `url` | url to a html file
 `content` | content text of the modal
 `hideButton` | adds button to stop the current splash from displaying on subsequent visits to the map. If the content is updated, the splash will be displayed again. Options available are 'visible' (the only option required), 'hideText' and 'confirmText'.
+`style` | adds the css style to the splash window.
 
 #### Example splash control
 
@@ -453,7 +454,8 @@ Option | Description
     "url": "examples/splash-content.html",
     "hideButton": {
       "visible": true
-    }
+    },
+    "style": "width: 600px;"
   }
 }
 ```
