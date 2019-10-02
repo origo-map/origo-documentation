@@ -106,6 +106,7 @@ Property | Description
 `clusterStyle` | the style to be used for clustered features. Is required if layerType cluster is used.
 `clusterOptions` | options for clustering. See the settings page for details.
 `geometryName` | geometry attribute name. Default is geom.
+`geometryType` | geometry type for the layer.
 `filter` | filter provided as [cql](http://docs.geoserver.org/latest/en/user/tutorials/cql/cql_tutorial.html). Optional.
 `strategy` | the ol.loadingstrategy for the layer. Can also be set on source. The options are tile, bbox or all. Default is bbox.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
