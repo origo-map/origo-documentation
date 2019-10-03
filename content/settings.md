@@ -13,7 +13,7 @@ With the pageSettings object you can define a footer and control the visibility 
 "footer": {
   "img": "img/png/logo.png",
   "url" : "https://github.com/origo-map/origo",
-  "urlText": "Origo"
+  "text": "Origo"
 },
 "mapGrid": {
   "visible": true
@@ -28,7 +28,6 @@ Name | Type | Description
 `img` | string | URL or file path to an image.
 `text` | string | Text to be displayed.
 `url` | string | Sets the URL for a link.
-`urlText` | string | The text to display for the link set in the url option.
 
 ### mapGrid
 
