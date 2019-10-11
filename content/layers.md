@@ -467,7 +467,7 @@ Attribute options | Description
 `urlSuffix` | a general suffix to be used together with url or img. Optional.
 `img` | attribute containing url to an image. The image will be embedded. Optional.
 `cls` | css class name for custom styling. Optional.
-`html` | custom html. Attributes can be referenced be placing the attribute name within double curly brackets.  It also possible in a similar way to insert functions, for example getCenter which is written as `{{@center}}`. Arguments can be added, for example `{{@center(EPSG:4326,reverse)}}` to get the center coordinates in EPSG:4326 with reversed coordinates. The html option can't be combined with any of the other options. Optional.
+`html` | custom html. Attributes can be referenced be placing the attribute name within double curly brackets.  It also possible in a similar way to insert functions, for example getCenter which is written as `{{@center}}`. Arguments can be added, for example `{{@center(EPSG:4326,reverse)}}` to get the center coordinates in EPSG:4326 with reversed coordinates (or `{{@center(EPSG:4326,default)}}` to maintain the axis orientation after transformation). The html option can't be combined with any of the other options. Optional.
 
 #### Example defining layer attributes
 
