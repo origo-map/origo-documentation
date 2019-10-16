@@ -82,7 +82,8 @@ Property | Description
 
 Option | Description
 ---|---
-`groupTitle` | the name of the group containing the added layers. Defaults to "Egna lager".
+`groupName` | the name of the group containing the added layers. Defaults to "egna-lager".
+`groupTitle` | the title of the group containing the added layers. Used if group doesn't exist. Defaults to "Egna lager".
 
 #### Example drag-and-drop control
 
@@ -90,6 +91,7 @@ Option | Description
 {
   "name": "draganddrop",
   "options": {
+    "groupName": "drag-and-drop-layers"
     "groupTitle": "Drag-and-drop layers"
   }
 }
