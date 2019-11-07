@@ -39,3 +39,11 @@ Option | Description
   var origo = Origo('http://www.malardalskartan.se/app/#layers=topowebbkartan_nedtonad/v/1/s/0,vasteras/v/1/s/0,samhalls_projekt/v/1/s/0&center=172605,6596280&zoom=2&pin=348078,6686310&map=malardalskartan');
 </script>
 ```
+
+#### Example map with options
+
+```javascript
+<script type="text/javascript">
+  var origo = Origo('index.json', { target: '#the-map' });
+</script>
+```
