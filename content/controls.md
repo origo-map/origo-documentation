@@ -486,36 +486,6 @@ Option | Description
 }
 ```
 
-### Offline control
-
-Adds a control to manage offline layers. The manager is opened from the map menu. Currently vector layers in Origo can be saved and edited offline. To make a layer available
-offline, simply add the propery offline and set it to true.
-
-Property | Description
----|---
-`name` | the name of the control
-`options` | options for the control
-
-
-#### Example offline control
-
-```json
-{
-  "name": "offline"
-}
-
-{
-  "name": "layer name",
-  "title": "layer title",
-  "group": "group name",
-  "source": "source name",
-  "style": "style nam",
-  "type": "WFS",
-  "visible": false,
-  "offline": true
-}
-```
-
 ### Progressbar
 
 Adds a control to show the load progress of all the layers in the map. The progressbar is located at the bottom of the application above the footer.
@@ -525,7 +495,7 @@ Property | Description
 `name` | the name of the control
 
 
-#### Example offline control
+#### Example progressbar control
 
 ```json
 {
