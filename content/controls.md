@@ -193,7 +193,9 @@ Property | Description
 
 Option | Description
 ---|---
-`zoomLevel` | Specifies the zoom level that will be used when a position has been aquired. If it is not specified, the map will be zoomed to the fourth closest resolution.
+`active` | Boolean. Whether the control should be activated on map load or not. Defaults to false.
+`panTo` | Boolean. Whether to pan to users position or not. Defaults to true.
+`zoomLevel` | Integer. Specifies the zoom level that will be used when a position has been aquired. If it is not specified, the map will be zoomed to the fourth closest resolution. This option has no effect if panTo is set to false.
 
 #### Example geoposition control
 
