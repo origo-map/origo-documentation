@@ -503,6 +503,8 @@ Sources defined for the map are named under source. Each source is available for
 
 By default all available attributes for a queryable layer are listed in a featureinfo popup. The content can be customized in several ways, for example to make url:s or embed images. There are two basic approaches to do this. The first is to use a named handlebars template. This is what is used by default but requires a precompiled template. The second approach is to define how each attribute should be presented in the layer configuration. Each attribute is defined within curly brackets with options according the table below.
 
+### Information window
+
 Attribute options | Description
 ---|---
 `name` | the name of the attribute. The value of the attribute will be shown. Optional.
@@ -534,6 +536,60 @@ Attribute options | Description
     {
       "html": "<p>For more information contact {{CONTACT}} at {{PHONE}}</p>"
     }
+  ]
+}
+```
+
+
+### Editor attributes
+
+type | format | disabled | readonly | maxLength | constraint | Description
+---|---|---|---|---|---|---
+`text`      | string || supported | supported || Text input
+`textarea`  | string || supported | supported || Text input with resizable box
+`dropdown`  | string | supported ||| supported | Dropdown based on options values
+`checkbox`  | boolean | supported |||| Checkbox, defaults to false. Use checked:true for true
+`constraint`| change:attribute:value ||||| Activates new type based on field value
+`image`     | base64 | supported |||| Uploads image
+`color`     | hexadecimal ||||| Activates a color-picker
+`time`      | hh:mm || supported ||| Defaults to current time. Use defaultTime:false to not.
+`date`      | YYYY-MM-DD || supported ||| Defaults to current date. Use defaultDate:false to not.
+`date-time` | YYYY-MM-DDThh:mm || supported ||| Defaults to current date. Use defaultDatetime:false to not.
+`email`     | string || supported ||| Email address 
+`url`       | string || supported ||| Homepage address
+`integer`   | integer || supported ||| Whole number
+`decimal`   | decimal || supported ||| Decimal number
+
+#### Example editor attributes
+
+```json
+
+{
+  "name": "art",
+  "title": "Art: ",
+  "type": "text",
+  "maxLength": 64,
+  "readonly": true,
+}
+{
+  "name": "category",
+  "title": "category: ",
+  "type": "dropdown",
+  "options": [
+      "category_1",
+      "category_2",
+      "category_3"
+  ]
+}
+{
+  "name": "subcategory",
+  "title": "subcategory: ",
+  "type": "dropdown",
+  "constraint": "change:category:category_1",
+  "options": [
+      "subcategory_1",
+      "subcategory_2",
+      "subcategory_3"
   ]
 }
 ```
