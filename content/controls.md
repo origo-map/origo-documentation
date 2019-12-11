@@ -116,6 +116,7 @@ Option | Description
 `snap` | option to enable/disable snapping. Default is true.
 `snapLayers` | List of layers that should have snapping enabled. Default is editableLayers.
 `drawTools` | Extra draw tools besides the standard tools for Point, Line and Polygon. The tool is set for each geomtry type. Currently 'box' for 'Polygon' is the only draw tool that can be added.
+`attributes` | definition of [attributes](#attributes) and how they should be presented and validated in editor form. If not provided all available attributes will be shown with a standard template.
 
 #### Example editor control
 
