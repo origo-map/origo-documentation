@@ -107,6 +107,12 @@ Name | Type | Description
 ---|---|---
 `resolutions` | array | The resolutions used to define available zoom levels for the map. The resolutions should be valid for the base maps.
 
+### constrainResolution
+
+Name | Type | Description
+---|---|---
+`constrainResolution` | boolean | To snap the map to the nearest defined zoom level when using touch input or the scroll wheel of a mouse to zoom. Default is false.
+
 ### enableRotation
 
 Name | Type | Description
