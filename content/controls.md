@@ -265,7 +265,7 @@ Option | Description
     },
     "contentStyle": {
       "width": "300px"
-    },
+    }
   }
 }
 ```
