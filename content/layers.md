@@ -361,6 +361,45 @@ Source options | Description
 }
 ```
 
+### XYZ
+
+Property | Description
+---|---
+`name` | the unique name of the layer used internally. White spaces and special characters should be avoided.
+`title` | title for the layer visible to the user.
+`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
+`type` | type of source for the layer. For XYZ the type is XYZ.
+`layerURL` | path to the image tiles. Can be a absolute path or relative used along with the source url. 
+`source` | named source of the layer. Can be a absolute path or relative used along with the layerURL. Optional if layerURL is set.
+`style` | the name of the referenced [style](#style-basics) to be used for styling the legend. Must be an image and if omitted a generic background map image will be used.
+`group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
+`opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
+`attribution` | attribution for the layer. Optional.
+`visible` | if the layer should be visible. Default is true.
+`extent` | extent of the layer. Map extent is default if tileGrid is not set.
+`minScale` | the minmum scale the layer is visible. Optional.
+`maxScale` | the maximum scale the layer is visible. Optional.
+`removable` | Adds an remove button next to the layer name if set to true. Optional.
+`tileGrid` | If layers tilegrid differs from the map. Optional.
+
+Source options | Description
+---|---
+`url` | url to the xyz endpoint. Used with or instead of layerURL. Optional if layerURL is set.
+`tileGrid` | custom tileGrid for the XYZ source. extent, alignBottomLeft, resolutions and tileSize can be set.
+
+#### Basic example XYZ
+
+```json
+{
+  "name": "my_xyz",
+  "title": "My XYZ",
+  "type": "XYZ",
+  "layerURL": "./data/xyz/{z}/{x}/{y}.png",
+  "style": "background-map",
+  "maxScale": 50000
+}
+```
+
 ### AGS_MAP
 A tiled layer created with an ArcGIS Server map service.
 
