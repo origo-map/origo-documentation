@@ -250,6 +250,7 @@ Option | Description
 `contentCls` | option to add css class references to the legend content element.
 `contentStyle` | option to add inline HTML style properties to the legend content element.
 `name` | option to set the legend UI component name. Default is 'legend'.
+`turnOffLayersControl` | true or false for whether the turn off layers button should be present in the legend or not. Default is false.
 
 #### Example legend control
 
@@ -258,6 +259,7 @@ Option | Description
   "name": "legend",
   "options": {
     "expanded": false,
+    "turnOffLayersControl": true,
     "style": {
       "width": "300px"
     },
