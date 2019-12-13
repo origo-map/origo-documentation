@@ -1,7 +1,7 @@
 ## Controls
 
 A control is an optional module with a DOM element in a fixed position on the
-screen. They can involve user input (buttons), or be informational only. The controls to be included in the maps are set in the map configuration.
+screen. They can involve user input (buttons), or be informational only. The controls to be included in the maps are set in the map configuration. The order of the controls matter. For instance, adding legend before mapmenu will make it render below when overlapping. Similarily the order of the controls in the mapmenu is set by the order in the config.
 
 #### Example setting controls to be included
 
