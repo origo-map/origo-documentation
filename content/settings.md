@@ -215,20 +215,21 @@ Property | Type | Description
 }
 ```
 
-### tileGrid
+### tileGridOptions
 
 Property | Type | Description
 ---|---|---
 `alignBottomLeft` | boolean | Whether to align grid to top or bottom left corner. Default is true.
-`tileSize` | array | Size of tiles in the tileGrid. Default is 256
+`extent` | array | Extent for the tilegrid. Used to calculate the tiles position. If omitted maps extent is used.
+`minZoom` | number | Minimum zoom level. Defaults to 0.
+`resolutions` | array | Resolutions for the tilegrid. If omitted maps resolutions are used.
+`tileSize` | number or array | Size of tiles in the tileGrid. Default is [256,256]
 
-#### Example tileGrid
+#### Example tileGridOptions
 
 ```json
-{
-  "tileGrid": {
-      "alignBottomLeft": false,
-      "tileSize": 512
-  }
+"tileGrid": {
+  "alignBottomLeft": false,
+  "tileSize": 512
 }
 ```
