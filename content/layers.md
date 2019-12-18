@@ -28,6 +28,7 @@ Property | Description
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
+`opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 
 #### Basic example GeoJSON
 
@@ -67,6 +68,7 @@ Property | Description
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
+`opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 
 #### Basic example TopoJSON
 
@@ -112,6 +114,7 @@ Property | Description
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
+`opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 
 Source options | Description
 ---|---
@@ -199,6 +202,7 @@ Property | Description
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
+`opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 
 Source options | Description
 ---|---
@@ -253,6 +257,7 @@ Property | Description
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `tileGrid` | custom tileGrid for the vector tile layer. extent, alignBottomLeft, resolutions and tileSize can be set.
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
+`opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 
 Source options | Description
 ---|---
@@ -300,6 +305,7 @@ Property | Description
 `tileGrid` | custom tileGrid for the WMS layer. extent, alignBottomLeft, resolutions and tileSize can be set.
 `renderMode` | whether to render the layer tiled ('tile') or single tiled ('image'). Defaults to 'tile'.
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
+`opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 
 Source options | Description
 ---|---
@@ -344,6 +350,7 @@ Property | Description
 `matrixSet` | the named matrixSet if provided for the source. Default matrixSet is the matrixSet created for the map and depends on the map resolutios.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
+`opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 
 Source options | Description
 ---|---
@@ -426,6 +433,7 @@ Property | Description
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `tileGrid` | custom tileGrid for the AGS tile layer. extent, alignBottomLeft, resolutions and tileSize can be set.
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
+`opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 
 Source options | Description
 ---|---
@@ -461,6 +469,7 @@ Property | Description
 `visible` | if the layer should be visible. Default is true.
 `extent` | extent of the layer. Map extent is default.
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
+`opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 
 #### Basic example OSM
 
@@ -490,6 +499,7 @@ Property | Description
 `extent` | extent of the layer. Map extent is default.
 `removable` | adds a remove button next to the layer name if set to true. Optional.
 `layers` | the included layers. Defined as normal layers.
+`opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 
 #### Basic example group
 
