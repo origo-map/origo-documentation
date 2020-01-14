@@ -228,7 +228,7 @@ Property | Type | Description
 #### Example tileGridOptions
 
 ```json
-"tileGrid": {
+"tileGridOptions": {
   "alignBottomLeft": false,
   "tileSize": 512
 }
