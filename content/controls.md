@@ -396,20 +396,19 @@ Option | Description
 Adds a search control. The search control requires a search end point to function.
 
 The search control uses autocomplete. There are several ways to configure how selected search result should be handled.
-* Option 1. Feature info is requested from a map service.
-In this case idAttribute and layerNameAttribute must be provided.
-A map service is used to get the geometry and attributes. The layer is defined
-as an ordinary layer in the layer config section.
-* Option 2. Same as option 1 but for single layer search. layerName is defined
-as an option and is not included in the search response.
-In this case geometryAttribute and layerName must be provided.
-* Option 3. Complete feature info is included in the search result.
-In this case titleAttribute, contentAttribute and geometryAttribute must be provided.
-* Option 4. This is a single table search. No layer is defined.
-In this case geometryAttribute and title must be defined.
-* Option 5. Feature info is shown without selection in the map.
-This is a simple single table search. In this case title, northing and easting
-must be defined.
+All options require that `url` and `searchAttribute` are provided.
+* Option 1. Feature info is requested from a map service, which is used to get the geometry and attributes. The layer is defined
+as an ordinary layer in the layer config section.  
+   Additional search options required: `geometryAttribute`, `idAttribute` and `layerNameAttribute`
+* Option 2. Same as option 1 but for single layer search. `layerName` is defined
+as an option and is not included in the search response.  
+   Additional search options required: `geometryAttribute` and `layerName`
+* Option 3. Complete feature info is included in the search result.  
+   Additional search options required: `geometryAttribute`, `titleAttribute` and `contentAttribute`
+* Option 4. This is a single table search. No layer is defined.  
+   Additional search options required: `geometryAttribute` and `title`
+* Option 5. Feature info is shown without selection in the map. This is a simple single table search.  
+   Additional search options required: `title`, `northing` and `easting`
 
 Property | Description
 ---|---
@@ -418,15 +417,15 @@ Property | Description
 
 Option | Description
 ---|---
-`url` | url to the search endpoint
-`searchAttribute` | the attribute that will be queried.
+`url` | url to the search endpoint. Always required.
+`searchAttribute` | the attribute that will be queried. Always required.
 `northing` | the attribute for northing coordinates. Only if geometryAttribute is not provided.
 `easting` | the attribute for easting coordinates. Only if geometryAttribute is not provided.
 `title` | title for the popup presenting the search result
 `hintText` | placeholder text for the search input. Default is Sök.
 `limit` | the max number of suggestions to be displayed. Default is 9.
 `minLength` | minimum number of characters to trigger search. Default is 4.
-`geometryAttribute` | geometry attribute if northing and easting is not used.
+`geometryAttribute` | geometry attribute is required if northing and easting are not used.
 `maxZoomLevel` | maximum zoom level after selection. Default is 2.
 `idAttribute` | attribute in the response storing the feature id.
 `layerNameAttribute` | attribute in the response storing the layer name. The layer must be defined in the map.
@@ -436,7 +435,79 @@ Option | Description
 `includeSearchableLayers` | whether to include searchable layers in query string or not. Defaults to false.
 `searchableDefault` | default value for searchable. 'always', true (searchable when visible) or false. Defaults to false.
 
-#### Example search control
+#### Example search response
+
+```json
+{
+  "NAMN":"Drottninggatan 13",
+  "N":6610524.99261475,
+  "E":151466.20581054702
+}
+```
+
+#### Example search control (option 1)
+
+```json
+{
+  "name": "search",
+  "options": {
+      "url": "http://localhost:3000/adressok",
+      "searchAttribute": "NAMN",
+      "layerNameAttribute": "TYPE",
+      "idAttribute": "GID",
+      "geometryAttribute": "GEOM",
+      "hintText": "Sök adress eller platser..."
+  }
+}
+```
+
+#### Example search control (option 2)
+
+```json
+{
+  "name": "search",
+  "options": {
+      "url": "http://localhost:3000/adressok",
+      "searchAttribute": "NAMN",
+      "layerName": "TYPE",
+      "geometryAttribute": "GEOM",
+      "hintText": "Sök adress eller platser..."
+  }
+}
+```
+
+#### Example search control (option 3)
+
+```json
+{
+  "name": "search",
+  "options": {
+      "url": "http://localhost:3000/adressok",
+      "searchAttribute": "NAMN",
+      "titleAttribute": "TYPE",
+      "contentAttribute": "NAMN",
+      "geometryAttribute": "GEOM",
+      "hintText": "Sök adress eller platser..."
+  }
+}
+```
+
+#### Example search control (option 4)
+
+```json
+{
+  "name": "search",
+  "options": {
+      "url": "http://localhost:3000/adressok",
+      "searchAttribute": "NAMN",
+      "geometryAttribute": "GEOM",
+      "title": "Adress",
+      "hintText": "Sök adress eller platser..."
+  }
+}
+```
+
+#### Example search control (option 5)
 
 ```json
 {
@@ -447,18 +518,8 @@ Option | Description
       "northing": "N",
       "easting": "E",
       "title": "Adress",
-      "Sök adress eller platser..."
+      "hintText": "Sök adress eller platser..."
   }
-}
-```
-
-#### Example search response
-
-```json
-{
-  "NAMN":"Drottninggatan 13",
-  "N":6610524.99261475,
-  "E":151466.20581054702
 }
 ```
 
