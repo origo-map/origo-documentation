@@ -11,6 +11,7 @@ Property | Description
 `abstract` | short description of the layer that is shown when the layer name is clicked in the legend. Optional.
 `type` | type of source for the layer. For GeoJSON source the type is GEOJSON.
 `source` | url to the layer.
+`projection` | set projection (e g to "EPSG:4326") to request features in another reference system and Origo will handle the transformation. The proj4Defs has to be configured in index.json unless it's EPSG:4326 or 3857.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
 `group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
 `queryable` | if featureinfo should be enabled for the layer. Default is true.
@@ -92,6 +93,7 @@ Property | Description
 `abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
 `type` | type of source for the layer. For WFS source the type is WFS.
 `source` | named source of the layer. The [source](#source) must be defined.
+`projection` | set projection (e g to "EPSG:4326") to request features in another reference system and Origo will handle the transformation. The proj4Defs has to be configured in index.json unless it's EPSG:4326 or 3857.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
 `group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
 `editable` | if the layer should be editable or not. Requires the editor control. Defaults to false. Optional.
