@@ -260,9 +260,6 @@ Option | Description
   "options": {
     "expanded": false,
     "turnOffLayersControl": true,
-    "style": {
-      "width": "300px"
-    },
     "contentStyle": {
       "width": "300px"
     }
