@@ -176,7 +176,7 @@ Links option | Description
             "tooltipText": "Google street view",
             "method": "LatLon",
             "url": "https://www.google.com/maps/@?api=1&map_action=pano&viewpoint={{LAT}},{{LON}}&heading=-45&pitch=10&fov=80",
-            "buttonImage": "img/png/google_street_view.png" 
+            "buttonImage": "img/png/google_street_view.png"
           }
          ]
     }
@@ -320,7 +320,7 @@ Option | Description
 
 ### Measure control
 
-Adds a measure control. Measure length or area in the map.
+Adds a measure control. Measure length, area or elevation (requires access to external elevation data web service) in the map.
 
 Property | Description
 ---|---
@@ -329,8 +329,11 @@ Property | Description
 
 Option | Description
 ---|---
-`measureTools` | Array of tools to use. Valid are 'length' and 'area'. Default is ["length", "area"].
-`default` | What tool to use as default. Default is 'length'
+`measureTools` | Array of tools to use. Valid are 'length', 'area' and 'elevation'. Default is ["length", "area"].
+`default` | What tool to use as default. Default is 'length'.
+`elevationServiceURL` | URL to elevation data web service, with variable parameters enclosed in curly braces. Applicable variables are `{easting}` and `{northing}`. Required if using elevation tool.
+`elevationTargetProjection` | Projection code for coordinates to be sent to an elevation web service, if other than the current map projection.
+`elevationAttribute` | "Path" to the elevation data attribute in the web service response. Required if using elevation tool.
 
 #### Example measure control
 
@@ -340,6 +343,21 @@ Option | Description
   "options": {
     "measureTools": ["length", "area"],
     "default": "length"
+  }
+}
+```
+
+#### Example measure control with elevation data tool
+
+```json
+{
+  "name": "measure",
+  "options": {
+    "measureTools": ["length", "area", "elevation"],
+    "default": "length",
+    "elevationServiceURL": "https://maps.googleapis.com/maps/api/elevation/json?locations={northing},{easting}&key=MY_API_KEY",
+    "elevationProjection": "EPSG:4326",
+    "elevationAttribute": "results[0].elevation"
   }
 }
 ```
