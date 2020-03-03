@@ -5,9 +5,9 @@
  * media queries.
  */
 module.exports.brandNames = {
-  desktop: 'Origo API Documentation',
-  tablet: 'Origo API Docs',
-  mobile: 'API Docs'
+  desktop: 'Origo-map documentation',
+  tablet: 'Origo-map docs',
+  mobile: 'Origo-map docs'
 };
 
 /**
@@ -19,7 +19,7 @@ module.exports.brandClasses = 'fill-none origo-icon origo';
 /**
  * Text for the link back to the linking website.
  */
-module.exports.backLink = 'Back to origo-api';
+module.exports.backLink = 'Back to top';
 
 /**
  * Runs after highlighting code samples. You can use this
