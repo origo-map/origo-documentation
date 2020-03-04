@@ -95,6 +95,8 @@ A circle style can be defined with the OpenLayers options for a [Circle](https:/
 
 An icon style can be defined with the OpenLayers options for an [Icon](https://openlayers.org/en/latest/apidoc/ol.style.Icon.html). Size and src are required.
 
+Icon rotation can be set with `"rotation"`, either by using a fixed value or by specifying an attribute holding rotation values. In the latter case, the attribute name should be enclosed in double curly braces. Rotation values should always be in degrees.
+
 #### Icon example
 
 ```json
@@ -164,7 +166,7 @@ Map server legend graphics (WMS only) can be used in the legend. Please note tha
 
 ### Label
 
-The label shown for the style in the layermanager/legend when clicking the layer name. If omitted, none is shown. 
+The label shown for the style in the layermanager/legend when clicking the layer name. If omitted, none is shown.
 
 #### Label
 
