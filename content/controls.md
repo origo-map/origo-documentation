@@ -251,6 +251,7 @@ Option | Description
 `contentStyle` | option to add inline HTML style properties to the legend content element.
 `name` | option to set the legend UI component name. Default is 'legend'.
 `turnOffLayersControl` | true or false for whether the turn off layers button should be present in the legend or not. Default is false.
+`autoHide` | option to set if the legend should close automatically on map click. Accepted values are 'always' (legend is always closed on map click), 'mobile' (legend is closed on map click if map size is 'm' or smaller (see breakpoints in origo.js)) and 'never' (legend is never closed on map click, this is the default setting).
 
 #### Example legend control
 
@@ -305,7 +306,8 @@ Property | Description
 Option | Description
 ---|---
 `isActive` | option to set if the mapmenu should be open on load. Default is false.
-`breakPointSize` | sets the breakpoint below which the mapmenu will be closed on load by default. Accepted values are 'xs', 's', 'm', and 'l', corresponding to the breakpoints set in conf/origoConfig.js. Default is 'l' (768px).
+`breakPointSize` | sets the breakpoint below which the mapmenu will be closed on load by default. Accepted values are 'xs', 's', 'm', and 'l', corresponding to the breakpoints set in origo.js. Default is 'l' (768px).
+`autoHide` | option to set if the mapmenu should close automatically on map click. Accepted values are 'always' (mapmenu is always closed on map click), 'mobile' (mapmenu is closed on map click if map size is 'm' or smaller (see breakpoints in origo.js)) and 'never' (mapmenu is never closed on map click, this is the default setting).
 
 #### Example mapmenu control
 
