@@ -88,7 +88,7 @@ var Navigation = React.createClass({
             }
           }
         })}
-        <a href='/' className='space-top2 pad1y dark keyline-top block small quiet'>{backLink}</a>
+        <a href='#origo-map' className='space-top2 pad1y dark keyline-top block small quiet'>{backLink}</a>
     </div>);
   }
 });

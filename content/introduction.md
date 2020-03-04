@@ -1,8 +1,8 @@
-## Origo API
+## Origo-map
 
-This is the API documentation for the Origo map framework. For more information about Origo and how to download please visit us on [GitHub](https://github.com/origo-map/origo). If you are a new user of Origo it is recommended to take a look at the basic examples that are included on GitHub.
+This is the documentation for the Origo map framework. For more information about Origo and how to download please visit us on [GitHub](https://github.com/origo-map/origo). If you are a new user of Origo it is recommended to take a look at the basic examples that are included on GitHub.
 
-An origo map can be created once its JavaScript and CSS file is included on a page. How the map is created is explained in [Creating the map](#creating-the-map). All available settings and options are described and examplified in this api documentation.
+An origo map can be created once its JavaScript and CSS file is included on a page. How the map is created is explained in [Creating the map](#creating-the-map). All available settings and options are described and examplified in this documentation.
 
 ## Creating the map
 

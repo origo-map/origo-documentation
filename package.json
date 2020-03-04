@@ -1,7 +1,7 @@
 {
-  "name": "api-documentation",
+  "name": "origo-documentation",
   "version": "2.1.0",
-  "description": "api documentation for origo",
+  "description": "documentation for origo",
   "main": "index.js",
   "scripts": {
     "start": "budo src/index.js --serve=bundle.js --live",
@@ -17,7 +17,7 @@
     ]
   },
   "keywords": [
-    "api",
+    "origo",
     "documentation"
   ],
   "author": "Tom MacWright",
