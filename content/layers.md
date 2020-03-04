@@ -593,7 +593,7 @@ Attribute options | Description
 ---|---
 `name` | the name of the attribute. The value of the attribute will be shown. Optional.
 `title` | static label for the attribute. Optional.
-`url` | attribute containing an url. Creates a link automatically and can be combined with name as value. Optional.
+`url` | absolute url ('//example.com/nonsense.html') or attribute containing an url. Creates a link automatically and can be combined with name as value. Optional.
 `urlPrefix` | a general prefix to be used together with url or img. Optional.
 `urlSuffix` | a general suffix to be used together with url or img. Optional.
 `target` | used along with url to open link in an iframe in a modal window. Can be set to modal for normal size or modal-full. Optional.
