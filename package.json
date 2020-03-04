@@ -1,7 +1,7 @@
 {
-  "name": "origo-map-documentation",
+  "name": "origo-documentation",
   "version": "2.1.0",
-  "description": "documentation for origo-map",
+  "description": "documentation for origo",
   "main": "index.js",
   "scripts": {
     "start": "budo src/index.js --serve=bundle.js --live",
@@ -17,7 +17,7 @@
     ]
   },
   "keywords": [
-    "origo-map",
+    "origo",
     "documentation"
   ],
   "author": "Tom MacWright",

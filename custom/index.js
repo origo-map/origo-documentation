@@ -5,9 +5,9 @@
  * media queries.
  */
 module.exports.brandNames = {
-  desktop: 'Origo-map documentation',
-  tablet: 'Origo-map docs',
-  mobile: 'Origo-map docs'
+  desktop: 'Origo documentation',
+  tablet: 'Origo docs',
+  mobile: 'Origo docs'
 };
 
 /**

@@ -1,5 +1,5 @@
-# Documentation for Origo-map
-[Documentation](https://origo-map.github.io/origo-map-documentation/latest/) for the [Origo](https://github.com/origo-map/origo) web map framework.
+# Documentation for Origo
+[Documentation](https://origo-map.github.io/origo-documentation/latest/) for the [Origo](https://github.com/origo-map/origo) web map framework.
 
 ## Writing documentation
 Documentation is written as Markdown files in the `content` directory, and is organized by the `custom/content.js` file - that file requires each documentation page and puts them in order
@@ -12,7 +12,7 @@ Requirements:
 
 To run the site locally:  
 1. Clone this repository:  
-  `git clone https://github.com/origo-map/origo-map-documentation.git`  
+  `git clone https://github.com/origo-map/origo-documentation.git`  
 2. `npm install`  
 3. `npm start`  
 4. Open [http://localhost:9966/](http://localhost:9966/)
@@ -28,4 +28,4 @@ Note that the build script is adjusted for building in Windows. If building in n
 
 
 ## Notes
-The origo-map documentation is based on [Docbox](https://github.com/mapbox/docbox), an open source project from MapBox.
+The Origo documentation is based on [Docbox](https://github.com/mapbox/docbox), an open source project from MapBox.
