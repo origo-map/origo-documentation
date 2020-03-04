@@ -385,6 +385,7 @@ Property | Description
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
+`wmtsStyle` | WMTS layer style, if applicable.
 
 Source options | Description
 ---|---
