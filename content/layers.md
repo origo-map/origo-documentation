@@ -6,7 +6,7 @@ A layer included in the map can be either vector or raster. It can be a file suc
 
 Property | Description
 ---|---
-`name` | the unique name of the layer used internally. White spaces and special characters should be avoided.
+`name` | the unique name of the layer used internally. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `title` | title for the layer visible to the user.
 `abstract` | short description of the layer that is shown when the layer name is clicked in the legend. Optional.
 `type` | type of source for the layer. For GeoJSON source the type is GEOJSON.
@@ -47,7 +47,7 @@ Property | Description
 
 Property | Description
 ---|---
-`name` | the unique name of the layer used internally. White spaces and special characters should be avoided.
+`name` | the unique name of the layer used internally. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `title` | title for the layer visible to the user.
 `abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
 `type` | type of source for the layer. For TopoJSON source the type is TopoJSON.
@@ -87,7 +87,7 @@ Property | Description
 
 Property | Description
 ---|---
-`name` | the unique name of the layer used internally and the name of the layer in the wfs service. White spaces and special characters should be avoided.
+`name` | the unique name of the layer used internally and the name of the layer in the wfs service. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `id` | the id or ids used to identify the layers in the map server. White spaces and special characters should be avoided.
 `title` | title for the layer visible to the user.
 `abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
@@ -152,33 +152,35 @@ Source options | Description
 #### Multiple layers filter example WFS
 
 ```json
-{
-  "name": "my_custom_name",
-  "id": "name_on_server",
-  "title": "Urban",
-  "group": "Urban group",
-  "source": "mapserver_wfs",
-  "style": "urbanStyle",
-  "type": "WFS",
-  "filter": "type = 'urban'"
-},
-{
-  "name": "my_custom_name",
-  "id": "name_on_server",
-  "title": "Parklands",
-  "group": "Parklands group",
-  "source": "mapserver_wfs",
-  "style": "parklandsStyle",
-  "type": "WFS",
-  "filter": "type = 'parklands'"
-}
+[
+  {
+    "name": "my_custom_name",
+    "id": "name_on_server",
+    "title": "Urban",
+    "group": "Urban group",
+    "source": "mapserver_wfs",
+    "style": "urbanStyle",
+    "type": "WFS",
+    "filter": "type = 'urban'"
+  },
+  {
+    "name": "my_custom_name",
+    "id": "name_on_server",
+    "title": "Parklands",
+    "group": "Parklands group",
+    "source": "mapserver_wfs",
+    "style": "parklandsStyle",
+    "type": "WFS",
+    "filter": "type = 'parklands'"
+  }
+]
 ```
 ### AGS_FEATURE
 A vector layer created with an ArcGIS Server feature service.
 
 Property | Description
 ---|---
-`name` | the unique name of the layer used internally. White spaces and special characters should be avoided.
+`name` | the unique name of the layer used internally. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `id` | the id of the layer in ArcGIS Server.
 `title` | title for the layer visible to the user.
 `abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
@@ -241,7 +243,7 @@ A vector tile layer.
 
 Property | Description
 ---|---
-`name` | the unique name of the layer used internally. White spaces and special characters should be avoided.
+`name` | the unique name of the layer used internally. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `title` | title for the layer visible to the user.
 `abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
 `type` | type of source for the layer. For vector tiles service the type is VECTORTILE.
@@ -284,7 +286,7 @@ Source options | Description
 
 Property | Description
 ---|---
-`name` | the unique name of the layer used internally and the name of the layer in the WMS service. White spaces and special characters should be avoided.
+`name` | the unique name of the layer used internally and the name of the layer in the WMS service. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `title` | title for the layer visible to the user.
 `abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
 `type` | type of source for the layer. For WMS the type is WMS.
@@ -327,11 +329,41 @@ Source options | Description
   "style": "mask"
 }
 ```
+
+#### Example with same layer name on different servers
+
+```json
+[
+  {
+    "name": "school__prod",
+    "title": "Elementary school",
+    "format": "image/png",
+    "queryable": false,
+    "visible": false,
+    "type": "WMS",
+    "group": "Elementary",
+    "source": "prod",
+    "style": "school"
+  },
+  {
+    "name": "school__test",
+    "title": "Elementary school",
+    "format": "image/png",
+    "queryable": false,
+    "visible": false,
+    "type": "WMS",
+    "group": "ElementaryNew",
+    "source": "test",
+    "style": "school"
+  }
+]
+```
+
 ### WMTS
 
 Property | Description
 ---|---
-`name` | the unique name of the layer used internally and the name of the layer in the WMTS service. White spaces and special characters should be avoided.
+`name` | the unique name of the layer used internally and the name of the layer in the WMTS service. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `title` | title for the layer visible to the user.
 `abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
 `type` | type of source for the layer. For WMTS the type is WMTS.
@@ -374,11 +406,11 @@ Source options | Description
 
 Property | Description
 ---|---
-`name` | the unique name of the layer used internally. White spaces and special characters should be avoided.
+`name` | the unique name of the layer used internally. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `title` | title for the layer visible to the user.
 `abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
 `type` | type of source for the layer. For XYZ the type is XYZ.
-`layerURL` | path to the image tiles. Can be a absolute path or relative used along with the source url. 
+`layerURL` | path to the image tiles. Can be a absolute path or relative used along with the source url.
 `source` | named source of the layer. Can be a absolute path or relative used along with the layerURL. Optional if layerURL is set.
 `style` | the name of the referenced [style](#style-basics) to be used for styling the legend. Must be an image and if omitted a generic background map image will be used.
 `group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
@@ -414,7 +446,7 @@ A tiled layer created with an ArcGIS Server map service.
 
 Property | Description
 ---|---
-`name` | the unique name of the layer used internally. White spaces and special characters should be avoided.
+`name` | the unique name of the layer used internally. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `id` | the id of the layer in ArcGIS Server.
 `title` | title for the layer visible to the user.
 `abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
@@ -607,7 +639,7 @@ type | format | disabled | readonly | maxLength | constraint | Description
 `time`      | hh:mm || supported ||| Defaults to current time. Use defaultTime:false to not.
 `date`      | YYYY-MM-DD || supported ||| Defaults to current date. Use defaultDate:false to not.
 `date-time` | YYYY-MM-DDThh:mm || supported ||| Defaults to current date. Use defaultDatetime:false to not.
-`email`     | string || supported ||| Email address 
+`email`     | string || supported ||| Email address
 `url`       | string || supported ||| Homepage address
 `integer`   | integer || supported ||| Whole number
 `decimal`   | decimal || supported ||| Decimal number
