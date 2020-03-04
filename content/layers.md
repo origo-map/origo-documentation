@@ -154,7 +154,7 @@ Source options | Description
 ```json
 [
   {
-    "name": "my_custom_name",
+    "name": "my_custom_name__1",
     "id": "name_on_server",
     "title": "Urban",
     "group": "Urban group",
@@ -164,7 +164,7 @@ Source options | Description
     "filter": "type = 'urban'"
   },
   {
-    "name": "my_custom_name",
+    "name": "my_custom_name__2",
     "id": "name_on_server",
     "title": "Parklands",
     "group": "Parklands group",
