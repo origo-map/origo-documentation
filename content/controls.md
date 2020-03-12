@@ -91,7 +91,7 @@ Option | Description
 {
   "name": "draganddrop",
   "options": {
-    "groupName": "drag-and-drop-layers"
+    "groupName": "drag-and-drop-layers",
     "groupTitle": "Drag-and-drop layers"
   }
 }
