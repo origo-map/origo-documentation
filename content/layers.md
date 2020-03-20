@@ -586,7 +586,8 @@ Attribute options | Description
       "urlSuffix":".html"
     },
     {
-      "html": "<p>For more information contact {{CONTACT}} at {{PHONE}}</p>"
+      "html": "<p>For more information contact {{CONTACT}} at {{PHONE}}</p>",
+      "cls": "o-custom-class-name"
     }
   ]
 }
