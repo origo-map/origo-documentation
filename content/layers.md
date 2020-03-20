@@ -566,7 +566,7 @@ Attribute options | Description
 `target` | used along with url to open link in an iframe in a modal window. Can be set to modal for normal size or modal-full. Optional.
 `img` | attribute containing url to an image. The image will be embedded. Optional.
 `cls` | css class name for custom styling. Optional.
-`html` | custom html. Attributes can be referenced be placing the attribute name within double curly brackets.  It also possible in a similar way to insert functions, for example getCenter which is written as `{{@center}}`. Arguments can be added, for example `{{@center(EPSG:4326,reverse)}}` to get the center coordinates in EPSG:4326 with reversed coordinates (or `{{@center(EPSG:4326,default)}}` to maintain the axis orientation after transformation). The html option can be combined with `cls`, but none of the other options. Optional.
+`html` | custom html. Attributes can be referenced be placing the attribute name within double curly brackets.  It also possible in a similar way to insert functions, for example getCenter which is written as `{{@center}}`. Arguments can be added, for example `{{@center(EPSG:4326,reverse)}}` to get the center coordinates in EPSG:4326 with reversed coordinates (or `{{@center(EPSG:4326,default)}}` to maintain the axis orientation after transformation). The html option can't be combined with any of the other options. Optional.
 
 #### Example defining layer attributes
 
@@ -586,8 +586,7 @@ Attribute options | Description
       "urlSuffix":".html"
     },
     {
-      "html": "<p>For more information contact {{CONTACT}} at {{PHONE}}</p>",
-	  "cls": "o-custom-class"
+      "html": "<p>For more information contact {{CONTACT}} at {{PHONE}}</p>"
     }
   ]
 }
