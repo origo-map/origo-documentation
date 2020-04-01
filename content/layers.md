@@ -628,22 +628,22 @@ Attribute options | Description
 
 ### Editor attributes
 
-type | format | disabled | readonly | maxLength | constraint | Description
+type | format | required | readonly | maxLength | constraint | Description
 ---|---|---|---|---|---|---
-`text`      | string || supported | supported || Text input
-`textarea`  | string || supported | supported || Text input with resizable box
-`dropdown`  | string | supported ||| supported | Dropdown based on options values
-`checkbox`  | boolean | supported |||| Checkbox, defaults to false. Use checked:true for true
+`text`      | string | supported | supported | supported || Text input
+`textarea`  | string | supported | supported | supported || Text input with resizable box
+`dropdown`  | string || supported || supported | Dropdown based on options values
+`checkbox`  | boolean || supported ||| Checkbox, defaults to false. Use checked:true for true
 `constraint`| change:attribute:value ||||| Activates new type based on field value
-`image`     | base64 | supported |||| Uploads image
-`color`     | hexadecimal ||||| Activates a color-picker
-`time`      | hh:mm || supported ||| Defaults to current time. Use defaultTime:false to not.
-`date`      | YYYY-MM-DD || supported ||| Defaults to current date. Use defaultDate:false to not.
-`date-time` | YYYY-MM-DDThh:mm || supported ||| Defaults to current date. Use defaultDatetime:false to not.
-`email`     | string || supported ||| Email address
-`url`       | string || supported ||| Homepage address
-`integer`   | integer || supported ||| Whole number
-`decimal`   | decimal || supported ||| Decimal number
+`image`     | base64 || supported ||| Uploads image
+`color`     | hexadecimal || supported ||| Activates a color-picker
+`time`      | hh:mm | supported | supported ||| Defaults to current time. Use defaultTime:false to not.
+`date`      | YYYY-MM-DD | supported | supported ||| Defaults to current date. Use defaultDate:false to not.
+`date-time` | YYYY-MM-DDThh:mm | supported | supported ||| Defaults to current date. Use defaultDatetime:false to not.
+`email`     | string | supported | supported ||| Email address
+`url`       | string | supported | supported ||| Homepage address
+`integer`   | integer | supported | supported ||| Whole number
+`decimal`   | decimal | supported | supported ||| Decimal number
 
 #### Example editor attributes
 
