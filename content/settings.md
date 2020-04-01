@@ -9,14 +9,16 @@ With the pageSettings object you can define a footer and control the visibility 
 #### Example page settings definition
 
 ```json
+{
 "pageSettings": {
-"footer": {
-  "img": "img/png/logo.png",
-  "url" : "https://github.com/origo-map/origo",
-  "text": "Origo"
-},
-"mapGrid": {
-  "visible": true
+  "footer": {
+    "img": "img/png/logo.png",
+    "url" : "https://github.com/origo-map/origo",
+    "text": "Origo"
+  },
+  "mapGrid": {
+    "visible": true
+  }
 }
 }
 ```
@@ -133,6 +135,27 @@ Name | Type | Description
 `expanded` | boolean | Whether the group should be expanded not. Used by the legend control. Default is false.
 `autoExpand` | boolean | For subgroups. Whether the subgroup should be expanded/collapsed when toggling the subgroups checkbox. Used by the legend control. Default is true.
 `groups` | array | Array of group objects defining subgroups. Optional.
+
+#### Example groups
+
+```json
+{
+"groups": [
+    {
+      "name": "GROUP",
+      "title": "GROUP",
+      "abstract": "This is parents group",
+      "groups": [
+        {
+          "name": "group",
+          "title": "group",
+          "abstract": "This is childrens group"
+        }
+      ]
+    }
+]
+}
+```
 
 ### featureinfoOptions
 
