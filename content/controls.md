@@ -21,7 +21,16 @@ screen. They can involve user input (buttons), or be informational only. The con
     "name": "sharemap"
   },
   {
-    "name": "print"
+    "name": "print",
+    "options": {
+        "logo": {
+          "cls": "padding-bottom-small",
+          "src": "css/png/logo_print.png",
+          "style": {
+              "height": "3rem"
+            }
+          }
+    }
   },
   {
     "name": "legend",
@@ -405,6 +414,39 @@ Option | Description
       "projection": "+proj=utm +zone=33 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs"
     }
 ]
+}
+```
+
+### Print
+
+Adds a print control.
+
+Property | Description
+---|---
+`name` | the name of the control
+
+Option | Description
+---|---
+`logo` | a object for configure placing the logo on the printed map. Optional.
+`cls` | a css class for styling e.g. the placing of the image. Optional, defaults to "padding-bottom-small".
+`src` | the path to logo image relative to the maps base url. Optional, defaults to "css/png/logo_print.png".
+`style` | a style object for setting e.g. the height of the image. Optional, defaults to "{"height": "3rem"}".
+
+
+#### Example Print control
+
+```json
+{
+  "name": "print",
+  "options": {
+      "logo": {
+        "cls": "padding-bottom-small",
+        "src": "css/png/logo_print.png",
+        "style": {
+            "height": "3rem"
+          }
+        }
+  }
 }
 ```
 
