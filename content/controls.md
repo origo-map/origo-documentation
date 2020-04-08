@@ -454,7 +454,9 @@ Option | Description
 
 Adds a search control. The search control requires a search end point to function.
 
-The search control uses autocomplete. There are several ways to configure how selected search result should be handled.
+The search control uses autocomplete. Autocomplete suggestions may optionally be grouped with headings, e g with one group of suggestions per layer.
+
+There are several ways to configure how selected search result should be handled.
 All options require that `url` and `searchAttribute` are provided.
 * Option 1. Feature info is requested from a map service, which is used to get the geometry and attributes. The layer is defined
 as an ordinary layer in the layer config section.  
@@ -484,6 +486,7 @@ Option | Description
 `hintText` | placeholder text for the search input. Default is Sök.
 `limit` | the max number of suggestions to be displayed. Default is 9.
 `minLength` | minimum number of characters to trigger search. Default is 4.
+`groupSuggestions` | whether to group autocomplete suggestions or not. Depending on the configuration option used (see above), titles are set using the `title` properties of defined map layers (options 1 and 2), values from the attribute in the result defined by `titleAttribute` (3) or the `title` search control configuration option (4 and 5). Defaults to false.
 `geometryAttribute` | geometry attribute is required if northing and easting are not used.
 `maxZoomLevel` | maximum zoom level after selection. Default is 2.
 `idAttribute` | attribute in the response storing the feature id.
