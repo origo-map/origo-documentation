@@ -23,13 +23,15 @@ screen. They can involve user input (buttons), or be informational only. The con
   {
     "name": "print",
     "options": {
-        "logo": {
-          "cls": "padding-bottom-small",
-          "src": "css/png/logo_print.png",
-          "style": {
-              "height": "3rem"
-            }
+      "showCreated": true,
+      "createdPrefix": "Skapad ",
+      "logo": {
+        "cls": "padding-bottom-small",
+        "src": "css/png/logo_print.png",
+        "style": {
+            "height": "3rem"
           }
+        }
     }
   },
   {
