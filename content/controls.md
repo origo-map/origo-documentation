@@ -260,6 +260,7 @@ Option | Description
 `expanded` | true or false if the legend should be expanded or collapsed on load. Default is true.
 `contentCls` | option to add css class references to the legend content element.
 `contentStyle` | option to add inline HTML style properties to the legend content element.
+`labelOpacitySlider` | option to use custom label for the opacity slider. Default is 'Opacity'.
 `name` | option to set the legend UI component name. Default is 'legend'.
 `turnOffLayersControl` | true or false for whether the turn off layers button should be present in the legend or not. Default is false.
 `autoHide` | option to set if the legend should close automatically on map click. Accepted values are 'always' (legend is always closed on map click), 'mobile' (legend is closed on map click if map size is 'm' or smaller (see breakpoints in origo.js)) and 'never' (legend is never closed on map click, this is the default setting).
@@ -589,7 +590,7 @@ Option | Description
 
 ### Sharemap control
 
-Creates a shareable link to the map. Current extent and zoom, visible layers and the map pin (if applicable) will be shared. The sharemap control also comes with the option to save map state on the server (requires Origo Server). A saved map state is retrieved with an ID instead of an URL.
+Creates a shareable link to the map. Current extent and zoom, visible layers and the map pin (if applicable) will be shared. If a feature in the map is selected, the id of the feature will be in the link making the map zoom to it on load. This goes for WFS, Geojson, Topojson and AGS Feature layers. The sharemap control also comes with the option to save map state on the server (requires Origo Server). A saved map state is retrieved with an ID instead of an URL.
 
 Property | Description
 ---|---
