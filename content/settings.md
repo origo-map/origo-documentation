@@ -162,18 +162,55 @@ Name | Type | Description
 Property | Type | Description
 ---|---|---
 `clusterFeatureinfoLevel` | number | Zoom level where cluster layers will be identifiable. Default is 1.
-`showOverlay` | boolean | Option to show featureinfo in overlay or sidebar. Default is true.
 `pinning` | boolean | Option to enable/disable pinning. If enabled a pin will be placed where clicked in places with no identifiable features. Default is true.
 `hitTolerance` | number | Option to set the hit tolerance in pixels. Features within this tolerance from a click will be considered. This makes it easier to click features on touch devices. Default is 0.
+`infowindow` | string | Option to show featureinfo in overlay, sidebar or infowindow. Default is overlay.
+`infowindowOptions` | object | Options for infowindow. Currently only useful when using infowindow as infowindow. See options below. Optional.
 `selectionStyles` | object | Option to set custom selection style. Optional.
+`multiSelectionStyles` | object | Option to set custom selection style for selected and highlighted features when using infowindow as infowindow. Optional.
 
-#### Example featureinfoOptions
+#### infowindowOptions
+
+Name | Type | Description
+---|---|---
+`title` | string | Infowindow header text. Default is "Träffar".
+`export` | object | Defines settings for the export. Two export options are possible, send objects with simple export and with layer specific export. Currently only attributes can be send with this function.
+
+##### Export properties
+
+Name | Type | Description
+---|---|---
+`simpleExportUrl` | string | Url to a service. Exports all attributes from the layer source. Can be used with excel creator in Origo server.
+`simpleExportLayers` | array | Defines layers that can export selected objects.
+`exportedFileName` | string | File name and file extension for the export. The file extension must match the file extension from the service. Required.
+`simpleExportButtonText` | string | The button text shown in the infowindow. Default is "Export".
+`toasterMessages` | object  | Status message to the user. Defines messages for "success" and "fail". Default message is "Success!" and "Sorry, something went wrong, please contact your administrator." Currently only fail message is shown.
+`layerSpecificExport` | array | Specific export options per layer. Defines attributes, file name and service url for the export. Each layer is defined as an object.
+ 
+##### LayerSpecificExport properties
+
+Name | Type | Description
+---|---|---
+`layer` | string | Defines layers that can export selected objects.
+`attributesToSendToExport` | array | Attributes to send to the export service.
+`exportUrls` | array | Defines settings for the export. A layer can have multiple exports. Each export is defined as an object.
+
+##### ExportUrls properties
+
+Name | Type | Description
+---|---|---
+`url` | string | Url to a service. Required.
+`buttonText` | string | The button text shown in the infowindow. Default is "Export".
+`exportedFileName` | string | File name and file extension for the export. The file extension must match the file extension from the service. Required.
+
+
+#### Example featureinfoOptions with overlay as infowindow
 
 ```json
 {
   "featureinfoOptions": {
     "clusterFeatureinfoLevel": 3,
-    "showOverlay": false,
+    "infowindow": "overlay",
     "pinning": false,
     "hitTolerance": 3,
     "selectionStyles": {
@@ -218,7 +255,108 @@ Property | Type | Description
   }
 }
 ```
+#### Example featureinfoOptions with infowindow as infowindow
 
+```json
+{
+  "featureinfoOptions": {
+    "clusterFeatureinfoLevel": 3,
+    "pinning": false,
+    "hitTolerance": 3,
+    "infowindow": "infowindow",
+    "infowindowOptions": {
+            "title": "Testtitel",
+            "export": {
+              "simpleExportUrl": "url_to_service",
+              "simpleExportLayers": ["layer_1","layer_2"],
+              "exportedFileName": "filename_1.xlsx",
+              "simpleExportButtonText": "Send to excel",
+              "toasterMessages": {
+                  "success": "OK!",
+                  "fail": "Sorry!"
+              },
+              "layerSpecificExport": [
+                {
+                  "layer": "layer_3",
+                  "attributesToSendToExport": ["attribute_1","attribute_2"],
+                  "exportUrls":[
+                    {
+                      "url": "url_to_service",
+                      "exportedFileName": "filename_2.xlsx",
+                      "buttonText": "Send to Excel"
+                    },
+                    {
+                      "url": "url_to_service",
+                      "exportedFileName": "filename_2.docx",
+                      "buttonText": "Send to word"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+    "multiSelectionStyles": {
+          "selected": [
+            {
+              "fill": {
+                "color": [100,153,255,0.1]
+              },
+              "stroke": {
+                "color": [100,153,255,1],
+                "width": 3
+              },
+              "circle": {
+                "radius": 5,
+                "stroke": {
+                  "color": [100,153,255,1]
+                },
+                "fill": {
+                  "color": [100,153,255,1]
+                }
+              }
+            }
+          ],
+          "highlighted": [
+            {
+              "zIndex": 1,
+              "fill": {
+                "color": [245,66,236,0.25]
+              },
+              "stroke": {
+                "color": [255,255,255,1],
+                "width": 6
+              },
+              "circle": {
+                "radius": 5,
+                "stroke": {
+                  "color": [245,66,236,1]
+                },
+                "fill": {
+                  "color": [245,66,236,1]
+                }
+              }
+            },
+            {
+              "zIndex": 2,
+              "stroke": {
+                "color": [66,245,105,1],
+                "width": 2
+              },
+              "circle": {
+                "radius": 10,
+                "stroke": {
+                  "color": [66,245,105,1]
+                },
+                "fill": {
+                  "color": [66,245,105,0.1]
+                }
+              }
+            }
+          ]
+        }
+  }
+}
+```
 ### clusterOptions
 Can also be set on layer or source level.
 
