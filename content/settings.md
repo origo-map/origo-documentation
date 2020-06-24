@@ -1,6 +1,6 @@
 ## Basic settings
 
-Basic settings for the application include map options such as projection and extent.
+Basic settings for the application include map options such as projection and extent. Note that all OpenLayers map and view settings of string, number or boolean type (or arrays/objects thereof) can be set in the config file, on the first level. Please see the OpenLayers [map](https://openlayers.org/en/latest/apidoc/module-ol_Map-Map.html#Map) or [view](https://openlayers.org/en/latest/apidoc/module-ol_View-View.html#View) documentation for more information about available settings.
 
 ### Page settings
 
@@ -109,18 +109,6 @@ Name | Type | Description
 ---|---|---
 `resolutions` | array | The resolutions used to define available zoom levels for the map. The resolutions should be valid for the base maps.
 
-### constrainResolution
-
-Name | Type | Description
----|---|---
-`constrainResolution` | boolean | To snap the map to the nearest defined zoom level when using touch input or the scroll wheel of a mouse to zoom. Default is false.
-
-### enableRotation
-
-Name | Type | Description
----|---|---
-`enableRotation` | boolean | To be able to rotate the map or not. Default is true.
-
 ### groups
 
 Name | Type | Description
@@ -186,7 +174,7 @@ Name | Type | Description
 `simpleExportButtonText` | string | The button text shown in the infowindow. Default is "Export".
 `toasterMessages` | object  | Status message to the user. Defines messages for "success" and "fail". Default message is "Success!" and "Sorry, something went wrong, please contact your administrator." Currently only fail message is shown.
 `layerSpecificExport` | array | Specific export options per layer. Defines attributes, file name and service url for the export. Each layer is defined as an object.
- 
+
 ##### LayerSpecificExport properties
 
 Name | Type | Description
