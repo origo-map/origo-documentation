@@ -453,6 +453,23 @@ Option | Description
 }
 ```
 
+### Progressbar control
+
+Adds a control to show the load progress of all the layers in the map. The progressbar is located at the bottom of the application above the footer.
+
+Property | Description
+---|---
+`name` | the name of the control
+
+
+#### Example progressbar control
+
+```json
+{
+  "name": "progressbar"
+}
+```
+
 ### Search control
 
 Adds a search control. The search control requires a search end point to function.
@@ -689,22 +706,5 @@ Option | Description
     "buttonPrefix": "Scale: ",
     "listItemPrefix": "Scale: "
   }
-}
-```
-
-### Progressbar
-
-Adds a control to show the load progress of all the layers in the map. The progressbar is located at the bottom of the application above the footer.
-
-Property | Description
----|---
-`name` | the name of the control
-
-
-#### Example progressbar control
-
-```json
-{
-  "name": "progressbar"
 }
 ```
