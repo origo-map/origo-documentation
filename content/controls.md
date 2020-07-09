@@ -388,6 +388,7 @@ Option | Description
 ---|---
 `title` | alias name of the current map projection to be displayed.
 `projections` | object of projections to toggle between. Projection code and alias name is required for each projection. The projection must be defined in proj4Defs, except EPSG:4326 and EPS:3857 which are included by default.
+`noPositionText` | when empty last mouse position is rendered else text of choise renders. If this option is not defined, no coordinates when no mouse position.  
 
 
 #### Example position control
@@ -400,7 +401,8 @@ Option | Description
     "projections": {
       "EPSG:4326": "WGS84",
       "EPSG:3006": "Sweref99 TM"
-    }
+    },
+    "noPositionText: ""
   }
 }
 ```
