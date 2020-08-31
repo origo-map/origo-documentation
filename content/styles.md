@@ -43,7 +43,7 @@ For more advanced styling it is possible to use a custom style function. This fu
 
 ### Fill
 
-A fill style can be defined with the OpenLayers options for a [Fill](https://openlayers.org/en/latest/apidoc/ol.style.Fill.html).
+A fill style can be defined with the OpenLayers options for a [Fill](https://openlayers.org/en/latest/apidoc/module-ol_style_Fill-Fill.html).
 
 #### Fill example
 
@@ -57,7 +57,7 @@ A fill style can be defined with the OpenLayers options for a [Fill](https://ope
 
 ### Stroke
 
-A stroke style can be defined with the OpenLayers options for a [Stroke](https://openlayers.org/en/latest/apidoc/ol.style.Stroke.html).
+A stroke style can be defined with the OpenLayers options for a [Stroke](https://openlayers.org/en/latest/apidoc/module-ol_style_Stroke-Stroke.html).
 
 #### Stroke example
 
@@ -72,7 +72,7 @@ A stroke style can be defined with the OpenLayers options for a [Stroke](https:/
 
 ### Circle
 
-A circle style can be defined with the OpenLayers options for a [Circle](https://openlayers.org/en/latest/apidoc/ol.style.Circle.html).
+A circle style can be defined with the OpenLayers options for a [Circle](https://openlayers.org/en/latest/apidoc/module-ol_style_Circle-CircleStyle.html).
 
 #### Circle example
 
@@ -93,7 +93,7 @@ A circle style can be defined with the OpenLayers options for a [Circle](https:/
 
 ### Icon
 
-An icon style can be defined with the OpenLayers options for an [Icon](https://openlayers.org/en/latest/apidoc/ol.style.Icon.html). Size and src are required.
+An icon style can be defined with the OpenLayers options for an [Icon](https://openlayers.org/en/latest/apidoc/module-ol_style_Icon-Icon.html). Size and src are required.
 
 Icon rotation can be set with `"rotation"`, either by using a fixed value or by specifying an attribute holding rotation values. In the latter case, the attribute name should be enclosed in double curly braces. Rotation values should always be in degrees.
 
@@ -110,7 +110,7 @@ Icon rotation can be set with `"rotation"`, either by using a fixed value or by 
 
 ### Text
 
-A text style can be defined with the OpenLayers options for a [Text](https://openlayers.org/en/latest/apidoc/ol.style.Text.html). The fill option sets the font color and the stroke option is used to create halo effects.
+A text style can be defined with the OpenLayers options for a [Text](https://openlayers.org/en/latest/apidoc/module-ol_style_Text-Text.html). The fill option sets the font color and the stroke option is used to create halo effects.
 
 Arbitrary text can be provided as text value. For cluster layers the reserved word "size" can be used to show number of features of the cluster.
 
