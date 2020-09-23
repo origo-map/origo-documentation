@@ -31,6 +31,14 @@ screen. They can involve user input (buttons), or be informational only. The con
         "style": {
             "height": "3rem"
           }
+        },
+        "northArrow": {
+          "cls": "padding-right-small printmap-north-arrow",
+          "src": "css/png/north_arrow_print.png",
+          "visible": false,
+          "style": {
+            "height": "5rem"
+          }
         }
     }
   },
@@ -421,6 +429,11 @@ Option | Description
 `cls` | a css class for styling e.g. the placing of the image. Optional, defaults to "padding-bottom-small".
 `src` | the path to logo image relative to the maps base url. Optional, defaults to "css/png/logo_print.png".
 `style` | a style object for setting e.g. the height of the image. Optional, defaults to "{"height": "3rem"}".
+`northArrow` | a object for configure the north arrow on the printed map. Optional.
+`cls` | a css class for styling e.g. the placing of the image. Optional, defaults to "padding-right-small printmap-north-arrow".
+`src` | the path to logo image relative to the maps base url. Optional, defaults to "css/png/north_arrow_print.png".
+`visible` | option to set if the north arrow should be visible on load. Default is true.
+`style` | a style object for setting e.g. the height of the image. Optional, defaults to "{"height": "5rem"}".
 
 
 #### Example Print control
@@ -434,6 +447,14 @@ Option | Description
         "src": "css/png/logo_print.png",
         "style": {
             "height": "3rem"
+          }
+        },
+        "northArrow": {
+          "cls": "padding-right-small printmap-north-arrow",
+          "src": "css/png/north_arrow_print.png",
+          "visible": true,
+          "style": {
+            "height": "5rem"
           }
         }
   }
