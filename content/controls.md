@@ -356,6 +356,7 @@ Option | Description
 `elevationServiceURL` | URL to elevation data web service, with variable parameters enclosed in curly braces. Applicable variables are `{easting}` and `{northing}`. Required if using elevation tool.
 `elevationTargetProjection` | Projection code for coordinates to be sent to an elevation web service, if other than the current map projection.
 `elevationAttribute` | "Path" to the elevation data attribute in the web service response. Required if using elevation tool.
+`showSegmentLengths` | True or false if individual segment lengths should be shown. Default is false.
 
 #### Example measure control
 
