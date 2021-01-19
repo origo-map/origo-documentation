@@ -438,6 +438,8 @@ Option | Description
 `src` | the path to logo image relative to the maps base url. Optional, defaults to "css/png/north_arrow_print.png".
 `visible` | option to set if the north arrow should be visible on load. Default is true.
 `style` | a style object for setting e.g. the height of the image. Optional, defaults to "{"height": "5rem"}".
+`showScale` | option to set if the scale should be visible on load. Optional, default is true.
+`scales` | Array of scales to use. Optional, if not specified the scales are calculated from the map resolutions.
 
 
 #### Example Print control
@@ -463,7 +465,17 @@ Option | Description
           "style": {
             "height": "5rem"
           }
-        }
+        },
+        "showScale": true,
+        "scales": [
+          "1:100000",
+          "1:50000",
+          "1:15000",
+          "1:10000",
+          "1:5000",
+          "1:1000",
+          "1:500"
+        ]
   }
 }
 ```
