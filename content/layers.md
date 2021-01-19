@@ -645,6 +645,7 @@ type | format | required | readonly | maxLength | constraint | Description
 `url`       | string | supported | supported ||| Homepage address
 `integer`   | integer | supported | supported ||| Whole number
 `decimal`   | decimal | supported | supported ||| Decimal number
+`searchList`   | string | supported |||| Dropdown based on options values with search capabilities. Can handle target icon src. Can handle icon folder load.
 
 #### Example editor attributes
 
@@ -678,4 +679,52 @@ type | format | required | readonly | maxLength | constraint | Description
       "subcategory_3"
   ]
 }
+{
+  "name": "sprak",
+  "title": "Språk: ",
+  "type": "searchList",
+  "list": [
+      {
+        "value": "Java"
+      },
+      ...
+  ],
+  "config": {
+    "minChars": 2,
+    "maxItems": 15
+  }
+}
+{
+  "name": "icons",
+  "title": "Ikoner: ",
+  "type": "searchList",
+  "list": [
+    {
+      "src": "img/kompass.svg",
+      "value": "Riktning"
+    },
+    ...
+  ],
+  "config": {
+    "minChars": 0,
+    "maxItems": 5
+  }
+}
+{
+  "name": "icon-lib",
+  "title": "Bibliotek: ",
+  "type": "searchList",
+  "list": [
+    {
+      "location": "img/png",
+      "extension": "png"
+    },
+    ...
+  ],
+  "config": {
+    "minChars": 0,
+    "maxItems": 5
+  }
+}
+
 ```
