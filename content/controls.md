@@ -426,6 +426,9 @@ Property | Description
 
 Option | Description
 ---|---
+`leftFooterText` | a small left-aligned text on the bottom left. Optional.
+`showCreated` | shows the current date as a small right-aligned text on the bottom right. Optional. Default is false.
+`createdPrefix` | text displayed before the current date on the bottom right. Requires `showCreated: true`. Optional.
 `logo` | a object for configure placing the logo on the printed map. Optional.
 `cls` | a css class for styling e.g. the placing of the image. Optional, defaults to "padding-bottom-small".
 `src` | the path to logo image relative to the maps base url. Optional, defaults to "css/png/logo_print.png".
@@ -443,6 +446,9 @@ Option | Description
 {
   "name": "print",
   "options": {
+      "leftFooterText": "OBS: Kartan är inte rättsligt gällande.",
+      "showCreated": true,
+      "createdPrefix": "Skapad ",
       "logo": {
         "cls": "padding-bottom-small",
         "src": "css/png/logo_print.png",
