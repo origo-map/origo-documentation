@@ -76,6 +76,7 @@ Option | Description
 `buttontext` | the button text shown in the menu
 `title` | popup header text
 `content` | popup content text
+`hideWhenEmbedded` | if set to true, the control is not displayed when the map is embedded. Defaults to false
 
 #### Example about control
 
@@ -103,6 +104,7 @@ Option | Description
 ---|---
 `groupName` | the name of the group containing the added layers. Defaults to "egna-lager".
 `groupTitle` | the title of the group containing the added layers. Used if group doesn't exist. Defaults to "Egna lager".
+`hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 #### Example drag-and-drop control
 
@@ -136,6 +138,7 @@ Option | Description
 `snapLayers` | List of layers that should have snapping enabled. Default is editableLayers.
 `drawTools` | Extra draw tools besides the standard tools for Point, Line and Polygon. The tool is set for each geomtry type. Currently 'box' for 'Polygon' is the only draw tool that can be added.
 `attributes` | definition of [attributes](#attributes) and how they should be presented and validated in editor form. If not provided all available attributes will be shown with a standard template.
+`hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 #### Example editor control
 
@@ -166,6 +169,7 @@ Option | Description
 ---|---
 `tooltipText` | the tooltip text for the button
 `links` | Options for the links. Configured as a list. Available options are listed below.
+`hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 Links option | Description
 ---|---
@@ -216,6 +220,7 @@ Option | Description
 `active` | Boolean. Whether the control should be activated on map load or not. Defaults to false.
 `panTo` | Boolean. Whether to pan to users position or not. Defaults to true.
 `zoomLevel` | Integer. Specifies the zoom level that will be used when a position has been aquired. If it is not specified, the map will be zoomed to the fourth closest resolution. This option has no effect if panTo is set to false.
+`hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 #### Example geoposition control
 
@@ -240,6 +245,7 @@ Property | Description
 Option | Description
 ---|---
 `extent` | The extent to zoom to. If no extent is provided the initial extent of the map will be used.
+`hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 #### Example home control
 
@@ -272,6 +278,7 @@ Option | Description
 `name` | option to set the legend UI component name. Default is 'legend'.
 `turnOffLayersControl` | true or false for whether the turn off layers button should be present in the legend or not. Default is false.
 `autoHide` | option to set if the legend should close automatically on map click. Accepted values are 'always' (legend is always closed on map click), 'mobile' (legend is closed on map click if map size is 'm' or smaller (see breakpoints in origo.js)) and 'never' (legend is never closed on map click, this is the default setting).
+`hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 #### Example legend control
 
@@ -301,6 +308,7 @@ Option | Description
 ---|---
 `title` | Sets the link title of the control.
 `url` | Sets the address for the link.
+`hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 #### Example link control
 
@@ -328,6 +336,7 @@ Option | Description
 `isActive` | option to set if the mapmenu should be open on load. Default is false.
 `breakPointSize` | sets the breakpoint below which the mapmenu will be closed on load by default. Accepted values are 'xs', 's', 'm', and 'l', corresponding to the breakpoints set in origo.js. Default is 'l' (768px).
 `autoHide` | option to set if the mapmenu should close automatically on map click. Accepted values are 'always' (mapmenu is always closed on map click), 'mobile' (mapmenu is closed on map click if map size is 'm' or smaller (see breakpoints in origo.js)) and 'never' (mapmenu is never closed on map click, this is the default setting).
+`hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 #### Example mapmenu control
 
@@ -348,6 +357,7 @@ Property | Description
 ---|---
 `name` | the name of the control
 `options` | options for the control
+`hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 Option | Description
 ---|---
@@ -399,6 +409,7 @@ Option | Description
 `title` | alias name of the current map projection to be displayed.
 `projections` | object of projections to toggle between. Projection code and alias name is required for each projection. The projection must be defined in proj4Defs, except EPSG:4326 and EPS:3857 which are included by default.
 `noPositionText` | when empty last mouse position is rendered else text of choise renders. If this option is not defined, no coordinates when no mouse position.  
+`hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 
 #### Example position control
@@ -441,6 +452,7 @@ Option | Description
 `style` | a style object for setting e.g. the height of the image. Optional, defaults to "{"height": "5rem"}".
 `showScale` | option to set if the scale should be visible on load. Optional, default is true.
 `scales` | Array of scales to use. Optional, if not specified the scales are calculated from the map resolutions.
+`hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 
 #### Example Print control
@@ -488,6 +500,10 @@ Adds a control to show the load progress of all the layers in the map. The progr
 Property | Description
 ---|---
 `name` | the name of the control
+
+Option | Description
+---|---
+`hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 
 #### Example progressbar control
@@ -544,6 +560,7 @@ Option | Description
 `contentAttribute` | attribute in response storing the featureinfo content.
 `includeSearchableLayers` | whether to include searchable layers in query string or not. Defaults to false.
 `searchableDefault` | default value for searchable. 'always', true (searchable when visible) or false. Defaults to false.
+`hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 #### Example search response
 
@@ -646,6 +663,7 @@ Option | Description
 ---|---
 `storeMethod` | Should be set to `saveStateToServer` in order to utilize the save-to-server feature.
 `serviceEndpoint` | URL to the Origo Server service endpoint, for example `https://www.mydomain.com/mapstate`.
+`hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 #### Example sharemap control
 
@@ -671,6 +689,7 @@ Option | Description
 `content` | content text of the modal
 `hideButton` | adds button to stop the current splash from displaying on subsequent visits to the map. If the content is updated, the splash will be displayed again. Options available are 'visible' (the only option required), 'hideText' and 'confirmText'.
 `style` | adds the css style to the splash window.
+`hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 #### Example splash control
 
@@ -699,6 +718,7 @@ Property | Description
 Option | Description
 ---|---
 `scaleText` | text to show before the scale value.
+`hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 #### Example scale control
 
@@ -724,6 +744,7 @@ Option | Description
 ---|---
 `buttonPrefix` | text to show before the scale value on the control button
 `listItemPrefix` | text to show before the scale value in the dropdown list
+`hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 #### Example scalepicker control
 
