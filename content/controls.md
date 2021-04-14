@@ -188,9 +188,33 @@ Option | Description
 `autoSave` | if edits should be autosaved or not. Defaults to true.
 `snap` | option to enable/disable snapping. Default is true.
 `snapLayers` | List of layers that should have snapping enabled. Default is editableLayers.
-`drawTools` | Extra draw tools besides the standard tools for Point, Line and Polygon. The tool is set for each geomtry type. Currently 'box' for 'Polygon' is the only draw tool that can be added.
+`drawTools` | Array of extra draw tools besides the standard tools for Point, Line and Polygon. The tool is set for each geometry type.
 `attributes` | definition of [attributes](#attributes) and how they should be presented and validated in editor form. If not provided all available attributes will be shown with a standard template.
 `hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
+
+Draw tools can be set for each geometry type on editor control level in wich case it adds the configured tool to each layer of that
+kind in addition to the default tool. Draw tools can also be set on each layer in which case the default tool is not added unless specified.
+
+drawTool | Description
+---|---
+`Polygon` | Draws a polygon (default for polygon layers)
+`Line` | Draws a line (default for line layers)
+`Point` | Draws a point (default for point layers)
+`box` | Draws a rectangle
+_object_ | Specifies a draw tool that needs more configuration
+
+__CopyTool__
+
+Copies a geometry from one vector layer to the currently edited layer.
+
+Property | Description
+---|---
+`toolName` | Name of the tool. Copy tool has name 'Copy' __Required__
+`groups`| Array of group names from which geometries can be copied. Mainly useful for layers which names are not known beforehand.
+`layers` | Array of layer names that are possible to copy from
+
+If neither _groups_ nor _layers_ are specified all vector layers can be copied from.
+
 
 #### Example editor control
 
@@ -207,6 +231,22 @@ Option | Description
   }
 }
 ```
+
+#### Example polygon and copy tool in layer configuration
+
+```json
+{
+"drawTools": [
+        "Polygon",
+        {
+          "toolName": "Copy",
+          "layers": [ "SketchPoly" ],
+          "groups": [ "drag-and-drop-layers" ]
+        }
+      ]
+}
+```
+
 
 ### External url control
 
