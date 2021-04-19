@@ -30,6 +30,7 @@ Property | Description
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
+`css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 
 #### Basic example GeoJSON
 
@@ -70,6 +71,7 @@ Property | Description
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
+`css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 
 #### Basic example TopoJSON
 
@@ -117,6 +119,7 @@ Property | Description
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
+`css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 
 Source options | Description
 ---|---
@@ -207,6 +210,7 @@ Property | Description
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
+`css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 
 Source options | Description
 ---|---
@@ -262,6 +266,7 @@ Property | Description
 `tileGrid` | custom tileGrid for the vector tile layer. extent, alignBottomLeft, resolutions and tileSize can be set.
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
+`css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 
 Source options | Description
 ---|---
@@ -310,6 +315,7 @@ Property | Description
 `renderMode` | whether to render the layer tiled ('tile') or single tiled ('image'). Defaults to 'tile'.
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
+`css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 
 Source options | Description
 ---|---
@@ -386,6 +392,7 @@ Property | Description
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `wmtsStyle` | WMTS layer style, if applicable.
+`css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 
 Source options | Description
 ---|---
@@ -423,6 +430,7 @@ Property | Description
 `maxScale` | the maximum scale the layer is visible. Optional.
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
 `tileGrid` | If layers tilegrid differs from the map. Optional.
+`css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 
 Source options | Description
 ---|---
@@ -469,6 +477,7 @@ Property | Description
 `tileGrid` | custom tileGrid for the AGS tile layer. extent, alignBottomLeft, resolutions and tileSize can be set.
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
+`css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 
 Source options | Description
 ---|---
@@ -505,6 +514,7 @@ Property | Description
 `extent` | extent of the layer. Map extent is default.
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
+`css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 
 #### Basic example OSM
 
@@ -535,6 +545,7 @@ Property | Description
 `removable` | adds a remove button next to the layer name if set to true. Optional.
 `layers` | the included layers. Defined as normal layers.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
+`css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 
 #### Basic example group
 
