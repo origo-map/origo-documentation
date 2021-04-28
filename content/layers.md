@@ -31,6 +31,7 @@ Property | Description
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
+`headers` | Used for setting headers that should be included in the request of the GeoJSON. Formatted as a object with key/value pairs for the headers. Can be used for setting which type to accept or add a apikey.
 
 #### Basic example GeoJSON
 
@@ -607,9 +608,10 @@ Attribute options | Description
 `url` | absolute url ('//example.com/nonsense.html') or attribute containing an url. Creates a link automatically and can be combined with name as value. Optional.
 `urlPrefix` | a general prefix to be used together with url or img. Optional.
 `urlSuffix` | a general suffix to be used together with url or img. Optional.
-`target` | used along with url to open link in an iframe in a modal window. Can be set to modal for normal size or modal-full. Optional.
+`target` | default behaviour is to open url in new window (_blank). It's possible to specify other targets as _top, _self and _parent or to open link in an iframe in a modal window which should than be set to modal for normal size or modal-full. Optional.
 `targetTitle` | used along with target to define title in modal titlebar and link tooltip. Can be set to "static text" or "{{attribute value}}". Default is url.
 `img` | attribute containing url to an image. The image will be embedded. Optional.
+`splitter` | set a splitter for example , or ; which is used to split the attribute if it is made up of delimited list of compounded attributes of the same type. To be used together with url or img. Optional.
 `cls` | css class name for custom styling. Optional.
 `html` | custom html. Attributes can be referenced be placing the attribute name within double curly brackets.  It also possible in a similar way to insert functions, for example getCenter which is written as `{{@center}}`. Arguments can be added, for example `{{@center(EPSG:4326,reverse)}}` to get the center coordinates in EPSG:4326 with reversed coordinates (or `{{@center(EPSG:4326,default)}}` to maintain the axis orientation after transformation). The `html` option can't be combined with any of the other options, except for `cls`. Optional.
 
