@@ -649,7 +649,7 @@ type | format | required | readonly | maxLength | constraint | Description
 `textarea`  | string | supported | supported | supported || Text input with resizable box
 `dropdown`  | string || supported || supported | Dropdown based on options values
 `checkbox`  | boolean || supported ||| Checkbox, defaults to false. Use checked:true for true
-`constraint`| change:attribute:value ||||| Activates new type based on field value
+`constraint`| change:attribute:value or change:attribute:[value1,value2] ||||| Activates new type based on field value or multiple field values.
 `image`     | base64 || supported ||| Uploads image
 `color`     | hexadecimal || supported ||| Activates a color-picker
 `time`      | hh:mm | supported | supported ||| Defaults to current time. Use defaultTime:false to not.
@@ -691,6 +691,27 @@ type | format | required | readonly | maxLength | constraint | Description
       "subcategory_1",
       "subcategory_2",
       "subcategory_3"
+  ]
+}
+{
+  "name": "choice",
+  "title": "choice: ",
+  "type": "dropdown",
+  "options": [
+      "choice 1",
+      "choice 2",
+      "choice 3"
+  ]
+}
+{
+  "name": "subchoice",
+  "title": "subchoice: ",
+  "type": "dropdown",
+  "constraint": "change:choice:[choice 1,choice 3]",
+  "options": [
+      "subchoice 1",
+      "subchoice 2",
+      "subchoice 3"
   ]
 }
 {
