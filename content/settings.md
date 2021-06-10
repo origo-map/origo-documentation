@@ -158,6 +158,7 @@ Property | Type | Description
 `infowindowOptions` | object | Options for infowindow. Currently only useful when using infowindow as infowindow. See options below. Optional.
 `selectionStyles` | object | Option to set custom selection style. Optional.
 `multiSelectionStyles` | object | Option to set custom selection style for selected and highlighted features when using infowindow as infowindow. Optional.
+`toggleSelectOnClick` | boolean | Option to enable/disable selection toggling. Used with the multiselection plugin and defaults to false.
 
 #### infowindowOptions
 
