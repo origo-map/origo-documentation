@@ -191,6 +191,7 @@ Option | Description
 `drawTools` | Array of extra draw tools besides the standard tools for Point, Line and Polygon. The tool is set for each geometry type.
 `attributes` | definition of [attributes](#attributes) and how they should be presented and validated in editor form. If not provided all available attributes will be shown with a standard template.
 `hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
+`validateOnDraw` | If set to true, the editor prevents drawing invalid geometries (self-intersect). Defaults to false.
 
 Draw tools can be set for each geometry type on editor control level in wich case it adds the configured tool to each layer of that
 kind in addition to the default tool. Draw tools can also be set on each layer in which case the default tool is not added unless specified.

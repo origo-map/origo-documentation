@@ -192,6 +192,60 @@ Option to pick an alternative layer style for WMS layers. Requires alternative s
 }
 ```
 
+### Filter
+
+Filter features by attributes, used for instance for [thematic styling](#thematic-styling).
+
+#### Filter
+
+```json
+{
+  "icon": {
+    "src": "..."
+  },
+  "filter": "[attributename] == 'Value to show'",
+  "label": "Value to show"
+}
+```
+
+### minScale and maxScale
+
+To use different styles at different zoom levels.
+
+#### minScale and maxScale
+
+```json
+"areas": [
+  [
+    {
+      "maxScale": 12500,
+      "minScale": 100000,
+      "fill": {
+        "color": "rgba(66,89,179,0.4)"
+      },
+      "stroke": {
+        "color": "rgba(60,43,0,0.8)",
+        "width": 1.5
+      },
+      "label": "Style for small scale"
+    }
+  ],
+  [
+    {
+      "minScale": 12499,
+      "fill": {
+        "color": "rgba(66,89,179,0.2)"
+      },
+      "stroke": {
+        "color": "rgba(60,43,0,0.8)",
+        "width": 1.5
+      },
+      "label": "Style for big scale"
+    }
+  ]
+]
+```
+
 ## Style examples
 To get started some common use cases are provided.
 
