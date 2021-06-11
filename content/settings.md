@@ -18,6 +18,9 @@ With the pageSettings object you can define a footer and control the visibility 
   },
   "mapGrid": {
     "visible": true
+  },
+  "mapInteractions": {
+    "embedded": false
   }
 }
 }
@@ -36,6 +39,12 @@ Name | Type | Description
 Name | Type | Description
 ---|---|---
 `visible` | boolean | Sets the visibility of the map grid. Default is false.
+
+### mapInteractions
+
+Name | Type | Description
+---|---|---
+`embedded` | boolean | Sets if special map interactions for embedded maps should be used or not. Default is true.
 
 ### Map projection
 The map projection is defined with the mandatory property projectionCode. If the projection is EPSG:3857 (Web mercator) or EPSG:4326 (WGS84) then the proj4Defs is optional, otherwise it is mandatory. An optional projection extent can also be set. Projections are handled with the proj4js library. The Proj4js definitions can be found on [epsg.io](http://epsg.io/).
