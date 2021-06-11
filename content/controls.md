@@ -120,10 +120,10 @@ Items options | Description
 ```json
 {
   "name": "bookmarks",
-  "title": "Bookmarks",
-  "isActive": true,
-  "duration": 1000,
   "options": {
+    "title": "Bookmarks",
+    "isActive": true,
+    "duration": 1000,
     "items": [
       {
         "name": "Hudiksvall",
