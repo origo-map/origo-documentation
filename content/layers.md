@@ -142,6 +142,7 @@ Property | Description
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
 `group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
 `editable` | if the layer should be editable or not. Requires the editor control. Defaults to false. Optional.
+`allowedEditOperations` | List of available edit tools. Possible values are: _updateAttributes_, _updateGeometry_, _create_, _delete_. Only applies if layer is editable. Defaults to all. Optional. 
 `queryable` | if featureinfo should be enabled for the layer. Default is true.
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
 `legend` | if the layer should be included in the map legend. Default is false.
@@ -235,6 +236,7 @@ Property | Description
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
 `group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
 `editable` | if the layer should be editable or not. Requires the editor control. Defaults to false. Optional.
+`allowedEditOperations` | List of available edit tools. Possible values are: _updateAttributes_, _updateGeometry_, _create_, _delete_. Only applies if layer is editable. Defaults to all. Optional. 
 `queryable` | if featureinfo should be enabled for the layer. Default is true.
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
 `legend` | if the layer should be included in the map legend. Default is false.
