@@ -442,7 +442,7 @@ Source options | Description
 ---|---
 `url` | url to the wmts endpoint
 `matrixSet` | the named matrixSet if provided for the source. Default matrixSet is the matrixSet created for the map and depends on the map resolutions.
-`matrixIdsPrefix` | the named prefix ifor tileMatrix. Default matrixIdsPrefix is the maps projection code.
+`matrixIdsPrefix` | the named prefix for tileMatrix. Default matrixIdsPrefix is the maps projection code.
 
 
 #### Basic example WMTS
