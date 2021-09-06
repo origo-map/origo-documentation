@@ -133,7 +133,7 @@ Name | Type | Description
 `autoExpand` | boolean | For subgroups. Whether the subgroup should be expanded/collapsed when toggling the subgroups checkbox. Used by the legend control. Default is true.
 `groups` | array | Array of group objects defining subgroups. Optional."exclusive": true
 `exclusive` | boolean | Setting to true will prevent activating more than one layer in the group. Defaults to false.
-`toggleAll` | boolean | For subgroups. Set to false to disable the option to show/hide all layers in the subgroup at once.
+`toggleAll` | boolean | For subgroups. Set to false to disable the option to show/hide all layers in the subgroup at once. Default is true.
 
 #### Example groups
 
