@@ -486,6 +486,7 @@ Option | Description
 `elevationTargetProjection` | Projection code for coordinates to be sent to an elevation web service, if other than the current map projection.
 `elevationAttribute` | "Path" to the elevation data attribute in the web service response. Required if using elevation tool.
 `showSegmentLengths` | True or false if individual segment lengths should be shown. Default is false.
+`showSegmentLabelButtonActive` | True or false if the label for segment lengths should be active or not from start. Default is true.
 `useHectare` | True or false if hectare should be used for area between 10 000 and 1 000 000 square meters. Default is true and hectare is used, false and square meters is used.
 
 #### Example measure control
