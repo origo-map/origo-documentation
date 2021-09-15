@@ -168,6 +168,7 @@ Property | Type | Description
 `selectionStyles` | object | Option to set custom selection style. Optional.
 `multiSelectionStyles` | object | Option to set custom selection style for selected and highlighted features when using infowindow as infowindow. Optional.
 `toggleSelectOnClick` | boolean | Option to enable/disable selection toggling. Used with the multiselection plugin and defaults to false.
+`changePointerOnHover` | boolean | When set to true, the mouse pointer changes when hovering over a clickable object. Optional. Defaults to false.
 
 #### infowindowOptions
 
