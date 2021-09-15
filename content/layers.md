@@ -432,7 +432,6 @@ Property | Description
 `attributes` | definition of [attributes](#attributes) and how they should be presented in featureinfo. If not provided all available attributes will be shown with a standard template.
 `format` | the image format to use. Default is image/png.
 `featureinfoLayer` | the named layer this layer should use for featureinfo requests. Optional.
-`matrixSet` | the named matrixSet if provided for the source. Default matrixSet is the matrixSet created for the map and depends on the map resolutios.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
@@ -442,6 +441,9 @@ Property | Description
 Source options | Description
 ---|---
 `url` | url to the wmts endpoint
+`matrixSet` | the named matrixSet if provided for the source. Default matrixSet is the matrixSet created for the map and depends on the map resolutions.
+`matrixIdsPrefix` | the named prefix for tileMatrix. Default matrixIdsPrefix is the maps projection code.
+
 
 #### Basic example WMTS
 
