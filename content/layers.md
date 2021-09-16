@@ -689,13 +689,27 @@ Attribute options | Description
 
 ### Editor attributes
 
+When editing a layer, additional attributes are supported to control the behaviour of the edit attributes tool.
+
+Attribute option | Description
+---|---
+`type` | The attribute type. Determines which edit control is used. See [Editor attribute types](#editor-attribute-types)  (required)
+`allowBatchEdit` | _bool_ true if allowed to update a selection of features with the same value (optional)
+`constraint` | _string_  \<event\>:\<attribute name\>:\<value\> or \<event\>:\<attribute name\>:[\<value1\>,\<value2\>, ...], where \<event\> is the event that the \<attribute name\> input emits, most likely `change`. Attribute is only editable when \<attribute name\> has value \<value\> (optional)
+`maxLength` | _int_ Maximum number of characters (optional) 
+`options` | _array of strings_ List of allowed values. Required for type `dropdown` (optional)
+`readonly` | _bool_ True if attribute should be displayed but not allowed to edit (optional)
+`required` | _bool_ True if the attribut must have a value (optional)
+
+
+
+#### Editor attribute types
 type | format | required | readonly | maxLength | constraint | Description
 ---|---|---|---|---|---|---
 `text`      | string | supported | supported | supported || Text input
 `textarea`  | string | supported | supported | supported || Text input with resizable box
 `dropdown`  | string || supported || supported | Dropdown based on options values
 `checkbox`  | boolean || supported ||| Checkbox, defaults to false. Use checked:true for true
-`constraint`| change:attribute:value or change:attribute:[value1,value2] ||||| Activates new type based on field value or multiple field values.
 `image`     | base64 || supported ||| Uploads image
 `color`     | hexadecimal || supported ||| Activates a color-picker
 `time`      | hh:mm | supported | supported ||| Defaults to current time. Use defaultTime:false to not.
