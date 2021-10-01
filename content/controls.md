@@ -572,6 +572,7 @@ Option | Description
 `style` | a style object for setting e.g. the height of the image. Optional, defaults to "{"height": "5rem"}".
 `showScale` | option to set if the scale should be visible on load. Optional, default is true.
 `scales` | Array of scales to use. Optional, if not specified the scales are calculated from the map resolutions.
+`supressResolutionsRecalculation` | option to set if the resolutions array should be recalculated when entering the print preview (and restored when exited). Alleviates problem with large scales and 300DPI, default is true.
 `hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 
