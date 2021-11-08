@@ -21,6 +21,9 @@ Option | Description
 `authorizationUrl` | an url that triggers authorization. It can for example be used to send a wms request that will trigger authorization before the map is loaded.
 `svgSpritePath` | path for svg sprites. Default is 'css/svg/'.
 `svgSprites` | list of svg sprites that should be requested.
+`breakPoints` | breakpoints determining what is shown at different screen sizes.
+`breakPointsPrefix` | prefix to use when styling with breakpoints. Defaults to o-media.
+`defaultControls` | to override loading of default controls (scaleline, zoom, rotate, attribution and fullscreen).
 
 
 #### Example map with json
@@ -44,6 +47,22 @@ Option | Description
 
 ```javascript
 <script type="text/javascript">
-  var origo = Origo('index.json', { target: '#the-map' });
+  var origo = Origo('index.json', {
+    target: '#the-map,
+    breakPoints: {
+      xs: [240, 320],
+      s: [320, 320],
+      m: [500, 500],
+      l: [768, 500]
+    },
+    breakPointsPrefix: 'o-media',
+    defaultControls: [
+      { name: 'scaleline' },
+      { name: 'zoom' },
+      { name: 'rotate' },
+      { name: 'attribution' },
+      { name: 'fullscreen' }
+    ]
+    });
 </script>
 ```
