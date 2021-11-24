@@ -32,6 +32,7 @@ Property | Description
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 `headers` | Used for setting headers that should be included in the request of the GeoJSON. Formatted as a object with key/value pairs for the headers. Can be used for setting which type to accept or add a apikey.
+`attachments`| An [attachment object](#Attachment-configuration) containing configuration for editing and displaying attachments
 
 #### Basic example GeoJSON
 
@@ -74,6 +75,7 @@ Property | Description
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 `headers` | Used for setting headers that should be included in the request of the GPX. Formatted as a object with key/value pairs for the headers. Can be used for setting which type to accept or add a apikey.
+`attachments`| An [attachment object](#Attachment-configuration) containing configuration for editing and displaying attachments
 
 #### Basic example GPX
 
@@ -115,6 +117,7 @@ Property | Description
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
+`attachments`| An [attachment object](#Attachment-configuration) containing configuration for editing and displaying attachments
 
 #### Basic example TopoJSON
 
@@ -164,6 +167,7 @@ Property | Description
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
+`attachments`| An [attachment object](#Attachment-configuration) containing configuration for editing and displaying attachments
 
 Source options | Description
 ---|---
@@ -256,6 +260,7 @@ Property | Description
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
+`attachments`| An [attachment object](#Attachment-configuration) containing configuration for editing and displaying attachments
 
 Source options | Description
 ---|---
@@ -361,6 +366,7 @@ Property | Description
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
+`attachments`| An [attachment object](#Attachment-configuration) containing configuration for displaying attachments
 
 Source options | Description
 ---|---
@@ -437,6 +443,7 @@ Property | Description
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `wmtsStyle` | WMTS layer style, if applicable.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
+`attachments`| An [attachment object](#Attachment-configuration) containing configuration for displaying attachments
 
 Source options | Description
 ---|---
@@ -525,6 +532,7 @@ Property | Description
 `removable` | Adds an remove button next to the layer name if set to true. Optional.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
+`attachments`| An [attachment object](#Attachment-configuration) containing configuration for displaying attachments
 
 Source options | Description
 ---|---
@@ -657,9 +665,10 @@ Attribute options | Description
 `target` | default behaviour is to open url in new window (_blank). It's possible to specify other targets as _top, _self and _parent or to open link in an iframe in a modal window which should than be set to modal for normal size or modal-full. Optional.
 `targetTitle` | used along with target to define title in modal titlebar and link tooltip. Can be set to "static text" or "{{attribute value}}". Default is url.
 `img` | attribute containing url to an image. The image will be embedded. Optional.
-`splitter` | set a splitter for example , or ; which is used to split the attribute if it is made up of delimited list of compounded attributes of the same type. To be used together with url or img. Optional.
+`splitter` | set a splitter for example , or ; which is used to split the attribute if it is made up of delimited list of compounded attributes of the same type. To be used together with `url`, `img` and `linktext`. Optional.
 `cls` | css class name for custom styling. Optional.
 `html` | custom html. Attributes can be referenced be placing the attribute name within double curly brackets.  It also possible in a similar way to insert functions, for example getCenter which is written as `{{@center}}`. Arguments can be added, for example `{{@center(EPSG:4326,reverse)}}` to get the center coordinates in EPSG:4326 with reversed coordinates (or `{{@center(EPSG:4326,default)}}` to maintain the axis orientation after transformation). The `html` option can't be combined with any of the other options, except for `cls`. Optional.
+`linktext` | Name of attribute that holds the text that should be used on links when using `url` in combination with `splitter`. Optional.
 
 #### Example defining layer attributes
 
@@ -822,4 +831,96 @@ type | format | required | readonly | maxLength | constraint | Description
   }
 }
 
+```
+
+## Attachments
+While attributes are taken from each feature itself in a layer, an attachment is a file that
+is stored somewhere else but can be treated as an attribute. An attachment is typically an
+image or document that relates to a special feature and for practical reasons can not be stored in an attribute.
+Attachments can be viewed, added and removed by the user in the editor form and viewed in featureInfo as links or emedded as images.
+
+Attachments are configured on each layer. It can be configured
+for both raster and vector layers, but can only be edited on vector layers.
+In order to use attachments, an attachment server is needed. The attachment server must implement the arcgis server
+rest api for attachments.
+
+- _attachment Infos_ https://developers.arcgis.com/rest/services-reference/enterprise/attachment-infos-feature-service-.htm
+- _attachment_ https://developers.arcgis.com/rest/services-reference/enterprise/attachment-feature-service-.htm
+- _add attachment_ https://developers.arcgis.com/rest/services-reference/enterprise/add-attachment.htm
+- _delete attachment_ https://developers.arcgis.com/rest/services-reference/enterprise/delete-attachments.htm
+
+
+Optionally the server can extend the AGS interface by adding the concept
+of attachment groups in order to group attachments in different groups. Groups can be used to have 
+different rules and display them differently. AGS server can be used out-of-the-box for AGS layers, but the extented
+format must be implemented as a server side component. 
+
+The extensions to the AGS format are:
+
+- The response from _attachments infos_ must include a "group" property for each attachmentInfo object
+- The request to _addAttachment_ must include a "group" parameter
+
+A reference implementation of the extended
+format is available here: https://github.com/ornskoldsvikskommun/attachmentServer-reference It
+should not be used for production environments as it lacks security, performance and
+flexibilty.
+
+### Attachment configuration
+Attachments are configured on each layer using the `"attachments"` property containing an object with the following properties.
+
+Property | Description | Required | Default value
+---|---|---|---
+`url` | The base adress for the attachment server. | Yes
+`formTitle` | Title of section in editor form | No | 'Bilagor'
+`format` | The format to use. 'origo' or 'arcgis'. 'origo' extenteds the AGS format by using groups | No | 'origo'
+`foreignKey` | Name of the attribute in the parent feature that contains the private key. | No | Uses id of feature
+`stripLayerNameFromId` | Removes layer name from featureid when _foreignKey_ is not specified. Useful when using geoserver wfs services to get only database FID as private key. | No | _true_
+`layerId` | The layer id in the attachment server. | No | _Layer name_
+`groups` | Array of [group objects](#Group-object) defining an attachment group. A group has its own title and each group is treated as a separate attribute. At least one group has to be specified. If format is "arcgis" exactly one group must be specified | Yes | 
+
+
+### Group object
+
+Property | Description | Required | Default value
+---|---|---|---
+`name` | Name of the group on the attachment server. Ignored for format 'arcgis' | Yes |
+`title` | Title displayed in the editor. Ignored for format 'arcgis' | No | `name`
+`linkAttribute` | Name of an attribute to create on a feature containing all links as a semicolon separated list. Can be used to create links in featureInfo using the _img_ or _url_ property. | No |
+`fileNameAttribute` | Name of an attribute to create on a feature containing all filename as a semicolon separated list. Order is same as linkAttribute list. Can be used in combination with _linkAttribute_ to set link text using the _linktext_ property | No
+`allowedFiles` | Comma separated list of valid file extensions and mime types that are allowed to upload. Format is accordning to the accept attribute of https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file | No | *
+
+#### Example attachment configuration
+```json
+"attachments": {
+        "formTitle" : "Attachments",
+        "layerId": "entity_blob",
+        "url": "http://gis.kommun.org/attachmentserver/",
+        "groups": [
+          {
+            "name": "proto",
+            "title": "Protocols",
+            "allowedFiles": ".pdf"
+          },
+          {
+            "name": "public",
+            "title": "Public Image",
+            "allowedFiles": ".jpg,.png",
+            "linkAttribute": "pictureLinks",
+            "fileNameAttribute": "pictureTexts"
+
+          }
+        ]
+      }
+```
+
+#### Example display attachments in featureinfo configuration
+```json
+"attributes": [
+    {
+        "title": "Images",
+        "linktext": "pictureTexts",
+        "url": "pictureLinks",
+        "splitter": ";"
+     }
+]
 ```
