@@ -145,7 +145,7 @@ Property | Description
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
 `group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
 `editable` | if the layer should be editable or not. Requires the editor control. Defaults to false. Optional.
-`allowedEditOperations` | List of available edit tools. Possible values are: _updateAttributes_, _updateGeometry_, _create_, _delete_. Only applies if layer is editable. Defaults to all. Optional. 
+`allowedEditOperations` | List of available edit tools. Possible values are: _updateAttributes_, _updateGeometry_, _create_, _delete_. Only applies if layer is editable. Defaults to all. Optional.
 `queryable` | if featureinfo should be enabled for the layer. Default is true.
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
 `legend` | if the layer should be included in the map legend. Default is false.
@@ -240,7 +240,7 @@ Property | Description
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
 `group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
 `editable` | if the layer should be editable or not. Requires the editor control. Defaults to false. Optional.
-`allowedEditOperations` | List of available edit tools. Possible values are: _updateAttributes_, _updateGeometry_, _create_, _delete_. Only applies if layer is editable. Defaults to all. Optional. 
+`allowedEditOperations` | List of available edit tools. Possible values are: _updateAttributes_, _updateGeometry_, _create_, _delete_. Only applies if layer is editable. Defaults to all. Optional.
 `queryable` | if featureinfo should be enabled for the layer. Default is true.
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
 `legend` | if the layer should be included in the map legend. Default is false.
@@ -669,6 +669,8 @@ Attribute options | Description
 `cls` | css class name for custom styling. Optional.
 `html` | custom html. Attributes can be referenced be placing the attribute name within double curly brackets.  It also possible in a similar way to insert functions, for example getCenter which is written as `{{@center}}`. Arguments can be added, for example `{{@center(EPSG:4326,reverse)}}` to get the center coordinates in EPSG:4326 with reversed coordinates (or `{{@center(EPSG:4326,default)}}` to maintain the axis orientation after transformation). The `html` option can't be combined with any of the other options, except for `cls`. Optional.
 `linktext` | Name of attribute that holds the text that should be used on links when using `url` in combination with `splitter`. Optional.
+`prefix` | adds the text entered in front of the attribute value. Optional.
+`suffix` | adds the text entered after the attribute value. Optional.
 
 #### Example defining layer attributes
 
@@ -705,7 +707,7 @@ Attribute option | Description
 `type` | The attribute type. Determines which edit control is used. See [Editor attribute types](#editor-attribute-types)  (required)
 `allowBatchEdit` | _bool_ true if allowed to update a selection of features with the same value (optional)
 `constraint` | _string_  \<event\>:\<attribute name\>:\<value\> or \<event\>:\<attribute name\>:[\<value1\>,\<value2\>, ...], where \<event\> is the event that the \<attribute name\> input emits, most likely `change`. Attribute is only editable when \<attribute name\> has value \<value\> (optional)
-`maxLength` | _int_ Maximum number of characters (optional) 
+`maxLength` | _int_ Maximum number of characters (optional)
 `options` | _array of strings_ List of allowed values. Required for type `dropdown` (optional)
 `readonly` | _bool_ True if attribute should be displayed but not allowed to edit (optional)
 `required` | _bool_ True if the attribut must have a value (optional)
@@ -851,9 +853,9 @@ rest api for attachments.
 
 
 Optionally the server can extend the AGS interface by adding the concept
-of attachment groups in order to group attachments in different groups. Groups can be used to have 
+of attachment groups in order to group attachments in different groups. Groups can be used to have
 different rules and display them differently. AGS server can be used out-of-the-box for AGS layers, but the extented
-format must be implemented as a server side component. 
+format must be implemented as a server side component.
 
 The extensions to the AGS format are:
 
@@ -876,7 +878,7 @@ Property | Description | Required | Default value
 `foreignKey` | Name of the attribute in the parent feature that contains the private key. | No | Uses id of feature
 `stripLayerNameFromId` | Removes layer name from featureid when _foreignKey_ is not specified. Useful when using geoserver wfs services to get only database FID as private key. | No | _true_
 `layerId` | The layer id in the attachment server. | No | _Layer name_
-`groups` | Array of [group objects](#Group-object) defining an attachment group. A group has its own title and each group is treated as a separate attribute. At least one group has to be specified. If format is "arcgis" exactly one group must be specified | Yes | 
+`groups` | Array of [group objects](#Group-object) defining an attachment group. A group has its own title and each group is treated as a separate attribute. At least one group has to be specified. If format is "arcgis" exactly one group must be specified | Yes |
 
 
 ### Group object
