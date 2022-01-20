@@ -474,7 +474,7 @@ Option | Description
 
 ### Measure control
 
-Adds a measure control. Measure length, area or elevation (requires access to external elevation data web service) in the map.
+Adds a measure control. Measure length, area, buffer or elevation (requires access to external elevation data web service) in the map.
 
 Property | Description
 ---|---
@@ -484,7 +484,7 @@ Property | Description
 
 Option | Description
 ---|---
-`measureTools` | Array of tools to use. Valid are 'length', 'area' and 'elevation'. Default is ["length", "area"].
+`measureTools` | Array of tools to use. Valid are 'length', 'area', 'elevation' and 'buffer'. Default is ["length", "area"].
 `default` | What tool to use as default. Default is 'length'.
 `elevationServiceURL` | URL to elevation data web service, with variable parameters enclosed in curly braces. Applicable variables are `{easting}` and `{northing}`. Required if using elevation tool.
 `elevationTargetProjection` | Projection code for coordinates to be sent to an elevation web service, if other than the current map projection.
