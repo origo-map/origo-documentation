@@ -114,7 +114,7 @@ A text style can be defined with the OpenLayers options for a [Text](https://ope
 
 Arbitrary text can be provided as text value. For cluster layers the reserved word "size" can be used to show number of features of the cluster.
 
-#### Text example
+#### Text example with static text
 
 ```json
 {
@@ -135,6 +135,26 @@ Arbitrary text can be provided as text value. For cluster layers the reserved wo
 }
 ```
 
+#### Example with text from attribute
+
+```json
+{
+  "text": {
+    "font": "14px Arial",
+    "textAlign": "center",
+    "offsetX": 10,
+    "offsetY": -10,
+    "text": "{{name}}",
+    "fill": {
+      "color": "rgba(0,0,0,1.0)"
+    },
+    "stroke": {
+      "color": "rgba(255,255,255,0.7)",
+      "width": 2
+    }
+  }
+}
+```
 ### Image
 
 The image style is not used to style features. It is only used for legend purposes, for example to symbolize a raster layer in the legend. Only the src property is set.
