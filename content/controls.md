@@ -578,6 +578,7 @@ Option | Description
 `scales` | Array of scales to use. Optional, if not specified the scales are calculated from the map resolutions.
 `supressResolutionsRecalculation` | option to set if the resolutions array should not be recalculated when entering the print preview (and restored when exited). Recalculating alleviates a problem with large scales and 300DPI. The option defaults to false.
 `hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
+`suppressNewDPIMethod` | option to set if the new DPI calculation when changing resolution in the print preview should not be used. The option defaults to false.
 
 
 #### Example Print control
