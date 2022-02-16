@@ -723,7 +723,7 @@ type | format | required | readonly | maxLength | constraint | Description
 `color`     | hexadecimal || supported ||| Activates a color-picker
 `time`      | hh:mm:ss | supported | supported ||| Defaults to current time. Use defaultTime:false to not.
 `date`      | YYYY-MM-DD | supported | supported ||| Defaults to current date. Use defaultDate:false to not.
-`datetime`  | YYYY-MM-DDThh:mm | supported | supported ||| Defaults to current date. Use defaultDatetime:false to not.
+`datetime`  | YYYY-MM-DD hh:mm:ss | supported | supported ||| Defaults to current date. Use defaultDatetime:false to not.
 `email`     | string | supported | supported ||| Email address
 `url`       | string | supported | supported ||| Homepage address
 `integer`   | integer | supported | supported ||| Whole number
