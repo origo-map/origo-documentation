@@ -176,18 +176,19 @@ Property | Type | Description
 Name | Type | Description
 ---|---|---
 `title` | string | Infowindow header text. Default is "Träffar".
-`export` | object | Defines settings for the export. Two export options are possible, send objects with simple export and with layer specific export. Currently only attributes can be send with this function.
+`export` | object | Defines settings for the export. Two different export options are possible, server side and client side. Server side export requires a server endpoint and can be configured either as a simple export or layer specific export. Currently only attributes can be sent with server side export.
 
 **Export properties**
 
 Name | Type | Description
 ---|---|---
 `simpleExportUrl` | string | Url to a service. Exports all attributes from the layer source. Can be used with excel creator in Origo server.
-`simpleExportLayers` | array | Defines layers that can export selected objects.
-`exportedFileName` | string | File name and file extension for the export. The file extension must match the file extension from the service. Required.
+`simpleExportLayers` | array | Defines layers that can export selected objects. If layerSpecificExport is configured for a layer that takes precedence over the simple export.
+`exportedFileName` | string | File name and file extension for the export. The file extension must match the file extension from the service. Required for simple export.
 `simpleExportButtonText` | string | The button text shown in the infowindow. Default is "Export".
 `toasterMessages` | object  | Status message to the user. Defines messages for "success" and "fail". Default message is "Success!" and "Sorry, something went wrong, please contact your administrator." Currently only fail message is shown.
-`layerSpecificExport` | array | Specific export options per layer. Defines attributes, file name and service url for the export. Each layer is defined as an object.
+`layerSpecificExport` | array | Specific export options per layer. Defines attributes, file name and service url for the export. Each layer is defined as an object. If specified for a layer, layer specific export is used for that layer.
+`clientExport`| object | Configuration for exporting layers without the need of a server. Only applies if no layerSpecificExport or simpleExportLayers is configured.
 
 **LayerSpecificExport properties**
 
@@ -205,6 +206,13 @@ Name | Type | Description
 `buttonText` | string | The button text shown in the infowindow. Default is "Export".
 `exportedFileName` | string | File name and file extension for the export. The file extension must match the file extension from the service. Required.
 
+##### clientExport properties
+
+Name | Type | Description
+---|---|---
+`layers` | array of string | List of layer names that are allowed to export selected objects. Optional, if omitted export is allowed for all layers.
+`buttonText` | string | Text to display on export button. Optional, defaults to 'Exportera'
+`format` | string | Fileformat to export to. Can be one of `'geojson' | 'gpx' | 'kml'` Required.
 
 #### Example featureinfoOptions with overlay as infowindow
 

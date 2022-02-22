@@ -474,7 +474,7 @@ Option | Description
 
 ### Measure control
 
-Adds a measure control. Measure length, area or elevation (requires access to external elevation data web service) in the map.
+Adds a measure control. Measure length, area, buffer or elevation (requires access to external elevation data web service) in the map.
 
 Property | Description
 ---|---
@@ -484,13 +484,17 @@ Property | Description
 
 Option | Description
 ---|---
-`measureTools` | Array of tools to use. Valid are 'length', 'area' and 'elevation'. Default is ["length", "area"].
+`measureTools` | Array of tools to use. Valid are 'length', 'area', 'elevation' and 'buffer'. Default is ["length", "area"].
 `default` | What tool to use as default. Default is 'length'.
 `elevationServiceURL` | URL to elevation data web service, with variable parameters enclosed in curly braces. Applicable variables are `{easting}` and `{northing}`. Required if using elevation tool.
 `elevationTargetProjection` | Projection code for coordinates to be sent to an elevation web service, if other than the current map projection.
 `elevationAttribute` | "Path" to the elevation data attribute in the web service response. Required if using elevation tool.
 `showSegmentLengths` | True or false if individual segment lengths should be shown. Default is false.
 `showSegmentLabelButtonActive` | True or false if the label for segment lengths should be active or not from start. Default is true.
+`snap` | Enables snapping. Defaults to false.
+`snapIsActive` | Sets the initial state of the snap.
+`snapLayers` | Array of layers that snap is enabled for. If undefined, snap will be enabled for all layers.
+`snapRadius` | Distance from point where snap is triggered.
 `useHectare` | True or false if hectare should be used for area between 10 000 and 1 000 000 square meters. Default is true and hectare is used, false and square meters is used.
 
 #### Example measure control
@@ -516,6 +520,22 @@ Option | Description
     "elevationServiceURL": "https://maps.googleapis.com/maps/api/elevation/json?locations={northing},{easting}&key=MY_API_KEY",
     "elevationProjection": "EPSG:4326",
     "elevationAttribute": "results[0].elevation"
+  }
+}
+```
+
+#### Example measure control with snap enabled
+
+```json
+{
+  "name": "measure",
+  "options": {
+    "snap": true,
+    "snapIsActive": true,
+    "snapLayers": [
+      "origo-cities"
+    ],
+    "snapRadius": 15
   }
 }
 ```
@@ -578,6 +598,7 @@ Option | Description
 `scales` | Array of scales to use. Optional, if not specified the scales are calculated from the map resolutions.
 `supressResolutionsRecalculation` | option to set if the resolutions array should not be recalculated when entering the print preview (and restored when exited). Recalculating alleviates a problem with large scales and 300DPI. The option defaults to false.
 `hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
+`suppressNewDPIMethod` | option to set if the new DPI calculation when changing resolution in the print preview should not be used. The option defaults to false.
 
 
 #### Example Print control
