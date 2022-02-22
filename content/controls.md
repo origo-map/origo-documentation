@@ -491,6 +491,10 @@ Option | Description
 `elevationAttribute` | "Path" to the elevation data attribute in the web service response. Required if using elevation tool.
 `showSegmentLengths` | True or false if individual segment lengths should be shown. Default is false.
 `showSegmentLabelButtonActive` | True or false if the label for segment lengths should be active or not from start. Default is true.
+`snap` | Enables snapping. Defaults to false.
+`snapIsActive` | Sets the initial state of the snap.
+`snapLayers` | Array of layers that snap is enabled for. If undefined, snap will be enabled for all layers.
+`snapRadius` | Distance from point where snap is triggered.
 `useHectare` | True or false if hectare should be used for area between 10 000 and 1 000 000 square meters. Default is true and hectare is used, false and square meters is used.
 
 #### Example measure control
@@ -516,6 +520,22 @@ Option | Description
     "elevationServiceURL": "https://maps.googleapis.com/maps/api/elevation/json?locations={northing},{easting}&key=MY_API_KEY",
     "elevationProjection": "EPSG:4326",
     "elevationAttribute": "results[0].elevation"
+  }
+}
+```
+
+#### Example measure control with snap enabled
+
+```json
+{
+  "name": "measure",
+  "options": {
+    "snap": true,
+    "snapIsActive": true,
+    "snapLayers": [
+      "origo-cities"
+    ],
+    "snapRadius": 15
   }
 }
 ```
