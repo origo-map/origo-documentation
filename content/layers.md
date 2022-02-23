@@ -715,8 +715,8 @@ Attribute option | Description
 `required` | _bool_ True if the attribut must have a value (optional)
 
 
+**Editor attribute types**
 
-#### Editor attribute types
 type | format | required | readonly | maxLength | constraint | Description
 ---|---|---|---|---|---|---
 `text`      | string | supported | supported | supported || Text input
@@ -725,14 +725,15 @@ type | format | required | readonly | maxLength | constraint | Description
 `checkbox`  | boolean || supported ||| Checkbox, defaults to false. Use checked:true for true
 `image`     | base64 || supported ||| Uploads image
 `color`     | hexadecimal || supported ||| Activates a color-picker
-`time`      | hh:mm | supported | supported ||| Defaults to current time. Use defaultTime:false to not.
+`time`      | hh:mm:ss | supported | supported ||| Defaults to current time. Use defaultTime:false to not.
 `date`      | YYYY-MM-DD | supported | supported ||| Defaults to current date. Use defaultDate:false to not.
-`datetime` | YYYY-MM-DDThh:mm | supported | supported ||| Defaults to current date. Use defaultDatetime:false to not.
+`datetime`  | YYYY-MM-DD hh:mm:ss | supported | supported ||| Defaults to current date. Use defaultDatetime:false to not.
 `email`     | string | supported | supported ||| Email address
 `url`       | string | supported | supported ||| Homepage address
 `integer`   | integer | supported | supported ||| Whole number
 `decimal`   | decimal | supported | supported ||| Decimal number
 `searchList`   | string | supported |||| Dropdown based on options values with search capabilities. Can handle target icon src. Can handle icon folder load.
+
 
 #### Example editor attributes
 
@@ -836,6 +837,7 @@ type | format | required | readonly | maxLength | constraint | Description
 }
 
 ```
+
 
 ## Attachments
 While attributes are taken from each feature itself in a layer, an attachment is a file that

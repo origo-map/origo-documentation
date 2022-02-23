@@ -171,14 +171,14 @@ Property | Type | Description
 `toggleSelectOnClick` | boolean | Option to enable/disable selection toggling. Used with the multiselection plugin and defaults to false.
 `changePointerOnHover` | boolean | When set to true, the mouse pointer changes when hovering over a clickable object. Optional. Defaults to false.
 
-#### infowindowOptions
+**infowindowOptions**
 
 Name | Type | Description
 ---|---|---
 `title` | string | Infowindow header text. Default is "Träffar".
 `export` | object | Defines settings for the export. Two different export options are possible, server side and client side. Server side export requires a server endpoint and can be configured either as a simple export or layer specific export. Currently only attributes can be sent with server side export.
 
-##### Export properties
+**Export properties**
 
 Name | Type | Description
 ---|---|---
@@ -190,7 +190,7 @@ Name | Type | Description
 `layerSpecificExport` | array | Specific export options per layer. Defines attributes, file name and service url for the export. Each layer is defined as an object. If specified for a layer, layer specific export is used for that layer.
 `clientExport`| object | Configuration for exporting layers without the need of a server. Only applies if no layerSpecificExport or simpleExportLayers is configured.
 
-##### LayerSpecificExport properties
+**LayerSpecificExport properties**
 
 Name | Type | Description
 ---|---|---
@@ -198,7 +198,7 @@ Name | Type | Description
 `attributesToSendToExport` | array | Attributes to send to the export service.
 `exportUrls` | array | Defines settings for the export. A layer can have multiple exports. Each export is defined as an object.
 
-##### ExportUrls properties
+**ExportUrls properties**
 
 Name | Type | Description
 ---|---|---
