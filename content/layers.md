@@ -713,6 +713,7 @@ Attribute option | Description
 `options` | _array of strings_ List of allowed values. Required for type `dropdown` (optional)
 `readonly` | _bool_ True if attribute should be displayed but not allowed to edit (optional)
 `required` | _bool_ True if the attribut must have a value (optional)
+`defaultValue` | _string_ or _object_. When type is string that string is used as default value on feature creation. When it is an object a _defaultValue_ object defines behaviour (optional)
 
 
 **Editor attribute types**
@@ -733,6 +734,22 @@ type | format | required | readonly | maxLength | constraint | Description
 `integer`   | integer | supported | supported ||| Whole number
 `decimal`   | decimal | supported | supported ||| Decimal number
 `searchList`   | string | supported |||| Dropdown based on options values with search capabilities. Can handle target icon src. Can handle icon folder load.
+`hidden` | string ||||| Not visible to the user. 
+
+**defaultValue object**
+The defaultValue object controls how an attribute's default value is handled. Default values are always set when creating new features, and can optionally be set when updating attributes.
+Default values can be overridden in the attribute editor unless attribute is configured as readonly or hidden.
+
+Property | Description | Required | Default value
+---|---|---|---
+`type` | Source of default value. One of `sessionStorage`, `localStorage`, `timestamp`. If `timestamp` is specified it overrules default values for input types `time`, `date` and `datetime` | Yes | 
+`key`| key in sessionStorage or localStorgage | When `type` is `localStorage` or `sessionStorage` |
+`updateOnEdit`| `true` if default value should be applied when editing as well as creating a new feature. | No | `false`
+`timeStampFormat`| One of `time` = "HH:mm:ss", `date`= "yyyy-MM-dd", `datetime` = "yyyy-MM-dd HH:mm:ss", `timestamp` = "yyyy-MM-ddTHH:mm:ss | No | `timestamp`
+`useUTC` | `true`if time should be in UTC, otherwise local time | No | `false`
+
+
+
 
 
 #### Example editor attributes
@@ -838,6 +855,31 @@ type | format | required | readonly | maxLength | constraint | Description
 
 ```
 
+#### Example Default Values. Readonly user, hidden timestamp.
+```json
+"attributes": [
+        {
+          "name": "user",
+          "title": "Edited by",
+          "type": "text",
+          "readonly": true,
+          "defaultValue": {
+            "type": "sessionStorage",
+            "key": "loggedInUser",
+            "updateOnEdit": true
+          }
+        },
+        {
+          "name": "lastUpdate",
+          "type": "hidden",
+          "defaultValue": {
+            "type": "timestamp",
+            "updateOnEdit": true,
+            "useUTC":  true
+          }
+        }
+ ]
+```
 
 ## Attachments
 While attributes are taken from each feature itself in a layer, an attachment is a file that
