@@ -376,6 +376,7 @@ Property | Description
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 `attachments`| An [attachment object](#Attachment-configuration) containing configuration for displaying attachments
+`infoFormat` | Origo's get feature info expects responses in 'application/json' but some WMS servers (f.e. ArcGIS) don't supply it, so it's possible here to request in format 'application/geo+json' or 'application/geojson' if the server response with that format. Optional.
 
 Source options | Description
 ---|---
