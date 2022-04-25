@@ -402,6 +402,7 @@ Option | Description
 `searchLayersMinLength` | specifies the minimum length of how many characters should be entered before search, default is 2.
 `searchLayersLimit` | specifies how many matches should be shown, default is 10.
 `searchLayersParameters` | specifies the parameters which should be used in the search. Defaults to ['name', 'title'].
+`searchLayersPlaceholderText` | specifies the text that should be displayed as placeholder text in search input field. Defaults to 'Sök lager'.
 
 #### Example legend control
 
