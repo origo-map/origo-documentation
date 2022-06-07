@@ -64,7 +64,7 @@ screen. They can involve user input (buttons), or be informational only. The con
 
 ### About control
 
-Adds an about map control. A button is added to the menu. On button click, a splash popup will show general info about the map. **NOTE** - requires mapmenu control.
+Adds an about map control. A button is added to the mapmenu. On button click, a splash popup will show general info about the map. **NOTE** - requires mapmenu control.
 
 Property | Description
 ---|---
@@ -420,7 +420,7 @@ Option | Description
 
 ### Link control
 
-Adds a button to the map menu that when clicked opens a new browser tab with the specified url.
+Adds a button to the mapmenu that when clicked opens a new browser tab with the specified url. **NOTE** - requires mapmenu control.
 
 Property | Description
 ---|---
@@ -574,7 +574,7 @@ Option | Description
 
 ### Print
 
-Adds a print control.
+Adds a print control to the mapmenu.  **NOTE** - requires mapmenu control.
 
 Property | Description
 ---|---
@@ -798,7 +798,7 @@ Option | Description
 
 ### Sharemap control
 
-Creates a shareable link to the map. Current extent and zoom, visible layers and the map pin (if applicable) will be shared. If a feature in the map is selected, the id of the feature will be in the link making the map zoom to it on load. This goes for WFS, Geojson, Topojson and AGS Feature layers. The sharemap control also comes with the option to save map state on the server (requires Origo Server). A saved map state is retrieved with an ID instead of an URL.
+Creates a shareable link to the map. Current extent and zoom, visible layers and the map pin (if applicable) will be shared. If a feature in the map is selected, the id of the feature will be in the link making the map zoom to it on load. This goes for WFS, Geojson, Topojson and AGS Feature layers. The sharemap control also comes with the option to save map state on the server (requires Origo Server). A saved map state is retrieved with an ID instead of an URL. Adds a button to the mapmenu. **NOTE** - requires mapmenu control.
 
 Property | Description
 ---|---
