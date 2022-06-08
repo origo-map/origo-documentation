@@ -721,7 +721,9 @@ Attribute option | Description
 ---|---
 `type` | The attribute type. Determines which edit control is used. See [Editor attribute types](#editor-attribute-types)  (required)
 `allowBatchEdit` | _bool_ true if allowed to update a selection of features with the same value (optional)
+`config` | _object_ Additional configuration for searchList
 `constraint` | _string_  \<event\>:\<attribute name\>:\<value\> or \<event\>:\<attribute name\>:[\<value1\>,\<value2\>, ...], where \<event\> is the event that the \<attribute name\> input emits, most likely `change`. Attribute is only editable when \<attribute name\> has value \<value\> (optional)
+`list` | _array of strings_ or _array of list object_. List of possible values for searchList. (optional)
 `maxLength` | _int_ Maximum number of characters (optional)
 `options` | _array of strings_ List of allowed values. Required for type `dropdown` (optional)
 `readonly` | _bool_ True if attribute should be displayed but not allowed to edit (optional)
@@ -746,8 +748,34 @@ type | format | required | readonly | maxLength | constraint | Description
 `url`       | string | supported | supported ||| Homepage address
 `integer`   | integer | supported | supported ||| Whole number
 `decimal`   | decimal | supported | supported ||| Decimal number
-`searchList`   | string | supported |||| Dropdown based on options values with search capabilities. Can handle target icon src. Can handle icon folder load.
+`searchList`   | string | supported ||supported. Defaults to 50|| Dropdown based on options values with search capabilities. 
 `hidden` | string ||||| Not visible to the user. 
+
+**searchList List object**
+
+Defines the possible values in a _searchList_
+
+Property | Description | Required | Default value
+---|---|---|---
+`value` | _string_ text to display | When _location_ is not specified | 
+`src`| _url_ to an image that will be displayed next to _value_. Url is relative to app or absolute | No |
+`location`| _url_ to a HTML page that contains links to images. All a-tags hrefs that matches _extension_ will be used as list items. Filename will appear as text and the image itself as a thumbnail next to the text. If _location_ is specified it must be only item in list | No |
+`extension` | Filename extension without dot to filter links when using _location_ | When _location_ is specified |
+
+**searchList Config object**
+An object that defines additional configuration for searchList
+
+Property | Description | Required | Default value
+---|---|---|---
+`url`| Url (GET) that responds with a JSON _array of List object_ (_location_ not supported) or _array of string_. If specified, _list_ property is ignored. | No  |
+`dynamic` | _true_ if _url_ should be queried for each keypress. The user input is appended to _url_ as a query parameter. The server should return a list of matching search items. The exact algorithm is up to the server, but origo will assume the list is filtered and sorted so the list will be displayed as is as suggestions, but will be truncated to maxItems. If the server's algorithm is not based on substrings of the value, the highlighting may not work as expected. | No | false
+`queryParameter` | Name of query parameter to use to send user input to _url_ when _dynamic_ is _true_| No | "input"
+`allowOnlyFromList` | _true_ if the user only can input values from the list, which makes it work like a searchable drop down. | No | _false_
+`disallowDropDown` | _true_ to allow the user to click the down arrow (or enter) when input is empty and get all possible suggestions even if minChar has not been reached. | No | _false_ 
+`minChars` | Number of character that must be written before suggestions are displayed. | No | 2
+`maxItems`| Number of suggestion items to display | No | 10
+`typeMoreText` | The text to show to the user if the input has less then _minChar_ characters. | No | "Skriv fler tecken"
+`noHitsText` | The text to show to the user if there are no suggestions to show. | No | "Inga träffar"
 
 **defaultValue object**
 The defaultValue object controls how an attribute's default value is handled. Default values are always set when creating new features, and can optionally be set when updating attributes.
