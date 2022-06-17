@@ -34,6 +34,8 @@ Property | Description
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 `headers` | Used for setting headers that should be included in the request of the GeoJSON. Formatted as a object with key/value pairs for the headers. Can be used for setting which type to accept or add a apikey.
 `attachments`| An [attachment object](#Attachment-configuration) containing configuration for editing and displaying attachments
+`exportable`| Make layer exportable to file in the layer menu.
+`exportFormat`| String or array of formats for file export. Can be set to geojson, gpx or kml. Defaults to geojson.
 
 #### Basic example GeoJSON
 
@@ -78,6 +80,8 @@ Property | Description
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 `headers` | Used for setting headers that should be included in the request of the GPX. Formatted as a object with key/value pairs for the headers. Can be used for setting which type to accept or add a apikey.
 `attachments`| An [attachment object](#Attachment-configuration) containing configuration for editing and displaying attachments
+`exportable`| Make layer exportable to file in the layer menu.
+`exportFormat`| String or array of formats for file export. Can be set to geojson, gpx or kml. Defaults to geojson.
 
 #### Basic example GPX
 
@@ -174,6 +178,8 @@ Property | Description
 `attachments`| An [attachment object](#Attachment-configuration) containing configuration for editing and displaying attachments
 `isTable`| Bool that indicates if the geometry should be ignored. Implies _visible_. Only useful when layer is a child in related layers. Optional. defaults to `false`
 `relatedLayers`| Array of [relatedLayers](#Related-layers) objects defining child layers. Optional
+`exportable`| Make layer exportable to file in the layer menu. To ensure all features in a layer is exported, `strategy` should be set to `all`.
+`exportFormat`| String or array of formats for file export. Can be set to geojson, gpx or kml. Defaults to geojson.
 
 Source options | Description
 ---|---
