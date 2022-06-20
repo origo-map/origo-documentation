@@ -171,9 +171,9 @@ Property | Description
 `strategy` | the ol.loadingstrategy for the layer. Can also be set on source. The options are tile, bbox or all. Default is bbox.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
-`removable` | Adds a _Remove layer_ option to the layer info menu if set to true. To ensure all features in a layer is exported, `strategy` should be set to `all`. Optional.
+`removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
 `zoomToExtent` | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
-`exportable`| Adds a _Export layer_ option to the layer info menu if set to true. Optional.
+`exportable`| Adds a _Export layer_ option to the layer info menu if set to true. To ensure all features in a layer is exported, `strategy` should be set to `all`. Optional.
 `exportFormat`| String or array of formats for file export if exportable is true. Can be set to geojson, gpx or kml. Defaults to geojson.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
