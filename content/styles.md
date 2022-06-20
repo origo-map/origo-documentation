@@ -265,6 +265,86 @@ To use different styles at different zoom levels.
   ]
 ]
 ```
+### header
+
+The icon shown in the legend. If true, this symbol will overwrite the default list icon used when having a thematic style. Default is false.
+
+#### header
+
+```json
+{
+  "styles": {
+    "thematic": [
+      [
+  		  {
+    			"fill": {
+    			  "color": "rgba(0,255,0,0.5)"
+    			},
+    			"stroke": {
+    			  "color": "rgba(0,255,0,1)",
+    			  "width": 2
+    			},
+    			"filter": "[type] == 'vegetation'",
+    			"label": "Vegetation",
+    			"header": true
+  		  }
+  		],
+  		[
+  		  {
+    			"fill": {
+    			  "color": "rgba(0,0,255,0.5)"
+    			},
+    			"stroke": {
+    			  "color": "rgba(0,0,255,1)",
+    			  "width": 2
+    			},
+    			"filter": "[type] == 'water'",
+    			"label": "Water"
+  		  }
+  		]    
+    ]  
+  }
+}
+```
+
+### hidden
+
+Makes a style hidden in the legend. Default is false. In this example the "Style for small scale" will not be displayed in the layers legend.
+
+#### hidden
+
+```json
+"areas": [
+  [
+    {
+      "maxScale": 12500,
+      "minScale": 100000,
+      "fill": {
+        "color": "rgba(66,89,179,0.4)"
+      },
+      "stroke": {
+        "color": "rgba(60,43,0,0.8)",
+        "width": 1.5
+      },
+      "label": "Style for small scale",
+      "hidden": true
+    }
+  ],
+  [
+    {
+      "minScale": 12499,
+      "fill": {
+        "color": "rgba(66,89,179,0.2)"
+      },
+      "stroke": {
+        "color": "rgba(60,43,0,0.8)",
+        "width": 1.5
+      },
+      "label": "Style for big scale"
+    }
+  ]
+]
+```
 
 ## Style examples
 To get started some common use cases are provided.
