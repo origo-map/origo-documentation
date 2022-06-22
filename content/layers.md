@@ -727,7 +727,7 @@ Attribute option | Description
 ---|---
 `type` | The attribute type. Determines which edit control is used. See [Editor attribute types](#editor-attribute-types)  (required)
 `allowBatchEdit` | _bool_ true if allowed to update a selection of features with the same value (optional)
-`config` | _object_ Additional configuration for searchList
+`config`| _object_ Additional configuration. The config object depends on the _type_.
 `constraint` | _string_  \<event\>:\<attribute name\>:\<value\> or \<event\>:\<attribute name\>:[\<value1\>,\<value2\>, ...], where \<event\> is the event that the \<attribute name\> input emits, most likely `change`. Attribute is only editable when \<attribute name\> has value \<value\> (optional)
 `list` | _array of strings_ or _array of list object_. List of possible values for searchList. (optional)
 `maxLength` | _int_ Maximum number of characters (optional)
@@ -744,7 +744,7 @@ type | format | required | readonly | maxLength | constraint | Description
 `text`      | string | supported | supported | supported || Text input
 `textarea`  | string | supported | supported | supported || Text input with resizable box
 `dropdown`  | string || supported || supported | Dropdown based on options values
-`checkbox`  | boolean || supported ||| Checkbox, defaults to false. Use checked:true for true
+`checkbox`  | boolean or configured values || supported ||| Checkbox, defaults to not checked.
 `image`     | base64 || supported ||| Uploads image
 `color`     | hexadecimal || supported ||| Activates a color-picker
 `time`      | hh:mm:ss | supported | supported ||| Defaults to current time. Use defaultTime:false to not.
@@ -796,8 +796,14 @@ Property | Description | Required | Default value
 `useUTC` | `true`if time should be in UTC, otherwise local time | No | `false`
 
 
+**checkbox Config object**
+An object that defines additional configuration for checkbox. The entire object is optional and all
+properties are set to default if omitted.
 
-
+Property | Description | Required | Default value
+---|---|---|---
+ `uncheckedValue` | Value that corresponds to the unchecked state | No | 0 (false)
+ `checkedValue` | Value that corresponds to the checked state | No | 1 (true)
 
 #### Example editor attributes
 
