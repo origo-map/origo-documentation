@@ -272,39 +272,35 @@ The icon shown in the legend. If true, this symbol will overwrite the default li
 #### header
 
 ```json
-{
-  "styles": {
-    "thematic": [
-      [
-  		  {
-    			"fill": {
-    			  "color": "rgba(0,255,0,0.5)"
-    			},
-    			"stroke": {
-    			  "color": "rgba(0,255,0,1)",
-    			  "width": 2
-    			},
-    			"filter": "[type] == 'vegetation'",
-    			"label": "Vegetation",
-    			"header": true
-  		  }
-  		],
-  		[
-  		  {
-    			"fill": {
-    			  "color": "rgba(0,0,255,0.5)"
-    			},
-    			"stroke": {
-    			  "color": "rgba(0,0,255,1)",
-    			  "width": 2
-    			},
-    			"filter": "[type] == 'water'",
-    			"label": "Water"
-  		  }
-  		]    
-    ]  
-  }
-}
+"thematic": [
+  [
+    {
+      "fill": {
+        "color": "rgba(0,255,0,0.5)"
+      },
+    	"stroke": {
+        "color": "rgba(0,255,0,1)",
+        "width": 2
+    	},
+    	"filter": "[type] == 'vegetation'",
+    	"label": "Vegetation",
+    	"header": true
+    }
+  ],
+  [
+    {
+      "fill": {
+        "color": "rgba(0,0,255,0.5)"
+      },
+      "stroke": {
+        "color": "rgba(0,0,255,1)",
+        "width": 2
+      },
+      "filter": "[type] == 'water'",
+      "label": "Water"
+    }
+  ]
+]
 ```
 
 ### hidden
@@ -423,31 +419,31 @@ By applying filters thematic styling can be made. In this example features with 
   "styles": {
     "thematic": [
       [
-  		  {
-    			"fill": {
-    			  "color": "rgba(0,255,0,0.5)"
-    			},
-    			"stroke": {
-    			  "color": "rgba(0,255,0,1)",
-    			  "width": 2
-    			},
-    			"filter": "[type] == 'vegetation'",
-    			"label": "Vegetation"
-  		  }
-  		],
-  		[
-  		  {
-    			"fill": {
-    			  "color": "rgba(0,0,255,0.5)"
-    			},
-    			"stroke": {
-    			  "color": "rgba(0,0,255,1)",
-    			  "width": 2
-    			},
-    			"filter": "[type] == 'water'",
-    			"label": "Water"
-  		  }
-  		]    
+        {
+          "fill": {
+            "color": "rgba(0,255,0,0.5)"
+          },
+          "stroke": {
+            "color": "rgba(0,255,0,1)",
+            "width": 2
+          },
+          "filter": "[type] == 'vegetation'",
+          "label": "Vegetation"
+        }
+      ],
+      [
+        {
+          "fill": {
+            "color": "rgba(0,0,255,0.5)"
+          },
+          "stroke": {
+            "color": "rgba(0,0,255,1)",
+            "width": 2
+          },
+          "filter": "[type] == 'water'",
+          "label": "Water"
+        }
+      ]    
     ]  
   }
 }
