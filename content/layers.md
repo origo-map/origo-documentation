@@ -28,8 +28,10 @@ Property | Description
 `clusterOptions` | options for clustering. See the settings page for details.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
-`removable` | Adds an remove button next to the layer name if set to true. Optional.
+`removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
 `zoomToExtent` | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
+`exportable`| Adds a _Export layer_ option to the layer info menu if set to true. Optional.
+`exportFormat`| String or array of formats for file export if exportable is true. Can be set to geojson, gpx or kml. Defaults to geojson.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 `headers` | Used for setting headers that should be included in the request of the GeoJSON. Formatted as a object with key/value pairs for the headers. Can be used for setting which type to accept or add a apikey.
@@ -72,8 +74,10 @@ Property | Description
 `clusterOptions` | options for clustering. See the settings page for details.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
-`removable` | Adds an remove button next to the layer name if set to true. Optional.
+`removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
 `zoomToExtent` | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
+`exportable`| Adds a _Export layer_ option to the layer info menu if set to true. Optional.
+`exportFormat`| String or array of formats for file export if exportable is true. Can be set to geojson, gpx or kml. Defaults to geojson.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 `headers` | Used for setting headers that should be included in the request of the GPX. Formatted as a object with key/value pairs for the headers. Can be used for setting which type to accept or add a apikey.
@@ -116,7 +120,7 @@ Property | Description
 `clusterOptions` | options for clustering. See the settings page for details.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
-`removable` | Adds an remove button next to the layer name if set to true. Optional.
+`removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
 `zoomToExtent` | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
@@ -167,8 +171,10 @@ Property | Description
 `strategy` | the ol.loadingstrategy for the layer. Can also be set on source. The options are tile, bbox or all. Default is bbox.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
-`removable` | Adds an remove button next to the layer name if set to true. Optional.
+`removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
 `zoomToExtent` | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
+`exportable`| Adds a _Export layer_ option to the layer info menu if set to true. To ensure all features in a layer is exported, `strategy` should be set to `all`. Optional.
+`exportFormat`| String or array of formats for file export if exportable is true. Can be set to geojson, gpx or kml. Defaults to geojson.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 `attachments`| An [attachment object](#Attachment-configuration) containing configuration for editing and displaying attachments
@@ -263,7 +269,7 @@ Property | Description
 `filter` | filter are used with query filter [where](http://resources.arcgis.com/en/help/rest/apiref/query.html). Optional.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
-`removable` | Adds an remove button next to the layer name if set to true. Optional.
+`removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
 `zoomToExtent` | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
@@ -321,7 +327,7 @@ Property | Description
 `extent` | extent of the layer. Map extent is default.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `tileGrid` | custom tileGrid for the vector tile layer. extent, alignBottomLeft, resolutions and tileSize can be set.
-`removable` | Adds an remove button next to the layer name if set to true. Optional.
+`removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
 `zoomToExtent` | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
@@ -371,7 +377,7 @@ Property | Description
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `tileGrid` | custom tileGrid for the WMS layer. extent, alignBottomLeft, resolutions and tileSize can be set.
 `renderMode` | whether to render the layer tiled ('tile') or single tiled ('image'). Defaults to 'tile'.
-`removable` | Adds an remove button next to the layer name if set to true. Optional.
+`removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
 `zoomToExtent` | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
@@ -449,7 +455,7 @@ Property | Description
 `format` | the image format to use. Default is image/png.
 `featureinfoLayer` | the named layer this layer should use for featureinfo requests. Optional.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
-`removable` | Adds an remove button next to the layer name if set to true. Optional.
+`removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
 `zoomToExtent` | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `wmtsStyle` | WMTS layer style, if applicable.
@@ -493,7 +499,7 @@ Property | Description
 `extent` | extent of the layer. Map extent is default if tileGrid is not set.
 `minScale` | the minmum scale the layer is visible. Optional.
 `maxScale` | the maximum scale the layer is visible. Optional.
-`removable` | Adds an remove button next to the layer name if set to true. Optional.
+`removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
 `zoomToExtent` | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
 `tileGrid` | If layers tilegrid differs from the map. Optional.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
@@ -541,7 +547,7 @@ Property | Description
 `attributes` | definition of [attributes](#attributes) and how they should be presented in featureinfo. If not provided all available attributes will be shown with a standard template.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `tileGrid` | custom tileGrid for the AGS tile layer. extent, alignBottomLeft, resolutions and tileSize can be set.
-`removable` | Adds an remove button next to the layer name if set to true. Optional.
+`removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
 `zoomToExtent` | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
@@ -580,7 +586,7 @@ Property | Description
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
 `visible` | if the layer should be visible. Default is true.
 `extent` | extent of the layer. Map extent is default.
-`removable` | Adds an remove button next to the layer name if set to true. Optional.
+`removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
 `zoomToExtent` | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
@@ -611,7 +617,7 @@ Property | Description
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
 `visible` | if the layer should be visible. Default is true.
 `extent` | extent of the layer. Map extent is default.
-`removable` | adds a remove button next to the layer name if set to true. Optional.
+`removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
 `zoomToExtent` | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
 `layers` | the included layers. Defined as normal layers.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
@@ -723,6 +729,7 @@ Attribute option | Description
 `allowBatchEdit` | _bool_ true if allowed to update a selection of features with the same value (optional)
 `config`| _object_ Additional configuration. The config object depends on the _type_.
 `constraint` | _string_  \<event\>:\<attribute name\>:\<value\> or \<event\>:\<attribute name\>:[\<value1\>,\<value2\>, ...], where \<event\> is the event that the \<attribute name\> input emits, most likely `change`. Attribute is only editable when \<attribute name\> has value \<value\> (optional)
+`list` | _array of strings_ or _array of list object_. List of possible values for searchList. (optional)
 `maxLength` | _int_ Maximum number of characters (optional)
 `options` | _array of strings_ List of allowed values. Required for type `dropdown` (optional)
 `readonly` | _bool_ True if attribute should be displayed but not allowed to edit (optional)
@@ -747,8 +754,34 @@ type | format | required | readonly | maxLength | constraint | Description
 `url`       | string | supported | supported ||| Homepage address
 `integer`   | integer | supported | supported ||| Whole number
 `decimal`   | decimal | supported | supported ||| Decimal number
-`searchList`   | string | supported |||| Dropdown based on options values with search capabilities. Can handle target icon src. Can handle icon folder load.
+`searchList`   | string | supported ||supported. Defaults to 50|| Dropdown based on options values with search capabilities. 
 `hidden` | string ||||| Not visible to the user. 
+
+**searchList List object**
+
+Defines the possible values in a _searchList_
+
+Property | Description | Required | Default value
+---|---|---|---
+`value` | _string_ text to display | When _location_ is not specified | 
+`src`| _url_ to an image that will be displayed next to _value_. Url is relative to app or absolute | No |
+`location`| _url_ to a HTML page that contains links to images. All a-tags hrefs that matches _extension_ will be used as list items. Filename will appear as text and the image itself as a thumbnail next to the text. If _location_ is specified it must be only item in list | No |
+`extension` | Filename extension without dot to filter links when using _location_ | When _location_ is specified |
+
+**searchList Config object**
+An object that defines additional configuration for searchList
+
+Property | Description | Required | Default value
+---|---|---|---
+`url`| Url (GET) that responds with a JSON _array of List object_ (_location_ not supported) or _array of string_. If specified, _list_ property is ignored. | No  |
+`dynamic` | _true_ if _url_ should be queried for each keypress. The user input is appended to _url_ as a query parameter. The server should return a list of matching search items. The exact algorithm is up to the server, but origo will assume the list is filtered and sorted so the list will be displayed as is as suggestions, but will be truncated to maxItems. If the server's algorithm is not based on substrings of the value, the highlighting may not work as expected. | No | false
+`queryParameter` | Name of query parameter to use to send user input to _url_ when _dynamic_ is _true_| No | "input"
+`allowOnlyFromList` | _true_ if the user only can input values from the list, which makes it work like a searchable drop down. | No | _false_
+`disallowDropDown` | _true_ to allow the user to click the down arrow (or enter) when input is empty and get all possible suggestions even if minChar has not been reached. | No | _false_ 
+`minChars` | Number of character that must be written before suggestions are displayed. | No | 2
+`maxItems`| Number of suggestion items to display | No | 10
+`typeMoreText` | The text to show to the user if the input has less then _minChar_ characters. | No | "Skriv fler tecken"
+`noHitsText` | The text to show to the user if there are no suggestions to show. | No | "Inga träffar"
 
 **defaultValue object**
 The defaultValue object controls how an attribute's default value is handled. Default values are always set when creating new features, and can optionally be set when updating attributes.
