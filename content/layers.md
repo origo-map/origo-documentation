@@ -26,6 +26,7 @@ Property | Description
 `layerType` | option to set how the vector layer should be rendered. The options are cluster, [image](https://openlayers.org/en/latest/apidoc/ol.source.ImageVector.html) or vector. Default is vector.
 `clusterStyle` | the style to be used for clustered features. Is required if layerType cluster is used.
 `clusterOptions` | options for clustering. See the settings page for details.
+`stylePicker` | Adds a dropup with alternative styles in the layer info. An array of styles defined with title, style and clusterStyle. Optional.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
 `removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
@@ -165,6 +166,7 @@ Property | Description
 `layerType` | option to set how the vector layer should be rendered. The options are cluster, [image](https://openlayers.org/en/latest/apidoc/ol.source.ImageVector.html) or vector. Default is vector.
 `clusterStyle` | the style to be used for clustered features. Is required if layerType cluster is used.
 `clusterOptions` | options for clustering. See the settings page for details.
+`stylePicker` | Adds a dropup with alternative styles in the layer info. An array of styles defined with title, style and clusterStyle. Optional.
 `geometryName` | geometry attribute name. Default is geom.
 `geometryType` | geometry type for the layer.
 `filter` | filter provided as [cql](http://docs.geoserver.org/latest/en/user/tutorials/cql/cql_tutorial.html). Optional.
