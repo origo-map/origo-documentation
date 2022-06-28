@@ -289,107 +289,107 @@ Name | Type | Description
     "hitTolerance": 3,
     "infowindow": "infowindow",
     "infowindowOptions": {
-            "title": "Testtitel",
-            "export": {
-              "toasterMessages": {
-                  "success": "OK!",
-                  "fail": "Sorry!"
+      "title": "Testtitel",
+      "export": {
+        "toasterMessages": {
+          "success": "OK!",
+          "fail": "Sorry!"
+        },
+        "simpleExport": {
+          "url": "url_to_service",
+          "layers": ["layer_1","layer_2"],
+          "button": {
+            "roundButton": false,
+            "buttonText": "Send to excel"
+          }
+        },
+        "layerSpecificExport": [
+	  {
+            "layer": "layer_3",
+            "attributesToSendToExport": ["attribute_1","attribute_2"],
+            "exportUrls":[
+	      {
+                "url": "url_to_service",
+                "exportedFileName": "filename_1.xlsx",
+                "button": {
+                  "roundButton": true,
+                  "roundButtonIcon": "#fa-download",
+                  "roundButtonTooltipText": "Send to excel"
+                }
               },
-              "simpleExport": {
-	              "url": "url_to_service",
-	              "layers": ["layer_1","layer_2"],
-	              "button": {
-	                "roundButton": false,
-	                "buttonText": "Send to excel"
+              {
+                "url": "url_to_service",
+                "exportedFileName": "filename_2.docx",
+                "button": {
+                  "roundButton": true,
+                  "roundButtonIcon": "img/png/image.png",
+                  "roundButtonTooltipText": "Send to word"
                 }
-	            },
-              "layerSpecificExport": [
-                {
-                  "layer": "layer_3",
-                  "attributesToSendToExport": ["attribute_1","attribute_2"],
-                  "exportUrls":[
-                    {
-                      "url": "url_to_service",
-                      "exportedFileName": "filename_1.xlsx",
-                      "button": {
-	                      "roundButton": true,
-	                      "roundButtonIcon": "#fa-download",
-	                      "roundButtonTooltipText": "Send to excel"
-                      }
-                    },
-                    {
-                      "url": "url_to_service",
-                      "exportedFileName": "filename_2.docx",
-                      "button": {
-	                      "roundButton": true,
-	                      "roundButtonIcon": "img/png/image.png",
-	                      "roundButtonTooltipText": "Send to word"
-                      }
-                    }
-                  ]
-                }
-              ]
-            }
-          },
+              }
+	    ]
+	  }
+        ]
+      }
+    },
     "multiSelectionStyles": {
-          "selected": [
-            {
-              "fill": {
-                "color": [100,153,255,0.1]
-              },
-              "stroke": {
+      "selected": [
+        {
+          "fill": {
+            "color": [100,153,255,0.1]
+          },
+          "stroke": {
                 "color": [100,153,255,1],
                 "width": 3
-              },
-              "circle": {
-                "radius": 5,
-                "stroke": {
-                  "color": [100,153,255,1]
-                },
-                "fill": {
-                  "color": [100,153,255,1]
-                }
-              }
-            }
-          ],
-          "highlighted": [
-            {
-              "zIndex": 1,
-              "fill": {
-                "color": [245,66,236,0.25]
-              },
-              "stroke": {
-                "color": [255,255,255,1],
-                "width": 6
-              },
-              "circle": {
-                "radius": 5,
-                "stroke": {
-                  "color": [245,66,236,1]
-                },
-                "fill": {
-                  "color": [245,66,236,1]
-                }
-              }
+          },
+          "circle": {
+            "radius": 5,
+            "stroke": {
+              "color": [100,153,255,1]
             },
-            {
-              "zIndex": 2,
-              "stroke": {
-                "color": [66,245,105,1],
-                "width": 2
-              },
-              "circle": {
-                "radius": 10,
-                "stroke": {
-                  "color": [66,245,105,1]
-                },
-                "fill": {
-                  "color": [66,245,105,0.1]
-                }
-              }
+            "fill": {
+              "color": [100,153,255,1]
             }
-          ]
+          }
         }
+      ],
+      "highlighted": [
+        {
+          "zIndex": 1,
+          "fill": {
+            "color": [245,66,236,0.25]
+          },
+          "stroke": {
+            "color": [255,255,255,1],
+            "width": 6
+          },
+          "circle": {
+            "radius": 5,
+            "stroke": {
+              "color": [245,66,236,1]
+            },
+            "fill": {
+              "color": [245,66,236,1]
+            }
+          }
+        },
+        {
+          "zIndex": 2,
+          "stroke": {
+            "color": [66,245,105,1],
+            "width": 2
+          },
+          "circle": {
+            "radius": 10,
+            "stroke": {
+              "color": [66,245,105,1]
+            },
+            "fill": {
+              "color": [66,245,105,0.1]
+            }
+          }
+	}
+      ]
+    }
   }
 }
 ```
