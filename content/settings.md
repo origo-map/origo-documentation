@@ -178,41 +178,55 @@ Name | Type | Description
 `title` | string | Infowindow header text. Default is "Träffar".
 `export` | object | Defines settings for the export. Two different export options are possible, server side and client side. Server side export requires a server endpoint and can be configured either as a simple export or layer specific export. Currently only attributes can be sent with server side export.
 
-**Export properties**
+**export properties**
 
 Name | Type | Description
 ---|---|---
-`simpleExportUrl` | string | Url to a service. Exports all attributes from the layer source. Can be used with excel creator in Origo server.
-`simpleExportLayers` | array | Defines layers that can export selected objects. If layerSpecificExport is configured for a layer that takes precedence over the simple export.
-`exportedFileName` | string | File name and file extension for the export. The file extension must match the file extension from the service. Required for simple export.
-`simpleExportButtonText` | string | The button text shown in the infowindow. Default is "Export".
 `toasterMessages` | object  | Status message to the user. Defines messages for "success" and "fail". Default message is "Success!" and "Sorry, something went wrong, please contact your administrator." Currently only fail message is shown.
-`layerSpecificExport` | array | Specific export options per layer. Defines attributes, file name and service url for the export. Each layer is defined as an object. If specified for a layer, layer specific export is used for that layer.
-`clientExport`| object | Configuration for exporting layers without the need of a server. Only applies if no layerSpecificExport or simpleExportLayers is configured.
+`layerSpecificExport` | array | Sends defined attributes from selected objects per layer to a server endpoint. Defines attributes, file name and service url for the export. Each layer is defined as an object. If specified for a layer, only layerSpecificExport is used for that layer.
+`simpleExport`| object | Sends all attributes from selected objects per layer to a server endpoint. Defines layers and service url for the export.
+`clientExport`| object | Configuration for exporting layers without the need of a server. Only applies if no layerSpecificExport or simpleExport is configured.
 
-**LayerSpecificExport properties**
+**layerSpecificExport properties**
 
 Name | Type | Description
 ---|---|---
-`layer` | string | Defines layers that can export selected objects.
+`layer` | string | Defines a layer that can export selected objects.
 `attributesToSendToExport` | array | Attributes to send to the export service.
 `exportUrls` | array | Defines settings for the export. A layer can have multiple exports. Each export is defined as an object.
 
-**ExportUrls properties**
+**exportUrls properties**
 
 Name | Type | Description
 ---|---|---
 `url` | string | Url to a service. Required.
-`buttonText` | string | The button text shown in the infowindow. Default is "Export".
 `exportedFileName` | string | File name and file extension for the export. The file extension must match the file extension from the service. Required.
+`button` | object | Configuration for using a text button or a round button. Required.
 
-##### clientExport properties
+**simpleExport properties**
+
+Name | Type | Description
+---|---|---
+`url` | string | Url to a service. Exports all attributes from the layer source. Can be used with excel creator in Origo server. Required.
+`layers` | array of string | List of layer names that are allowed to export selected objects. Required. If layerSpecificExport is configured for the same layer, layerSpecificExport takes precedence over the simpleExport.
+`button` | object | Configuration for using a text button or a round button. Required.
+
+**clientExport properties**
 
 Name | Type | Description
 ---|---|---
 `layers` | array of string | List of layer names that are allowed to export selected objects. Optional, if omitted export is allowed for all layers.
-`buttonText` | string | Text to display on export button. Optional, defaults to 'Exportera'
 `format` | string | Fileformat to export to. Can be one of `'geojson' | 'gpx' | 'kml'` Required.
+`button` | object | Configuration for using a text button or a round button. Required.
+
+**button properties**
+
+Name | Type | Description
+---|---|---
+`roundButton` | boolean | If true, a round export button is displayed instead of a textbutton. Default is false.
+`roundButtonIcon` | string | Icon for the round button. Path to an image or an icon from a library that are available as SVG sprites in Origo. Required if roundButton is true.
+`roundButtonTooltipText` | string | Tooltip text for the round button. Required if roundButton is true.
+`buttonText` | string | Text to display on export button. Optional. Default is 'Export'.
 
 #### Example featureinfoOptions with overlay as infowindow
 
@@ -275,95 +289,107 @@ Name | Type | Description
     "hitTolerance": 3,
     "infowindow": "infowindow",
     "infowindowOptions": {
-            "title": "Testtitel",
-            "export": {
-              "simpleExportUrl": "url_to_service",
-              "simpleExportLayers": ["layer_1","layer_2"],
-              "exportedFileName": "filename_1.xlsx",
-              "simpleExportButtonText": "Send to excel",
-              "toasterMessages": {
-                  "success": "OK!",
-                  "fail": "Sorry!"
-              },
-              "layerSpecificExport": [
-                {
-                  "layer": "layer_3",
-                  "attributesToSendToExport": ["attribute_1","attribute_2"],
-                  "exportUrls":[
-                    {
-                      "url": "url_to_service",
-                      "exportedFileName": "filename_2.xlsx",
-                      "buttonText": "Send to Excel"
-                    },
-                    {
-                      "url": "url_to_service",
-                      "exportedFileName": "filename_2.docx",
-                      "buttonText": "Send to word"
-                    }
-                  ]
+      "title": "Testtitel",
+      "export": {
+        "toasterMessages": {
+          "success": "OK!",
+          "fail": "Sorry!"
+        },
+        "simpleExport": {
+          "url": "url_to_service",
+          "layers": ["layer_1","layer_2"],
+          "button": {
+            "roundButton": false,
+            "buttonText": "Send to excel"
+          }
+        },
+        "layerSpecificExport": [
+	  {
+            "layer": "layer_3",
+            "attributesToSendToExport": ["attribute_1","attribute_2"],
+            "exportUrls":[
+	      {
+                "url": "url_to_service",
+                "exportedFileName": "filename_1.xlsx",
+                "button": {
+                  "roundButton": true,
+                  "roundButtonIcon": "#fa-download",
+                  "roundButtonTooltipText": "Send to excel"
                 }
-              ]
-            }
-          },
-    "multiSelectionStyles": {
-          "selected": [
-            {
-              "fill": {
-                "color": [100,153,255,0.1]
               },
-              "stroke": {
+              {
+                "url": "url_to_service",
+                "exportedFileName": "filename_2.docx",
+                "button": {
+                  "roundButton": true,
+                  "roundButtonIcon": "img/png/image.png",
+                  "roundButtonTooltipText": "Send to word"
+                }
+              }
+	    ]
+	  }
+        ]
+      }
+    },
+    "multiSelectionStyles": {
+      "selected": [
+        {
+          "fill": {
+            "color": [100,153,255,0.1]
+          },
+          "stroke": {
                 "color": [100,153,255,1],
                 "width": 3
-              },
-              "circle": {
-                "radius": 5,
-                "stroke": {
-                  "color": [100,153,255,1]
-                },
-                "fill": {
-                  "color": [100,153,255,1]
-                }
-              }
-            }
-          ],
-          "highlighted": [
-            {
-              "zIndex": 1,
-              "fill": {
-                "color": [245,66,236,0.25]
-              },
-              "stroke": {
-                "color": [255,255,255,1],
-                "width": 6
-              },
-              "circle": {
-                "radius": 5,
-                "stroke": {
-                  "color": [245,66,236,1]
-                },
-                "fill": {
-                  "color": [245,66,236,1]
-                }
-              }
+          },
+          "circle": {
+            "radius": 5,
+            "stroke": {
+              "color": [100,153,255,1]
             },
-            {
-              "zIndex": 2,
-              "stroke": {
-                "color": [66,245,105,1],
-                "width": 2
-              },
-              "circle": {
-                "radius": 10,
-                "stroke": {
-                  "color": [66,245,105,1]
-                },
-                "fill": {
-                  "color": [66,245,105,0.1]
-                }
-              }
+            "fill": {
+              "color": [100,153,255,1]
             }
-          ]
+          }
         }
+      ],
+      "highlighted": [
+        {
+          "zIndex": 1,
+          "fill": {
+            "color": [245,66,236,0.25]
+          },
+          "stroke": {
+            "color": [255,255,255,1],
+            "width": 6
+          },
+          "circle": {
+            "radius": 5,
+            "stroke": {
+              "color": [245,66,236,1]
+            },
+            "fill": {
+              "color": [245,66,236,1]
+            }
+          }
+        },
+        {
+          "zIndex": 2,
+          "stroke": {
+            "color": [66,245,105,1],
+            "width": 2
+          },
+          "circle": {
+            "radius": 10,
+            "stroke": {
+              "color": [66,245,105,1]
+            },
+            "fill": {
+              "color": [66,245,105,0.1]
+            }
+          }
+	}
+      ]
+    }
   }
 }
 ```
