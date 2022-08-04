@@ -469,6 +469,9 @@ Source options | Description
 `url` | url to the wmts endpoint
 `matrixSet` | the named matrixSet if provided for the source. Default matrixSet is the matrixSet created for the map and depends on the map resolutions.
 `matrixIdsPrefix` | the named prefix for tileMatrix. Default matrixIdsPrefix is the maps projection code.
+`resolutions` | Array of resolutions. Defaults to map resolutions.
+`origin` | Origin of the gridset. Defaults to topleft corner of the projections extent.
+`tileSize` | Array of tileSizes. Defaults to [256,256].
 
 
 #### Basic example WMTS
