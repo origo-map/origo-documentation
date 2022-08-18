@@ -385,6 +385,8 @@ Property | Description
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 `attachments`| An [attachment object](#Attachment-configuration) containing configuration for displaying attachments
 `infoFormat` | Origo's get feature info expects responses in 'application/json' but some WMS servers (f.e. ArcGIS) don't supply it, so it's possible here to request in format 'application/geo+json' or 'application/geojson' if the server response with that format. Optional.
+`hasThemeLegend` | Whether extendedLegend or not. See [WMS autolegend](#automatic-default-legend-style-for-wms-layers). Optional, defaults to false. Has no effect if a [style](#style-basics) is also defined.
+`legendParams` | A getLegendGraphic parameters object, see [WMS autolegend](#automatic-default-legend-style-for-wms-layers). Optional, has no effect if a [style](#style-basics) is also defined. 
 
 Source options | Description
 ---|---
@@ -1144,3 +1146,16 @@ the attributes from the child layer is aggregated and displayed in the featureIn
   ]
 }
 ```
+## Automatic default (legend) style for WMS layers
+A WMS layer can have a style property defined for its legend graphic or for an alternate layer style defined on the WMS server. If a style property is not defined then Origo will attempt to create one for the legend graphic using getLegendGraphic and optionally two additional layer properties can then be defined, `legendParams` and `hasThemeLegend`.  
+
+`hasThemeLegend` is used to manually indicate if the layer has theme symbology and that the legend should be behind a theme style icon (extendedLegend).
+
+Example `legendParams` object with Geoserver vendor parameter
+```json
+      "legendParams" : {
+        "scale" : 5000,
+        "legend_options" : "dpi:300"
+      }
+```
+
