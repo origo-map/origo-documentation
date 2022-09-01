@@ -176,6 +176,7 @@ Property | Type | Description
 Name | Type | Description
 ---|---|---
 `title` | string | Infowindow header text. Default is "Träffar".
+`listLayout` | boolean | Option to show layers as a list. Default is false.
 `export` | object | Defines settings for the export. Two different export options are possible, server side and client side. Server side export requires a server endpoint and can be configured either as a simple export or layer specific export. Currently only attributes can be sent with server side export.
 
 **export properties**
