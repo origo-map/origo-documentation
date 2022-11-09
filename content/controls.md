@@ -559,7 +559,7 @@ __positionControlOptions__
 Option | Description
 ---|---
 `title` | alias name of the current map projection to be displayed. Optional. If specified it is the first in the toggle loop.
-`projections` | Array of _positionControlProjectionConfiguration_ objects that defines which projections are possible to toggle between. The projection must be defined in proj4Defs, except EPSG:4326 and EPS:3857 which are included by default. Aternatively `projections` can be an object with projection codes as properties and display name as value.
+`projections` | Array of _positionControlProjectionConfiguration_ objects that defines which projections are possible to toggle between. The projection must be defined in proj4Defs, except EPSG:4326 and EPS:3857 which are included by default. Alternatively `projections` can be an object with projection codes as properties and display name as value.
 `noPositionText` | when empty last mouse position is rendered else text of choise renders. If this option is not defined, no coordinates when no mouse position.  
 `hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
