@@ -68,7 +68,7 @@ Adds an about map control. A button is added to the mapmenu. On button click, a 
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (about)
 `options` | options for the control
 
 Option | Description
@@ -97,7 +97,7 @@ Adds a bookmarks control. Clicking the button opens a panel with a list of bookm
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (bookmarks)
 `options` | options for the control
 
 Option | Description
@@ -149,7 +149,7 @@ Adds the ability to drag-and-drop GeoJSON, GPX, IGC, KML and TopoJSON files to t
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (draganddrop)
 `options` | options for the control
 
 Option | Description
@@ -176,7 +176,7 @@ Enables layer editing.
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (editor)
 `options` | options for the control
 
 Option | Description
@@ -255,7 +255,7 @@ Adds a button that will send the center coordinates in an url template and opens
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (externalurl)
 `options` | options for the control
 
 Option | Description
@@ -305,7 +305,7 @@ Adds a button that will open an embedded map in fullscreen mode in a new tab/win
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (fullscreen)
 `options` | options for the control
 
 Option | Description
@@ -330,7 +330,7 @@ Adds a button that when clicked centers and zooms the map to the current positio
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (geoposition)
 `options` | options for the control
 
 Option | Description
@@ -358,7 +358,7 @@ Sets the map extent to the one specified in the options for the control.
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (home)
 `options` | options for the control
 
 Option | Description
@@ -383,7 +383,7 @@ Adds a legend control. Legend is added to menu and as a map legend to the map.
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (legend)
 `options` | options for the control
 
 Option | Description
@@ -427,7 +427,7 @@ Adds a button to the mapmenu that when clicked opens a new browser tab with the 
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (link)
 `options` | options for the control
 
 Option | Description
@@ -454,7 +454,7 @@ Creates a menu on the top right for controls.
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (mapmenu)
 `options` | options for the control
 
 Option | Description
@@ -481,9 +481,8 @@ Adds a measure control. Measure length, area, buffer or elevation (requires acce
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (measure)
 `options` | options for the control
-`hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 Option | Description
 ---|---
@@ -499,6 +498,7 @@ Option | Description
 `snapLayers` | Array of layers that snap is enabled for. If undefined, snap will be enabled for all layers.
 `snapRadius` | Distance from point where snap is triggered.
 `useHectare` | True or false if hectare should be used for area between 10 000 and 1 000 000 square meters. Default is true and hectare is used, false and square meters is used.
+`hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 #### Example measure control
 
@@ -549,7 +549,8 @@ Control to show coordinates. Mouse position and center position of the map can b
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (position)
+`options` | options for the control
 
 Option | Description
 ---|---
@@ -581,7 +582,8 @@ Adds a print control to the mapmenu.  **NOTE** - requires mapmenu control.
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (print)
+`options` | options for the control
 
 Option | Description
 ---|---
@@ -648,7 +650,8 @@ Adds a control to show the load progress of all the layers in the map. The progr
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (progressbar)
+`options` | options for the control
 
 Option | Description
 ---|---
@@ -686,7 +689,7 @@ as an option and is not included in the search response.
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (search)
 `options` | options for the control
 
 Option | Description
@@ -805,7 +808,7 @@ Creates a shareable link to the map. Current extent and zoom, visible layers and
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (sharemap)
 `options` | options for the control
 
 Option | Description
@@ -828,7 +831,7 @@ Adds a splash control. It will show a modal window when the map is loaded. The c
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (splash)
 `options` | options for the control
 
 Option | Description
@@ -861,7 +864,7 @@ Adds a scale control that will show an approximation of the current scale in tex
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (scale)
 `options` | options for the control
 
 Option | Description
@@ -886,7 +889,7 @@ Adds a scalepicker control that allows the user to change the map scale using a 
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (scalepicker)
 `options` | options for the control
 
 Option | Description
