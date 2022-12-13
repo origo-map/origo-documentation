@@ -585,6 +585,7 @@ Property | Description
 
 Option | Description
 ---|---
+`placement` | option where the button is displayed. Optional, defaults to ["menu"]. ["screen"] or both are possible. 
 `leftFooterText` | a small left-aligned text on the bottom left. Optional.
 `showCreated` | shows the current date as a small right-aligned text on the bottom right. Optional. Default is false.
 `createdPrefix` | text displayed before the current date on the bottom right. Requires `showCreated: true`. Optional.
