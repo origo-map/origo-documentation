@@ -611,6 +611,7 @@ Option | Description
 {
   "name": "print",
   "options": {
+  		"placement": ["screen","menu"],
       "leftFooterText": "OBS: Kartan är inte rättsligt gällande.",
       "showCreated": true,
       "createdPrefix": "Skapad ",
