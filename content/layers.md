@@ -8,7 +8,7 @@ Property | Description
 ---|---
 `name` | the unique name of the layer used internally. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `title` | title for the layer visible to the user.
-`abstract` | short description of the layer that is shown when the layer name is clicked in the legend. Optional.
+`abstract` | short description of the layer shown in the layer info. Optional.
 `type` | type of source for the layer. For GeoJSON source the type is GEOJSON.
 `source` | url to the layer.
 `projection` | set projection (e g to "EPSG:4326") to request features in another reference system and Origo will handle the transformation. The proj4Defs has to be configured in index.json unless it's EPSG:4326 or 3857.
@@ -56,7 +56,7 @@ Property | Description
 ---|---
 `name` | the unique name of the layer used internally. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `title` | title for the layer visible to the user.
-`abstract` | short description of the layer that is shown when the layer name is clicked in the legend. Optional.
+`abstract` | short description of the layer shown in the layer info. Optional.
 `type` | type of source for the layer. For GPX source the type is GPX.
 `source` | url to the layer.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
@@ -102,7 +102,7 @@ Property | Description
 ---|---
 `name` | the unique name of the layer used internally. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `title` | title for the layer visible to the user.
-`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
+`abstract` | short description of the layer shown in the layer info. Optional.
 `type` | type of source for the layer. For TopoJSON source the type is TopoJSON.
 `source` | url to the layer.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
@@ -146,7 +146,7 @@ Property | Description
 `name` | the unique name of the layer used internally and the name of the layer in the wfs service. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `id` | the id or ids used to identify the layers in the map server. White spaces and special characters should be avoided.
 `title` | title for the layer visible to the user.
-`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
+`abstract` | short description of the layer shown in the layer info. Optional.
 `type` | type of source for the layer. For WFS source the type is WFS.
 `source` | named source of the layer. The [source](#source) must be defined.
 `projection` | set projection (e g to "EPSG:4326") to request features in another reference system and Origo will handle the transformation. The proj4Defs has to be configured in index.json unless it's EPSG:4326 or 3857.
@@ -248,7 +248,7 @@ Property | Description
 `name` | the unique name of the layer used internally. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `id` | the id of the layer in ArcGIS Server.
 `title` | title for the layer visible to the user.
-`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
+`abstract` | short description of the layer shown in the layer info. Optional.
 `type` | type of source for the layer. For ArcGIS Server feature service the type is AGS_FEATURE.
 `source` | named source of the layer. The [source](#source) must be defined.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
@@ -314,7 +314,7 @@ Property | Description
 ---|---
 `name` | the unique name of the layer used internally. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `title` | title for the layer visible to the user.
-`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
+`abstract` | short description of the layer shown in the layer info. Optional.
 `type` | type of source for the layer. For vector tiles service the type is VECTORTILE.
 `source` | named source of the layer. The [source](#source) must be defined.
 `layerURL` | url to the service added to the source url. Mandatory unless layerName and gridset is set. E.g. layerName@gridset@format/{z}/{x}/{-y}.format
@@ -359,7 +359,7 @@ Property | Description
 ---|---
 `name` | the unique name of the layer used internally and the name of the layer in the WMS service. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `title` | title for the layer visible to the user.
-`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
+`abstract` | short description of the layer shown in the layer info. Optional.
 `type` | type of source for the layer. For WMS the type is WMS.
 `source` | named source of the layer. The [source](#source) must be defined with the layers source options.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
@@ -442,7 +442,7 @@ Property | Description
 ---|---
 `name` | the unique name of the layer used internally and the name of the layer in the WMTS service. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `title` | title for the layer visible to the user.
-`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
+`abstract` | short description of the layer shown in the layer info. Optional.
 `type` | type of source for the layer. For WMTS the type is WMTS.
 `source` | named source of the layer. The [source](#source) must be defined.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
@@ -494,7 +494,7 @@ Property | Description
 ---|---
 `name` | the unique name of the layer used internally. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `title` | title for the layer visible to the user.
-`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
+`abstract` | short description of the layer shown in the layer info. Optional.
 `type` | type of source for the layer. For XYZ the type is XYZ.
 `layerURL` | path to the image tiles. Can be a absolute path or relative used along with the source url.
 `source` | named source of the layer. Can be a absolute path or relative used along with the layerURL. Optional if layerURL is set.
@@ -537,7 +537,7 @@ Property | Description
 `name` | the unique name of the layer used internally. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `id` | the id of the layer in ArcGIS Server.
 `title` | title for the layer visible to the user.
-`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
+`abstract` | short description of the layer shown in the layer info. Optional.
 `type` | type of source for the layer. For ArcGIS Server map service the type is AGS_TILE.
 `source` | named source of the layer. The [source](#source) must be defined.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
@@ -586,7 +586,7 @@ Property | Description
 ---|---
 `name` | the unique name of the layer used internally. White spaces and special characters should be avoided.
 `title` | title for the layer visible to the user.
-`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
+`abstract` | short description of the layer shown in the layer info. Optional.
 `type` | type of source for the layer. For OpenStreetMap layer the type is OSM.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer. Only visible in the legend, not for styling the layer.
 `group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
