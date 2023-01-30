@@ -387,6 +387,7 @@ Property | Description
 `infoFormat` | Origo's get feature info expects responses in 'application/json' but some WMS servers (f.e. ArcGIS) don't supply it, so it's possible here to request in format 'application/geo+json' or 'application/geojson' if the server response with that format. Optional.
 `hasThemeLegend` | Whether extendedLegend or not. See [WMS autolegend](#automatic-default-legend-style-for-wms-layers). Optional, defaults to false. Has no effect if a [style](#style-basics) is also defined.
 `legendParams` | A getLegendGraphic parameters object, see [WMS autolegend](#automatic-default-legend-style-for-wms-layers). Optional, has no effect if a [style](#style-basics) is also defined. 
+`imageFeatureInfoMode` | Sets the featureinfo mode for this image type layer. Alternatives are `pixel` which will produce feature info if the pixel queried of a feature of a visible layer isn't totally transparent and `visible` which works on transparent styles too. `always` will in addition produce feature info for layers that are not visible. Feature info is dependant upon `queryable` being `true`. If set will override the [map](settings.md#featureinfooptions) level option with the same name. If not set the featureinfo behaviour will be decided at the map level. Optional.
 
 Source options | Description
 ---|---
@@ -559,6 +560,7 @@ Property | Description
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 `attachments`| An [attachment object](#Attachment-configuration) containing configuration for displaying attachments
+`imageFeatureInfoMode` | Sets the featureinfo mode for this image type layer. Alternatives are `pixel` which will produce feature info if the pixel queried of a feature of a visible layer isn't totally transparent and `visible` which works on transparent styles too. `always` will in addition produce feature info for layers that are not visible. Feature info is dependant upon `queryable` being `true`. If set will override the [map](settings.md#featureinfooptions) level option with the same name. If not set the featureinfo behaviour will be decided at the map level. Optional.
 
 Source options | Description
 ---|---
