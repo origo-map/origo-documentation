@@ -396,6 +396,7 @@ Option | Description
 `labelOpacitySlider` | option to use custom label for the opacity slider. Default is 'Opacity'.
 `name` | option to set the legend UI component name. Default is 'legend'.
 `turnOffLayersControl` | true or false for whether the turn off layers button should be present in the legend or not. Default is false.
+`turnOnLayersControl` | true or false for whether the turn on all layers button should be present in the legend or not. Default is false.
 `autoHide` | option to set if the legend should close automatically on map click. Accepted values are 'always' (legend is always closed on map click), 'mobile' (legend is closed on map click if map size is 'm' or smaller (see breakpoints in origo.js)) and 'never' (legend is never closed on map click, this is the default setting).
 `hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 `searchLayersControl` | option to add search function for layers in the legend. Defaults to false.
