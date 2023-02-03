@@ -68,7 +68,7 @@ Adds an about map control. A button is added to the mapmenu. On button click, a 
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (about)
 `options` | options for the control
 
 Option | Description
@@ -97,7 +97,7 @@ Adds a bookmarks control. Clicking the button opens a panel with a list of bookm
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (bookmarks)
 `options` | options for the control
 
 Option | Description
@@ -149,7 +149,7 @@ Adds the ability to drag-and-drop GeoJSON, GPX, IGC, KML and TopoJSON files to t
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (draganddrop)
 `options` | options for the control
 
 Option | Description
@@ -176,7 +176,7 @@ Enables layer editing.
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (editor)
 `options` | options for the control
 
 Option | Description
@@ -255,7 +255,7 @@ Adds a button that will send the center coordinates in an url template and opens
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (externalurl)
 `options` | options for the control
 
 Option | Description
@@ -305,7 +305,7 @@ Adds a button that will open an embedded map in fullscreen mode in a new tab/win
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (fullscreen)
 `options` | options for the control
 
 Option | Description
@@ -330,7 +330,7 @@ Adds a button that when clicked centers and zooms the map to the current positio
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (geoposition)
 `options` | options for the control
 
 Option | Description
@@ -358,7 +358,7 @@ Sets the map extent to the one specified in the options for the control.
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (home)
 `options` | options for the control
 
 Option | Description
@@ -383,7 +383,7 @@ Adds a legend control. Legend is added to menu and as a map legend to the map.
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (legend)
 `options` | options for the control
 
 Option | Description
@@ -396,6 +396,7 @@ Option | Description
 `labelOpacitySlider` | option to use custom label for the opacity slider. Default is 'Opacity'.
 `name` | option to set the legend UI component name. Default is 'legend'.
 `turnOffLayersControl` | true or false for whether the turn off layers button should be present in the legend or not. Default is false.
+`turnOnLayersControl` | true or false for whether the turn on all layers button should be present in the legend or not. Default is false.
 `autoHide` | option to set if the legend should close automatically on map click. Accepted values are 'always' (legend is always closed on map click), 'mobile' (legend is closed on map click if map size is 'm' or smaller (see breakpoints in origo.js)) and 'never' (legend is never closed on map click, this is the default setting).
 `hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 `searchLayersControl` | option to add search function for layers in the legend. Defaults to false.
@@ -427,7 +428,7 @@ Adds a button to the mapmenu that when clicked opens a new browser tab with the 
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (link)
 `options` | options for the control
 
 Option | Description
@@ -454,7 +455,7 @@ Creates a menu on the top right for controls.
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (mapmenu)
 `options` | options for the control
 
 Option | Description
@@ -481,9 +482,8 @@ Adds a measure control. Measure length, area, buffer or elevation (requires acce
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (measure)
 `options` | options for the control
-`hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 Option | Description
 ---|---
@@ -499,6 +499,7 @@ Option | Description
 `snapLayers` | Array of layers that snap is enabled for. If undefined, snap will be enabled for all layers.
 `snapRadius` | Distance from point where snap is triggered.
 `useHectare` | True or false if hectare should be used for area between 10 000 and 1 000 000 square meters. Default is true and hectare is used, false and square meters is used.
+`hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 #### Example measure control
 
@@ -615,10 +616,12 @@ Adds a print control to the mapmenu.  **NOTE** - requires mapmenu control.
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (print)
+`options` | options for the control
 
 Option | Description
 ---|---
+`placement` | option where the button is displayed. Optional, defaults to ["menu"]. ["screen"] or both are possible. 
 `leftFooterText` | a small left-aligned text on the bottom left. Optional.
 `showCreated` | shows the current date as a small right-aligned text on the bottom right. Optional. Default is false.
 `createdPrefix` | text displayed before the current date on the bottom right. Requires `showCreated: true`. Optional.
@@ -644,6 +647,7 @@ Option | Description
 {
   "name": "print",
   "options": {
+      "placement": ["screen","menu"],     
       "leftFooterText": "OBS: Kartan är inte rättsligt gällande.",
       "showCreated": true,
       "createdPrefix": "Skapad ",
@@ -682,7 +686,8 @@ Adds a control to show the load progress of all the layers in the map. The progr
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (progressbar)
+`options` | options for the control
 
 Option | Description
 ---|---
@@ -720,7 +725,7 @@ as an option and is not included in the search response.
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (search)
 `options` | options for the control
 
 Option | Description
@@ -839,7 +844,7 @@ Creates a shareable link to the map. Current extent and zoom, visible layers and
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (sharemap)
 `options` | options for the control
 
 Option | Description
@@ -847,6 +852,8 @@ Option | Description
 `storeMethod` | Should be set to `saveStateToServer` in order to utilize the save-to-server feature.
 `serviceEndpoint` | URL to the Origo Server service endpoint, for example `https://www.mydomain.com/mapstate`.
 `hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
+`icon` | icon for the menuitem in the menu. Defaults to "#ic_screen_share_outline_24px".
+`title` | title for the menuitem in the menu. Defaults to "Dela karta".
 
 #### Example sharemap control
 
@@ -862,7 +869,7 @@ Adds a splash control. It will show a modal window when the map is loaded. The c
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (splash)
 `options` | options for the control
 
 Option | Description
@@ -895,7 +902,7 @@ Adds a scale control that will show an approximation of the current scale in tex
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (scale)
 `options` | options for the control
 
 Option | Description
@@ -920,7 +927,7 @@ Adds a scalepicker control that allows the user to change the map scale using a 
 
 Property | Description
 ---|---
-`name` | the name of the control
+`name` | the name of the control (scalepicker)
 `options` | options for the control
 
 Option | Description

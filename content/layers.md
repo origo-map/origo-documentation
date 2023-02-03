@@ -8,7 +8,7 @@ Property | Description
 ---|---
 `name` | the unique name of the layer used internally. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `title` | title for the layer visible to the user.
-`abstract` | short description of the layer that is shown when the layer name is clicked in the legend. Optional.
+`abstract` | short description of the layer shown in the layer info. Optional.
 `type` | type of source for the layer. For GeoJSON source the type is GEOJSON.
 `source` | url to the layer.
 `projection` | set projection (e g to "EPSG:4326") to request features in another reference system and Origo will handle the transformation. The proj4Defs has to be configured in index.json unless it's EPSG:4326 or 3857.
@@ -56,7 +56,7 @@ Property | Description
 ---|---
 `name` | the unique name of the layer used internally. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `title` | title for the layer visible to the user.
-`abstract` | short description of the layer that is shown when the layer name is clicked in the legend. Optional.
+`abstract` | short description of the layer shown in the layer info. Optional.
 `type` | type of source for the layer. For GPX source the type is GPX.
 `source` | url to the layer.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
@@ -102,7 +102,7 @@ Property | Description
 ---|---
 `name` | the unique name of the layer used internally. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `title` | title for the layer visible to the user.
-`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
+`abstract` | short description of the layer shown in the layer info. Optional.
 `type` | type of source for the layer. For TopoJSON source the type is TopoJSON.
 `source` | url to the layer.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
@@ -146,7 +146,7 @@ Property | Description
 `name` | the unique name of the layer used internally and the name of the layer in the wfs service. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `id` | the id or ids used to identify the layers in the map server. White spaces and special characters should be avoided.
 `title` | title for the layer visible to the user.
-`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
+`abstract` | short description of the layer shown in the layer info. Optional.
 `type` | type of source for the layer. For WFS source the type is WFS.
 `source` | named source of the layer. The [source](#source) must be defined.
 `projection` | set projection (e g to "EPSG:4326") to request features in another reference system and Origo will handle the transformation. The proj4Defs has to be configured in index.json unless it's EPSG:4326 or 3857.
@@ -248,7 +248,7 @@ Property | Description
 `name` | the unique name of the layer used internally. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `id` | the id of the layer in ArcGIS Server.
 `title` | title for the layer visible to the user.
-`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
+`abstract` | short description of the layer shown in the layer info. Optional.
 `type` | type of source for the layer. For ArcGIS Server feature service the type is AGS_FEATURE.
 `source` | named source of the layer. The [source](#source) must be defined.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
@@ -314,7 +314,7 @@ Property | Description
 ---|---
 `name` | the unique name of the layer used internally. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `title` | title for the layer visible to the user.
-`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
+`abstract` | short description of the layer shown in the layer info. Optional.
 `type` | type of source for the layer. For vector tiles service the type is VECTORTILE.
 `source` | named source of the layer. The [source](#source) must be defined.
 `layerURL` | url to the service added to the source url. Mandatory unless layerName and gridset is set. E.g. layerName@gridset@format/{z}/{x}/{-y}.format
@@ -359,7 +359,7 @@ Property | Description
 ---|---
 `name` | the unique name of the layer used internally and the name of the layer in the WMS service. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `title` | title for the layer visible to the user.
-`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
+`abstract` | short description of the layer shown in the layer info. Optional.
 `type` | type of source for the layer. For WMS the type is WMS.
 `source` | named source of the layer. The [source](#source) must be defined with the layers source options.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
@@ -387,6 +387,7 @@ Property | Description
 `infoFormat` | Origo's get feature info expects responses in 'application/json' but some WMS servers (f.e. ArcGIS) don't supply it, so it's possible here to request in format 'application/geo+json' or 'application/geojson' if the server response with that format. Optional.
 `hasThemeLegend` | Whether extendedLegend or not. See [WMS autolegend](#automatic-default-legend-style-for-wms-layers). Optional, defaults to false. Has no effect if a [style](#style-basics) is also defined.
 `legendParams` | A getLegendGraphic parameters object, see [WMS autolegend](#automatic-default-legend-style-for-wms-layers). Optional, has no effect if a [style](#style-basics) is also defined. 
+`imageFeatureInfoMode` | Sets the featureinfo mode for this image type layer. Alternatives are `pixel` which will produce feature info if the pixel queried of a feature of a visible layer isn't totally transparent and `visible` which works on transparent styles too. `always` will in addition produce feature info for layers that are not visible. Feature info is dependant upon `queryable` being `true`. If set will override the [map](settings.md#featureinfooptions) level option with the same name. If not set the featureinfo behaviour will be decided at the map level. Optional.
 
 Source options | Description
 ---|---
@@ -442,7 +443,7 @@ Property | Description
 ---|---
 `name` | the unique name of the layer used internally and the name of the layer in the WMTS service. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `title` | title for the layer visible to the user.
-`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
+`abstract` | short description of the layer shown in the layer info. Optional.
 `type` | type of source for the layer. For WMTS the type is WMTS.
 `source` | named source of the layer. The [source](#source) must be defined.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
@@ -494,7 +495,7 @@ Property | Description
 ---|---
 `name` | the unique name of the layer used internally. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `title` | title for the layer visible to the user.
-`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
+`abstract` | short description of the layer shown in the layer info. Optional.
 `type` | type of source for the layer. For XYZ the type is XYZ.
 `layerURL` | path to the image tiles. Can be a absolute path or relative used along with the source url.
 `source` | named source of the layer. Can be a absolute path or relative used along with the layerURL. Optional if layerURL is set.
@@ -537,7 +538,7 @@ Property | Description
 `name` | the unique name of the layer used internally. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
 `id` | the id of the layer in ArcGIS Server.
 `title` | title for the layer visible to the user.
-`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
+`abstract` | short description of the layer shown in the layer info. Optional.
 `type` | type of source for the layer. For ArcGIS Server map service the type is AGS_TILE.
 `source` | named source of the layer. The [source](#source) must be defined.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
@@ -559,6 +560,7 @@ Property | Description
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 `attachments`| An [attachment object](#Attachment-configuration) containing configuration for displaying attachments
+`imageFeatureInfoMode` | Sets the featureinfo mode for this image type layer. Alternatives are `pixel` which will produce feature info if the pixel queried of a feature of a visible layer isn't totally transparent and `visible` which works on transparent styles too. `always` will in addition produce feature info for layers that are not visible. Feature info is dependant upon `queryable` being `true`. If set will override the [map](settings.md#featureinfooptions) level option with the same name. If not set the featureinfo behaviour will be decided at the map level. Optional.
 
 Source options | Description
 ---|---
@@ -586,7 +588,7 @@ Property | Description
 ---|---
 `name` | the unique name of the layer used internally. White spaces and special characters should be avoided.
 `title` | title for the layer visible to the user.
-`abstract` | short description of the layer. Adds a show info button to the layer in legend. Optional.
+`abstract` | short description of the layer shown in the layer info. Optional.
 `type` | type of source for the layer. For OpenStreetMap layer the type is OSM.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer. Only visible in the legend, not for styling the layer.
 `group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
@@ -762,7 +764,7 @@ type | format | required | readonly | maxLength | constraint | Description
 `integer`   | integer | supported | supported ||| Whole number
 `decimal`   | decimal | supported | supported ||| Decimal number
 `searchList`   | string | supported ||supported. Defaults to 50|| Dropdown based on options values with search capabilities. 
-`hidden` | string ||||| Not visible to the user. 
+`hidden` | string ||||| Not visible to the user.
 
 **searchList List object**
 
@@ -770,25 +772,45 @@ Defines the possible values in a _searchList_
 
 Property | Description | Required | Default value
 ---|---|---|---
-`value` | _string_ text to display | When _location_ is not specified | 
+`value` | _string_ text to display. If `useBackingValue` is set it is used as the value while `label` is used for display | When _location_ is not specified | 
 `src`| _url_ to an image that will be displayed next to _value_. Url is relative to app or absolute | No |
 `location`| _url_ to a HTML page that contains links to images. All a-tags hrefs that matches _extension_ will be used as list items. Filename will appear as text and the image itself as a thumbnail next to the text. If _location_ is specified it must be only item in list | No |
 `extension` | Filename extension without dot to filter links when using _location_ | When _location_ is specified |
+`label`| Text to display and search instead of value when `useBackingValue` is set | When `useBackingValue` is _true_ | 
 
 **searchList Config object**
-An object that defines additional configuration for searchList
+An object that defines additional configuration for searchList. The searchList can be configured to get its list from static configuration
+or a remote server. If using a remote server it can either get all available options in one request or
+query the server for each keypress. It can also be configured to use _value_ and _label_ similar to an HTML select drop down. In that
+case _value_ is stored in the database but _label_ is displayed in the searchList.
+
+__Requirerments on the backend server__
+If the `url` option is used an additional HTTP server endpoint is needed, not included in the origo project.
+The server must respond with a list of _searchList list objects_ as described above with the exception that `location` is not supported. There is no support for authentication other than what the browser
+automatically provides, e.g. sending cookies or authentication headers if server is located on same site as application. 
+
+
+If the `dynamic` option is used the server must accept a GET parameter named "input" or the configured `queryParameter` name. The parameter gets the value of the searchList text box and the server should return
+a list of matching search items. The exact algorithm is up to the server, but origo will assume the list is filtered and sorted so the list will be displayed as is as suggestions, but will be truncated to `maxItems`. If the server's algorithm is not based on substrings of the value, the highlighting may not work as expected.
+
+If the `useBackingValue` is specified in combination with `dynamic` the server must besides return both _value_ and _label_ for each list item also support reverse looking up in order to display correct label for the current value
+when opening the attribute editor. The reverse lookup is performed by sending the current value as GET parameter "value". The surver must
+then respond with a list with exactly one _searchList list objects_ with both _value_ and _label_ that corresponds to the current value.
+
 
 Property | Description | Required | Default value
 ---|---|---|---
 `url`| Url (GET) that responds with a JSON _array of List object_ (_location_ not supported) or _array of string_. If specified, _list_ property is ignored. | No  |
-`dynamic` | _true_ if _url_ should be queried for each keypress. The user input is appended to _url_ as a query parameter. The server should return a list of matching search items. The exact algorithm is up to the server, but origo will assume the list is filtered and sorted so the list will be displayed as is as suggestions, but will be truncated to maxItems. If the server's algorithm is not based on substrings of the value, the highlighting may not work as expected. | No | false
-`queryParameter` | Name of query parameter to use to send user input to _url_ when _dynamic_ is _true_| No | "input"
+`dynamic` | _true_ if the server specified in `url` should be queried for each keypress. | No | false
+`queryParameter` | Name of query parameter to use to send user input to `url` when `dynamic` is _true_| No | "input"
 `allowOnlyFromList` | _true_ if the user only can input values from the list, which makes it work like a searchable drop down. | No | _false_
 `disallowDropDown` | _true_ to allow the user to click the down arrow (or enter) when input is empty and get all possible suggestions even if minChar has not been reached. | No | _false_ 
 `minChars` | Number of character that must be written before suggestions are displayed. | No | 2
 `maxItems`| Number of suggestion items to display | No | 10
 `typeMoreText` | The text to show to the user if the input has less then _minChar_ characters. | No | "Skriv fler tecken"
 `noHitsText` | The text to show to the user if there are no suggestions to show. | No | "Inga träffar"
+`useBackingValue` | If set to _true_ the list items must have both `value` and `label`. `value` is stored in the database and `label`is displayed in the searchList. If used in combination with `dynamic=true`, the server must also support reverse lookup as described in the requirements on the backend server. | No | _false_,
+`valueQueryParameter`| When using `useBackingValue` in combination with `dynamic` the GET parameter name that is used for reverse lookup can be set using this parameter | No | "value"
 
 **defaultValue object**
 The defaultValue object controls how an attribute's default value is handled. Default values are always set when creating new features, and can optionally be set when updating attributes.
