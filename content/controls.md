@@ -159,6 +159,7 @@ Option | Description
 `groupTitle` | the title of the group containing the added layers. Used if group doesn't exist. Defaults to "Egna lager".
 `hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 `showLegendButton` | show an add-button in the legend. Requires the drag-and-drop control to be added after the legend. Defaults to false.
+`styleByAttribute` | style features in the layer based on their `style`-attribute. Defaults to false.
 
 #### Example drag-and-drop control
 
@@ -167,7 +168,8 @@ Option | Description
   "name": "draganddrop",
   "options": {
     "groupName": "drag-and-drop-layers",
-    "groupTitle": "Drag-and-drop layers"
+    "groupTitle": "Drag-and-drop layers",
+    "styleByAttribute": true
   }
 }
 ```
