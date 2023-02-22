@@ -13,6 +13,7 @@ Property | Description
 `source` | url to the layer.
 `projection` | set projection (e g to "EPSG:4326") to request features in another reference system and Origo will handle the transformation. The proj4Defs has to be configured in index.json unless it's EPSG:4326 or 3857.
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
+`styleByAttribute` | style features in the layer based on their `style`-attribute. Defaults to false.
 `group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
 `queryable` | if featureinfo should be enabled for the layer. Default is true.
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
