@@ -154,9 +154,11 @@ Property | Description
 
 Option | Description
 ---|---
+`featureStyles` | custom styling for the layer.
 `groupName` | the name of the group containing the added layers. Defaults to "egna-lager".
 `groupTitle` | the title of the group containing the added layers. Used if group doesn't exist. Defaults to "Egna lager".
 `hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
+`showLegendButton` | show an add-button in the legend. Requires the drag-and-drop control to be added after the legend. Defaults to false.
 
 #### Example drag-and-drop control
 
