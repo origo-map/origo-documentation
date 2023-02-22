@@ -18,7 +18,7 @@ Property | Description
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
 `legend` | if the layer should be included in the map legend. Default is false.
 `attribution` | attribution for the layer. Optional.
-`visible` | if the layer should be visible. Default is true.
+`visible` | if the layer should be visible. Default is false.
 `extent` | extent of the layer. Map extent is default.
 `minScale` | the minmum scale the layer is visible. Optional.
 `maxScale` | the maximum scale the layer is visible. Optional.
@@ -65,7 +65,7 @@ Property | Description
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
 `legend` | if the layer should be included in the map legend. Default is true.
 `attribution` | attribution for the layer. Optional.
-`visible` | if the layer should be visible. Default is true.
+`visible` | if the layer should be visible. Default is false.
 `extent` | extent of the layer. Map extent is default.
 `minScale` | the minmum scale the layer is visible. Optional.
 `maxScale` | the maximum scale the layer is visible. Optional.
@@ -111,7 +111,7 @@ Property | Description
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
 `legend` | if the layer should be included in the map legend. Default is false.
 `attribution` | attribution for the layer. Optional.
-`visible` | if the layer should be visible. Default is true.
+`visible` | if the layer should be visible. Default is false.
 `extent` | extent of the layer. Map extent is default.
 `minScale` | the minmum scale the layer is visible. Optional.
 `maxScale` | the maximum scale the layer is visible. Optional.
@@ -158,7 +158,7 @@ Property | Description
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
 `legend` | if the layer should be included in the map legend. Default is false.
 `attribution` | attribution for the layer. Optional.
-`visible` | if the layer should be visible. Default is true.
+`visible` | if the layer should be visible. Default is false.
 `extent` | extent of the layer. Map extent is default.
 `minScale` | the minmum scale the layer is visible. Optional.
 `maxScale` | the maximum scale the layer is visible. Optional.
@@ -259,7 +259,7 @@ Property | Description
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
 `legend` | if the layer should be included in the map legend. Default is false.
 `attribution` | attribution for the layer. Optional.
-`visible` | if the layer should be visible. Default is true.
+`visible` | if the layer should be visible. Default is false.
 `extent` | extent of the layer. Map extent is default.
 `minScale` | the minmum scale the layer is visible. Optional.
 `maxScale` | the maximum scale the layer is visible. Optional.
@@ -325,7 +325,7 @@ Property | Description
 `group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
 `attribution` | attribution for the layer. Optional.
-`visible` | if the layer should be visible. Default is true.
+`visible` | if the layer should be visible. Default is false.
 `extent` | extent of the layer. Map extent is default.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `tileGrid` | custom tileGrid for the vector tile layer. extent, alignBottomLeft, resolutions and tileSize can be set.
@@ -369,7 +369,7 @@ Property | Description
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
 `legend` | if the layer should be included in the map legend. Default is false.
 `attribution` | attribution for the layer. Optional.
-`visible` | if the layer should be visible. Default is true.
+`visible` | if the layer should be visible. Default is false.
 `extent` | extent of the layer. Map extent is default.
 `minScale` | the minmum scale the layer is visible. Optional.
 `maxScale` | the maximum scale the layer is visible. Optional.
@@ -452,7 +452,7 @@ Property | Description
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
 `legend` | if the layer should be included in the map legend. Default is false.
 `attribution` | attribution for the layer. Optional.
-`visible` | if the layer should be visible. Default is true.
+`visible` | if the layer should be visible. Default is false.
 `extent` | extent of the layer. Map extent is default.
 `minScale` | the minmum scale the layer is visible. Optional.
 `maxScale` | the maximum scale the layer is visible. Optional.
@@ -503,7 +503,7 @@ Property | Description
 `group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
 `attribution` | attribution for the layer. Optional.
-`visible` | if the layer should be visible. Default is true.
+`visible` | if the layer should be visible. Default is false.
 `extent` | extent of the layer. Map extent is default if tileGrid is not set.
 `minScale` | the minmum scale the layer is visible. Optional.
 `maxScale` | the maximum scale the layer is visible. Optional.
@@ -548,7 +548,7 @@ Property | Description
 `renderMode` | can be either image or tile. Default is tile.
 `legend` | if the layer should be included in the map legend. Default is false.
 `attribution` | attribution for the layer. Optional.
-`visible` | if the layer should be visible. Default is true.
+`visible` | if the layer should be visible. Default is false.
 `extent` | extent of the layer. Map extent is default.
 `minScale` | the minmum scale the layer is visible. Optional.
 `maxScale` | the maximum scale the layer is visible. Optional.
@@ -593,7 +593,7 @@ Property | Description
 `style` | the name of the referenced [style](#style-basics) to be used for the layer. Only visible in the legend, not for styling the layer.
 `group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
-`visible` | if the layer should be visible. Default is true.
+`visible` | if the layer should be visible. Default is false.
 `extent` | extent of the layer. Map extent is default.
 `removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
 `zoomToExtent` | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
@@ -624,7 +624,7 @@ Property | Description
 `style` | the name of the referenced [style](#style-basics) to be used for the layer. Only visible in the legend, not for styling the layer.
 `group` | group the layer belong to. If group is not provided it will not be included in legend.
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
-`visible` | if the layer should be visible. Default is true.
+`visible` | if the layer should be visible. Default is false.
 `extent` | extent of the layer. Map extent is default.
 `removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
 `zoomToExtent` | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
