@@ -396,6 +396,19 @@ Name | Type | Description
   }
 }
 ```
+
+### attributeAlias
+Key-value pairs to swap an attribute name for an alias. Used with the default featureinfo template.
+
+#### Example attributeAlias
+
+```json
+"attributeAlias": {
+  "name": "Namn",
+  "strl": "Storlek"
+}
+```
+
 ### clusterOptions
 Can also be set on layer or source level.
 
