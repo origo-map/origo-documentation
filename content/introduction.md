@@ -32,6 +32,7 @@ Option | Description
 `breakPoints` | breakpoints determining what is shown at different screen sizes.
 `breakPointsPrefix` | prefix to use when styling with breakpoints. Defaults to o-media.
 `defaultControls` | to override loading of default controls (scaleline, zoom, rotate, attribution and fullscreen).
+`mapState` | mapState-object to override settings in the json-config.
 
 
 #### Example map with json
@@ -70,7 +71,18 @@ Option | Description
       { name: 'rotate' },
       { name: 'attribution' },
       { name: 'fullscreen' }
-    ]
-    });
+    ],
+    mapState: {
+      "layers": [
+        "osm/v/1/s/0/o/100",
+        "origo-mask/v/1/s/0/o/25",
+        "origo-cities/v/1/s/0/o/100"
+      ],
+      "center": "1810000,8390000",
+      "zoom": "8.7",
+      "legend": "expanded",
+      "map": "index"
+    }
+  });
 </script>
 ```
