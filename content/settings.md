@@ -134,6 +134,7 @@ Name | Type | Description
 `groups` | array | Array of group objects defining subgroups. Optional."exclusive": true
 `exclusive` | boolean | Setting to true will prevent activating more than one layer in the group. Defaults to false.
 `toggleAll` | boolean | For subgroups. Set to false to disable the option to show/hide all layers in the subgroup at once. Default is true.
+`draggable` | boolean | Set to true to be able to rearrange layers in the group and affect the drawing order. Default is false.
 
 #### Example groups
 
