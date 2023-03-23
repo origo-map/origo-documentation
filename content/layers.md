@@ -702,6 +702,7 @@ Attribute options | Description
 `linktext` | Name of attribute that holds the text that should be used on links when using `url` in combination with `splitter`. Optional.
 `prefix` | adds the text entered in front of the attribute value. Optional.
 `suffix` | adds the text entered after the attribute value. Optional.
+`formatDatetime` | makes it possible to format an attribute that contains a datetime value that follows ISO 8601 or Unix TimeStamp. FormatDatetime value should be a object specifying which locale to be used for the formatting and an options object with choosen formats, for example `{"locale": "sv-SE", "options": { "dateStyle": "full", "timeStyle": "long" }}` if you want swedish formatting with ful date and long time reprsentation or `{"locale": "en-US", "options": { "weekday": "long", "year": "numeric", "month": "long", "day": "numeric" }}` if you want american english, weekday and month as word and year and day as numbers. More formatting options can be found here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat The default value is `{"locale": "default", "options": { dateStyle: 'full', timeStyle: 'long' }}`. Optional.
 
 #### Example defining layer attributes
 
