@@ -446,3 +446,31 @@ Property | Type | Description
   "tileSize": 512
 }
 ```
+
+### layerParams
+Set of parameters to add to a layer configuration. If a setting is present in both layerParam and the layer itself, the layer setting will win.
+
+#### Example layerParams
+
+```json
+"layerParams": {
+  "default": {
+    "group": "root",
+    "visible": true
+  }
+},
+"layers": [
+  {
+    "name": "origo-cities",
+    "title": "Origokommuner",
+    "source": "data/origo-cities-3857.geojson",
+    "style": "origo-logo",
+    "type": "GEOJSON",
+    "attributes": [
+      {
+        "name": "name"
+      }
+    ],
+    "layerParam": "default"
+  }
+```
