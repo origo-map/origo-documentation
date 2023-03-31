@@ -174,6 +174,58 @@ Option | Description
 }
 ```
 
+### Draw control
+
+Adds a draw control. Drawlayers can be exported or stored with the mapstate functionality. It is also possible to import GeoJSON-layers.
+
+Property | Description
+---|---
+`name` | the name of the control (draw)
+`options` | options for the control
+
+Option | Description
+---|---
+`buttonText` | title for link in mapMenu. Default is 'Rita'
+`drawTools` | what extra tools to add. See example for valid values. Object, default is {}
+`exportable` | layer setting. Boolean, default is true
+`groupName` | the group will be created if it doesn't exist. Default is 'none'
+`groupTitle` | title for the group, groupName must also be set. Default is 'Ritlager'
+`isActive` | activate the control at start. Boolean, default is false
+`layerTitle` | name of layer. Default is 'Ritlager'
+`multipleLayers` | if the user should be able to add multiple draw layers. Boolean, default is false
+`placement` | placement of the activate button. Can be screen or menu. Array, default is ['menu']
+`queryable` | layer setting. Boolean, default is false
+`removable` | layer setting. Boolean, default is true
+`showAttributeButton` | if true the user can add a popuptext to the feature. Boolean, default is false
+`showDownloadButton` | add downloadbutton in the toolbar. Boolean, default is false
+`showSaveButton` | only useful when using the draw control along with ha servic. Boolean, default is false
+
+
+#### Example draw control
+
+```json
+{
+"name": "draw",
+"options" : {
+  "buttonText": "Rita",
+  "drawTools": {
+     "Polygon": ["freehand", "box"],
+     "LineString": ["freehand"]
+  },
+  "showAttributeButton": true,
+  "showDownloadButton": true,
+  "showSaveButton": true,
+  "multipleLayers": true,
+  "queryable": false,
+  "removable": true,
+  "exportable": true,
+  "layerTitle": "Ritlager",
+  "groupTitle": "Ritlåda",
+  "groupName": "rit"
+}
+```
+
+
 ### Editor control
 
 Enables layer editing.
