@@ -389,6 +389,7 @@ Property | Description
 `hasThemeLegend` | Whether extendedLegend or not. See [WMS autolegend](#automatic-default-legend-style-for-wms-layers). Optional, defaults to false. Has no effect if a [style](#style-basics) is also defined.
 `legendParams` | A getLegendGraphic parameters object, see [WMS autolegend](#automatic-default-legend-style-for-wms-layers). Optional, has no effect if a [style](#style-basics) is also defined. 
 `imageFeatureInfoMode` | Sets the featureinfo mode for this image type layer. Alternatives are `pixel` which will produce feature info if the pixel queried of a feature of a visible layer isn't totally transparent and `visible` which works on transparent styles too. `always` will in addition produce feature info for layers that are not visible. Feature info is dependant upon `queryable` being `true`. If set will override the [map](settings.md#featureinfooptions) level option with the same name. If not set the featureinfo behaviour will be decided at the map level. Optional.
+`sourceParams` | A object with any additional params that can be added to the source and sent to the WMS server. For example CQL_FILTER can be provided as [cql](http://docs.geoserver.org/latest/en/user/tutorials/cql/cql_tutorial.html) and there by filter on which objects should be included on a Geoserver layer. For a QGIS Server the param FILTER can be used in a similar maner, the syntax should be in OGC filter format. Other server specific params can also be set as DPI, BGCOLOR oc OPACITIES. Optional.
 
 Source options | Description
 ---|---
@@ -434,6 +435,41 @@ Source options | Description
     "group": "ElementaryNew",
     "source": "test",
     "style": "school"
+  }
+]
+```
+
+#### Examples with additional source params supplied for a Geoserver and QGIS Server
+
+```json
+[
+  {
+    "name": "example",
+    "title": "Example",
+    "format": "image/png",
+    "queryable": false,
+    "visible": false,
+    "type": "WMS",
+    "group": "Elementary",
+    "source": "geoserver",
+    "sourceParams": {
+      "CQL_FILTER": "owner = 'me'"
+    }
+  },
+  {
+    "name": "example",
+    "title": "Example",
+    "format": "image/png",
+    "queryable": false,
+    "visible": false,
+    "type": "WMS",
+    "group": "Elementary",
+    "source": "qgisserver",
+    "sourceParams": {
+      "FILTER": "mylayer1:\"col1\";mylayer1,mylayer2:\"col2\" = 'blabla''",
+      "DPI": "300",
+      "BGCOLOR": "0x00FF00"
+    }
   }
 ]
 ```
