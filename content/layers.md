@@ -444,8 +444,8 @@ Source options | Description
 ```json
 [
   {
-    "name": "example",
-    "title": "Example",
+    "name": "example_geoserver",
+    "title": "Example Geoserver",
     "format": "image/png",
     "queryable": false,
     "visible": false,
@@ -457,8 +457,8 @@ Source options | Description
     }
   },
   {
-    "name": "example",
-    "title": "Example",
+    "name": "example_qgisserver",
+    "title": "Example QGIS Server",
     "format": "image/png",
     "queryable": false,
     "visible": false,
