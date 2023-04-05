@@ -698,11 +698,22 @@ Attribute options | Description
 `img` | attribute containing url to an image. The image will be embedded. Optional.
 `splitter` | set a splitter for example , or ; which is used to split the attribute if it is made up of delimited list of compounded attributes of the same type. To be used together with `url`, `img` and `linktext`. Optional.
 `cls` | css class name for custom styling. Optional.
-`html` | custom html. Attributes can be referenced be placing the attribute name within double curly brackets.  It also possible in a similar way to insert functions, for example getCenter which is written as `{{@center}}`. Arguments can be added, for example `{{@center(EPSG:4326,reverse)}}` to get the center coordinates in EPSG:4326 with reversed coordinates (or `{{@center(EPSG:4326,default)}}` to maintain the axis orientation after transformation). The `html` option can't be combined with any of the other options, except for `cls`. Optional.
+`html` | Custom html. Attributes can be referenced by placing the attribute name within double curly brackets.  It also possible in a similar way to apply a function by prepending the function name with `@`. See table below for supported functions. The `html` option can't be combined with any of the other options, except for `cls`. Optional.
 `linktext` | Name of attribute that holds the text that should be used on links when using `url` in combination with `splitter`. Optional.
 `prefix` | adds the text entered in front of the attribute value. Optional.
 `suffix` | adds the text entered after the attribute value. Optional.
 `formatDatetime` | makes it possible to format an attribute that contains a datetime value that follows ISO 8601 or Unix TimeStamp. FormatDatetime value should be a object specifying which locale to be used for the formatting and an options object with choosen formats, for example `{"locale": "sv-SE", "options": { "dateStyle": "full", "timeStyle": "long" }}` if you want swedish formatting with ful date and long time reprsentation or `{"locale": "en-US", "options": { "weekday": "long", "year": "numeric", "month": "long", "day": "numeric" }}` if you want american english, weekday and month as word and year and day as numbers. More formatting options can be found here: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat The default value is `{"locale": "default", "options": { dateStyle: 'full', timeStyle: 'long' }}`. Optional.
+
+**Html Attribute Functions**
+
+An html attribute function is either used with no arguments (all defaults) or all arguments specifed enclosed by parenthesis and separated by comma. Arguments are specified as constant values without any form of quotation marks.
+
+Function name | Description | Arguments | Example
+---|---|---|---
+`@center` | Prints out the center coordinate of the geometry | coordinatesystem: _string_ (defaults to map coordsys), axis rotation: `default` \|\| `reverse` (defaults to `default`) | `{{@center(EPSG:4326,reverse)}}`
+`@area` | Prints out the area of the geometry. Area is automatically scaled to a suitable unit (m2, ha, km2) | decimals: _integer_ (defaults to 2) | `{{@area}} {{@area(1)}}`
+`@length` | Prints out the length of the geometry. Length is automatically scaled to a suitable unit (m,km) | decimals: _integer_ (defaults to 2) | `{{@length(1)}}`
+
 
 #### Example defining layer attributes
 
