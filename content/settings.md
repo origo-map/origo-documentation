@@ -180,6 +180,7 @@ Name | Type | Description
 `title` | string | Infowindow header text. Default is "Träffar".
 `listLayout` | boolean | Option to show layers as a list. Default is false.
 `export` | object | Defines settings for the export. Two different export options are possible, server side and client side. Server side export requires a server endpoint and can be configured either as a simple export or layer specific export. Currently only attributes can be sent with server side export.
+`groupAggregations`| array of groupAggregation objects | If specified an aggregation of features in each layer is displayed for a selection. E.g. sum of all area. Multiple aggregations can be configured.
 
 **export properties**
 
@@ -230,6 +231,28 @@ Name | Type | Description
 `roundButtonIcon` | string | Icon for the round button. Path to an image or an icon from a library that are available as SVG sprites in Origo. Required if roundButton is true.
 `roundButtonTooltipText` | string | Tooltip text for the round button. Required if roundButton is true.
 `buttonText` | string | Text to display on export button. Optional. Default is 'Export'.
+
+**groupAggregation object**
+
+Name | Type | Required | Description
+---|---|---
+`layer` | string | No | Name of layer to apply to. If omitted or empty applies to all layers that has the configured `attribute`.
+`function` | string | Yes | Name of aggregation function. Currently only supported function is `"sum"`, which calculates the sum.
+`scalefactor` | Number | No | If `unit` is specified the result is multiplied with this scale factor. Defaults to 1.
+`decimals` | integer | No | Number of decimals in result. Defaults to 2.
+`attribute` | string | Yes | Name of the attribute to aggregate or name of function to apply. A function is prepended with `@`. See table below for supported functions. If the attribute is not present or the function can not be applied for a layer no aggregation is displayed for that layer.
+`label`| string | No | Text to put before result. Defaults to _function name_(attribute): _result_ _unit_, e.g. sum(@area): 55.01 km^2^ 
+`unit`| string | No | If specified it is printed after the result. Defaults to nothing unless a function that specifies its own unit is used.
+`useHectare` | boolean | No | If _true_ areas can be displayed in hectares for functions that calcultes areas. defaults to _true_. 
+
+**groupAggregation attribute functions**
+groupAggregation attribute functions are functions that are applied to each feature and the result is aggregated.
+
+Name | Description 
+---|---
+`@length` | Calculates the length of the feature. The result is automatically scaled to meters or kilometers unless `unit` is specified in which case result is in meters before scalefactor is applied.
+`@area` | Calculates the area of the feature. The result is automatically scaled to m^2^, ha or km^2^ unless `unit` is specified in which case result is in square meters before scalefactor is applied. If `useHectare` is false result is not displayed as ha.
+
 
 #### Example featureinfoOptions with overlay as infowindow
 
@@ -395,6 +418,38 @@ Name | Type | Description
     }
   }
 }
+```
+
+#### Example featureinfoOptions with aggregations
+```json
+"featureinfoOptions": {
+    "infowindow": "infowindow",   
+    "infowindowOptions": {
+      "groupAggregations": [
+        {
+          "layer": "linjelager", 
+          "function": "sum", 
+          "scalefactor": 0.01, 
+          "decimals": 1, 
+          "attribute": "@length",
+          "label": "Total length", 
+          "unit": "hektometer" 
+        },
+        {
+          // No layer specified, apply to all (multi) polygon layers 
+          "function": "sum",
+          "attribute": "@area",
+          "label": "<b>Total area:</b> ", 
+        },
+        {
+          // No layer specified, applies to all layers that happens to have an attribute called "inten"
+          "function": "sum",
+          "attribute": "inten", // ordinary attribute
+          "decimals": 0
+        }
+      ]
+    }
+  },
 ```
 
 ### attributeAlias
