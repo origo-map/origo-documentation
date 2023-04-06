@@ -190,6 +190,7 @@ Option | Description
 `exportable` | layer setting. Boolean, default is true
 `groupName` | the group will be created if it doesn't exist. Default is 'none'
 `groupTitle` | title for the group, groupName must also be set. Default is 'Ritlager'
+`draggable` | make the group draggable (if created by this control). Boolean, default is true
 `isActive` | activate the control at start. Boolean, default is false
 `layerTitle` | name of layer. Default is 'Ritlager'
 `multipleLayers` | if the user should be able to add multiple draw layers. Boolean, default is false
