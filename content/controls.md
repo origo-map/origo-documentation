@@ -735,6 +735,7 @@ Property | Description
 Option | Description
 ---|---
 `url` | url to the search endpoint. Always required.
+`queryParameterName` | name of the parameter in the search request containing the query. Default is 'q'.
 `searchAttribute` | the attribute that will be queried. Always required.
 `northing` | the attribute for northing coordinates. Only if geometryAttribute is not provided.
 `easting` | the attribute for easting coordinates. Only if geometryAttribute is not provided.
