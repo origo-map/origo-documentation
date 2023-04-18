@@ -27,7 +27,7 @@ Property | Description
 `layerType` | option to set how the vector layer should be rendered. The options are cluster, [image](https://openlayers.org/en/latest/apidoc/ol.source.ImageVector.html) or vector. Default is vector.
 `clusterStyle` | the style to be used for clustered features. Is required if layerType cluster is used.
 `clusterOptions` | options for clustering. See the settings page for details.
-`stylePicker` | Adds a dropup with alternative styles in the layer info. An array of styles defined with title, style and clusterStyle. Optional.
+`stylePicker` | Adds a dropup with alternative styles in the layer info. An array of styles defined with title, style and clusterStyle.  See [stylePicker](#stylepicker). Optional.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
 `removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
@@ -167,7 +167,7 @@ Property | Description
 `layerType` | option to set how the vector layer should be rendered. The options are cluster, [image](https://openlayers.org/en/latest/apidoc/ol.source.ImageVector.html) or vector. Default is vector.
 `clusterStyle` | the style to be used for clustered features. Is required if layerType cluster is used.
 `clusterOptions` | options for clustering. See the settings page for details.
-`stylePicker` | Adds a dropup with alternative styles in the layer info. An array of styles defined with title, style and clusterStyle. Optional.
+`stylePicker` | Adds a dropup with alternative styles in the layer info. An array of styles defined with title, style and clusterStyle. See [stylePicker](#stylepicker). Optional.
 `geometryName` | geometry attribute name. Default is geom.
 `geometryType` | geometry type for the layer.
 `filter` | filter provided as [cql](http://docs.geoserver.org/latest/en/user/tutorials/cql/cql_tutorial.html). Optional.
@@ -377,6 +377,7 @@ Property | Description
 `attributes` | definition of [attributes](#attributes) and how they should be presented in featureinfo. If not provided all available attributes will be shown with a standard template.
 `gutter` | gutter setting for the layer. Default is 0.
 `featureinfoLayer` | the named layer this layer should use for featureinfo requests. Optional.
+`stylePicker` | Adds a dropup with alternative styles in the layer info. Overrides `style` and `hasThemeLegend` and `legendParams`. See [stylePicker](#stylepicker). Optional.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `tileGrid` | custom tileGrid for the WMS layer. extent, alignBottomLeft, resolutions and tileSize can be set.
 `renderMode` | whether to render the layer tiled ('tile') or single tiled ('image'). Defaults to 'tile'.
@@ -1229,4 +1230,51 @@ Example `legendParams` object with Geoserver vendor parameter
         "legend_options" : "dpi:300"
       }
 ```
+## stylePicker
+The stylePicker is available for vector layers and WMS layers. It is defined in one way for vector layers and a slightly different way for WMS layers due to the different nature of styles of image type layers like WMS layers compared to the client side styles of vector layers.
+#### vector layers
+A stylePicker refers to defined styles and allows a style title to be set. (It usually makes sens for the `style` property of the layer to refer to one of the styles in the stylePicker.)
+```json
+"stylePicker": [
+  {"title": "Sommarstil", "style": "bokbuss_sommar"},
+  {"title": "Sval ton", "style": "bokbuss_bla"}
+]
+///
+"styles": {
+  "bokbuss_sommar": [
+    [
+      {
+        "stroke": {
+          "color": "rgba(211,84,0,1.0)"
+        },
+        "fill": {
+          "color": "rgba(241,196,15,0.9)"
+        }
+      }
+    ]
+  ]
+}
+```
+#### WMS layers
+if a stylePicker is defined for a WMS layer then it refers to styles available to the layer on the WMS server. 
 
+A `style` layer property is overriden and any `hasThemeLegend` and `legendParams` are incorporated in the stylePicker on a per layer basis (rather than as properties of the layer). 
+
+There can only be one `defaultWMSServerStyle` as well as `initialStyle` where the later specifies which style the map should load with. If there's no `initialStyle` specified then the first style in the array will be it.
+```json
+      "stylePicker": [
+        { "title": "Ljus", "style": "Bakgrund_bke_fk_lj_0484" },
+        { "title": "Mörk", "style": "Bakgrund_bkm_fk_mo_0484",
+          "initialStyle": true,
+          "hasThemeLegend": true,
+            "legendParams": {
+              "legend_options": "dpi:600"
+            }
+        },
+        { "title": "Standard", "defaultWMSServerStyle": true, 
+          "legendParams": {
+            "scale": 100
+          } 
+        }
+      ]
+```
