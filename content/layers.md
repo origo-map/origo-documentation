@@ -172,6 +172,7 @@ Property | Description
 `geometryType` | geometry type for the layer.
 `filter` | filter provided as [cql](http://docs.geoserver.org/latest/en/user/tutorials/cql/cql_tutorial.html). Optional.
 `strategy` | the ol.loadingstrategy for the layer. Can also be set on source. The options are tile, bbox or all. Default is bbox.
+`requestMethod` | request method for this layer. Can be set to 'post', otherwise it will be 'get'. Default is 'get'.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
 `removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
@@ -188,6 +189,7 @@ Source options | Description
 ---|---
 `url` | url to the wfs endpoint
 `strategy` | the ol.loadingstrategy for the layer. Can also be set on layer. The options are tile, bbox or all. Default is bbox.
+`requestMethod` | request method for this source. Can be set to 'post', otherwise it will be 'get'. If set on layer level this option will be omitted. Default is 'get'.
 `clusterOptions` | options for clustering. See the settings page for details.
 
 #### Basic example WFS
@@ -389,11 +391,13 @@ Property | Description
 `hasThemeLegend` | Whether extendedLegend or not. See [WMS autolegend](#automatic-default-legend-style-for-wms-layers). Optional, defaults to false. Has no effect if a [style](#style-basics) is also defined.
 `legendParams` | A getLegendGraphic parameters object, see [WMS autolegend](#automatic-default-legend-style-for-wms-layers). Optional, has no effect if a [style](#style-basics) is also defined. 
 `imageFeatureInfoMode` | Sets the featureinfo mode for this image type layer. Alternatives are `pixel` which will produce feature info if the pixel queried of a feature of a visible layer isn't totally transparent and `visible` which works on transparent styles too. `always` will in addition produce feature info for layers that are not visible. Feature info is dependant upon `queryable` being `true`. If set will override the [map](settings.md#featureinfooptions) level option with the same name. If not set the featureinfo behaviour will be decided at the map level. Optional.
+`requestMethod` | request method for this layer. Can be set to 'post', otherwise it will be 'get'. Default is 'get'.
 `sourceParams` | A object with any additional params that can be added to the source and sent to the WMS server. For example CQL_FILTER can be provided as [cql](http://docs.geoserver.org/latest/en/user/tutorials/cql/cql_tutorial.html) and there by filter on which objects should be included on a Geoserver layer. For a QGIS Server the param FILTER can be used in a similar maner, the syntax should be in OGC filter format. Other server specific params can also be set as DPI, BGCOLOR oc OPACITIES. Optional.
 
 Source options | Description
 ---|---
 `format` | the image format used for the layer unless format is set on layer-level. Default is 'image/png'.
+`requestMethod` | request method for this source. Can be set to 'post', otherwise it will be 'get'. If set on layer level this option will be omitted. Default is 'get'.
 `url` | url to the wms endpoint
 `version` | the OGC WMS version. Default is 1.1.1.
 `tileGrid` | custom tileGrid for the WMS source. extent, alignBottomLeft, resolutions and tileSize can be set.
