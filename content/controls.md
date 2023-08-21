@@ -700,6 +700,7 @@ Option | Description
 `supressResolutionsRecalculation` | option to set if the resolutions array should not be recalculated when entering the print preview (and restored when exited). Recalculating alleviates a problem with large scales and 300DPI. The option defaults to false.
 `hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 `suppressNewDPIMethod` | option to set if the new DPI calculation when changing resolution in the print preview should not be used. The option defaults to false.
+`mapInteractionsActive` | option to set whether map interactions should be enabled by default (true) or not. Default is false.
 
 
 #### Example Print control
