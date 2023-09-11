@@ -413,6 +413,36 @@ Option | Description
 }
 ```
 
+### Guide control
+
+Adds a control that guides the user through active controls in map
+
+Property | Description
+---|---
+`name` | name of the control (guide)
+`options` | options for the control
+
+Option | Description
+---|---
+`url` | url to the guide.json configuration file. Defaults to projekt root.
+`title` | title for guide modal. Defaults to Guide.
+`hideButton` | adds button to stop the current guide from displaying on subsequent visits to the map. If the content is updated, the guide will be displayed again. Options available are 'visible' (the only option required), 'hideText' and 'confirmText'.
+`hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
+
+#### Example guide control
+
+```json
+{ "name": "guide", 
+  "options": {
+    "url": "http://localhost:9966",
+    "title": "Guide",
+    "hideButton": { 
+      "visible": true
+    }
+  } 
+}
+```
+
 ### Home control
 
 Sets the map extent to the one specified in the options for the control.
