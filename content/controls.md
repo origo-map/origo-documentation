@@ -429,6 +429,16 @@ Option | Description
 `hideButton` | adds button to stop the current guide from displaying on subsequent visits to the map. If the content is updated, the guide will be displayed again. Options available are 'visible' (the only option required), 'hideText' and 'confirmText'.
 `hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
+Configuration of guide.json, see project root:
+
+Property | Description
+---|---
+`target` | element id or class
+`name` | name of the control that correlate with Origo control name. If control does'nt exists in origos configuration, use "new"
+`description` | the description of the control
+`icon` | the icon of the control
+`group` | array of the object above
+
 #### Example guide control
 
 ```json
