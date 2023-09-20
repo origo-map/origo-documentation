@@ -433,11 +433,11 @@ Configuration of guide.json, see project root:
 
 Property | Description
 ---|---
-`target` | element id or class
-`name` | name of the control that correlate with Origo control name. If control does'nt exists in origos configuration, use "new"
-`description` | the description of the control
-`icon` | the icon of the control
-`group` | array of the object above
+`target` | element id or class.
+`name` | name of the control that correlate with Origo control name. If control does'nt exists in origos configuration, use "new".
+`description` | the description of the control. Is html string.
+`icon` | the icon of the control.
+`group` | array of the object above.
 
 #### Example guide control
 
