@@ -172,6 +172,7 @@ Property | Type | Description
 `toggleSelectOnClick` | boolean | Option to enable/disable selection toggling. Used with the multiselection plugin and defaults to false.
 `changePointerOnHover` | boolean | When set to true, the mouse pointer changes when hovering over a clickable object. Optional. Defaults to false.
 `imageFeatureInfoMode` | string | Option to set the map level featureinfo mode for image type (WMS, AGS_MAP/TILE etc) layers. The default is `pixel` which will produce feature info if the pixel targeted of a feature of a visible layer isn't totally transparent. Alternatives are `visible` which works on wholly transparent styles too and `always` which will produce feature info even for layers that are not visible. This option is available at the layer level as well and where present there will override the map level option. Optional.
+`autoplay` | number | Option to let a carousel attribute images to rotate, set a number in milliseconds. Optional. Defaults to false.
 
 **infowindowOptions**
 

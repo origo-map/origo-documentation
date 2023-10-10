@@ -737,7 +737,8 @@ Attribute options | Description
 `target` | default behaviour is to open url in new window (_blank). It's possible to specify other targets as _top, _self and _parent or to open link in an iframe in a modal window which should than be set to modal for normal size or modal-full. Optional.
 `targetTitle` | used along with target to define title in modal titlebar and link tooltip. Can be set to "static text" or "{{attribute value}}". Default is url.
 `img` | attribute containing url to an image. The image will be embedded. Optional.
-`splitter` | set a splitter for example , or ; which is used to split the attribute if it is made up of delimited list of compounded attributes of the same type. To be used together with `url`, `img` and `linktext`. Optional.
+`carousel` | attribute containing url to several images combined with splitter option. Set `autoplay` in `featureinfoOptions` to have the carousel rotate the images. Optional.
+`splitter` | set a splitter for example , or ; which is used to split the attribute if it is made up of delimited list of compounded attributes of the same type. To be used together with `url`, `img`, `carousel` and `linktext`. Optional.
 `cls` | css class name for custom styling. Optional.
 `html` | Custom html. Attributes can be referenced by placing the attribute name within double curly brackets.  It also possible in a similar way to apply a function by prepending the function name with `@`. See table below for supported functions. The `html` option can't be combined with any of the other options, except for `cls`. Optional.
 `linktext` | Name of attribute that holds the text that should be used on links when using `url` in combination with `splitter`. Optional.
