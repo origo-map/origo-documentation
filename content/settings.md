@@ -131,9 +131,9 @@ Name | Type | Description
 `abstract` | short description of the group. Adds a show info button to the layer in legend. Optional.
 `expanded` | boolean | Whether the group should be expanded not. Used by the legend control. Default is false.
 `autoExpand` | boolean | For subgroups. Whether the subgroup should be expanded/collapsed when toggling the subgroups checkbox. Used by the legend control. Default is true.
-`groups` | array | Array of group objects defining subgroups. Optional."exclusive": true
+`groups` | array | Array of group objects defining subgroups. Optional.
 `exclusive` | boolean | Setting to true will prevent activating more than one layer in the group. Defaults to false.
-`toggleAll` | boolean | For subgroups. Set to false to disable the option to show/hide all layers in the subgroup at once. Default is true.
+`toggleAll` | boolean | For subgroups. Set to false to disable the option to show/hide all layers in the subgroup at once. Will have no effect if exclusive is set to true. Default is true. 
 `draggable` | boolean | Set to true to be able to rearrange layers in the group and affect the drawing order. Default is false.
 
 #### Example groups
