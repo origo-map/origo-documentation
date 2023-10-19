@@ -17,6 +17,8 @@ module.exports =
   '# Controls\n' +
   fs.readFileSync('./content/controls.md', 'utf8') + '\n' +
   '# Layers\n' +
-  fs.readFileSync('./content/layers.md', 'utf8') + '\n' +  
+  fs.readFileSync('./content/layers.md', 'utf8') + '\n' +
   '# Styles\n' +
-  fs.readFileSync('./content/styles.md', 'utf8') + '\n';
+  fs.readFileSync('./content/styles.md', 'utf8') + '\n' +
+  '# Origo API\n' +
+  fs.readFileSync('./content/api.md', 'utf8') + '\n';
