@@ -201,8 +201,8 @@ Option | Description
 `removable` | layer setting. Boolean, default is true
 `showAttributeButton` | if true the user can add a popuptext to the feature. Boolean, default is false
 `showDownloadButton` | add downloadbutton in the toolbar. Boolean, default is false
-`showSaveButton` | only useful when using the draw control along with ha servic. Boolean, default is false
-
+`showSaveButton` | only useful when using the draw control along with a service. Boolean, default is false
+`zoomToExtent` | add button to layer menu. Boolean, default is true
 
 #### Example draw control
 
