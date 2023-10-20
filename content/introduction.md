@@ -9,6 +9,9 @@ An origo map can be created once its JavaScript and CSS file is included on a pa
 The map is typically initialized with a json configuration as in the example to the right. As an alternative the json object can be included directly instead of a path to a json file. A third alternative is to initialize a map with an url to another origo map. The url is created with the share control. This is for example useful when you want to embed a map. If the map-parameter is set in the url (eg http://origoMapUrl/#map=anotherconfig ), then the map configuration will be ignored and anotherconfig.json will be loaded.
 
 The configuration file must strictly follow the JSON standard (https://www.json.org/) with the addition of javascript style _one line comments_ and _block comments_.
+
+The code for initiating Origo should always be inserted somewhere within the `<body>` tag and not within the `<head>` tag.
+
 ```javascript
 // This is a comment to the end of this line.
 { name: 'scaleline' }, // It does not have to start at the beginning of a line
