@@ -493,6 +493,7 @@ Property | Type | Description
 `minZoom` | number | Minimum zoom level. Defaults to 0.
 `resolutions` | array | Resolutions for the tilegrid. If omitted maps resolutions are used.
 `tileSize` | number or array | Size of tiles in the tileGrid. Default is [256,256]
+`origin` | array | If origin is set it is used instead of top/bottom left coordinate of the extent. Optional
 
 #### Example tileGridOptions
 
