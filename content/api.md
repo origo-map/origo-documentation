@@ -206,9 +206,9 @@ If data for a layer changes constantly as for example when fetching temperatures
 
 ```json
 // Refresh temperature data every 10 minutes
-	setInterval(() => {
-		if (origo.api().getLayer('temperature').getVisible()) {
-			origo.api().getLayer('temperature').getSource().refresh();
-		}
-	}, 600000);
+setInterval(() => {
+  if (origo.api().getLayer('temperature').getVisible()) {
+    origo.api().getLayer('temperature').getSource().refresh();
+  }
+}, 600000);
 ```
