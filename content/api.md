@@ -198,3 +198,17 @@ origo.api().getMap().on("moveend", function(e) {
   });
 });
 ```
+
+### Refresh data on a layer
+If data for a layer changes constantly as for example when fetching temperatures from IoT sensors it can be useful to let the data be refreshed on a regular interval.
+
+#### Example code for refreshing the data for a layer (in this example called 'temperature') on a regular interval.
+
+```json
+// Refresh temperature data every 10 minutes
+setInterval(() => {
+  if (origo.api().getLayer('temperature').getVisible()) {
+    origo.api().getLayer('temperature').getSource().refresh();
+  }
+}, 600000);
+```
