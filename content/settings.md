@@ -168,7 +168,7 @@ Property | Type | Description
 `infowindow` | string | Option to show featureinfo in overlay, sidebar or infowindow. Default is overlay.
 `infowindowOptions` | object | Options for infowindow. Currently only useful when using infowindow as infowindow. See options below. Optional.
 `selectionStyles` | object | Option to set custom selection style. Optional.
-`multiSelectionStyles` | object | Option to set custom selection style for selected and highlighted features when using infowindow as infowindow. Optional.
+`multiSelectionStyles` | object | Option to set custom selection style for `selected` features, features `inActiveLayer` and `highlighted` features when using infowindow as infowindow. Optional.
 `toggleSelectOnClick` | boolean | Option to enable/disable selection toggling. Used with the multiselection plugin and defaults to false.
 `changePointerOnHover` | boolean | When set to true, the mouse pointer changes when hovering over a clickable object. Optional. Defaults to false.
 `imageFeatureInfoMode` | string | Option to set the map level featureinfo mode for image type (WMS, AGS_MAP/TILE etc) layers. The default is `pixel` which will produce feature info if the pixel targeted of a feature of a visible layer isn't totally transparent. Alternatives are `visible` which works on wholly transparent styles too and `always` which will produce feature info even for layers that are not visible. This option is available at the layer level as well and where present there will override the map level option. Optional.
@@ -361,60 +361,103 @@ Name | Description
     "multiSelectionStyles": {
       "selected": [
         {
+        "zIndex": 1,
+        "fill": {
+          "color": [128, 128, 128, 0.13]
+        },
+        "stroke": {
+          "color": [0, 0, 0, 0.13],
+          "width": 3
+        },
+        "circle": {
+          "radius": 14,
+          "stroke": {
+          "color": [0, 0, 0, 0.13],
+          "width": 3
+          },
           "fill": {
-            "color": [100,153,255,0.1]
+          "color": [128, 128, 128, 0.13]
+          }
+        }
+        }
+      ],
+      "inActiveLayer": [
+        {
+          "zIndex": 3,
+          "fill": {
+          "color": [128, 128, 192, 0.4]
           },
           "stroke": {
-                "color": [100,153,255,1],
-                "width": 3
+          "color": [255, 255, 255, 1],
+          "width": 4
           },
           "circle": {
-            "radius": 5,
-            "stroke": {
-              "color": [100,153,255,1]
-            },
-            "fill": {
-              "color": [100,153,255,1]
-            }
+          "radius": 14,
+          "stroke": {
+            "color": [255, 255, 255, 1],
+            "width": 3
+          },
+          "fill": {
+            "color": [255, 255, 255, 0.01]
+          }
+          }
+        },
+        {
+          "zIndex": 4,
+          "stroke": {
+          "color": [220, 24, 24, 1],
+          "width": 2
+          },
+          "circle": {
+          "radius": 14,
+          "stroke": {
+            "color": [220, 24, 24, 1],
+            "width": 2
+          },
+          "fill": {
+            "color": [128, 128, 192, 0.4]
+          }
           }
         }
       ],
       "highlighted": [
         {
-          "zIndex": 1,
+          "zIndex": 5,
           "fill": {
-            "color": [245,66,236,0.25]
+          "color": [255, 255, 255, 0.6]
           },
           "stroke": {
-            "color": [255,255,255,1],
-            "width": 6
+          "color": [255, 255, 255, 1],
+          "width": 6
           },
           "circle": {
-            "radius": 5,
-            "stroke": {
-              "color": [245,66,236,1]
-            },
-            "fill": {
-              "color": [245,66,236,1]
-            }
+          "radius": 14,
+          "stroke": {
+            "color": [255, 255, 255, 1],
+            "width": 6
+          },
+          "fill": {
+            "color": [255, 255, 255, 0.01]
+          }
           }
         },
         {
-          "zIndex": 2,
+          "zIndex": 6,
           "stroke": {
-            "color": [66,245,105,1],
-            "width": 2
+          "color": [48, 48, 255, 1],
+          "width": 3
           },
           "circle": {
-            "radius": 10,
-            "stroke": {
-              "color": [66,245,105,1]
-            },
-            "fill": {
-              "color": [66,245,105,0.1]
-            }
+          "radius": 14,
+          "stroke": {
+            "color": [48, 48, 255, 1],
+            "width": 3
+          },
+          "fill": {
+            "color": [255, 255, 255, 0.6]
           }
-	}
+          }
+        }
       ]
     }
   }
