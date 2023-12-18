@@ -128,8 +128,8 @@ Name | Type | Description
 ---|---|---
 `name` | string | Name of the group that identifies the group. Each name must be unique.
 `title` | string | A title for the group. The title is visible for the user in the legend control.
-`description` | description of the group. Shown on the properties page. Optional.
-`abstract` | short description of the group. Shown on the properties page unless showAbstractInLegend is true. Optional.
+`description` | string | description of the group. Shown on the properties page. Optional.
+`abstract` | string | short description of the group. Shown on the properties page unless showAbstractInLegend is true. Optional.
 `showAbstractInLegend` | boolean | if abstract should be placed in the legend instead of on the properties page. Default is false.
 `expanded` | boolean | Whether the group should be expanded not. Used by the legend control. Default is false.
 `autoExpand` | boolean | For subgroups. Whether the subgroup should be expanded/collapsed when toggling the subgroups checkbox. Used by the legend control. Default is true.
