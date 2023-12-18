@@ -18,7 +18,7 @@ Property | Description
 `queryable` | if featureinfo should be enabled for the layer. Default is true.
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
 `legend` | if the layer should be included in the map legend. Default is false.
-`attribution` | attribution for the layer. Optional.
+`attribution` | attribution for the layer shown in the footer. Used for copyright text or any other information. Optional.
 `visible` | if the layer should be visible. Default is false.
 `extent` | extent of the layer. Map extent is default.
 `minScale` | the minmum scale the layer is visible. Optional.
@@ -65,7 +65,7 @@ Property | Description
 `queryable` | if featureinfo should be enabled for the layer. Default is true.
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
 `legend` | if the layer should be included in the map legend. Default is true.
-`attribution` | attribution for the layer. Optional.
+`attribution` | attribution for the layer shown in the footer. Used for copyright text or any other information. Optional.
 `visible` | if the layer should be visible. Default is false.
 `extent` | extent of the layer. Map extent is default.
 `minScale` | the minmum scale the layer is visible. Optional.
@@ -111,7 +111,7 @@ Property | Description
 `queryable` | if featureinfo should be enabled for the layer. Default is true.
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
 `legend` | if the layer should be included in the map legend. Default is false.
-`attribution` | attribution for the layer. Optional.
+`attribution` | attribution for the layer shown in the footer. Used for copyright text or any other information. Optional.
 `visible` | if the layer should be visible. Default is false.
 `extent` | extent of the layer. Map extent is default.
 `minScale` | the minmum scale the layer is visible. Optional.
@@ -158,7 +158,7 @@ Property | Description
 `queryable` | if featureinfo should be enabled for the layer. Default is true.
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
 `legend` | if the layer should be included in the map legend. Default is false.
-`attribution` | attribution for the layer. Optional.
+`attribution` | attribution for the layer shown in the footer. Used for copyright text or any other information. Optional.
 `visible` | if the layer should be visible. Default is false.
 `extent` | extent of the layer. Map extent is default.
 `minScale` | the minmum scale the layer is visible. Optional.
@@ -261,7 +261,7 @@ Property | Description
 `queryable` | if featureinfo should be enabled for the layer. Default is true.
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
 `legend` | if the layer should be included in the map legend. Default is false.
-`attribution` | attribution for the layer. Optional.
+`attribution` | attribution for the layer shown in the footer. Used for copyright text or any other information. Optional.
 `visible` | if the layer should be visible. Default is false.
 `extent` | extent of the layer. Map extent is default.
 `minScale` | the minmum scale the layer is visible. Optional.
@@ -327,7 +327,7 @@ Property | Description
 `style` | the name of the referenced [style](#style-basics) to be used for the layer.
 `group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
-`attribution` | attribution for the layer. Optional.
+`attribution` | attribution for the layer shown in the footer. Used for copyright text or any other information. Optional.
 `visible` | if the layer should be visible. Default is false.
 `extent` | extent of the layer. Map extent is default.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
@@ -371,7 +371,7 @@ Property | Description
 `queryable` | if featureinfo should be enabled for the layer. Default is true.
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
 `legend` | if the layer should be included in the map legend. Default is false.
-`attribution` | attribution for the layer. Optional.
+`attribution` | attribution for the layer shown in the footer. Used for copyright text or any other information. Optional.
 `visible` | if the layer should be visible. Default is false.
 `extent` | extent of the layer. Map extent is default.
 `minScale` | the minmum scale the layer is visible. Optional.
@@ -493,7 +493,7 @@ Property | Description
 `queryable` | if featureinfo should be enabled for the layer. Default is true.
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
 `legend` | if the layer should be included in the map legend. Default is false.
-`attribution` | attribution for the layer. Optional.
+`attribution` | attribution for the layer shown in the footer. Used for copyright text or any other information. Optional.
 `visible` | if the layer should be visible. Default is false.
 `extent` | extent of the layer. Map extent is default.
 `minScale` | the minmum scale the layer is visible. Optional.
@@ -544,7 +544,7 @@ Property | Description
 `style` | the name of the referenced [style](#style-basics) to be used for styling the legend. Must be an image and if omitted a generic background map image will be used.
 `group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
-`attribution` | attribution for the layer. Optional.
+`attribution` | attribution for the layer shown in the footer. Used for copyright text or any other information. Optional.
 `visible` | if the layer should be visible. Default is false.
 `extent` | extent of the layer. Map extent is default if tileGrid is not set.
 `minScale` | the minmum scale the layer is visible. Optional.
@@ -589,7 +589,7 @@ Property | Description
 `opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
 `renderMode` | can be either image or tile. Default is tile.
 `legend` | if the layer should be included in the map legend. Default is false.
-`attribution` | attribution for the layer. Optional.
+`attribution` | attribution for the layer shown in the footer. Used for copyright text or any other information. Optional.
 `visible` | if the layer should be visible. Default is false.
 `extent` | extent of the layer. Map extent is default.
 `minScale` | the minmum scale the layer is visible. Optional.
