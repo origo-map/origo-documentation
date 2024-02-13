@@ -16,7 +16,19 @@ origo.api()
 Origo.ol
 ```
 
+### Change visibility of layer
+
+To change the visibility of a layer first get the layer and then apply setVisible method with true/false as parameter.
+
+#### Example code for making a layer visible
+
+```json
+origo.api().getLayer('origo-cities').setVisible(true);
+origo.api().getLayer('origo-cities').setVisible(false);
+```
+
 ### Change Zoom
+
 Set the zoom level by enter an integer. The number of zoom level is depending on the configuration and setting a higher number than max zoom will only result in max zoom.
 
 #### Example code for changing zoom
@@ -26,6 +38,7 @@ origo.api().getMap().getView().setZoom(8);
 ```
 
 ### Move the map
+
 To move the map give the coordinates of the center in the map. If the coordinates is in another projection a function to convert the coordinates to the maps projection can be called.
 
 #### Example code for moving the map
@@ -39,6 +52,7 @@ origo.api().getMap().getView().setCenter(origo.api().getMapUtils().transformCoor
 ```
 
 ### Change visibilty of controls
+
 To hide or show a control search the control by name and then apply the hide and unhide method on the control.
 
 #### Example code for hide or show a control
@@ -51,7 +65,22 @@ origo.api().getControlByName('legend').hide();
 origo.api().getControlByName('legend').unhide();
 ```
 
+### Get features
+
+To get all features from a layer and get all ids for the features.
+
+#### Example code for getting features and write out their ids
+
+```json
+const allFeatures = origo.api().getLayer('origo-cities').getSource().getFeatures();
+
+allFeatures.forEach(feature => {
+  console.log(feature.getId());
+});
+```
+
 ### Place a marker on map
+
 A marker can be placed with coordinates to location and also set a title and text for a popup.
 
 #### Example code for adding a marker with popup on map
@@ -62,6 +91,7 @@ origo.api().addMarker([1926764,8953470],'Get here!','<b>Sundsvalls kommun</b><br
 ```
 
 ### Limit features for layer
+
 A filter can be applied to a layer to only show a selection of the features in the layer.
 
 #### Example code for setting a filter on a layer
@@ -72,6 +102,7 @@ origo.api().getLayer('Invasive_species').getSource().setFilter("[OrganismGroup] 
 ```
 
 ### Get a link for the map
+
 To get a link of the map with applied layers and settings
 
 #### Example code for creating a sharemap link to the map
@@ -82,6 +113,7 @@ origo.api().getControlByName('sharemap').getPermalink().then((data) => alert(dat
 ```
 
 ### Get drawn features
+
 To access the features drawn in the drawplugin lookup the layer called drawplugin and get the features from that layers source.
 
 #### Example code for getting drawn features
@@ -102,6 +134,7 @@ allLayers.forEach(layer => {
 ```
 
 ### Add new tile layer
+
 To add a new tile layer a source must be given and also a title and name.
 
 #### Example code for adding new layer to map
@@ -112,6 +145,7 @@ origo.api().getMap().addLayer(new Origo.ol.layer.Tile({source: new Origo.ol.sour
 ```
 
 ### Add new vector layer
+
 To add a new vector layer from GeoJSON object.
 
 #### Example code for adding new vector layer to map
@@ -146,7 +180,7 @@ var vectorSource = new  Origo.ol.source.Vector({features: new Origo.ol.format.G
 // Create a vector layer
 var vectorLayer = new  Origo.ol.layer.Vector({source: vectorSource,
   name: 'Vektorlager',
-  title: 'Vektorlager', 
+  title: 'Vektorlager',
   queryable: true
 });
  
@@ -162,11 +196,12 @@ vectorSource.addFeature(new Origo.ol.Feature(new Origo.ol.geom.Circle([1503198, 
 // Clear all features from the vector layer
 origo.api().getLayer('Vektorlager').getSource().clear();
 
-// Add the feature from 
+// Add the feature from
 origo.api().getLayer('Vektorlager').getSource().addFeatures(new Origo.ol.format.GeoJSON().readFeatures(geojsonObject));
 ```
 
 ### Add export to click event
+
 To do a export on a click event.
 
 #### Example code for adding a click event export method.
@@ -177,12 +212,13 @@ origo.api().getMap().on("click", function(e) {
   this.forEachFeatureAtPixel(e.pixel, function (feature, layer) {
     if(feature.getGeometry().getType() == 'Point'){
     	alert(new Origo.ol.format.GPX().writeFeatures([feature], {dataProjection: 'EPSG:4326', featureProjection: 'EPSG:3857'}));
-    } 
+    }
   })
 });
 ```
 
 ### Add fetch from API to event
+
 To do a fetch on a moveend event.
 
 #### Example code for adding a moveend event fetch method.
