@@ -67,16 +67,17 @@ origo.api().getControlByName('legend').unhide();
 
 ### Get features
 
-To get all features from a layer and get all ids for the features.
+To get all features from a layer and get all id and names for the features.
 
-#### Example code for getting features and write out their ids
+#### Example code for getting features and write out their id and names
 
 ```json
 const allFeatures = origo.api().getLayer('origo-cities').getSource().getFeatures();
-
+let out = '';
 allFeatures.forEach(feature => {
-  console.log(feature.getId());
+  out += `Id: ${feature.getId()} Namn: ${feature.get('name')} \n`
 });
+window.alert(out);
 ```
 
 ### Place a marker on map
