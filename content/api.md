@@ -80,6 +80,26 @@ allFeatures.forEach(feature => {
 window.alert(out);
 ```
 
+### Zoom to a feature
+
+To zoom to a specific feature from a layer.
+
+#### Example code for zooming to a feature
+
+```json
+origo.api().zoomToExtent(origo.api().getLayer('origo-cities').getSource().getFeatureById('1').getGeometry());
+```
+
+### Show feature info
+
+To show the feature info of a feature from a layer.
+
+#### Example code for showing feature info
+
+```json
+origo.api().getFeatureinfo().showFeatureInfo({ feature: origo.api().getLayer('origo-cities').getSource().getFeatureById('2'), layerName: 'origo-cities' });
+```
+
 ### Place a marker on map
 
 A marker can be placed with coordinates to location and also set a title and text for a popup.
