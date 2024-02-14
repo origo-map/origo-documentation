@@ -185,12 +185,18 @@ Property | Description
 `isTable`| Bool that indicates if the geometry should be ignored. Implies _visible_. Only useful when layer is a child in related layers. Optional. defaults to `false`
 `relatedLayers`| Array of [relatedLayers](#Related-layers) objects defining child layers. Optional
 
-Source options | Description
+**Source options**
+
+The following options are available for the `source` configuration for WFS.
+
+Name | Type | Required | Description
 ---|---
-`url` | url to the wfs endpoint
-`strategy` | the ol.loadingstrategy for the layer. Can also be set on layer. The options are tile, bbox or all. Default is bbox.
-`requestMethod` | request method for this source. Can be set to 'post', otherwise it will be 'get'. If set on layer level this option will be omitted. Default is 'get'.
-`clusterOptions` | options for clustering. See the settings page for details.
+`url` | string | Yes | Url to the wfs endpoint
+`strategy` | string | No | The ol.loadingstrategy for the layer. Can also be set on layer. The options are tile, bbox or all. Default is bbox.
+`requestMethod` | string | No | Request method for this source. Can be set to 'post', otherwise it will be 'get'. If set on layer level this option will be omitted. Default is 'get'.
+`clusterOptions` | string | No | Options for clustering. See the settings page for details.
+`workspace`| string | Only when editing | Name of the Wfs feature type namespace. Should match the configuration of the server.
+`prefix`| string | No | Prefix to add to Wfs transaction. May be needed to match server's configuration in certain circumstances.
 
 #### Basic example WFS
 
@@ -704,7 +710,15 @@ Property | Description
 
 ## Source
 
-Sources defined for the map are named under source. Each source is available for a layer by referencing its name.
+The `source` option defines named sources that some layer types uses, typically service based sources. Most file based
+sources only defines its source in the layer configuration.
+
+Each source is defined as a json object with its
+name as object name. This name is used by layers to reference the source.
+
+The options that are available for a source depends on the type of layer and is described under each layer type.
+
+
 
 #### Example defining sources
 
