@@ -388,7 +388,8 @@ Property | Description
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 `attachments`| An [attachment object](#Attachment-configuration) containing configuration for displaying attachments
-`infoFormat` | Origo's get feature info expects responses in 'application/json' but some WMS servers (f.e. ArcGIS) don't supply it, so it's possible here to request in format 'application/geo+json' or 'application/geojson' if the server response with that format. Optional.
+`infoFormat` | Origo's get feature info expects responses in 'application/json' but some WMS servers (f.e. ArcGIS) don't supply it, so it's possible here to request in format 'application/geo+json' or 'application/geojson' if the server response with that format. For Geoserver 'text/html' is valid, within certain limits, see [WMS text/HTML](#texthtml-infoformat-for-wms-layers). Optional.
+`htmlSeparator` | A html tag to attempt to separate features via from the getfeatureinfo text/html reply if `infoFormat` is set to `text/html`. Optional.
 `hasThemeLegend` | Whether extendedLegend or not. See [WMS autolegend](#automatic-default-legend-style-for-wms-layers). Optional, defaults to false. Has no effect if a [style](#style-basics) is also defined.
 `legendParams` | A getLegendGraphic parameters object, see [WMS autolegend](#automatic-default-legend-style-for-wms-layers). Optional, has no effect if a [style](#style-basics) is also defined. 
 `imageFeatureInfoMode` | Sets the featureinfo mode for this image type layer. Alternatives are `pixel` which will produce feature info if the pixel queried of a feature of a visible layer isn't totally transparent and `visible` which works on transparent styles too. `always` will in addition produce feature info for layers that are not visible. Feature info is dependant upon `queryable` being `true`. If set will override the [map](settings.md#featureinfooptions) level option with the same name. If not set the featureinfo behaviour will be decided at the map level. Optional.
@@ -402,6 +403,7 @@ Source options | Description
 `url` | url to the wms endpoint
 `version` | the OGC WMS version. Default is 1.1.1.
 `tileGrid` | custom tileGrid for the WMS source. extent, alignBottomLeft, resolutions and tileSize can be set.
+`type` | vendor of the WMS server. Used for functionality that requires different handling depending on the server type. Currently the only valid option is 'geoserver'. Optional.
 
 #### Basic example WMS
 
@@ -1283,3 +1285,13 @@ There can only be one `defaultWMSServerStyle` as well as `initialStyle` where th
         }
       ]
 ```
+## text/html infoFormat for WMS-layers
+WMS servers can usually serve getFeatureInfo requests with a text/html reply. Sometimes they provide customizability of these replies. Then the html returned can have an infinite amount of variation. Origo has basic support for Geoserver WMS layers configured with `infoFormat: text/html`:
+
+ if the layer also has the `htmlSeparator` property set to an html tag, like `htmlSeparator: 'ul'` Origo will try to separate the features from the html reply via the configured tag and present the infoclick hits with a selection that can be traversed via clicking the features in the infowindow or cycling the carousel of the overlay like usual. If no such tag is present for a layer a point will show where the infoclick happened and all feature hits will be presented in one overlay/infowindow (representing the reply from the WMS server as it is). 
+
+ Because of :milky_way: amount of variation of featureInfo html responses Origo may not be able to separate features with a supplied tag, to this end it is possible to supply Origo with a handler function for the featureInfo html reply. This can be done via the api: `origo.api().getFeatureinfo().addTextHtmlHandler(function)` as well as via a plugin that would define a function and `viewer.getFeatureinfo().addTextHtmlHandler(function)`. 
+ 
+ It is advisable to check the default function in src/getfeatureinfo.js to see the form of what is to be returned depending on whether a `htmlSeparator` prop is provided.
+
+ Note that the `source` of the [WMS](#wms) layer must have the `type` prop with the `geoserver` value for the `text/html` value of the `infoFormat` property to have the proper effect.
