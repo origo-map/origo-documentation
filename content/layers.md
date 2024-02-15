@@ -403,7 +403,7 @@ Source options | Description
 `url` | url to the wms endpoint
 `version` | the OGC WMS version. Default is 1.1.1.
 `tileGrid` | custom tileGrid for the WMS source. extent, alignBottomLeft, resolutions and tileSize can be set.
-`type` | vendor of the WMS server. Used for functionality that requires different handling depending on the server type. Currently the only valid option is 'geoserver'. Optional.
+`type` | vendor of the WMS server. Used for functionality that requires different handling depending on the server type. Currently the options are 'Geoserver', 'ArcGIS', 'QGIS'. Optional.
 
 #### Basic example WMS
 
