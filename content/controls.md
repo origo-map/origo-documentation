@@ -233,6 +233,8 @@ Option | Description
 
 Enables layer editing.
 
+**Important:** When editing WFS-layers the `workspace`option must be specified on the `source`. See [Wfs layer configuration](#wfs)
+
 Property | Description
 ---|---
 `name` | the name of the control (editor)
