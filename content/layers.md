@@ -190,7 +190,7 @@ Property | Description
 The following options are available for the `source` configuration for WFS.
 
 Name | Type | Required | Description
----|---
+---|---|---|---
 `url` | string | Yes | Url to the wfs endpoint
 `strategy` | string | No | The ol.loadingstrategy for the layer. Can also be set on layer. The options are tile, bbox or all. Default is bbox.
 `requestMethod` | string | No | Request method for this source. Can be set to 'post', otherwise it will be 'get'. If set on layer level this option will be omitted. Default is 'get'.
