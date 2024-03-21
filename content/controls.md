@@ -426,7 +426,6 @@ Option | Description
 ---|---
 `url` | url to the guide.json configuration file. Defaults to projekt root.
 `title` | title for guide modal. Defaults to Guide.
-`hideButton` | adds button to stop the current guide from displaying on subsequent visits to the map. If the content is updated, the guide will be displayed again. Options available are 'visible' (the only option required), 'hideText' and 'confirmText'.
 `hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 Configuration of guide.json, see project root:
@@ -445,10 +444,7 @@ Property | Description
 { "name": "guide", 
   "options": {
     "url": "http://localhost:9966",
-    "title": "Guide",
-    "hideButton": { 
-      "visible": true
-    }
+    "title": "Guide"
   } 
 }
 ```
