@@ -582,7 +582,7 @@ Set of parameters to add to a layer configuration. If a setting is present in bo
 
 
 ### palette
-Array of colors used by for instance the draw tool. Will replace the default colors.
+Array of colors used in the stylewindow when for instance styling features in the draw tool. Will replace the default colors.
 
 #### Example palette
 
