@@ -817,6 +817,7 @@ Option | Description
 `includeSearchableLayers` | whether to include searchable layers in query string or not. Defaults to false.
 `searchableDefault` | default value for searchable. 'always', true (searchable when visible) or false. Defaults to false.
 `hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
+`queryType` | if set this value will be passed on as a parameter in the search request like '&t=valueOfQueryType'.
 
 #### Example search response
 
