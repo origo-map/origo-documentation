@@ -178,7 +178,7 @@ Option | Description
 
 ### Draw control
 
-Adds a draw control. Drawlayers can be exported or stored with the mapstate functionality. It is also possible to import GeoJSON-layers.
+Adds a draw control. Drawlayers can be exported or stored with the mapstate functionality. It is also possible to import GeoJSON-layers. To change what colors to style features with, use the palette-setting in the map config.
 
 Property | Description
 ---|---
