@@ -817,6 +817,21 @@ Option | Description
 `includeSearchableLayers` | whether to include searchable layers in query string or not. Defaults to false.
 `searchableDefault` | default value for searchable. 'always', true (searchable when visible) or false. Defaults to false.
 `hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
+`autocompletePlacement` | placement of the autocomplete suggestions. Can be search, left or floating. Defaults to search.
+`searchlistOptions` | object with options for the searchlist. By setting the placement option the searchlist is activated.
+
+searchlistOptions | Description
+---|---
+`placement` | placement of the result. Can be left or floating and is activated by hitting enter (defaults to nothing).
+`export` | Make result exportable. Default is false
+`exportUrl` | url to export service. Eg "//origoserver/excelcreator"
+`exportButtonText` | export button text. Default is "Export".
+`exportFilename` | name of exported file. Default is export.xlsx.
+`exportExcludedFields` | array of field to exclude in the export. Eg ["GEOM", "label", "value"]
+`makeSelectionButton` | show a button to make a selection of the result. Default is false.
+`makeSelectionButtonText` | button text. Default is "Använd som urval"
+`roundButton` | round or not. Default is false.
+`title` | title for the searchlist, defaults to 'Sökresultat för "{{value}}"', {{value}} will be replaced with the search input.
 
 #### Example search response
 
@@ -839,7 +854,10 @@ Option | Description
       "layerNameAttribute": "TYPE",
       "idAttribute": "GID",
       "geometryAttribute": "GEOM",
-      "hintText": "Sök adress eller platser..."
+      "hintText": "Sök adress eller platser...",
+      "searchlistOptions":{
+        "placement": "left"
+      }
   }
 }
 ```
