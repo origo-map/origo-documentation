@@ -820,6 +820,8 @@ Option | Description
 `autocompletePlacement` | placement of the autocomplete suggestions. Can be search, left or floating. Defaults to search.
 `searchlistOptions` | object with options for the searchlist. By setting the placement option the searchlist is activated.
 
+searchList: When the user presses Enter, a new window opens, which can be used to interact with the search results
+
 searchlistOptions | Description
 ---|---
 `placement` | placement of the result. Can be left or floating and is activated by hitting enter (defaults to nothing).
