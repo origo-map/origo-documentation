@@ -917,6 +917,15 @@ Property | Description | Required | Default value
   "readonly": true,
 }
 {
+  "name": "isTrue",
+  "title": "Is this true?: ",
+  "type": "checkbox",
+  "config": {
+      "checkedValue": "true",
+      "uncheckedValue": "false"
+	}  
+}
+{
   "name": "category",
   "title": "category: ",
   "type": "dropdown",
