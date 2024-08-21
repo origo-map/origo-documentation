@@ -565,6 +565,7 @@ Option | Description
 `snapLayers` | Array of layers that snap is enabled for. If undefined, snap will be enabled for all layers.
 `snapRadius` | Distance from point where snap is triggered.
 `useHectare` | True or false if hectare should be used for area between 10 000 and 1 000 000 square meters. Default is true and hectare is used, false and square meters is used.
+`highlightColor` | Second (outer) color of the measure lines. Valid input is an rgba string, see below for example. Defaults to a light blue.
 `hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 #### Example measure control
@@ -574,7 +575,8 @@ Option | Description
   "name": "measure",
   "options": {
     "measureTools": ["length", "area"],
-    "default": "length"
+    "default": "length",
+    "highlightColor": "rgba(133, 193, 233, 0.8)"
   }
 }
 ```
