@@ -915,7 +915,7 @@ Property | Description | Required | Default value
   "type": "text",
   "maxLength": 64,
   "readonly": true,
-}
+},
 {
   "name": "isTrue",
   "title": "Is this true?: ",
@@ -923,8 +923,8 @@ Property | Description | Required | Default value
   "config": {
       "checkedValue": "true",
       "uncheckedValue": "false"
-	}  
-}
+  }  
+},
 {
   "name": "category",
   "title": "category: ",
@@ -934,7 +934,7 @@ Property | Description | Required | Default value
       "category_2",
       "category_3"
   ]
-}
+},
 {
   "name": "subcategory",
   "title": "subcategory: ",
@@ -945,7 +945,7 @@ Property | Description | Required | Default value
       "subcategory_2",
       "subcategory_3"
   ]
-}
+},
 {
   "name": "choice",
   "title": "choice: ",
@@ -955,7 +955,7 @@ Property | Description | Required | Default value
       "choice 2",
       "choice 3"
   ]
-}
+},
 {
   "name": "subchoice",
   "title": "subchoice: ",
@@ -966,7 +966,7 @@ Property | Description | Required | Default value
       "subchoice 2",
       "subchoice 3"
   ]
-}
+},
 {
   "name": "sprak",
   "title": "Språk: ",
@@ -981,7 +981,7 @@ Property | Description | Required | Default value
     "minChars": 2,
     "maxItems": 15
   }
-}
+},
 {
   "name": "icons",
   "title": "Ikoner: ",
@@ -997,7 +997,7 @@ Property | Description | Required | Default value
     "minChars": 0,
     "maxItems": 5
   }
-}
+},
 {
   "name": "icon-lib",
   "title": "Bibliotek: ",
