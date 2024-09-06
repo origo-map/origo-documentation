@@ -921,7 +921,16 @@ properties are set to default if omitted.
   "type": "text",
   "maxLength": 64,
   "readonly": true,
-}
+},
+{
+  "name": "isTrue",
+  "title": "Is this true?: ",
+  "type": "checkbox",
+  "config": {
+      "checkedValue": "true",
+      "uncheckedValue": "false"
+  }  
+},
 {
   "name": "category",
   "title": "category: ",
@@ -931,7 +940,7 @@ properties are set to default if omitted.
       "category_2",
       "category_3"
   ]
-}
+},
 {
   "name": "subcategory",
   "title": "subcategory: ",
@@ -942,7 +951,7 @@ properties are set to default if omitted.
       "subcategory_2",
       "subcategory_3"
   ]
-}
+},
 {
   "name": "choice",
   "title": "choice: ",
@@ -952,7 +961,7 @@ properties are set to default if omitted.
       "choice 2",
       "choice 3"
   ]
-}
+},
 {
   "name": "subchoice",
   "title": "subchoice: ",
@@ -963,7 +972,7 @@ properties are set to default if omitted.
       "subchoice 2",
       "subchoice 3"
   ]
-}
+},
 {
   "name": "sprak",
   "title": "Språk: ",
@@ -978,7 +987,7 @@ properties are set to default if omitted.
     "minChars": 2,
     "maxItems": 15
   }
-}
+},
 {
   "name": "icons",
   "title": "Ikoner: ",
@@ -994,7 +1003,7 @@ properties are set to default if omitted.
     "minChars": 0,
     "maxItems": 5
   }
-}
+},
 {
   "name": "icon-lib",
   "title": "Bibliotek: ",
@@ -1330,4 +1339,4 @@ Because of :milky_way: amount of variation of featureInfo html responses Origo m
 
 It is advisable to check the default function in src/getfeatureinfo.js to see the form of what is to be returned depending on whether a `htmlSeparator` prop is provided.
 
-Note that the `source` of the [WMS](#wms) layer must have the `type` prop with the `geoserver` value for the `text/html` value of the `infoFormat` property to have the proper effect.
+ Note that the `source` of the [WMS](#wms) layer must have the `type` prop with the `geoserver` value for the `text/html` value of the `infoFormat` property to have the proper effect.
