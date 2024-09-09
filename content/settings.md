@@ -579,3 +579,13 @@ Set of parameters to add to a layer configuration. If a setting is present in bo
     "layerParam": "default"
   }
 ```
+
+
+### palette
+Array of colors used in the stylewindow when for instance styling features in the draw tool. Will replace the default colors.
+
+#### Example palette
+
+```json
+"palette": ["rgb(0,0,0)", "rgb(255,255,255)", "rgb(0,255,255)", "rgb(255,0,255)", "rgb(166,206,227)", "rgb(31,120,180)", "rgb(178,223,138)", "rgb(51,160,44)", "rgb(251,154,153)", "rgb(227,26,28)", "rgb(253,191,111)"]
+```

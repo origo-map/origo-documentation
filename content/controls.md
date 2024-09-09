@@ -178,7 +178,7 @@ Option | Description
 
 ### Draw control
 
-Adds a draw control. Drawlayers can be exported or stored with the mapstate functionality. It is also possible to import GeoJSON-layers.
+Adds a draw control. Drawlayers can be exported or stored with the mapstate functionality. It is also possible to import GeoJSON-layers. To change what colors to style features with, use the palette-setting in the map config.
 
 Property | Description
 ---|---
@@ -565,6 +565,7 @@ Option | Description
 `snapLayers` | Array of layers that snap is enabled for. If undefined, snap will be enabled for all layers.
 `snapRadius` | Distance from point where snap is triggered.
 `useHectare` | True or false if hectare should be used for area between 10 000 and 1 000 000 square meters. Default is true and hectare is used, false and square meters is used.
+`highlightColor` | Second (outer) color of the measure lines. Valid input is an rgba string, see below for example. Defaults to a light blue.
 `hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 #### Example measure control
@@ -574,7 +575,8 @@ Option | Description
   "name": "measure",
   "options": {
     "measureTools": ["length", "area"],
-    "default": "length"
+    "default": "length",
+    "highlightColor": "rgba(133, 193, 233, 0.8)"
   }
 }
 ```
@@ -818,6 +820,24 @@ Option | Description
 `searchableDefault` | default value for searchable. 'always', true (searchable when visible) or false. Defaults to false.
 `hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 `queryType` | if set this value will be passed on as a parameter in the search request like '&t=valueOfQueryType'.
+`autocompletePlacement` | placement of the autocomplete suggestions. Can be search, left or floating. Defaults to search.
+`searchlistOptions` | object with options for the searchlist. By setting the placement option the searchlist is activated.
+
+searchList: When the user presses Enter, a new window opens, which can be used to interact with the search results
+
+searchlistOptions | Description
+---|---
+`placement` | placement of the result. Can be left or floating and is activated by hitting enter (defaults to nothing).
+`export` | Make result exportable. Default is false
+`exportUrl` | url to export service. Eg "//origoserver/excelcreator"
+`exportButtonText` | export button text. Default is "Export".
+`exportFilename` | name of exported file. Default is export.xlsx.
+`exportExcludedFields` | array of field to exclude in the export. Eg ["GEOM", "label", "value"]
+`makeSelectionButton` | show a button to make a selection of the result. Default is false.
+`makeSelectionButtonText` | button text. Default is "Använd som urval"
+`roundButton` | round or not. Default is false.
+`title` | title for the searchlist, defaults to 'Sökresultat för "{{value}}"', {{value}} will be replaced with the search input.
+
 
 #### Example search response
 
@@ -840,7 +860,10 @@ Option | Description
       "layerNameAttribute": "TYPE",
       "idAttribute": "GID",
       "geometryAttribute": "GEOM",
-      "hintText": "Sök adress eller platser..."
+      "hintText": "Sök adress eller platser...",
+      "searchlistOptions":{
+        "placement": "left"
+      }
   }
 }
 ```
