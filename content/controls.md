@@ -819,6 +819,7 @@ Option | Description
 `includeSearchableLayers` | whether to include searchable layers in query string or not. Defaults to false.
 `searchableDefault` | default value for searchable. 'always', true (searchable when visible) or false. Defaults to false.
 `hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
+`queryType` | if set this value will be passed on as a parameter in the search request like '&t=valueOfQueryType'.
 `autocompletePlacement` | placement of the autocomplete suggestions. Can be search, left or floating. Defaults to search.
 `searchlistOptions` | object with options for the searchlist. By setting the placement option the searchlist is activated.
 
@@ -836,6 +837,7 @@ searchlistOptions | Description
 `makeSelectionButtonText` | button text. Default is "Använd som urval"
 `roundButton` | round or not. Default is false.
 `title` | title for the searchlist, defaults to 'Sökresultat för "{{value}}"', {{value}} will be replaced with the search input.
+
 
 #### Example search response
 
