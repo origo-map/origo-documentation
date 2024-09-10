@@ -38,6 +38,7 @@ Property | Description
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 `headers` | Used for setting headers that should be included in the request of the GeoJSON. Formatted as a object with key/value pairs for the headers. Can be used for setting which type to accept or add a apikey.
 `attachments`| An [attachment object](#Attachment-configuration) containing configuration for editing and displaying attachments
+`thematicStyling`| Setting `thematicStyling` to true will add buttons to the different thematic styles to be able to turn them on or off. Optional, defaults to false.
 
 #### Basic example GeoJSON
 
@@ -127,6 +128,7 @@ Property | Description
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 `attachments`| An [attachment object](#Attachment-configuration) containing configuration for editing and displaying attachments
+`thematicStyling`| Setting `thematicStyling` to true will add buttons to the different thematic styles to be able to turn them on or off. Optional, defaults to false.
 
 #### Basic example TopoJSON
 
@@ -184,6 +186,7 @@ Property | Description
 `attachments`| An [attachment object](#Attachment-configuration) containing configuration for editing and displaying attachments
 `isTable`| Bool that indicates if the geometry should be ignored. Implies _visible_. Only useful when layer is a child in related layers. Optional. defaults to `false`
 `relatedLayers`| Array of [relatedLayers](#Related-layers) objects defining child layers. Optional
+`thematicStyling`| Setting `thematicStyling` to true will add buttons to the different thematic styles to be able to turn them on or off. Optional, defaults to false.
 
 **Source options**
 
@@ -397,6 +400,7 @@ Property | Description
 `infoFormat` | Origo's get feature info expects responses in 'application/json' but some WMS servers (f.e. ArcGIS) don't supply it, so it's possible here to request in format 'application/geo+json' or 'application/geojson' if the server response with that format. For Geoserver 'text/html' is valid, within certain limits, see [WMS text/HTML](#texthtml-infoformat-for-wms-layers). Optional.
 `htmlSeparator` | A html tag to attempt to separate features via from the getfeatureinfo text/html reply if `infoFormat` is set to `text/html`. Optional.
 `hasThemeLegend` | Whether extendedLegend or not. See [WMS autolegend](#automatic-default-legend-style-for-wms-layers). Optional, defaults to false. Has no effect if a [style](#style-basics) is also defined.
+`thematicStyling` | Setting `thematicStyling` to true will add buttons to the different thematic styles to be able to turn them on or off. Optional, defaults to false. For WMS layers it has no effect if `hasThemeLegend` isn't also set to true.
 `legendParams` | A getLegendGraphic parameters object, see [WMS autolegend](#automatic-default-legend-style-for-wms-layers). Optional, has no effect if a [style](#style-basics) is also defined. 
 `imageFeatureInfoMode` | Sets the featureinfo mode for this image type layer. Alternatives are `pixel` which will produce feature info if the pixel queried of a feature of a visible layer isn't totally transparent and `visible` which works on transparent styles too. `always` will in addition produce feature info for layers that are not visible. Feature info is dependant upon `queryable` being `true`. If set will override the [map](settings.md#featureinfooptions) level option with the same name. If not set the featureinfo behaviour will be decided at the map level. Optional.
 `requestMethod` | request method for this layer. Can be set to 'post', otherwise it will be 'get'. Default is 'get'.
