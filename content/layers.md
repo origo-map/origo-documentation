@@ -667,7 +667,7 @@ Property | Description
 ```
 
 ### Group
-A group layer is a simulated layer that contains several layers. For a user, a group layer looks just like a normal layer in the legend.
+A group layer is a simulated layer that contains several layers. For a user, a group layer looks just like a normal layer in the legend. Sublayers are defined like regular layers, with the exception that their visibility must be explicitly set to true.
 
 Property | Description
 ---|---
@@ -696,21 +696,23 @@ Property | Description
   "style": "mask",
   "type": "GROUP",
   "layers": [
-	{
-  		"name": "mywfs",
-  		"title": "My wfs",
-  		"source": "local_wfs",
-  		"style": "mask",
-  		"type": "WFS"
-	},
-	{
-  		"name": "mywfs",
-  		"title": "My wfs",
-  		"source": "local_wfs",
-  		"style": "mask",
-  		"type": "WFS"
-	}
-	]
+    {
+      "name": "mywfs",
+      "title": "My wfs",
+      "source": "local_wfs",
+      "style": "mask",
+      "type": "WFS",
+      "visible": true
+    },
+    {
+      "name": "mywfs",
+      "title": "My wfs",
+      "source": "local_wfs",
+      "style": "mask",
+      "type": "WFS",
+      "visible": true
+    }
+  ]
 }
 ```
 
