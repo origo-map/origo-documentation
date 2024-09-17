@@ -214,18 +214,42 @@ Option to pick an alternative layer style for WMS layers. Requires alternative s
 
 ### Filter
 
-Filter features by attributes, used for instance for [thematic styling](#thematic-styling).
+Features can be filtered by attributes, enabling [thematic styling](#thematic-styling). Filters can be defined using relational and logical operators. Regular expressions can be used if enclosed in forward slashes.
 
 #### Filter
 
 ```json
-{
-  "icon": {
-    "src": "..."
-  },
-  "filter": "[attributename] == 'Value to show'",
-  "label": "Value to show"
-}
+"style_example": [
+  [
+    {
+      "icon": {
+      "src": "..."
+      },
+      "filter": "[attributename] == 'Value'", // basic string comparison
+      "label": "Label shown in legend"
+    }
+  ],
+  [
+    {
+      "icon": {
+      "src": "..."
+      },
+      "filter": "[attributename] === '/^(?!.*stad$).*/'",  // using regular expression enclosed in slashes like this /regex/
+      "label": "Label shown in legend"
+    }
+  ],
+  [
+    {
+      "icon": {
+      "src": "..."
+      },
+      "filter": "[attributename] > 'Value' AND [attributename] !== 'Other value'", // using relational and logical operator
+      "label": "Label shown in legend"
+    }
+  ]
+]
+
+
 ```
 
 ### minScale and maxScale
