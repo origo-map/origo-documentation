@@ -64,7 +64,7 @@ screen. They can involve user input (buttons), or be informational only. The con
 
 ### About control
 
-Adds an about map control. A button is added to the mapmenu. On button click, a splash popup will show general info about the map. **NOTE** - requires mapmenu control.
+Adds an about map control. A button is added to the mapmenu. On button click, a splash popup will show general info about the map. By default, the button is displaced in the mapmenu.
 
 Property | Description
 ---|---
@@ -73,9 +73,12 @@ Property | Description
 
 Option | Description
 ---|---
+`icon` | optional, defaults to `#ic_help_outline_24px`. Other icons are possible.
 `buttontext` | the button text shown in the menu
 `title` | popup header text
 `content` | popup content text
+`placement` | option where the button is displayed. Optional, defaults to ["menu"]. ["screen"] or both are possible
+`style` | option to control the size of the splash popup. Optional, defaults to `modal`. `modal-full` is possible.
 `hideWhenEmbedded` | if set to true, the control is not displayed when the map is embedded. Defaults to false
 
 #### Example about control
