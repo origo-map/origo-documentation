@@ -73,7 +73,7 @@ Property | Description
 
 Option | Description
 ---|---
-`icon` | Optional, defaults to `#ic_help_outline_24px`. Other icons are possible.
+`icon` | optional, defaults to `#ic_help_outline_24px`. Other icons are possible.
 `buttontext` | the button text shown in the menu
 `title` | popup header text
 `content` | popup content text
