@@ -499,6 +499,7 @@ Property | Description
 
 Option | Description
 ---|---
+`icon` | optional, defaults to `#ic_launch_24px`. Other icons are possible.
 `title` | sets the link title of the control.
 `url` | sets the address for the link.
 `placement` | option where the button is displayed. Optional, defaults to ["menu"]. ["screen"] or both are possible.
