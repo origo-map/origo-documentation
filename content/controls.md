@@ -499,10 +499,10 @@ Property | Description
 
 Option | Description
 ---|---
-`title` | Sets the link title of the control.
-`url` | Sets the address for the link.
-`placement` | Option where the button is displayed. Optional, defaults to ["menu"]. ["screen"] or both are possible.
-`hideWhenEmbedded` | If set to true, the control is not added when the map is embedded. Defaults to false.
+`title` | sets the link title of the control.
+`url` | sets the address for the link.
+`placement` | option where the button is displayed. Optional, defaults to ["menu"]. ["screen"] or both are possible.
+`hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 #### Example link control
 
