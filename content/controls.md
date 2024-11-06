@@ -490,7 +490,7 @@ Option | Description
 
 ### Link control
 
-Adds a button to the mapmenu that when clicked opens a new browser tab with the specified url. **NOTE** - requires mapmenu control.
+Adds a button to the mapmenu that when clicked opens a new browser tab with the specified url. By default, the button is displaced in the mapmenu.
 
 Property | Description
 ---|---
@@ -501,7 +501,8 @@ Option | Description
 ---|---
 `title` | Sets the link title of the control.
 `url` | Sets the address for the link.
-`hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
+`placement` | Option where the button is displayed. Optional, defaults to ["menu"]. ["screen"] or both are possible.
+`hideWhenEmbedded` | If set to true, the control is not added when the map is embedded. Defaults to false.
 
 #### Example link control
 
