@@ -830,7 +830,7 @@ type | format | required | readonly | maxLength | constraint | Description
 `text`      | string | supported | supported | supported || Text input
 `textarea`  | string | supported | supported | supported || Text input with resizable box
 `dropdown`  | string || supported || supported | Dropdown based on options values
-`checkbox`  | boolean or configured values || supported ||| Checkbox, defaults to not checked.
+`checkbox`  | boolean, array or configured values || supported ||| Checkbox single or multiple choice, defaults to single and not checked.
 `image`     | base64 || supported ||| Uploads image
 `color`     | hexadecimal || supported ||| Activates a color-picker
 `time`      | hh:mm:ss | supported | supported ||| Defaults to current time. Use defaultTime:false to not.
@@ -890,6 +890,7 @@ Property | Description | Required | Default value
 `valueQueryParameter`| When using `useBackingValue` in combination with `dynamic` the GET parameter name that is used for reverse lookup can be set using this parameter | No | "value"
 
 **defaultValue object**
+
 The defaultValue object controls how an attribute's default value is handled. Default values are always set when creating new features, and can optionally be set when updating attributes.
 Default values can be overridden in the attribute editor unless attribute is configured as readonly or hidden.
 
@@ -901,8 +902,8 @@ Property | Description | Required | Default value
 `timeStampFormat`| One of `time` = "HH:mm:ss", `date`= "yyyy-MM-dd", `datetime` = "yyyy-MM-dd HH:mm:ss", `timestamp` = "yyyy-MM-ddTHH:mm:ss | No | `timestamp`
 `useUTC` | `true`if time should be in UTC, otherwise local time | No | `false`
 
-
 **checkbox Config object**
+
 An object that defines additional configuration for checkbox. The entire object is optional and all
 properties are set to default if omitted.
 
@@ -910,6 +911,12 @@ Property | Description | Required | Default value
 ---|---|---|---
  `uncheckedValue` | Value that corresponds to the unchecked state | No | 0 (false)
  `checkedValue` | Value that corresponds to the checked state | No | 1 (true)
+
+**checkbox Options array**
+
+For the checkbox attribute type an array can be supplied used to set up multiple choice type checkbox questions.
+The array contains the strings that should be able to select between.
+By adding to the string the suffix `:textbox`, a textbox is attached to the option, the text box is enabled only if the option is checked. This can be used as an "other"/"miscellaneous" free text option.
 
 #### Example editor attributes
 
@@ -930,6 +937,17 @@ Property | Description | Required | Default value
       "checkedValue": "true",
       "uncheckedValue": "false"
   }  
+},
+{
+  "name": "multiChoice",
+  "title": "Please select all that applies: ",
+  "type": "checkbox",
+  "options":  [
+      "choice 1",
+      "choice 2",
+      "choice 3",
+      "choice other:textbox"
+  ]
 },
 {
   "name": "category",
