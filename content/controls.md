@@ -329,6 +329,7 @@ Option | Description
 `tooltipText` | the tooltip text for the button
 `direction` | option to control the subbutton display orientation. Optional, defaults to "vertical". "horizontal" is possible.
 `links` | options for the links. Configured as a list. Available options are listed below.
+`target` | default behaviour is to open url in new window (_blank). It's possible to specify other targets as _top, _self and _parent. Optional.
 `hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 
 Links option | Description
