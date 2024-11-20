@@ -829,6 +829,7 @@ Option | Description
 `queryType` | if set this value will be passed on as a parameter in the search request like '&t=valueOfQueryType'.
 `autocompletePlacement` | placement of the autocomplete suggestions. Can be search, left or floating. Defaults to search.
 `searchlistOptions` | object with options for the searchlist. By setting the placement option the searchlist is activated.
+`suppressDialog`| boolean, default false. When set to true no popup will be displayed when a search result is selected, it will only be highlighted and zoomed to.
 
 searchList: When the user presses Enter, a new window opens, which can be used to interact with the search results
 
