@@ -1,15 +1,22 @@
-import 'babel-polyfill';
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import App from './components/app';
 import remark from 'remark';
 import slug from 'remark-slug';
 import content from '../custom/content';
 
-var ast = remark()
+// Process content using remark with the slug plugin
+const ast = remark()
   .use(slug)
-  .run(remark().parse(content));
+  .runSync(remark().parse(content)); // Use `runSync` for synchronous processing
 
-ReactDOM.render(
-  <App ast={ast} content={content} />,
-  document.getElementById('app'));
+// Get the root DOM element
+const rootElement = document.getElementById('app');
+
+// Ensure the root element exists before rendering
+if (rootElement) {
+  const root = createRoot(rootElement);
+  root.render(<App ast={ast} content={content} />);
+} else {
+  console.error("The root element with ID 'app' was not found.");
+}

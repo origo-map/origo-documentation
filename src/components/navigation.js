@@ -1,19 +1,14 @@
 import React from 'react';
-import PureRenderMixin from 'react-pure-render/mixin';
+import PropTypes from 'prop-types';
 import NavigationItem from './navigation_item';
 import { backLink } from '../../custom';
 
-function getAllInSectionFromChild(headings, idx) {
-  for (var i = idx; i > 0; i--) {
-    if (headings[i].depth === 2) {
-      return getAllInSection(headings, i);
-    }
-  }
-}
-
+/**
+ * Extracts all section names at depth 3 under the specified heading index.
+ */
 function getAllInSection(headings, idx) {
-  var activeHeadings = [];
-  for (var i = idx + 1; i < headings.length; i++) {
+  const activeHeadings = [];
+  for (let i = idx + 1; i < headings.length; i++) {
     if (headings[i].depth === 3) {
       activeHeadings.push(headings[i].children[0].value);
     } else if (headings[i].depth === 2) {
@@ -23,74 +18,107 @@ function getAllInSection(headings, idx) {
   return activeHeadings;
 }
 
-var Navigation = React.createClass({
-  mixins: [PureRenderMixin],
-  propTypes: {
-    ast: React.PropTypes.object.isRequired,
-    activeSection: React.PropTypes.string,
-    navigationItemClicked: React.PropTypes.func.isRequired
-  },
-  render() {
-    var activeHeadings = [];
-    let headings = this.props.ast.children
-      .filter(child => child.type === 'heading');
+/**
+ * Extracts all section names from a child at depth 3 to its parent at depth 2.
+ */
+function getAllInSectionFromChild(headings, idx) {
+  for (let i = idx; i > 0; i--) {
+    if (headings[i].depth === 2) {
+      return getAllInSection(headings, i);
+    }
+  }
+  return [];
+}
 
-    if (this.props.activeSection) {
+/**
+ * Navigation Component
+ * Renders a list of navigation items based on the AST structure.
+ */
+const Navigation = ({ ast, activeSection, navigationItemClicked }) => {
+  const headings = ast.children.filter((child) => child.type === 'heading');
+  let activeHeadings = [];
 
-      let activeHeadingIdx = headings.findIndex(heading =>
-        heading.children[0].value === this.props.activeSection);
-      let activeHeading = headings[activeHeadingIdx];
+  // Determine active headings
+  if (activeSection) {
+    const activeHeadingIdx = headings.findIndex(
+      (heading) => heading.children[0].value === activeSection
+    );
+    const activeHeading = headings[activeHeadingIdx];
 
+    if (activeHeading) {
       if (activeHeading.depth === 3) {
-        activeHeadings = [this.props.activeSection]
-          .concat(getAllInSectionFromChild(headings, activeHeadingIdx));
-      }
-
-      // this could potentially have children, try to find them
-      if (activeHeading.depth === 2) {
-        activeHeadings = [this.props.activeSection]
-          .concat(getAllInSection(headings, activeHeadingIdx));
+        activeHeadings = [activeSection].concat(
+          getAllInSectionFromChild(headings, activeHeadingIdx)
+        );
+      } else if (activeHeading.depth === 2) {
+        activeHeadings = [activeSection].concat(
+          getAllInSection(headings, activeHeadingIdx)
+        );
       }
     }
+  }
 
-    activeHeadings = activeHeadings.reduce((memo, heading) => {
-      memo[heading] = true;
-      return memo;
-    }, {});
+  const activeHeadingsMap = activeHeadings.reduce((memo, heading) => {
+    memo[heading] = true;
+    return memo;
+  }, {});
 
-    return (<div className='pad0x small'>
-      {headings
-        .map((child, i) => {
-          let sectionName = child.children[0].value;
-          var active = sectionName === this.props.activeSection;
-          if (child.depth === 1) {
-            return (<div key={i}
-              onClick={this.navigationItemClicked}
-              className='small pad0x quiet space-top1'>{sectionName}</div>);
-          } else if (child.depth === 2) {
-            return (<NavigationItem
+  return (
+    <div className="pad0x small">
+      {headings.map((child, i) => {
+        const sectionName = child.children[0].value;
+        const active = sectionName === activeSection;
+
+        if (child.depth === 1) {
+          return (
+            <div
+              key={i}
+              onClick={() => navigationItemClicked(sectionName)}
+              className="small pad0x quiet space-top1"
+            >
+              {sectionName}
+            </div>
+          );
+        } else if (child.depth === 2) {
+          return (
+            <NavigationItem
               key={i}
               href={`#${child.data.id}`}
-              onClick={this.props.navigationItemClicked}
+              onClick={navigationItemClicked}
               active={active}
-              sectionName={sectionName} />);
-          } else if (child.depth === 3) {
-            if (activeHeadings.hasOwnProperty(sectionName)) {
-              return (<div
-                key={i}
-                className='space-left1'>
-                  <NavigationItem
-                    href={`#${child.data.id}`}
-                    onClick={this.props.navigationItemClicked}
-                    active={active}
-                    sectionName={sectionName} />
-                </div>);
-            }
-          }
-        })}
-        <a href='#origo-map' className='space-top2 pad1y dark keyline-top block small quiet'>{backLink}</a>
-    </div>);
-  }
-});
+              sectionName={sectionName}
+            />
+          );
+        } else if (child.depth === 3 && activeHeadingsMap[sectionName]) {
+          return (
+            <div key={i} className="space-left1">
+              <NavigationItem
+                href={`#${child.data.id}`}
+                onClick={navigationItemClicked}
+                active={active}
+                sectionName={sectionName}
+              />
+            </div>
+          );
+        }
 
-module.exports = Navigation;
+        return null;
+      })}
+      <a
+        href="#origo-map"
+        className="space-top2 pad1y dark keyline-top block small quiet"
+      >
+        {backLink}
+      </a>
+    </div>
+  );
+};
+
+// PropTypes for the Navigation component
+Navigation.propTypes = {
+  ast: PropTypes.object.isRequired, // Abstract Syntax Tree (AST) of headings
+  activeSection: PropTypes.string, // Currently active section
+  navigationItemClicked: PropTypes.func.isRequired, // Callback for navigation item clicks
+};
+
+export default Navigation;
