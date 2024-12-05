@@ -830,7 +830,8 @@ type | format | required | readonly | maxLength | constraint | Description
 `text`      | string | supported | supported | supported || Text input
 `textarea`  | string | supported | supported | supported || Text input with resizable box
 `dropdown`  | string || supported || supported | Dropdown based on options values
-`checkbox`  | boolean, array or configured values || supported ||| Checkbox single or multiple choice, defaults to single and not checked.
+`checkbox`  | boolean or configured values || supported ||| Checkbox, defaults not checked.
+`checkboxgroup`  | array with configured values || supported ||| A group of checkboxes where multiple choices can be selected and also freetext choices can be added, defaults to not checked.
 `image`     | base64 || supported ||| Uploads image
 `color`     | hexadecimal || supported ||| Activates a color-picker
 `time`      | hh:mm:ss | supported | supported ||| Defaults to current time. Use defaultTime:false to not.
@@ -912,11 +913,18 @@ Property | Description | Required | Default value
  `uncheckedValue` | Value that corresponds to the unchecked state | No | 0 (false)
  `checkedValue` | Value that corresponds to the checked state | No | 1 (true)
 
-**checkbox Options array**
+**checkboxgroup additional attributes and options array syntax**
 
-For the checkbox attribute type an array can be supplied used to set up multiple choice type checkbox questions.
-The array contains the strings that should be able to select between.
-By adding to the string the suffix `:textbox`, a textbox is attached to the option, the text box is enabled only if the option is checked. This can be used as an "other"/"miscellaneous" free text option.
+Attribute option | Description
+---|---
+`separator` | The separator to be used to differentiate the values. Defaults to `;`.
+`freetextOptionPrefix` | The prefix text in the value to be uesd to differentiate that this is a freetext value. Defaults to `freetext_option:`.
+`freetextOptionValueSeparator`| The sign used to differentiate the unique freetext option and it's value. Defaults to `=`.
+
+For the checkboxgroup attribute type an array can be supplied used to set up multiple choice type checkbox questions.
+The array contains a object with the key `text` strings that should be able to select between.
+Optional the object can have the key `value` which holds an alternative value for the option. Defaults to the `text` if not supplied.
+By adding to the object the type `textbox`, a textbox is attached to the option, the text box is enabled only if the option is checked. This can be used as an "other"/"miscellaneous" free text option.
 
 #### Example editor attributes
 
@@ -941,12 +949,12 @@ By adding to the string the suffix `:textbox`, a textbox is attached to the opti
 {
   "name": "multiChoice",
   "title": "Please select all that applies: ",
-  "type": "checkbox",
+  "type": "checkboxgroup",
   "options":  [
-      "choice 1",
-      "choice 2",
-      "choice 3",
-      "choice other:textbox"
+      { "text": "choice 1" },
+      { "text": "choice 2", "value": 2 },
+      { "text": "choice 3" },
+      { "text": "choice other", "type": "textbox" }
   ]
 },
 {
