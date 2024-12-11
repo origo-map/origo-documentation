@@ -252,6 +252,9 @@ Option | Description
 `autoSave` | if edits should be autosaved or not. Defaults to true.
 `snap` | option to enable/disable snapping. Default is true.
 `snapLayers` | List of layers that should have snapping enabled. Default is editableLayers.
+`snapTolerance` | Optional snap tolerance in pixels. Only used when snap is on. Defaults to 10.
+`trace` | Boolean. Optional,  When true, features in snap layers are traced when snapped to when drawing new features. Requires snap. Defaults to false.
+`traceStyle` | Optional. Name of style for displaying possible trace paths. Defaults to bright green.
 `drawTools` | Extra draw tools besides the standard tools for Point, MultiPoint, Line, MultiLine, Polygon and MultiPolygon. The tools are set for each geometry type as key in an object with the tools in an array. Note that the correct geometry type for a line is _LineString_ but in drawTools it is configured as _Line_.
 `attributes` | definition of [attributes](#attributes) and how they should be presented and validated in editor form. If not provided all available attributes will be shown with a standard template.
 `hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
