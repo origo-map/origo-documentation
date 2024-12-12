@@ -913,18 +913,24 @@ Property | Description | Required | Default value
  `uncheckedValue` | Value that corresponds to the unchecked state | No | 0 (false)
  `checkedValue` | Value that corresponds to the checked state | No | 1 (true)
 
-**checkboxgroup additional attributes and options array syntax**
+**checkboxgroup additional attributes**
 
-Attribute option | Description
----|---
-`separator` | The separator to be used to differentiate the values. Defaults to `;`.
-`freetextOptionPrefix` | The prefix text in the value to be uesd to differentiate that this is a freetext value. Defaults to `freetext_option:`.
-`freetextOptionValueSeparator`| The sign used to differentiate the unique freetext option and it's value. Defaults to `=`.
+Attribute option | Description | Note | Default value
+---|---|---|---
+`separator` | The separator to be used to differentiate the values. | This effects the way the value is saved so changes in config will need updating the data values correspondingly. | Defaults to `;`.
+`freetextOptionPrefix` | The prefix text in the value to be uesd to differentiate that this is a freetext value. | This effects the way the value is saved so changes in config will need updating the data values correspondingly. | Defaults to `freetext_option:`.
+`freetextOptionValueSeparator`| The sign used to differentiate the unique freetext option and it's value. | This effects the way the value is saved so changes in config will need updating the data values correspondingly. | Defaults to `=`.
+
+**checkboxgroup options array syntax**
 
 For the checkboxgroup attribute type an array can be supplied used to set up multiple choice type checkbox questions.
 The array contains a object with the key `text` strings that should be able to select between.
-Optional the object can have the key `value` which holds an alternative value for the option. Defaults to the `text` if not supplied.
-By adding to the object the type `textbox`, a textbox is attached to the option, the text box is enabled only if the option is checked. This can be used as an "other"/"miscellaneous" free text option.
+
+Property | Description | Required | Default value
+---|---|---|---
+`text` | The text for the choice and will also be the value unless another is specified | Yes |
+`value` | Optional the object can have the key `value` which holds an alternative value for the option. | No | Defaults to the `text` if not supplied.
+`type` | By adding to the object the type `textbox`, a textbox is attached to the option, the text box is enabled only if the option is checked. This can be used as an "other"/"miscellaneous" free text option. | No |
 
 #### Example editor attributes
 
