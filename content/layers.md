@@ -917,7 +917,7 @@ Property | Description | Required | Default value
 
 Attribute option | Description | Note | Default value
 ---|---|---|---
-`options` | An array of objects further explained in next section | This shares the name with `checkbox` but not the syntax. Required for type `checkboxgroup` | Defaults to `[]`.
+`options` | An array of objects further explained in next section | This shares the name with `dropdown` but not the syntax. Required for type `checkboxgroup` | Defaults to `[]`.
 `separator` | The separator to be used to differentiate the values. | This effects the way the value is saved so changes in config will need updating the data values correspondingly. | Defaults to `;`.
 `freetextOptionPrefix` | The prefix text in the value to be uesd to differentiate that this is a freetext value. | This effects the way the value is saved so changes in config will need updating the data values correspondingly. | Defaults to `freetext_option:`.
 `freetextOptionValueSeparator`| The sign used to differentiate the unique freetext option and it's value. | This effects the way the value is saved so changes in config will need updating the data values correspondingly. | Defaults to `=`.
