@@ -258,6 +258,7 @@ Option | Description
 `validateOnDraw` | If set to true, the editor prevents drawing invalid geometries (self-intersect). Defaults to false.
 `featureList` | If set to true you'll get a list when selecting multiple features. Defaults to true.
 `featureListAttributes` | Array of attributes to be showed in the featureList. Default is to just show the feature ID.
+`modifyTools` | When true, displays the modify tools toolbar which contains advanced editing tools that are used to modify existing features. Currently the only tool available is split line. Default is false.
 
 Draw tools can be set for each geometry type on editor control level in wich case it adds the configured tools to each layer of that
 kind in addition to the default tool. Draw tools can also be set on each layer in which case the default tool is not added unless specified.
