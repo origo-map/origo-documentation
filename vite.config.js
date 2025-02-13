@@ -7,6 +7,19 @@ export default defineConfig({
     port: 9967,
   },
   build: {
-    outDir: 'dist',
-  },
+    outDir: '.',
+    assetsDir: '.',
+    sourcemap: true,
+    rollupOptions: {
+      output: {
+        entryFileNames: 'bundle.js',
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name && assetInfo.name.endsWith('.css')) {
+            return 'index.css';
+          }
+          return assetInfo.name;
+        }
+      },
+    },
+  }
 });
