@@ -6,22 +6,44 @@ import slug from 'remark-slug';
 import content from '../custom/content';
 import fs from 'fs';
 
-var ast = remark()
+// Process the Markdown content into an AST using remark
+const ast = remark()
   .use(slug)
-  .run(remark().parse(content));
+  .runSync(remark().parse(content)); // Use runSync for synchronous processing
 
-var template = fs.readFileSync('./index.html', 'utf8');
+// Load the HTML template
+const template = fs.readFileSync('./index.html', 'utf8');
 
-var target = process.argv[2];
+// Get the target output file from the command-line arguments
+const target = process.argv[2];
+if (!target) {
+  console.error("Error: No target file specified. Provide the output file path as a command-line argument.");
+  process.exit(1);
+}
 
-var startDiv = `<div id='app'>`;
-var stopDiv = '</div>';
-var startMarker = '<!--START-->' + startDiv;
-var stopMarker = stopDiv + '<!--STOP-->';
-var startIdx = template.indexOf(startMarker) + startMarker.length;
-var stopIdx = template.indexOf(stopMarker);
+// Markers in the HTML template
+const startDiv = `<div id='app'>`;
+const stopDiv = `</div>`;
+const startMarker = `<!--START-->${startDiv}`;
+const stopMarker = `${stopDiv}<!--STOP-->`;
 
-fs.writeFileSync(target,
+// Locate the insertion points for rendered React content
+const startIdx = template.indexOf(startMarker) + startMarker.length;
+const stopIdx = template.indexOf(stopMarker);
+
+if (startIdx === -1 || stopIdx === -1) {
+  console.error("Error: START or STOP markers not found in the template.");
+  process.exit(1);
+}
+
+// Render the React component to a string
+const renderedContent = ReactDOMServer.renderToString(<App ast={ast} content={content} />);
+
+// Write the final HTML to the target file
+const output = 
   template.substring(0, startIdx) +
-  ReactDOMServer.renderToString(<App ast={ast} content={content} />) +
-  template.substring(stopIdx));
+  renderedContent +
+  template.substring(stopIdx);
+
+fs.writeFileSync(target, output, 'utf8');
+console.log(`Rendered content written to ${target}`);
