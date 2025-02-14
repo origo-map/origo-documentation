@@ -6,6 +6,7 @@ export default defineConfig({
   server: {
     port: 9967,
   },
+  base: './',
   build: {
     outDir: '.',
     assetsDir: '.',
