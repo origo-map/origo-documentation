@@ -758,7 +758,9 @@ Attribute options | Description
 `urlSuffix` | a general suffix to be used together with url or img. Optional.
 `target` | default behaviour is to open url in new window (_blank). It's possible to specify other targets as _top, _self and _parent or to open link in an iframe in a modal window which should than be set to modal for normal size or modal-full. Optional.
 `targetTitle` | used along with target to define title in modal titlebar and link tooltip. Can be set to "static text" or "{{attribute value}}". Default is url.
-`img` | attribute containing url to an image. The image will be embedded. Optional.
+`img` | attribute containing url or base64 data to an image. The image will be embedded. Optional.
+`audio` | attribute containing url or base64 data to an audio file. The audio will be embedded. Optional.
+`video` | attribute containing url or base64 data to an video file. The video will be embedded. Optional.
 `carousel` | attribute containing url to several images combined with splitter option. Set `autoplay` in `featureinfoOptions` to have the carousel rotate the images. Optional.
 `splitter` | set a splitter for example , or ; which is used to split the attribute if it is made up of delimited list of compounded attributes of the same type. To be used together with `url`, `img`, `carousel` and `linktext`. Optional.
 `cls` | css class name for custom styling. Optional.
