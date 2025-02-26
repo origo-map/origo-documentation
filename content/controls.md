@@ -575,6 +575,7 @@ Option | Description
 `useHectare` | True or false if hectare should be used for area between 10 000 and 1 000 000 square meters. Default is true and hectare is used, false and square meters is used.
 `highlightColor` | Second (outer) color of the measure lines. Valid input is an rgba string, see below for example. Defaults to a light blue.
 `hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
+`queryable` | if set to true, the features in the measure layer is clickable and will show its length/area. Defaults to false.
 
 #### Example measure control
 
