@@ -186,7 +186,7 @@ Name | Type | Description
 ---|---|---
 `title` | string | Infowindow header text. Default is "Träffar".
 `listLayout` | boolean | Option to show layers as a list. Default is false.
-`export` | object | Defines settings for the export. Two different export options are possible, server side and client side. Server side export requires a server endpoint and can be configured either as a simple export or layer specific export. Currently only attributes can be sent with server side export.
+`export` | object | Defines settings for the export. Two different export options are possible, server side and client side. Server side export requires a server endpoint and can be configured either as a simple export or layer specific export. All three export types can be used together. Currently only attributes can be sent with server side export.
 `groupAggregations`| array of groupAggregation objects | If specified an aggregation of features in each layer is displayed for a selection. E.g. sum of all area. Multiple aggregations can be configured.
 
 **export properties**
@@ -194,32 +194,35 @@ Name | Type | Description
 Name | Type | Description
 ---|---|---
 `toasterMessages` | object  | Status message to the user. Defines messages for "success" and "fail". Default message is "Success!" and "Sorry, something went wrong, please contact your administrator." Currently only fail message is shown.
-`layerSpecificExport` | array | Sends defined attributes from selected objects per layer to a server endpoint. Defines attributes, file name and service url for the export. Each layer is defined as an object. If specified for a layer, only layerSpecificExport is used for that layer.
+`layerSpecificExport` | array | Sends requests using selected objects per layer to one or more server endpoints. Each layer is defined as an object with the layer name and an array of exportUrls with settings for the exports. See exportUrls properties below for export modes.
 `simpleExport`| object | Sends all attributes from selected objects per layer to a server endpoint. Defines layers and service url for the export.
-`clientExport`| object | Configuration for exporting layers without the need of a server. Only applies if no layerSpecificExport or simpleExport is configured.
+`clientExport`| object | Configuration for exporting layers without the need of a server.
 
 **layerSpecificExport properties**
 
 Name | Type | Description
 ---|---|---
 `layer` | string | Defines a layer that can export selected objects.
-`attributesToSendToExport` | array | Attributes to send to the export service.
-`exportUrls` | array | Defines settings for the export. A layer can have multiple exports. Each export is defined as an object.
+`exportUrls` | array | Defines settings for one or more exports. The settings (except `url`) can also be defined at this level, directly under `layerSpecificExport`, as default values used by all `exportUrls`. Each export is defined as an object.
 
 **exportUrls properties**
 
-Name | Type | Description
----|---|---
-`url` | string | Url to a service. Required.
-`exportedFileName` | string | File name and file extension for the export. The file extension must match the file extension from the service. Required.
-`button` | object | Configuration for using a text button or a round button. Required.
+Name | Type | Required | Description
+---|---|---|---
+`url` | string | Yes | Url to a service.
+`button` | object | Yes | Configuration for using a text button or a round button. See below.
+`urlParameters` | object | No | Adds URL parameters to the request as key-value pairs. Each property is added as a URL parameter, with the key as parameter name and the value as the parameter value. Fill parameter values with values from selected objects' attributes by setting a property value to an object with an attribute property: `{ "attribute": "objekt_id", "separator": ";"}`. The separator character can be customized but uses semicolon by default. Set a property value to `null` to add the parameter without the equals sign or value.
+`requestMethod` | string | No | The type of request to send. Can be one of `"POST_JSON" | "OPEN" | "GET"`. Defaults to `POST_JSON`. <br><ul><li>`POST_JSON` sends the attributes of selected features per layer as a JSON body in a POST request.</li><li>`OPEN` opens the url in a new browser tab/window.</li><li>`GET` Makes a GET request. Also set `"displayExportResponse": true` to display the response.</li></ul>
+`attributesToSendToExport` | array | Conditional | Attributes to send to the export service. Required when using `POST_JSON` mode.
+`exportedFileName` | string | Conditional | File name and file extension for the export. The file extension must match the file extension from the service. Required when using `POST_JSON` mode and recieving non-JSON responses.
+`displayExportResponse` | boolean | No | Defaults to false. If true, when using `GET` mode, the request's response will be displayed in the infowindow. Supports images and text (`text/plain | application/json`) Non-image content must come from the same domain or be otherwise allowed by CORS restrictions.
 
 **simpleExport properties**
 
 Name | Type | Description
 ---|---|---
 `url` | string | Url to a service. Exports all attributes from the layer source. Can be used with excel creator in Origo server. Required.
-`layers` | array of string | List of layer names that are allowed to export selected objects. Required. If layerSpecificExport is configured for the same layer, layerSpecificExport takes precedence over the simpleExport.
+`layers` | array of string | List of layer names that are allowed to export selected objects. Required.
 `button` | object | Configuration for using a text button or a round button. Required.
 
 **clientExport properties**
@@ -337,11 +340,11 @@ Name | Description
           }
         },
         "layerSpecificExport": [
-	  {
+          {
             "layer": "layer_3",
-            "attributesToSendToExport": ["attribute_1","attribute_2"],
-            "exportUrls":[
-	      {
+            "attributesToSendToExport": [ "attribute_1", "attribute_2" ],
+            "exportUrls": [
+              {
                 "url": "url_to_service",
                 "exportedFileName": "filename_1.xlsx",
                 "button": {
@@ -359,8 +362,41 @@ Name | Description
                   "roundButtonTooltipText": "Send to word"
                 }
               }
-	    ]
-	  }
+            ]
+          },
+          {
+            "layer": "layer_4",
+            "exportUrls": [
+              // Define an export button to make a GET request and display
+              // the response (image or text) in the infowindow e g:
+              // https://my.api.se/sendSomething?param1=value1&featureid=1;3;12&silent
+              {
+                "button": { "buttonText": "Send IDs" },
+                "url": "https://my.api.se/sendSomething",
+                "requestMethod": "GET",
+                "urlParameters": {
+                  "param1": "value1",
+                  "featureid": { "attribute": "id", "separator": ";" },
+                  "silent": null
+                },
+                "displayExportResponse": true
+              },
+              // Define an export button to open a new browser tab/window
+              // with attributes from selected features as URL parameters e g:
+              // https://my.otherapp.se?param1=value1&lat=59.1653;59.16659&lon=18.13751;18.13135&v2
+              {
+                "button": { "buttonText": "Open external page" },
+                "url": "https://my.otherapp.se",
+                "requestMethod": "OPEN",
+                "urlParameters": {
+                  "param1": "value1",
+                  "lat": { "attribute": "y" },
+                  "lon": { "attribute": "x" },
+                  "v2": null
+                }
+              }
+            ]
+          }
         ]
       }
     },
