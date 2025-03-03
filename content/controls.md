@@ -330,6 +330,7 @@ Property | Description
 
 Option | Description
 ---|---
+`icon` | optional, defaults to `#ic_baseline_link_24px`. Other icons are possible.
 `tooltipText` | the tooltip text for the button
 `direction` | option to control the subbutton display orientation. Optional, defaults to "vertical". "horizontal" is possible.
 `links` | options for the links. Configured as a list. Available options are listed below.
