@@ -71,7 +71,7 @@ A stroke style can be defined with the OpenLayers options for a [Stroke](https:/
 
 ### Circle
 
-A circle style can be defined with the OpenLayers options for a [Circle](https://openlayers.org/en/latest/apidoc/module-ol_style_Circle-CircleStyle.html).
+A circle style can be defined with the OpenLayers options for a [Circle](https://openlayers.org/en/latest/apidoc/module-ol_style_Circle-CircleStyle.html). Radius defaults to 7.
 
 #### Circle example
 
@@ -92,7 +92,7 @@ A circle style can be defined with the OpenLayers options for a [Circle](https:/
 
 ### Square
 
-A square style can be defined with the help of a subset of OpenLayers [RegularShape](https://openlayers.org/en/latest/apidoc/module-ol_style_RegularShape-RegularShape.html). Scale attribute defaults to no scaling factor, preferred to use radius to control size of style object.
+A square style can be defined with the help of a subset of OpenLayers [RegularShape](https://openlayers.org/en/latest/apidoc/module-ol_style_RegularShape-RegularShape.html). Rotation attribute defaults to 0, value should be set in radian. Scale attribute defaults to no scaling factor, preferred to use radius to control size of style object. Radius defaults to 7.
 
 #### Square example
 
@@ -102,18 +102,20 @@ A square style can be defined with the help of a subset of OpenLayers [RegularSh
     "radius": 7,
     "stroke": {
       "color": "rgba(0,0,0,1)",
-      "width": 1
+      "width": 1,
+      "lineDash": [1, 2]
     },
     "fill": {
       "color": "rgba(255,255,0,0.9)"
-    }
+    },
+    "rotation": 0.5
   }
 }
 ```
 
 ### Triangle
 
-A triangle style can be defined with the help of a subset of OpenLayers [RegularShape](https://openlayers.org/en/latest/apidoc/module-ol_style_RegularShape-RegularShape.html). Angle attribute defaults to 0, value should be set in radian. Scale attribute defaults to no scaling factor, preferred to use radius to control size of style object.
+A triangle style can be defined with the help of a subset of OpenLayers [RegularShape](https://openlayers.org/en/latest/apidoc/module-ol_style_RegularShape-RegularShape.html). Rotation attribute defaults to 0, value should be set in radian. Scale attribute defaults to no scaling factor, preferred to use radius to control size of style object. Radius defaults to 7.
 
 #### Triangle example
 
@@ -128,14 +130,14 @@ A triangle style can be defined with the help of a subset of OpenLayers [Regular
     "fill": {
       "color": "rgba(0,255,0,0.9)"
     },
-    "angle": 0.5
+    "rotation": 0.5
   }
 }
 ```
 
 ### Star
 
-A star style can be defined with the help of a subset of OpenLayers [RegularShape](https://openlayers.org/en/latest/apidoc/module-ol_style_RegularShape-RegularShape.html). Scale attribute defaults to no scaling factor, preferred to use radius to control size of style object.
+A star style can be defined with the help of a subset of OpenLayers [RegularShape](https://openlayers.org/en/latest/apidoc/module-ol_style_RegularShape-RegularShape.html). Scale attribute defaults to no scaling factor, preferred to use radius to control size of style object. Radius defaults to 7.
 
 #### Star example
 
@@ -157,7 +159,7 @@ A star style can be defined with the help of a subset of OpenLayers [RegularShap
 
 ### Cross
 
-A cross style can be defined with the help of a subset of OpenLayers [RegularShape](https://openlayers.org/en/latest/apidoc/module-ol_style_RegularShape-RegularShape.html). Scale attribute defaults to no scaling factor, preferred to use radius to control size of style object.
+A cross style can be defined with the help of a subset of OpenLayers [RegularShape](https://openlayers.org/en/latest/apidoc/module-ol_style_RegularShape-RegularShape.html). Scale attribute defaults to no scaling factor, preferred to use radius to control size of style object. Radius defaults to 7.
 
 #### Cross example
 
@@ -175,7 +177,7 @@ A cross style can be defined with the help of a subset of OpenLayers [RegularSha
 
 ### X
 
-A x style can be defined with the help of a subset of OpenLayers [RegularShape](https://openlayers.org/en/latest/apidoc/module-ol_style_RegularShape-RegularShape.html). Scale attribute defaults to no scaling factor, preferred to use radius to control size of style object.
+A x style can be defined with the help of a subset of OpenLayers [RegularShape](https://openlayers.org/en/latest/apidoc/module-ol_style_RegularShape-RegularShape.html). Scale attribute defaults to no scaling factor, preferred to use radius to control size of style object. Radius defaults to 7.
 
 #### X example
 
