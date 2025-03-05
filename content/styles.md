@@ -157,6 +157,27 @@ A star style can be defined with the help of a subset of OpenLayers [RegularShap
 }
 ```
 
+### Pentagon
+
+A pentagon style can be defined with the help of a subset of OpenLayers [RegularShape](https://openlayers.org/en/latest/apidoc/module-ol_style_RegularShape-RegularShape.html). Scale attribute defaults to no scaling factor, preferred to use radius to control size of style object. Radius defaults to 7.
+
+#### Pentagon example
+
+```json
+{
+  "pentagon": {
+    "radius": 10,
+    "stroke": {
+      "color": "rgba(0,0,0,1)",
+      "width": 1
+    },
+    "fill": {
+      "color": "rgba(0, 0, 255, 0.9)"
+    }
+  }
+}
+```
+
 ### Cross
 
 A cross style can be defined with the help of a subset of OpenLayers [RegularShape](https://openlayers.org/en/latest/apidoc/module-ol_style_RegularShape-RegularShape.html). Scale attribute defaults to no scaling factor, preferred to use radius to control size of style object. Radius defaults to 7.
