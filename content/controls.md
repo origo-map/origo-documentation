@@ -425,6 +425,42 @@ Option | Description
 }
 ```
 
+### Guide control
+
+Adds a control that guides the user through active controls in map
+
+Property | Description
+---|---
+`name` | name of the control (guide)
+`options` | options for the control
+
+Option | Description
+---|---
+`url` | url to the guide.json configuration file. Defaults to projekt root.
+`title` | title for guide modal. Defaults to Guide.
+`hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
+
+Configuration of guide.json, see project root:
+
+Property | Description
+---|---
+`target` | element id or class.
+`name` | name of the control that correlate with Origo control name. If control does'nt exists in origos configuration, use "new".
+`description` | the description of the control. Is html string.
+`icon` | the icon of the control.
+`group` | array of the object above.
+
+#### Example guide control
+
+```json
+{ "name": "guide", 
+  "options": {
+    "url": "http://localhost:9966",
+    "title": "Guide"
+  } 
+}
+```
+
 ### Home control
 
 Sets the map extent to the one specified in the options for the control.
