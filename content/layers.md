@@ -666,6 +666,131 @@ Property | Description
 }
 ```
 
+### WFSOFFLINE
+A WFSOFFLINE layer is a vector layer that uses a local storage in the client browser as source and does not require a network
+connection. 
+The features are preloaded into the local storage from a WFS service. One or more disjoint or overlapping extents can preloaded.
+Most options are the same as for WFS, but some additional
+options have to be set. 
+
+WFSOFFLINE layers can be edited and the edits are saved to persistant local storage offline and can be synchronized with the WFS server
+when network is available.
+
+Preloading features and synchronization of edits can be performed using the _Offline control_ or api functions on the layer's 
+source.
+
+Property | Description
+---|---
+`abstract` | short description of the layer shown in the layer info. Optional.
+`attachments`| An [attachment object](#Attachment-configuration) containing configuration for editing and displaying attachments
+`allowedEditOperations` | List of available edit tools. Possible values are: _updateAttributes_, _updateGeometry_, _create_, _delete_. Only applies if layer is editable. Defaults to all. Optional.
+`attributes` | definition of [attributes](#attributes) and how they should be presented in featureinfo. If not provided all available attributes will be shown with a standard template.
+`attribution` | attribution for the layer shown in the footer. Used for copyright text or any other information. Optional.
+`clusterOptions` | options for clustering. See the settings page for details.
+`clusterStyle` | the style to be used for clustered features. Is required if layerType cluster is used.
+`css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
+`editable` | if the layer should be editable or not. Requires the editor control. Defaults to false. Optional.
+`exportable`| Adds a _Export layer_ option to the layer info menu if set to true. To ensure all features in a layer is exported, `strategy` should be set to `all`. Optional.
+`exportFormat`| String or array of formats for file export if exportable is true. Can be set to geojson, gpx or kml. Defaults to geojson.
+`extent` | extent of the layer. Map extent is default.
+`featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
+`filter` | filter provided as [cql](http://docs.geoserver.org/latest/en/user/tutorials/cql/cql_tutorial.html). Optional.
+`geometryName` | geometry attribute name. Default is geom.
+`geometryType` | geometry type for the layer.
+`id` | the id or ids used to identify the layers in the map server. White spaces and special characters should be avoided.
+`isTable`| Bool that indicates if the geometry should be ignored. Implies _visible_. Only useful when layer is a child in related layers. Optional. defaults to `false`
+`legend` | if the layer should be included in the map legend. Default is false.
+`group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
+`maxScale` | the maximum scale the layer is visible. Optional.
+`minScale` | the minmum scale the layer is visible. Optional.
+`name` | the unique name of the layer used internally and the name of the layer in the wfs service. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
+`offlineStoreName` | The name of the layer in local storage. Can be shared bewteen applications from the same domain using the same name. Name does not have to be pre-configured in local storage. Required.
+`offlineUseLayerExtent` | Ignores the preload extent and uses the layer's extent, or map extent if not set. Results in this layer only has one active extent. _Boolean_ defaults to `false`. Optional.
+`opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
+`opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
+`projection` | set projection (e g to "EPSG:4326") to request features in another reference system and Origo will handle the transformation. The proj4Defs has to be configured in index.json unless it's EPSG:4326 or 3857.
+`queryable` | if featureinfo should be enabled for the layer. Default is true.
+`relatedLayers`| Array of [relatedLayers](#Related-layers) objects defining child layers. Optional
+`removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
+`requestMethod` | request method for this layer. Can be set to 'post', otherwise it will be 'get'. Default is 'get'.
+`searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
+`source` | named source of the layer. The [source](#source) must be defined.
+`style` | the name of the referenced [style](#style-basics) to be used for the layer.
+`stylePicker` | Adds a dropup with alternative styles in the layer info. An array of styles defined with title, style and clusterStyle. See [stylePicker](#stylepicker). Optional.
+`thematicStyling`| Setting `thematicStyling` to true will add buttons to the different thematic styles to be able to turn them on or off. Optional, defaults to false.
+`title` | title for the layer visible to the user.
+`type` | type of source for the layer. For WFSOFFLINE source the type is WFSOFFLINE. Required.
+`visible` | if the layer should be visible. Default is false.
+`zoomToExtent` | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
+
+
+**Source options**
+
+The following options are available for the `source` configuration for WFS.
+
+Name | Type | Required | Description
+---|---|---|---
+`url` | string | Yes | Url to the wfs endpoint
+`requestMethod` | string | No | Request method for this source. Can be set to 'post', otherwise it will be 'get'. If set on layer level this option will be omitted. Default is 'get'.
+`clusterOptions` | string | No | Options for clustering. See the settings page for details.
+`workspace`| string | Only when editing | Name of the Wfs feature type namespace. Should match the configuration of the server.
+`prefix`| string | Only when editing | Prefix to add to Wfs transaction. Should match the configuration of the server.
+
+### WMSOFFLINE
+A WMSOFFLINE layer is a tiled layer that uses a local storage in the client browser as source and does not require a network
+connection. 
+The tiles are preloaded into the local storage from a WMS service. One or more disjoint or overlapping extents can preloaded.
+Most options are the same as for WMS, but due to the offline nature
+some options are not available. Preloading tiles can be performed using the _Offline control_ or api functions on the layer's 
+source.
+
+Beware that preloading tiles can be very bandwidth extensive even at small extents as all tiles on all zoom levels are
+preloaded!
+
+Property | Description
+---|---
+`abstract` | short description of the layer shown in the layer info. Optional.
+`attachments`| An [attachment object](#Attachment-configuration) containing configuration for displaying attachments
+`attributes` | definition of [attributes](#attributes) and how they should be presented in featureinfo. If not provided all available attributes will be shown with a standard template.
+`attribution` | attribution for the layer shown in the footer. Used for copyright text or any other information. Optional.
+`clip` | Clip tiles against the preload extent to avoid tiles spill outside the preload extent as it may look confusing to have tiles outside the extent behaving differently at different zoom levels. Only works on GeoServer. _Boolean_ Optional defaults to `false`.
+`compressionFactor` | Estimated compression factor for each tile. Used to estimate progress. Defaults to 0.1.
+`css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
+`extent` | extent of the layer. Map extent is default.
+`format` | the image format used for the layer. Default is 'image/png' unless format is set for the source.
+`group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
+`gutter` | gutter setting for the layer. Default is 0.
+`hasThemeLegend` | Whether extendedLegend or not. See [WMS autolegend](#automatic-default-legend-style-for-wms-layers). Optional, defaults to false. Has no effect if a [style](#style-basics) is also defined.
+`legend` | if the layer should be included in the map legend. Default is false.
+`legendParams` | A getLegendGraphic parameters object, see [WMS autolegend](#automatic-default-legend-style-for-wms-layers). Optional, has no effect if a [style](#style-basics) is also defined. 
+`maxScale` | the maximum scale the layer is visible. Optional.
+`minScale` | the minmum scale the layer is visible. Optional.
+`name` | the unique name of the layer used internally and the name of the layer in the WMS service. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
+`offlineMaxZoom` | Maximum zoom level to preload (int). Avoid preloading the most zoomed in levels. Optional.
+`offlineMinZoom`| Minimum zoom level to preload (int). Avoid preloading the most zoomed out levels. Optional.
+`offlineStoreName` | The name of the layer in local storage. Can be shared bewteen applications from the same domain using the same name. Name does not have to be pre-configured in local storage. Required.
+`opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
+`opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
+`removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
+`queryable` | if featureinfo should be enabled for the layer. Default is true.
+`source` | named source of the layer. The [source](#source) must be defined with the layers source options.
+`sourceParams` | A object with any additional params that can be added to the source and sent to the WMS server. For example CQL_FILTER can be provided as [cql](http://docs.geoserver.org/latest/en/user/tutorials/cql/cql_tutorial.html) and there by filter on which objects should be included on a Geoserver layer. For a QGIS Server the param FILTER can be used in a similar maner, the syntax should be in OGC filter format. Other server specific params can also be set as DPI, BGCOLOR oc OPACITIES. Optional.
+`style` | the name of the referenced [style](#style-basics) to be used for the layer.
+`tileGrid` | custom tileGrid for the WMS layer. extent, alignBottomLeft, resolutions and tileSize can be set.
+`title` | title for the layer visible to the user.
+`type` | type of source for the layer. For WMSOFFLINE the type is WMSOFFLINE.
+`visible` | if the layer should be visible. Default is false.
+`zoomToExtent` | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
+
+Source options | Description
+---|---
+`format` | the image format used for the layer unless format is set on layer-level. Default is 'image/png'.
+`url` | url to the wms endpoint
+`version` | the OGC WMS version. Default is 1.1.1.
+`tileGrid` | custom tileGrid for the WMS source. extent, alignBottomLeft, resolutions and tileSize can be set.
+`type` | vendor of the WMS server. Used for functionality that requires different handling depending on the server type. Currently the options are 'Geoserver', 'ArcGIS', 'QGIS'. Optional.
+
+
 ### Group
 A group layer is a simulated layer that contains several layers. For a user, a group layer looks just like a normal layer in the legend. Sublayers are defined like regular layers, with the exception that their visibility must be explicitly set to true.
 
