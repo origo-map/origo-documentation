@@ -200,6 +200,8 @@ Name | Type | Required | Description
 `clusterOptions` | string | No | Options for clustering. See the settings page for details.
 `workspace`| string | Only when editing | Name of the Wfs feature type namespace. Should match the configuration of the server.
 `prefix`| string | No | Prefix to add to Wfs transaction. May be needed to match server's configuration in certain circumstances.
+`capabilitiesURL` | url to the capabilities document. Downloads the capabilities document and saves it to `capabilitiesDoc` in the source unless `saveCapabilitiesDoc` is set to false. Also the layers in the map are matched to the document and if they are missing the layer is marked secure and resulting in a lock for the layer in the legend. Optional.
+`saveCapabilitiesDoc` | set to false to opt out saving the capabilities document when `capabilitiesURL` is set. Default is true.
 
 #### Basic example WFS
 
@@ -414,6 +416,8 @@ Source options | Description
 `version` | the OGC WMS version. Default is 1.1.1.
 `tileGrid` | custom tileGrid for the WMS source. extent, alignBottomLeft, resolutions and tileSize can be set.
 `type` | vendor of the WMS server. Used for functionality that requires different handling depending on the server type. Currently the options are 'Geoserver', 'ArcGIS', 'QGIS'. Optional.
+`capabilitiesURL` | url to the capabilities document. Downloads the capabilities document and saves it to `capabilitiesDoc` in the source unless `saveCapabilitiesDoc` is set to false. Also the layers in the map are matched to the document and if they are missing the layer is marked secure and resulting in a lock for the layer in the legend. Optional.
+`saveCapabilitiesDoc` | set to false to opt out saving the capabilities document when `capabilitiesURL` is set. Default is true.
 
 #### Basic example WMS
 
