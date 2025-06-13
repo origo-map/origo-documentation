@@ -754,13 +754,15 @@ Attribute options | Description
 `name` | the name of the attribute. The value of the attribute will be shown. Optional.
 `title` | static label for the attribute. Optional.
 `url` | absolute url ('//example.com/nonsense.html') or attribute containing an url. Creates a link automatically and can be combined with name as value. Optional.
-`urlPrefix` | a general prefix to be used together with url or img. Optional.
-`urlSuffix` | a general suffix to be used together with url or img. Optional.
+`urlPrefix` | a general prefix to be used together with url, img, audio or video. Optional.
+`urlSuffix` | a general suffix to be used together with url, img, audio or video. Optional.
 `target` | default behaviour is to open url in new window (_blank). It's possible to specify other targets as _top, _self and _parent or to open link in an iframe in a modal window which should than be set to modal for normal size or modal-full. Optional.
 `targetTitle` | used along with target to define title in modal titlebar and link tooltip. Can be set to "static text" or "{{attribute value}}". Default is url.
-`img` | attribute containing url to an image. The image will be embedded. Optional.
+`img` | attribute containing url or base64 data to an image. The image will be embedded. Optional.
+`audio` | attribute containing url or base64 data to an audio file. The audio will be embedded. Optional.
+`video` | attribute containing url or base64 data to an video file. The video will be embedded. Optional.
 `carousel` | attribute containing url to several images combined with splitter option. Set `autoplay` in `featureinfoOptions` to have the carousel rotate the images. Optional.
-`splitter` | set a splitter for example , or ; which is used to split the attribute if it is made up of delimited list of compounded attributes of the same type. To be used together with `url`, `img`, `carousel` and `linktext`. Optional.
+`splitter` | set a splitter for example , or ; which is used to split the attribute if it is made up of delimited list of compounded attributes of the same type. To be used together with `url`, `img`, `audio`, `video`, `carousel` and `linktext`. Optional.
 `cls` | css class name for custom styling. Optional.
 `html` | Custom html. Attributes can be referenced by placing the attribute name within double curly brackets.  It also possible in a similar way to apply a function by prepending the function name with `@`. See table below for supported functions. The `html` option can't be combined with any of the other options, except for `cls`. Optional.
 `linktext` | Name of attribute that holds the text that should be used on links when using `url` in combination with `splitter`. Optional.
@@ -833,6 +835,8 @@ type | format | required | readonly | maxLength | constraint | Description
 `checkbox`  | boolean or configured values || supported ||| Checkbox, defaults not checked.
 `checkboxgroup`  | array with configured values || supported ||| A group of checkboxes where multiple choices can be selected and also freetext choices can be added, defaults to not checked.
 `image`     | base64 || supported ||| Uploads image
+`audio`     | base64 or url || supported ||| Uploads audio or sets url to audio
+`video`     | base64 or url || supported ||| Uploads video or sets url to video
 `color`     | hexadecimal || supported ||| Activates a color-picker
 `time`      | hh:mm:ss | supported | supported ||| Defaults to current time. Use defaultTime:false to not.
 `date`      | YYYY-MM-DD | supported | supported ||| Defaults to current date. Use defaultDate:false to not.

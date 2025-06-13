@@ -24,22 +24,21 @@ For more advanced styling it is possible to use a custom style function. This fu
 ```json
 {
   "styles": {
-      "mask": [
-        [
-          {
-            "stroke": {
-              "color": "rgba(0,0,0,1.0)"
-            },
-            "fill": {
-              "color": "rgba(0,0,0,0.5)"
-            }
+    "mask": [
+      [
+        {
+          "stroke": {
+            "color": "rgba(0,0,0,1.0)"
+          },
+          "fill": {
+            "color": "rgba(0,0,0,0.5)"
           }
-        ]
+        }
       ]
+    ]
   }
 }
 ```
-
 
 ### Fill
 
@@ -72,7 +71,7 @@ A stroke style can be defined with the OpenLayers options for a [Stroke](https:/
 
 ### Circle
 
-A circle style can be defined with the OpenLayers options for a [Circle](https://openlayers.org/en/latest/apidoc/module-ol_style_Circle-CircleStyle.html).
+A circle style can be defined with the OpenLayers options for a [Circle](https://openlayers.org/en/latest/apidoc/module-ol_style_Circle-CircleStyle.html). Radius defaults to 7.
 
 #### Circle example
 
@@ -91,6 +90,130 @@ A circle style can be defined with the OpenLayers options for a [Circle](https:/
 }
 ```
 
+### Square
+
+A square style can be defined with the help of a subset of OpenLayers [RegularShape](https://openlayers.org/en/latest/apidoc/module-ol_style_RegularShape-RegularShape.html). Rotation attribute defaults to 0, value should be set in radian. Scale attribute defaults to no scaling factor, preferred to use radius to control size of style object. Radius defaults to 7.
+
+#### Square example
+
+```json
+{
+  "square": {
+    "radius": 7,
+    "stroke": {
+      "color": "rgba(0,0,0,1)",
+      "width": 1,
+      "lineDash": [1, 2]
+    },
+    "fill": {
+      "color": "rgba(255,255,0,0.9)"
+    },
+    "rotation": 0.5
+  }
+}
+```
+
+### Triangle
+
+A triangle style can be defined with the help of a subset of OpenLayers [RegularShape](https://openlayers.org/en/latest/apidoc/module-ol_style_RegularShape-RegularShape.html). Rotation attribute defaults to 0, value should be set in radian. Scale attribute defaults to no scaling factor, preferred to use radius to control size of style object. Radius defaults to 7.
+
+#### Triangle example
+
+```json
+{
+  "triangle": {
+    "radius": 7,
+    "stroke": {
+      "color": "rgba(0,0,0,1)",
+      "width": 1
+    },
+    "fill": {
+      "color": "rgba(0,255,0,0.9)"
+    },
+    "rotation": 0.5
+  }
+}
+```
+
+### Star
+
+A star style can be defined with the help of a subset of OpenLayers [RegularShape](https://openlayers.org/en/latest/apidoc/module-ol_style_RegularShape-RegularShape.html). Scale attribute defaults to no scaling factor, preferred to use radius to control size of style object. Radius defaults to 7.
+
+#### Star example
+
+```json
+{
+  "star": {
+    "radius": 7,
+    "stroke": {
+      "color": "rgba(0,0,0,1)",
+      "width": 1
+    },
+    "fill": {
+      "color": "rgba(0, 0, 255, 0.9)"
+    },
+    "scale": 1.5
+  }
+}
+```
+
+### Pentagon
+
+A pentagon style can be defined with the help of a subset of OpenLayers [RegularShape](https://openlayers.org/en/latest/apidoc/module-ol_style_RegularShape-RegularShape.html). Scale attribute defaults to no scaling factor, preferred to use radius to control size of style object. Radius defaults to 7.
+
+#### Pentagon example
+
+```json
+{
+  "pentagon": {
+    "radius": 10,
+    "stroke": {
+      "color": "rgba(0,0,0,1)",
+      "width": 1
+    },
+    "fill": {
+      "color": "rgba(0, 0, 255, 0.9)"
+    }
+  }
+}
+```
+
+### Cross
+
+A cross style can be defined with the help of a subset of OpenLayers [RegularShape](https://openlayers.org/en/latest/apidoc/module-ol_style_RegularShape-RegularShape.html). Scale attribute defaults to no scaling factor, preferred to use radius to control size of style object. Radius defaults to 7.
+
+#### Cross example
+
+```json
+{
+  "cross": {
+    "radius": 7,
+    "stroke": {
+      "color": "rgb(255, 0, 255)",
+      "width": 2
+    }
+  }
+}
+```
+
+### X
+
+A x style can be defined with the help of a subset of OpenLayers [RegularShape](https://openlayers.org/en/latest/apidoc/module-ol_style_RegularShape-RegularShape.html). Scale attribute defaults to no scaling factor, preferred to use radius to control size of style object. Radius defaults to 7.
+
+#### X example
+
+```json
+{
+  "x": {
+    "radius": 7,
+    "stroke": {
+      "color": "rgb(1, 222, 252)",
+      "width": 2
+    }
+  }
+}
+```
+
 ### Icon
 
 An icon style can be defined with the OpenLayers options for an [Icon](https://openlayers.org/en/latest/apidoc/module-ol_style_Icon-Icon.html). Size and src are required.
@@ -102,7 +225,7 @@ Icon rotation can be set with `"rotation"`, either by using a fixed value or by 
 ```json
 {
   "icon": {
-    "size": [32,32],
+    "size": [32, 32],
     "src": "data/png/my_icon.png"
   }
 }
@@ -155,6 +278,7 @@ Arbitrary text can be provided as text value. For cluster layers the reserved wo
   }
 }
 ```
+
 ### Image
 
 The image style is not used to style features. It is only used for legend purposes, for example to symbolize a raster layer in the legend. Only the src property is set.
@@ -179,7 +303,7 @@ Map server legend graphics (WMS only) can be used in the legend. Please note tha
 {
   "icon": {
     "src": "URL for GetLegendGraphic request (or any other static image asset)"
-   },
+  },
   "extendedLegend": true
 }
 ```
@@ -289,6 +413,7 @@ To use different styles at different zoom levels.
   ]
 ]
 ```
+
 ### header
 
 The icon shown in the legend. If true, this symbol will overwrite the default list icon used when having a thematic style. Default is false.
@@ -367,9 +492,11 @@ Makes a style hidden in the legend. Default is false. In this example the "Style
 ```
 
 ## Style examples
+
 To get started some common use cases are provided.
 
 ### Opacity
+
 Colors are defined with rgba values. Opacity is set with the alpha channel, the a part of rgba. In this example the fill is semi-transparent.
 
 #### Opacity
@@ -388,12 +515,13 @@ Colors are defined with rgba values. Opacity is set with the alpha channel, the 
           }
         }
       ]
-    ]  
+    ]
   }
 }
 ```
 
 ### Combining styles
+
 Different styles can be combined to create complex styles. In this example the features will be styled with two circle styles, one inner circle and one outer circle. The inner circle has the radius 4 and the outer circle the radius 16. Styles are combined by adding styles within the same brackets and are seperated by curly brackets.
 
 #### Combining styles
@@ -428,12 +556,13 @@ Different styles can be combined to create complex styles. In this example the f
           }
         }
       ]
-    ]  
+    ]
   }
 }
 ```
 
 ### Thematic styling
+
 By applying filters thematic styling can be made. In this example features with the attribute type equal to vegetation will be green and features with the attribute type equal to water will be blue. The style settings for each type are grouped by brackets. You are also able to add a label to each filter.
 
 #### Thematic styling
@@ -467,13 +596,14 @@ By applying filters thematic styling can be made. In this example features with 
           "filter": "[type] == 'water'",
           "label": "Water"
         }
-      ]    
-    ]  
+      ]
+    ]
   }
 }
 ```
 
 ### Center point
+
 Geometry calculations can be used to style features. In this example the center point within a polygon is styled with an icon. This is done by adding a geometry property with the value "centerPoint" for the icon style.
 
 #### Center point of polygon
@@ -483,32 +613,30 @@ Geometry calculations can be used to style features. In this example the center 
   "styles": {
     "center": [
       [
-         {
-           "stroke": {
-             "color": "rgba(103,60,31,1.0)",
-             "width": 1
-           },
-           "fill": {
-             "color": "rgba(103,60,31,0.1)"
-           }
-         },
-         {
-           "icon": {
-             "size": [
-               23,
-               36
-             ],
-             "src": "img/png/droppe.png"
-           },
-           "geometry": "centerPoint"
-         }
-       ]   
-    ]  
+        {
+          "stroke": {
+            "color": "rgba(103,60,31,1.0)",
+            "width": 1
+          },
+          "fill": {
+            "color": "rgba(103,60,31,0.1)"
+          }
+        },
+        {
+          "icon": {
+            "size": [23, 36],
+            "src": "img/png/droppe.png"
+          },
+          "geometry": "centerPoint"
+        }
+      ]
+    ]
   }
 }
 ```
 
 ### Cluster style
+
 When creating a style for a cluster layer it is usually desired to show the number of features in each cluster. This can be done be by using the reserved word "size" in which case the number of features will be used as text value. Other text properties are provided as usual.
 
 #### Cluster style with size as text
@@ -545,12 +673,13 @@ When creating a style for a cluster layer it is usually desired to show the numb
           }
         }
       ]
-    ]    
+    ]
   }
 }
 ```
 
 ### Custom style function
+
 For more advanced styling you can use a custom style function and for instance style features depending on multiple attribute values or use more complex filters and styling techniques.
 
 #### Style function included in src/style/stylefunctions.js with a .png-icon for presentation in the legend.
@@ -564,11 +693,11 @@ For more advanced styling you can use a custom style function and for instance s
           "custom": "basemapStyle",
           "icon": {
             "src": "img/png/basemap.png",
-            "size": [20,20]
+            "size": [20, 20]
           }
         }
       ]
-    ]    
+    ]
   }
 }
 ```
