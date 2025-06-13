@@ -136,7 +136,7 @@ Name | Type | Description
 `groups` | array | Array of group objects defining subgroups. Optional.
 `exclusive` | boolean | Setting to true will prevent activating more than one layer in the group. Defaults to false.
 `toggleAll` | boolean | For subgroups. Set to false to disable the option to show/hide all layers in the subgroup at once. Will have no effect if exclusive is set to true. Default is true. 
-`draggable` | boolean | Set to true to be able to rearrange layers in the group and affect the drawing order. Default is false.
+`draggable` | boolean | Set to true to be able to rearrange layers and subgroups in the group and affect the drawing order. Default is false.
 `removable` | boolean | Set to true to be able to remove the group from the legend. Default is false.
 `opacityControl` | boolean | Set to true to show opacity slider on the properties page. Default is false.
 `zoomToExtent` | boolean | Set to true to be able to zoom to specified extent. `extent` must also be set. Default is false.
