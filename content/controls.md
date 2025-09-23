@@ -625,6 +625,49 @@ Option | Description
 }
 ```
 
+### Offline
+The offline control contains a toolbar with tools to download data and store it locally on the browser's persistent
+memory to make it possible to display the layers even when there is no network connection.
+It also supports synchronizing edits from offline editable layers. In order to make a Origo map
+application able to start up without network connection, the application itself must implement
+a service worker that caches the application and all its dependencies. For the control to be meaningful
+the application should conatin at least one layer that has offline capability, eg. OFFLINEWMS or 
+OFFLINEWFS or a service worker cached layer marked with property `"offline": true`.
+
+If a service worker is used to cache the application and its assets, any file based layer can be cached and flagged
+as available offline using property `"offline": true`.
+
+If an offline vector layer is editable edits are stored locally in persistant storage when saved in the editor and
+must be synced to the server manually.
+
+__Offline tools__
+The tool opens the offline toolbar which has five tools
+
+Preload tool: The preload tool allows the user to draw an extent to download in the map. One or more extents can be downloaded.
+each downloaded extent is fetched from the server and stored in the browsers persistent storage (indexdDb). When the tool is
+active all previously downloaded extents are visible in the map. Before any extent is downloaded the offline layers will contain
+no data.
+
+Clear tool: The Clear tool removes all locally stored data for all layers and information about downloaded extents.
+
+View ongoing downloads: As tiles can take some time to download that is donw in the background. This tool displays progress
+in a dialog. For the time being, it only displays progress for tiled layers as vector layers are usually much faster.
+
+Go offline tool: The go offline tool toggles between offline and online operation of the application. It does not in fact affect
+the connectivity in any way, it merely hides all layers that are not offline capable to avoid the map to be slow. If there is a backgroundlayer
+tagged as offline it will activated. When toggled to online all visibilty of all layers are restored to before offline mode was selected.
+Which offline is active is persisted between sessions to support offline mode at startup.
+
+Sync edits tool: The sync edits tool will upload locally saved edits to the server for all offline editable layers. Afterwards
+all downloaded extents are re-read from the server for editable layers, even if there were no edits. This results
+in a sync mechanism that treats all inserts to succeed, all edits win over server side edits regardless of which edit was first,
+and all deletes to succeed. If an edited feature was already deleted on the server it is not resurrected, remaining deleted.
+
+
+Property | Description
+---|---
+none | The control currently has no options
+
 ### Position
 
 Control to show coordinates of the mouse cursor or map center and navigate to coordinate. The control supports multiple coordinate systems that can be toggled by clicking
