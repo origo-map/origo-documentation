@@ -26,16 +26,17 @@ Property | Description
 
 Option | Description
 ---|---
-`crossDomain` | option to allow cross origin request of map configuration. Default is true.
-`target` | element id of the container for the map. Default is '#app-wrapper'.
-`baseUrl` | baseUrl for the root url that is used to request map resouces with relative paths. If not provided the baseUrl is set when the map is initialized.
 `authorizationUrl` | an url that triggers authorization. It can for example be used to send a wms request that will trigger authorization before the map is loaded.
-`svgSpritePath` | path for svg sprites. Default is 'css/svg/'.
-`svgSprites` | list of svg sprites that should be requested.
+`baseUrl` | baseUrl for the root url that is used to request map resouces with relative paths. If not provided the baseUrl is set when the map is initialized.
 `breakPoints` | breakpoints determining what is shown at different screen sizes.
 `breakPointsPrefix` | prefix to use when styling with breakpoints. Defaults to o-media.
+`crossDomain` | option to allow cross origin request of map configuration. Default is true.
 `defaultControls` | to override loading of default controls (scaleline, zoom, rotate, attribution and fullscreen).
 `mapState` | mapState-object to override settings in the json-config.
+`serviceWorker`| Object with options to install a service worker for e.g. creating an offline application. Currently only supported property is `url`, which is a relative path to a service worker js-file.
+`svgSpritePath` | path for svg sprites. Default is 'css/svg/'.
+`svgSprites` | list of svg sprites that should be requested.
+`target` | element id of the container for the map. Default is '#app-wrapper'.
 
 
 #### Example map with json
@@ -85,6 +86,19 @@ Option | Description
       "zoom": "8.7",
       "legend": "expanded",
       "map": "index"
+    }
+  });
+</script>
+```
+
+#### Example Creating an offline map
+The example requires a service-worker file named _service-worker.js_. The
+repository contains a boilerplate version for a simple offline application.
+```javascript
+<script type="text/javascript">
+  var origo = Origo('index.json', { 
+      serviceWorker: { 
+        url: "service-worker.js"
     }
   });
 </script>
