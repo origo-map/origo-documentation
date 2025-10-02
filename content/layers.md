@@ -820,7 +820,7 @@ Attribute option | Description
 `type` | The attribute type. Determines which edit control is used. See [Editor attribute types](#editor-attribute-types)  (required)
 `allowBatchEdit` | _bool_ true if allowed to update a selection of features with the same value (optional)
 `config`| _object_ Additional configuration. The config object depends on the _type_.
-`constraint` | _string_  \<event\>:\<attribute name\>:\<value\> or \<event\>:\<attribute name\>:[\<value1\>,\<value2\>, ...], where \<event\> is the event that the \<attribute name\> input emits, most likely `change`. Attribute is only editable when \<attribute name\> has value \<value\> (optional)
+`constraint` | _string_  \<event\>:\<attribute name\>:\<value\> or \<event\>:\<attribute name\>:[\<value1\>,\<value2\>, ...], where \<event\> is the event that the \<attribute name\> input emits, most likely `change` (but e g `awesomplete-selectcomplete` for searchList attributes). Attribute is only editable when \<attribute name\> has value \<value\> (optional)
 `list` | _array of strings_ or _array of list object_. List of possible values for searchList. (optional)
 `maxLength` | _int_ Maximum number of characters (optional)
 `options` | _array of strings_ List of allowed values. Required for type `dropdown` (optional)
@@ -849,12 +849,12 @@ type | format | required | readonly | maxLength | constraint | Description
 `url`       | string | supported | supported ||| Homepage address
 `integer`   | integer | supported | supported ||| Whole number
 `decimal`   | decimal | supported | supported ||| Decimal number
-`searchList`   | string | supported ||supported. Defaults to 50|| Dropdown based on options values with search capabilities. 
+`searchList`   | string | supported ||supported. Defaults to 50|| Dropdown based on list values with search capabilities. 
 `hidden` | string ||||| Not visible to the user.
 
 **searchList List object**
 
-Defines the possible values in a _searchList_
+Defines the possible values in a _searchList_.
 
 Property | Description | Required | Default value
 ---|---|---|---
@@ -869,6 +869,9 @@ An object that defines additional configuration for searchList. The searchList c
 or a remote server. If using a remote server it can either get all available options in one request or
 query the server for each keypress. It can also be configured to use _value_ and _label_ similar to an HTML select drop down. In that
 case _value_ is stored in the database but _label_ is displayed in the searchList.
+
+**searchList and constraints**
+When using a `constraint` on an attribute that references a searchList attribute, the event specified should probably be one of Awesomplete's custom events (https://projects.verou.me/awesomplete/#events) such as `awesomplete-selectcomplete`.
 
 __Requirerments on the backend server__
 If the `url` option is used an additional HTTP server endpoint is needed, not included in the origo project.
