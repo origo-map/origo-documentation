@@ -1,63 +1,42 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import remark from 'remark';
 import remarkHTML from 'remark-html';
 import remarkHighlight from '../highlight';
+import PureRenderMixin from 'react-pure-render/mixin';
 import { postHighlight } from '../../custom';
 
-/**
- * Converts Markdown AST nodes to HTML with syntax highlighting applied.
- */
 function renderHighlighted(nodes) {
-  const processedMarkdown = remark()
-    .use(remarkHighlight)
-    .runSync({ type: 'root', children: nodes }); // Use runSync for synchronous processing
-  const html = remark().use(remarkHTML).stringify(processedMarkdown);
-
   return {
-    __html: postHighlight(html), // Apply post-processing if needed
+    __html: postHighlight(remark()
+      .use(remarkHTML)
+      .stringify(remark().use(remarkHighlight).run({
+        type: 'root',
+        children: nodes
+      })))
   };
 }
 
-/**
- * Section Component
- * Renders a section with left and right content areas.
- */
-const Section = ({ chunk, leftClassname, rightClassname }) => {
-  const { left, right, preview, title } = chunk;
-
-  return (
-    <div
-      data-title={title}
-      className={`keyline-top section contain clearfix ${preview ? 'preview' : ''}`}
-    >
-      {/* Left content */}
+var Section = React.createClass({
+  mixins: [PureRenderMixin],
+  propTypes: {
+    chunk: React.PropTypes.object.isRequired,
+    leftClassname: React.PropTypes.string.isRequired,
+    rightClassname: React.PropTypes.string.isRequired
+  },
+  render() {
+    let { chunk, leftClassname, rightClassname } = this.props;
+    let { left, right, preview } = chunk;
+    return (<div
+      data-title={chunk.title}
+      className={`keyline-top section contain clearfix ${preview ? 'preview' : ''}`}>
       <div
         className={leftClassname}
-        dangerouslySetInnerHTML={renderHighlighted(left)}
-      />
+        dangerouslySetInnerHTML={renderHighlighted(left)} />
+      {right.length > 0 && <div
+        className={rightClassname}
+        dangerouslySetInnerHTML={renderHighlighted(right)} />}
+    </div>);
+  }
+});
 
-      {/* Right content (if any) */}
-      {right.length > 0 && (
-        <div
-          className={rightClassname}
-          dangerouslySetInnerHTML={renderHighlighted(right)}
-        />
-      )}
-    </div>
-  );
-};
-
-// Define prop types for the Section component
-Section.propTypes = {
-  chunk: PropTypes.shape({
-    left: PropTypes.array.isRequired, // Left content nodes
-    right: PropTypes.array.isRequired, // Right content nodes
-    preview: PropTypes.bool, // Preview mode
-    title: PropTypes.string.isRequired, // Section title
-  }).isRequired,
-  leftClassname: PropTypes.string.isRequired, // CSS class for the left content
-  rightClassname: PropTypes.string.isRequired, // CSS class for the right content
-};
-
-export default Section;
+module.exports = Section;
