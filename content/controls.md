@@ -250,6 +250,7 @@ Option | Description
 `autoForm` | If set to true, the attribute form will be displayed automatically after a feature has been drawn. Default is false.
 `isActive` | option to set if the editor toolbar should be opened and activated by default. Default is true.
 `autoSave` | if edits should be autosaved or not. Defaults to true.
+`reuseIds` | Boolean. Optional. Defaults to `false`. When set to `true` undoing a delete that has been saved to server will restore the deleted object by inserting a new object using the same id as the deleted object. Useful when using feature id as foreign key in a relation. Requires that the layer type supports `reuseIds` and server side supports id insertion. Can be overridden by layer setting. If `false` the restored feature will get a new id from the database sequence. 
 `snap` | option to enable/disable snapping. Default is true.
 `snapLayers` | List of layers that should have snapping enabled. Default is editableLayers.
 `snapTolerance` | Optional snap tolerance in pixels. Only used when snap is on. Defaults to 10.
@@ -261,6 +262,7 @@ Option | Description
 `validateOnDraw` | If set to true, the editor prevents drawing invalid geometries (self-intersect). Defaults to false.
 `featureList` | If set to true you'll get a list when selecting multiple features. Defaults to true.
 `featureListAttributes` | Array of attributes to be showed in the featureList. Default is to just show the feature ID.
+`maxUndoLevels` | Number of edit operations that is remembered for undo. Optional, defaults to 100. If set to 0 undo is disabled and undo/redo buttons are hidden.
 `modifyTools` | When true, displays the modify tools toolbar which contains advanced editing tools that are used to modify existing features. Currently the only tool available is split line. Default is false.
 
 Draw tools can be set for each geometry type on editor control level in wich case it adds the configured tools to each layer of that
