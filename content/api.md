@@ -303,3 +303,31 @@ setInterval(() => {
   }
 }, 600000);
 ```
+
+
+### Add a language locale (or many)
+If the id already exists its definition will be overwritten (for the current browser and user, the new definition is saved in local storage). The form must match the current language file form, see definitions in the `loc` folder. Technically it doesn't need to be complete though then the missing translations will be looked up in the `fallbackLocaleId` if configured. 
+
+The locale language selector, if active in the map menu, will update.
+```js
+// add a language locale, overwriting the old definition with the same id
+// Adding a new locale with a new id works just as well
+origo.api().getControlByName('localization').addLocales([
+  {
+    "id": "en-US",
+    "title": "English",
+    "menuTitle": "Language",
+    "controls": {
+        "measure": {
+            "layerTitle": "Measure result",
+            "mainButtonTooltip": "Measure",
+            "startMeasureTooltip": "Click to start measuring",
+            "lengthTooltip": "Length",
+            "areaTooltip": "Area",
+            "clearTooltip": "Clear",...
+
+        }
+    }
+  }
+])
+```
