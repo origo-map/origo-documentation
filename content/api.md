@@ -314,7 +314,7 @@ If the id already exists its definition will be overwritten (for the current bro
 The locale language selector, if active in the map menu, will update.
 
 #### Example code showing the definition of the method
-```json
+```javascript
   /**
  * Adds an array of locales to the locales object and stores them in localStorage.
  *
@@ -325,7 +325,7 @@ The locale language selector, if active in the map menu, will update.
 ```
 
 #### Example code showing the usage of the method
-```json
+```javascript
 origo.api().getControlByName('localization').addLocales([
   {
     "id": "en-US",
@@ -348,9 +348,9 @@ origo.api().getControlByName('localization').addLocales([
 
 ### Localize a plugin
 
-the `addPluginToLocale` method is intended as a method for localized plugins to add their translations to the localization control and utilize it to perform their translations. The plugins keep their own language files, one per language, for instance the Barebone plugin might come with a loc/sv_SE.json file like:
+the `addPluginToLocale` method is intended as a method for localized plugins to add their translations to the localization control and utilize it to perform their translations. The plugins keep their own language files, one per language, for instance the Barebone plugin might come with a loc/sv_SE.json file.
 
-#### Example code showing a plugin language definiton
+#### Example code showing a plugin language definition
 ```json
 {
   "barebone": {
@@ -359,10 +359,10 @@ the `addPluginToLocale` method is intended as a method for localized plugins to 
 }
 
 ```
-At init the plugins then needs the viewer object:
+At init the plugins then needs the viewer object.
 
 #### Example code showning how to init the plugin
-```json
+```javascript
 origo.on('load', function(viewer) {
   const barebone = Barebone({
     buttonText: 'Click this!',
@@ -371,10 +371,10 @@ origo.on('load', function(viewer) {
  });
 ```
 
-After importing their language file(s) they can receive the viewer object and via it access the `localization` control to add their translations to it:
+After importing their language file(s) they can receive the viewer object and via it access the `localization` control to add their translations to it.
 
-#### Example code showing how to acquire the localization control
-```json
+#### Example code showing how to import language files, receive viewer, acquire localization control and add translations to it
+```javascript
 import svLocale from './loc/sv_SE.json';
 
 const Barebone = function Barebone(options = {}) {
@@ -388,16 +388,16 @@ const Barebone = function Barebone(options = {}) {
   localization.addPluginToLocale('sv-SE', svLocale);
 ```
 
-and then use said control's `getStringByKeys` method to perform translations:
+After which it can use said control's `getStringByKeys` method to perform translations.
 
 #### Example code showing how to perform localization
-```json
+```javascript
 tooltipText: localization.getStringByKeys({ targetParentKey: 'barebone', targetKey: 'tooltipText' }),
 ```
 (numbers can be formatted with a hint of what the currently chosen locale is available via the `getCurrentLocaleId()` method)
 
 #### Example code showing the definition of the method
-```json
+```javascript
   /**
  * Adds an array of locales to the locales object and stores them in localStorage.
  *
