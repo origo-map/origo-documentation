@@ -553,6 +553,7 @@ Property | Description
 }
 
 ```
+For additional use of this control see the [api](#using-origo-api) documentation.
 
 ### Mapmenu control
 

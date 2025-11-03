@@ -305,13 +305,27 @@ setInterval(() => {
 ```
 
 
-### Add a language locale (or many)
-If the id already exists its definition will be overwritten (for the current browser and user, the new definition is saved in local storage). The form must match the current language file form, see definitions in the `loc` folder. Technically it doesn't need to be complete though then the missing translations will be looked up in the `fallbackLocaleId` if configured. 
+### Add locales
+
+This might be useful to perform at startup of a map instance in order to add or change translations without altering Origo's source files.
+
+If the id already exists its definition will be overwritten (for the current browser and user, the new definition is saved in local storage). The form must match the current language file form, see definitions in the `loc` folder. Technically it doesn't need to be complete though then the missing translations will be looked up in the `fallbackLocaleId` locale if configured. 
 
 The locale language selector, if active in the map menu, will update.
-```js
-// add a language locale, overwriting the old definition with the same id
-// Adding a new locale with a new id works just as well
+
+#### Example code showing the definition of the method
+```json
+  /**
+ * Adds an array of locales to the locales object and stores them in localStorage.
+ *
+ * @param {Array} locs - An array of locale objects to be added. Defaults to an empty array if not provided.
+ * If a locale id matches a current locale then the current locale will be overwritten.
+ * @return {boolean} True if locales were added, false otherwise.
+ */
+```
+
+#### Example code showing the usage of the method
+```json
 origo.api().getControlByName('localization').addLocales([
   {
     "id": "en-US",
@@ -331,3 +345,66 @@ origo.api().getControlByName('localization').addLocales([
   }
 ])
 ```
+
+### Localize a plugin
+
+the `addPluginToLocale` method is intended as a method for localized plugins to add their translations to the localization control and utilize it to perform their translations. The plugins keep their own language files, one per language, for instance the Barebone plugin might come with a loc/sv_SE.json file like:
+
+#### Example code showing a plugin language definiton
+```json
+{
+  "barebone": {
+    "mainButtonTooltipText": "Starta maskinen"
+  }
+}
+
+```
+At init the plugins then needs the viewer object:
+
+#### Example code showning how to init the plugin
+```json
+origo.on('load', function(viewer) {
+  const barebone = Barebone({
+    buttonText: 'Click this!',
+    content: 'Great stuff',
+    viewer
+ });
+```
+
+After importing their language file(s) they can receive the viewer object and via it access the `localization` control to add their translations to it:
+
+#### Example code showing how to acquire the localization control
+```json
+import svLocale from './loc/sv_SE.json';
+
+const Barebone = function Barebone(options = {}) {
+  const {
+    buttonText = 'Default text',
+    content = 'Default content',
+    viewer
+  } = options;
+   
+  const localization = viewer.getControlByName('localization');
+  localization.addPluginToLocale('sv-SE', svLocale);
+```
+
+and then use said control's `getStringByKeys` method to perform translations:
+
+#### Example code showing how to perform localization
+```json
+tooltipText: localization.getStringByKeys({ targetParentKey: 'barebone', targetKey: 'tooltipText' }),
+```
+(numbers can be formatted with a hint of what the currently chosen locale is available via the `getCurrentLocaleId()` method)
+
+#### Example code showing the definition of the method
+```json
+  /**
+ * Adds an array of locales to the locales object and stores them in localStorage.
+ *
+ * @param {Array} locs - An array of locale objects to be added. Defaults to an empty array if not provided.
+ * If a locale id matches a current locale then the current locale will be overwritten.
+ * @return {boolean} True if locales were added, false otherwise.
+ */
+```
+
+
