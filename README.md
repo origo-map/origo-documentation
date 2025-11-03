@@ -6,7 +6,7 @@ Documentation is written as Markdown files in the `content` directory, and is or
 
 ## Development
 Requirements:
-* Node v20 or higher
+* Node v4 or higher
 * NPM
 * Git
 
@@ -15,7 +15,7 @@ To run the site locally:
   `git clone https://github.com/origo-map/origo-documentation.git`  
 2. `npm install`  
 3. `npm start`  
-4. Open [http://localhost:9967/](http://localhost:9967/)
+4. Open [http://localhost:9966/](http://localhost:9966/)
 
 ## Deployment
 The npm run build command builds a bundle.js file that contains all the JavaScript code and content needed for deployment, and creates an index.html file that already contains the site content. Note that this replaces the existing index.html file, so it's best to run this only when deploying the site and to undo changes to index.html if you want to keep working on content.

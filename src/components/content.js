@@ -1,107 +1,89 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Section from './section';
+import PureRenderMixin from 'react-pure-render/mixin';
 import GithubSlugger from 'github-slugger';
 import { transformURL } from '../../custom';
+let slugger = new GithubSlugger();
+let slug = title => { slugger.reset(); return slugger.slug(title); };
 
-// Initialize slugger
-const slugger = new GithubSlugger();
-const slug = (title) => {
-  slugger.reset();
-  return slugger.slug(title);
-};
-
-/**
- * Processes the AST to group nodes into chunks and split content into left and right sections.
- */
 function chunkifyAST(ast, language) {
-  let preview = false;
-
-  return ast.children
-    .reduce((chunks, node) => {
-      if (node.type === 'heading' && node.depth === 1) {
-        return chunks; // Skip top-level headings
-      } else if (node.type === 'heading' && node.depth < 4) {
-        chunks.push([node]); // Start a new chunk for headings < depth 4
-      } else {
-        chunks[chunks.length - 1].push(node); // Add to the current chunk
-      }
+  var preview = false;
+  return ast.children.reduce((chunks, node) => {
+    if (node.type === 'heading' && node.depth === 1) {
       return chunks;
-    }, [[]])
-    .filter((chunk) => chunk.length) // Remove empty chunks
-    .map((chunk) => {
-      let left = [];
-      let right = [];
-      let title;
-
-      if (language === 'cli') {
-        language = 'bash';
-      }
-
-      if (chunk[0].depth < 3) {
-        preview = false;
-      }
-
-      chunk.forEach((node) => {
-        if (node.type === 'code') {
-          if (['json', 'http', 'html'].includes(node.lang)) {
+    } else if (node.type === 'heading' && node.depth < 4) {
+      chunks.push([node]);
+    } else {
+      chunks[chunks.length - 1].push(node);
+    }
+    return chunks;
+  }, [[]]).filter(chunk => chunk.length)
+  .map(chunk => {
+    var left = [], right = [], title;
+    if (language === 'cli') {
+      language = 'bash';
+    }
+    if (chunk[0].depth < 3) {
+      preview = false;
+    }
+    chunk.forEach(node => {
+      if (node.type === 'code') {
+        if (node.lang === 'json' || node.lang === 'http' || node.lang === 'html') {
+          right.push(node);
+        } else if (node.lang === language) {
+          if (language === 'curl') {
+            right.push({ ...node, lang: 'bash'  });
+          } else {
             right.push(node);
-          } else if (node.lang === language) {
-            right.push(language === 'curl' ? { ...node, lang: 'bash' } : node);
-          } else if (node.lang === 'endpoint') {
-            right.push(transformURL(node.value));
-          } else if (node.lang === null) {
-            left.push(node);
           }
-        } else if (node.type === 'heading' && node.depth >= 4) {
-          right.push(node);
-        } else if (node.type === 'blockquote') {
-          right.push(node);
-        } else if (node.type === 'heading' && node.depth < 4 && !title) {
-          title = node.children[0]?.value;
-          left.push(node);
-        } else if (node.type === 'html') {
-          if (node.value.startsWith('<!--')) {
-            const content = node.value.replace(/^<!--/, '').replace(/-->$/, '').trim();
-            if (content === 'preview') {
-              preview = true;
-            }
-          }
-        } else {
+        } else if (node.lang === 'endpoint') {
+          right.push(transformURL(node.value));
+        } else if (node.lang === null) {
           left.push(node);
         }
-      });
-
-      return { left, right, title, preview, slug: slug(title) };
+      } else if (node.type === 'heading' && node.depth >= 4) {
+        right.push(node);
+      } else if (node.type === 'blockquote') {
+        right.push(node);
+      } else if (node.type === 'heading' && node.depth < 4 && !title) {
+        title = node.children[0].value;
+        left.push(node);
+      } else if (node.type === 'html') {
+        if (node.value.indexOf('<!--') === 0) {
+          var content = node.value
+            .replace(/^<!--/, '')
+            .replace(/-->$/, '')
+            .trim();
+          if (content === 'preview') {
+            preview = true;
+          }
+        }
+      } else {
+        left.push(node);
+      }
     });
+    return { left, right, title, preview, slug: slug(title) };
+  });
 }
 
-/**
- * Functional component for rendering content with left and right sections.
- */
-const Content = ({ ast, language, leftClassname, rightClassname }) => {
-  const chunks = chunkifyAST(ast, language);
+var Content = React.createClass({
+  mixins: [PureRenderMixin],
+  propTypes: {
+    ast: React.PropTypes.object.isRequired,
+    language: React.PropTypes.string.isRequired,
+    leftClassname: React.PropTypes.string.isRequired,
+    rightClassname: React.PropTypes.string.isRequired
+  },
+  render() {
+    let { ast, language, leftClassname, rightClassname } = this.props;
+    return (<div className='clearfix'>
+      {chunkifyAST(ast, language).map((chunk, i) => <Section
+        leftClassname={leftClassname}
+        rightClassname={rightClassname}
+        chunk={chunk}
+        key={i} />)}
+    </div>);
+  }
+});
 
-  return (
-    <div className="clearfix">
-      {chunks.map((chunk, index) => (
-        <Section
-          leftClassname={leftClassname}
-          rightClassname={rightClassname}
-          chunk={chunk}
-          key={index}
-        />
-      ))}
-    </div>
-  );
-};
-
-// Prop types for the component
-Content.propTypes = {
-  ast: PropTypes.object.isRequired,
-  language: PropTypes.string.isRequired,
-  leftClassname: PropTypes.string.isRequired,
-  rightClassname: PropTypes.string.isRequired,
-};
-
-export default Content;
+module.exports = Content;

@@ -1,33 +1,26 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import PureRenderMixin from 'react-pure-render/mixin';
 
-/**
- * NavigationItem Component
- * Renders a single navigation item with an onClick handler and active state styling.
- */
-const NavigationItem = ({ sectionName, active, onClick, href }) => {
-  const handleClick = (event) => {
-    event.preventDefault(); // Prevent default anchor navigation
-    onClick(sectionName); // Invoke the callback with the section name
-  };
-
-  return (
-    <a
+var NavigationItem = React.createClass({
+  mixins: [PureRenderMixin],
+  propTypes: {
+    sectionName: React.PropTypes.string.isRequired,
+    active: React.PropTypes.bool.isRequired,
+    onClick: React.PropTypes.func.isRequired,
+    href: React.PropTypes.string.isRequired
+  },
+  onClick() {
+    this.props.onClick(this.props.sectionName);
+  },
+  render() {
+    var {sectionName, href, active} = this.props;
+    return (<a
       href={href}
-      onClick={handleClick}
-      className={`line-height15 pad0x pad00y quiet block ${active ? 'fill-lighten0 round' : ''}`}
-    >
+      onClick={this.onClick}
+      className={`line-height15 pad0x pad00y quiet block ${active ? 'fill-lighten0 round' : ''}`}>
       {sectionName}
-    </a>
-  );
-};
+    </a>);
+  }
+});
 
-// Define prop types for the component
-NavigationItem.propTypes = {
-  sectionName: PropTypes.string.isRequired, // Name of the section
-  active: PropTypes.bool.isRequired,       // Whether the item is active
-  onClick: PropTypes.func.isRequired,      // Callback when clicked
-  href: PropTypes.string.isRequired        // Link URL
-};
-
-export default NavigationItem;
+module.exports = NavigationItem;
