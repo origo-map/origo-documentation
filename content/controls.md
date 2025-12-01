@@ -997,7 +997,7 @@ Option | Description
 ---|---
 `storeMethod` | Should be set to `saveStateToServer` in order to utilize the save-to-server feature.
 `serviceEndpoint` | URL to the Origo Server service endpoint, for example `https://www.mydomain.com/mapstate`.
-`loadMapStateIdMethod` | Controls how a saved map state (mapStateId) is loaded from the server, "path" or "query".
+`loadMapStateIdMethod` | Controls how a saved map state (mapStateId) is loaded from the server, "path" (default) or "query".
 `hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 `icon` | icon for the menuitem in the menu. Defaults to "#ic_screen_share_outline_24px".
 `title` | title for the menuitem in the menu. Defaults to "Dela karta".
