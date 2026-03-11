@@ -175,6 +175,7 @@ Property | Description
 `filter` | filter provided as [cql](http://docs.geoserver.org/latest/en/user/tutorials/cql/cql_tutorial.html). Optional.
 `strategy` | the ol.loadingstrategy for the layer. Can also be set on source. The options are tile, bbox or all. Default is bbox.
 `requestMethod` | request method for this layer. Can be set to 'post', otherwise it will be 'get'. Default is 'get'.
+`reuseIds` | Boolean. Overrides editor `reuseIds` setting. See [editor](#Editor-control) control for description.
 `searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
 `removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
