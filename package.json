@@ -34,7 +34,7 @@
     "browserify": "^13.0.0",
     "cssnano": "^5.1.14",
     "es6-promise": "^3.0.2",
-    "eslint": ">=4.18.2",
+    "eslint": ">=9.39.1",
     "eslint-plugin-babel": "^3.0.0",
     "eslint-plugin-react": "^3.14.0",
     "github-slugger": "^1.0.1",
@@ -55,7 +55,7 @@
     "babel-register": "^6.3.13",
     "budo": "^11.8.4",
     "expect": "^1.13.4",
-    "mocha": "^9.2.2",
+    "mocha": "^11.7.5",
     "to-vfile": "^1.0.0",
     "uglify-js": "^3.14.2"
   }
