@@ -589,6 +589,57 @@ Source options | Description
 }
 ```
 
+### COG
+Cloud Optimized GeoTIFF (COG) layers allow you to display tiled GeoTIFF files directly from the web. This layer type uses OpenLayers GeoTIFF support and is rendered as a WebGL tile layer.
+
+Property | Description
+---|---
+`name` | the unique name of the layer used internally. White spaces and special characters should be avoided.
+`title` | title for the layer visible to the user.
+`abstract` | short description of the layer shown in the layer info. Optional.
+`type` | type of source for the layer. For Cloud Optimized GeoTIFF the type is COG.
+`source` | URL to the COG file or name of a shared source defined in the map sources.
+`overviews` | optional list of overview URLs for the GeoTIFF.
+`style` | the name of the referenced [style](#style-basics) to be used for styling the legend. Must be an image-style or background-style.
+`group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
+`opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
+`attribution` | attribution for the layer shown in the footer. Used for copyright text or any other information. Optional.
+`visible` | if the layer should be visible. Default is false.
+`extent` | extent of the layer. Map extent is default.
+`minScale` | the minmum scale the layer is visible. Optional.
+`maxScale` | the maximum scale the layer is visible. Optional.
+`projection` | force the source projection (for example `EPSG:3857`). Optional.
+`convertToRGB` | convert non-RGB TIFF color spaces to RGB. Optional.
+`normalize` | normalize source values to a 0–1 range. Optional.
+`wrapX` | render tiles beyond the map extent horizontally. Optional.
+`interpolate` | use interpolated resampling instead of nearest neighbor. Optional.
+`min` | minimum data value used for normalization. Optional.
+`max` | maximum data value used for normalization. Optional.
+`nodata` | explicit no-data value. Optional.
+`bands` | array of band numbers to read from the GeoTIFF. Optional.
+`headers` | request headers for fetching the GeoTIFF. Optional.
+`sourceOptions` | low-level geotiff.js source options such as `forceXHR`, `allowFullFile`, `blockSize`, and `cacheSize`.
+`removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
+`zoomToExtent` | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
+`opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
+`css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
+
+#### Basic example COG
+
+```json
+{
+  "name": "my_cog",
+  "title": "My COG",
+  "type": "COG",
+  "source": "https://example.com/data/my-cog.tif",
+  "visible": true,
+  "attribution": "© COG",
+  "convertToRGB": true,
+  "normalize": true,
+  "bands": [1, 2, 3]
+}
+```
+
 ### AGS_MAP
 A tiled layer created with an ArcGIS Server map service.
 
