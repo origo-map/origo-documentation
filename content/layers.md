@@ -592,6 +592,10 @@ Source options | Description
 ### COG
 Cloud Optimized GeoTIFF (COG) layers allow you to display tiled GeoTIFF files directly from the web. This layer type uses OpenLayers GeoTIFF support and is rendered as a WebGL tile layer.
 
+COG images cannot be rotated or skewed. Openlayers rendering of COG files handles rotation in an unpredictable way.
+
+Reprojection to an undefined projection causes a crash. Remember to add any used projection to the proj4 definitions for the map.
+
 Property | Description
 ---|---
 `name` | the unique name of the layer used internally. White spaces and special characters should be avoided.
