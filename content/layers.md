@@ -98,6 +98,81 @@ Property | Description
 }
 ```
 
+### OCG Features-Api
+_OCG Features-Api_ layer with real time support. Only very basic support is implemented:
+- Read only
+- No filter
+- No extent
+- Only strategy `all`
+- Limited support for realtime hub links
+
+Real time data updates is supported by attaching to real time data streams if Url to stream is provided in the response. A real time capable layer will be asynchronously updated when events are sent from the hub
+without the need to refresh the source. As the standard is not mature there are no compatible servers on the market, so a custom backend has to be provided. There is a reference implemenation available at: https://github.com/ornskoldsvikskommun/origo-realtime-reference-api
+
+The layer supports different kinds of reconnection strategies depending on the capabilites of the server and the nature of the data. As websockets have no last-id mechanism to provide for sending missed events on 
+reconnect (as you can not reconnect to a web socket, only create a new connection), that has to built in the server using for instance a session cookie and the server keeps track of last sent id. Also authentication
+to the websocket can be implemented using a session that is set up by the initial call as no custom headers can be sent in the websocket connect.
+
+The reconnection strategies are:
+- `none`: Never reconnect. Useful if the application can not guarantee that it can handle a re-established connection.
+- `full`: Make a new request to the features api endpoint to receive a new hub link. Refreshes the entire layer. Useful if the server does not have a session that keeps track of the last sent eventid and thus can not send missed events. Also useful if the server generates individual URL:s for each connection to support authentication etc.
+- `stream`: Only reconnect to the stream without refreshing the layer. Useful if the server supports a last event id mechanism with capability to send missed events or the data is so frequently updated so it does not matter if events are missed. If the server responds with error code 1008 a full reconnect is forced to receive a new URL to the stream as that indicates the the connection to the stream does not follow the protocol, which most likely is because the server has a session handling but the session is lost.
+
+The support for realtime hub links is limitied to:
+- Only follows direct hub links in the items response, no support for AsyncApi
+- Only supports hub links of type websocket with CloudEvents payload.
+
+Property | Description
+---|---
+`abstract` | short description of the layer shown in the layer info. Optional.
+`attachments`| An [attachment object](#Attachment-configuration) containing configuration for editing and displaying attachments
+`attributes` | definition of [attributes](#attributes) and how they should be presented in featureinfo. If not provided all available attributes will be shown with a standard template.
+`attribution` | attribution for the layer shown in the footer. Used for copyright text or any other information. Optional.
+`clusterOptions` | options for clustering. See the settings page for details.
+`clusterStyle` | the style to be used for clustered features. Is required if layerType cluster is used.
+`credentials` | Value for property `credentials` in the fetch request made to the server. Can be one of `omit`, `same-origin` (default) or `include`. May be needed to enable cookies if the features api is not hosted on the same server as the origo application. See documentation for `fetch` for details: https://developer.mozilla.org/en-US/docs/Web/API/RequestInit#credentials
+`css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
+`exportable`| Adds a _Export layer_ option to the layer info menu if set to true. To ensure all features in a layer is exported, `strategy` should be set to `all`. Optional.
+`exportFormat`| String or array of formats for file export if exportable is true. Can be set to geojson, gpx or kml. Defaults to geojson.
+`featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
+`group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
+`id` | the id or ids used to identify the layers in the map server. White spaces and special characters should be avoided. Optional. If not specified the trimmed `name` is used.
+`isTable`| Bool that indicates if the geometry should be ignored. Implies _visible_. Only useful when layer is a child in related layers. Optional. defaults to `false`
+`layerType` | option to set how the vector layer should be rendered. The options are cluster, [image](https://openlayers.org/en/latest/apidoc/ol.source.ImageVector.html) or vector. Default is vector.
+`legend` | if the layer should be included in the map legend. Default is false.
+`maxScale` | the maximum scale the layer is visible. Optional.
+`minScale` | the minmum scale the layer is visible. Optional.
+`name` | the unique name of the layer used internally and the name of the layer in the wfs service. White spaces and special characters should be avoided. To be able to reuse layers add after the layer name a double underscore plus a suffix to tell them apart.
+`opacity` | opacity of the layer. Value between 0 and 1. Default is 1.
+`opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
+`projection` | set projection to interpret the response in the specified reference system and Origo will handle the transformation. The specification states that features are to be returned in 4326, but can be overridden. The proj4Defs has to be configured in index.json unless it's EPSG:4326 or 3857. Optional. Defaults to EPSG:4326
+`queryable` | if featureinfo should be enabled for the layer. Default is true.
+`realtime` | Wether to follow real time hub links or not, which enables real time capabilties. Optional. Default false.
+`realtimeDisconnectOnHide` | Wheter to disconnect and reconnect to the real time stream when layer visibility is toggled. Boolean. Default true.
+`realtimeReconnect`| Strategy to use when trying to reconnect after a lost connection to the stream. Can be one of. `none`, `full`or `stream`.
+`relatedLayers`| Array of [relatedLayers](#Related-layers) objects defining child layers. Optional
+`removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
+`searchable` | used with includeSearchableLayers in search control.  Can be set to 'always', true (when visible) or false.
+`source` | named source of the layer. The [source](#source) must be defined.
+`style` | the name of the referenced [style](#style-basics) to be used for the layer.
+`stylePicker` | Adds a dropup with alternative styles in the layer info. An array of styles defined with title, style and clusterStyle. See [stylePicker](#stylepicker). Optional.
+`thematicStyling`| Setting `thematicStyling` to true will add buttons to the different thematic styles to be able to turn them on or off. Optional, defaults to false.
+`title` | title for the layer visible to the user.
+`type` | type of source for the layer. For OCG Features - Api source the type is FEATURESAPI.
+`visible` | if the layer should be visible. Default is false.
+`zoomToExtent` | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
+
+**Source options**
+
+The following options are available for the `source` configuration for OGC Features - Api.
+
+Name | Type | Required | Description
+---|---|---|---
+`clusterOptions` | string | No | Options for clustering. See the settings page for details.
+`projection` | string | No | Default projection for all layers in the source
+`url` | string | Yes | Url to the OGC Features Api endpoint
+
+
 ### TopoJSON
 
 Property | Description
