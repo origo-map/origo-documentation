@@ -276,6 +276,9 @@ Option | Description
 `featureListAttributes` | Array of attributes to be showed in the featureList. Default is to just show the feature ID.
 `maxUndoLevels` | Number of edit operations that is remembered for undo. Optional, defaults to 100. If set to 0 undo is disabled and undo/redo buttons are hidden.
 `modifyTools` | When true, displays the modify tools toolbar which contains advanced editing tools that are used to modify existing features. Currently the only tool available is split line. Default is false.
+`clearUndoOnLayerChange` | Boolean. When set to true the list of undoable operations is cleared when the active edit layer is changed. Default _false_.
+`clearUndoOnSessionEnd` | Boolean. When set to true the list of undoable operations is cleared when pending edits are saved or aborted. Only applicable when `autoSave = false`. Default _false_.
+`clearUndoOnToolChange` | Boolean. When set to true the list of undoable operations is cleared when editor is closed. Default _false_.
 
 Draw tools can be set for each geometry type on editor control level in wich case it adds the configured tools to each layer of that
 kind in addition to the default tool. Draw tools can also be set on each layer in which case the default tool is not added unless specified.
