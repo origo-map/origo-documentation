@@ -6,7 +6,7 @@ Documentation is written as Markdown files in the `content` directory, and is or
 
 ## Development
 Requirements:
-* Node v4 or higher
+* Node v20 or higher
 * NPM
 * Git
 
