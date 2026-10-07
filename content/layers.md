@@ -135,6 +135,8 @@ Property | Description
 `exportable`| Adds a _Export layer_ option to the layer info menu if set to true. To ensure all features in a layer is exported, `strategy` should be set to `all`. Optional.
 `exportFormat`| String or array of formats for file export if exportable is true. Can be set to geojson, gpx or kml. Defaults to geojson.
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
+`flashOnCreate`| Boolean. If true features added by real time stream is temporary highlighted. Requires `realtime`. Optional.
+`flashOnUpdate`| Boolean. If true features updated by real time stream is temporary highlighted. Requires `realtime`. Optional.
 `group` | group the layer belong to. If group is not provided it will not be included in legend. Optional.
 `id` | the id or ids used to identify the layers in the map server. White spaces and special characters should be avoided. Optional. If not specified the trimmed `name` is used.
 `isTable`| Bool that indicates if the geometry should be ignored. Implies _visible_. Only useful when layer is a child in related layers. Optional. defaults to `false`
