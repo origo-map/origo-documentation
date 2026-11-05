@@ -353,11 +353,11 @@ origo.api().getControlByName('localization').addLocales([
 Option | Description
 ---|---
 `value` | the selected color as a `rgb(r,g,b)` string. Optional.
-`colors` | array of `rgb(r,g,b)` strings shown as swatches. Defaults to a palette of colors suited for maps.
+`colors` | array of `rgb(r,g,b)` strings shown as swatches, five per row. Defaults to a palette of colors suited for maps.
 `change` | function called with the picked color.
 `cls` | css classes added to the component.
 `ariaLabel` | accessible label for the component.
-`customColorLabel` | label for picking any color with the browser's color picker.
+`customColorLabel` | tooltip and accessible label for the button that opens the browser's color picker. The button is shown beside the swatches.
 
 The component also dispatches a `change` event with the picked color as `color`, and has the methods `getValue()` and `setValue(color)`.
 
