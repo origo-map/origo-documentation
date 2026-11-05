@@ -346,6 +346,40 @@ origo.api().getControlByName('localization').addLocales([
 ])
 ```
 
+### Use the color picker component
+
+`Origo.ui.ColorPicker` is a component that lets the user pick a color from a palette of swatches or choose any color with the browser's color picker. It can be used in plugins that need a color, for example to style features. The picked color is a `rgb(r,g,b)` string.
+
+Option | Description
+---|---
+`value` | the selected color as a `rgb(r,g,b)` string. Optional.
+`colors` | array of `rgb(r,g,b)` strings shown as swatches, five per row. Defaults to a palette of colors suited for maps.
+`change` | function called with the picked color.
+`cls` | css classes added to the component.
+`ariaLabel` | accessible label for the component.
+`customColorLabel` | tooltip and accessible label for the button that opens the browser's color picker. The button is shown beside the swatches.
+
+The component also dispatches a `change` event with the picked color as `color`, and has the methods `getValue()` and `setValue(color)`.
+
+#### Example code for adding a color picker to a plugin
+
+```javascript
+const colorPicker = Origo.ui.ColorPicker({
+  value: 'rgb(228,26,28)',
+  ariaLabel: 'Pick a color',
+  customColorLabel: 'Custom color',
+  change(color) {
+    console.log(`Picked color ${color}`);
+  }
+});
+
+// Add the color picker as a sub component, for example in onInit of the plugin component
+this.addComponent(colorPicker);
+
+// Render it as part of the plugin's html, and dispatch render on the plugin after it is added to the DOM
+const html = `<div>${colorPicker.render()}</div>`;
+```
+
 ### Localize a plugin
 
 the `addPluginToLocale` method is intended as a method for localized plugins to add their translations to the localization control and utilize it to perform their translations. The plugins keep their own language files, one per language, for instance the Barebone plugin might come with a loc/sv_SE.json file.

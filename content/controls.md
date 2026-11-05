@@ -150,6 +150,8 @@ Items options | Description
 
 Adds the ability to drag-and-drop GeoJSON, GPX, IGC, KML and TopoJSON files to the map. Note that the layers are only temporarily available, once the map is closed the layers are lost. It is possible to drag-and-drop multiple files at once.
 
+Each added layer gets its own color, the first unused color from a palette suited for maps or from `colorPalette`, so that it's easy to tell the layers apart. The color can be changed with *Change color* in the layer menu, either to another color in the palette or to any color with the browser's color picker. Features that have their own style when `styleByAttribute` is true keep it, and if a layer contains features both with and without their own style the legend lists the layer color and each style. KML files and layers styled with `featureStyles` don't get a color.
+
 Property | Description
 ---|---
 `name` | the name of the control (draganddrop)
@@ -157,12 +159,13 @@ Property | Description
 
 Option | Description
 ---|---
-`featureStyles` | custom styling for the layer.
+`colorPalette` | array of colors given to the added layers in order, and shown as swatches when changing a layer's color. Colors can be `#rgb`, `#rrggbb`, `rgb(r, g, b)` or `rgba(r, g, b, a)`, where the alpha is ignored. Other values are skipped with a warning in the console, and if none are valid the default is used. Defaults to ten colors suited for both light background maps and aerial photos.
+`featureStyles` | custom styling for the layer. If set, the layer doesn't get an individual color.
 `groupName` | the name of the group containing the added layers. Defaults to "egna-lager".
 `groupTitle` | the title of the group containing the added layers. Used if group doesn't exist. Defaults to "Egna lager".
 `hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 `showLegendButton` | show an add-button in the legend. Requires the drag-and-drop control to be added after the legend. Defaults to false.
-`styleByAttribute` | style features in the layer based on their `style`-attribute. Defaults to false.
+`styleByAttribute` | style features in the layer based on their `style`-attribute. Features without a `style`-attribute get the layer color. Defaults to false.
 `zoomToExtent` | add zoom to extent option for layer menu. Defaults to true.
 `zoomToExtentOnLoad` | zoom to the layer extent when loaded. Defaults to true.
 
@@ -174,7 +177,8 @@ Option | Description
   "options": {
     "groupName": "drag-and-drop-layers",
     "groupTitle": "Drag-and-drop layers",
-    "styleByAttribute": true
+    "styleByAttribute": true,
+    "colorPalette": ["#0b3d91", "#e4572e", "#17bebb", "#ffc914", "#76b041"]
   }
 }
 ```
