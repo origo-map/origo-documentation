@@ -32,6 +32,8 @@ Property | Description
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
 `removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
 `zoomToExtent` | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
+`coordinatesMenuItem` | Adds a _Show coordinates_ option to the layer info menu, which shows the coordinates of the vertices in the layer as labels in the map. Overrides `coordinatesMenuItem` in the settings, see the settings page for details. Not available for clustered layers. Optional.
+`showCoordinates` | Show the coordinates when the map loads, if _Show coordinates_ is available for the layer. Optional, defaults to false.
 `exportable`| Adds a _Export layer_ option to the layer info menu if set to true. Optional.
 `exportFormat`| String or array of formats for file export if exportable is true. Can be set to geojson, gpx or kml. Defaults to geojson.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
@@ -79,6 +81,8 @@ Property | Description
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
 `removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
 `zoomToExtent` | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
+`coordinatesMenuItem` | Adds a _Show coordinates_ option to the layer info menu, which shows the coordinates of the vertices in the layer as labels in the map. Overrides `coordinatesMenuItem` in the settings, see the settings page for details. Not available for clustered layers. Optional.
+`showCoordinates` | Show the coordinates when the map loads, if _Show coordinates_ is available for the layer. Optional, defaults to false.
 `exportable`| Adds a _Export layer_ option to the layer info menu if set to true. Optional.
 `exportFormat`| String or array of formats for file export if exportable is true. Can be set to geojson, gpx or kml. Defaults to geojson.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
@@ -125,6 +129,8 @@ Property | Description
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
 `removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
 `zoomToExtent` | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
+`coordinatesMenuItem` | Adds a _Show coordinates_ option to the layer info menu, which shows the coordinates of the vertices in the layer as labels in the map. Overrides `coordinatesMenuItem` in the settings, see the settings page for details. Not available for clustered layers. Optional.
+`showCoordinates` | Show the coordinates when the map loads, if _Show coordinates_ is available for the layer. Optional, defaults to false.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 `attachments`| An [attachment object](#Attachment-configuration) containing configuration for editing and displaying attachments
@@ -180,6 +186,8 @@ Property | Description
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
 `removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
 `zoomToExtent` | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
+`coordinatesMenuItem` | Adds a _Show coordinates_ option to the layer info menu, which shows the coordinates of the vertices in the layer as labels in the map. Overrides `coordinatesMenuItem` in the settings, see the settings page for details. Not available for clustered layers. Optional.
+`showCoordinates` | Show the coordinates when the map loads, if _Show coordinates_ is available for the layer. Optional, defaults to false.
 `exportable`| Adds a _Export layer_ option to the layer info menu if set to true. To ensure all features in a layer is exported, `strategy` should be set to `all`. Optional.
 `exportFormat`| String or array of formats for file export if exportable is true. Can be set to geojson, gpx or kml. Defaults to geojson.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
@@ -288,6 +296,8 @@ Property | Description
 `featureinfoTitle` | attribute to be used instead of the title property as the title for the popup/sidebar. Optional.
 `removable` | Adds a _Remove layer_ option to the layer info menu if set to true. Optional.
 `zoomToExtent` | Adds a _Zoom To_ option to the layer info menu if set to true. Optional.
+`coordinatesMenuItem` | Adds a _Show coordinates_ option to the layer info menu, which shows the coordinates of the vertices in the layer as labels in the map. Overrides `coordinatesMenuItem` in the settings, see the settings page for details. Not available for clustered layers. Optional.
+`showCoordinates` | Show the coordinates when the map loads, if _Show coordinates_ is available for the layer. Optional, defaults to false.
 `opacityControl` | Adds an opacity slider in the legends extended layer info. Optional, defaults to true.
 `css` | Used for adding CSS properties to layer canvas element. Formatted as key/value pairs.
 `attachments`| An [attachment object](#Attachment-configuration) containing configuration for editing and displaying attachments
