@@ -494,6 +494,7 @@ Option | Description
 `searchLayersLimit` | specifies how many matches should be shown, default is 10.
 `searchLayersParameters` | specifies the parameters which should be used in the search. Defaults to ['name', 'title'].
 `searchLayersPlaceholderText` | specifies the text that should be displayed as placeholder text in search input field. Defaults to 'Sök lager'.
+`searchLayersExpandInLegend` | true or false for whether the groups containing the layer or group selected in the search layers field should be expanded and the hit scrolled into view in the legend. Defaults to true.
 `visibleLayersControl` | true or false for whether the visible layers button should be present in the legend or not. Default is false.
 `visibleLayersViewActive` | true or false if the view with visible layers should be active or not from start. Default is false.
 
