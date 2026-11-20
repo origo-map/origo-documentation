@@ -626,3 +626,12 @@ Array of colors used in the stylewindow when for instance styling features in th
 ```json
 "palette": ["rgb(0,0,0)", "rgb(255,255,255)", "rgb(0,255,255)", "rgb(255,0,255)", "rgb(166,206,227)", "rgb(31,120,180)", "rgb(178,223,138)", "rgb(51,160,44)", "rgb(251,154,153)", "rgb(227,26,28)", "rgb(253,191,111)"]
 ```
+
+### coordinatesMenuItem
+Adds a _Show coordinates_ option to the layer info menu of all vector layers (GeoJSON, GPX, TopoJSON, WFS and AGS_FEATURE, and layers added by the drag-and-drop control). When turned on, the coordinates of the vertices in the layer are shown as labels in the map, and the height (Z) when the geometry has z values, for instance elevation in a GPX file. The coordinates are shown like in the [position control](controls.md#position), in its selected projection and format, and follow it when the projection is changed. Without a position control they are shown as x, y in the map projection. Only vertices within the view are labeled, and no labels are shown when there are more than 2000 of them in the view. A message then asks the user to zoom in when _Show coordinates_ is turned on. Not available for clustered layers or vector tiles. A layer, or the drag-and-drop control for the layers it adds, can override the setting with its own `coordinatesMenuItem`. Default is true.
+
+#### Example coordinatesMenuItem
+
+```json
+"coordinatesMenuItem": false
+```

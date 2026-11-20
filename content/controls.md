@@ -157,11 +157,13 @@ Property | Description
 
 Option | Description
 ---|---
+`coordinatesMenuItem` | add _Show coordinates_ option to the layer menu of the added layers. Overrides `coordinatesMenuItem` in the settings. Defaults to the setting for the map, which defaults to true.
 `featureStyles` | custom styling for the layer.
 `groupName` | the name of the group containing the added layers. Defaults to "egna-lager".
 `groupTitle` | the title of the group containing the added layers. Used if group doesn't exist. Defaults to "Egna lager".
 `hideWhenEmbedded` | if set to true, the control is not added when the map is embedded. Defaults to false.
 `showLegendButton` | show an add-button in the legend. Requires the drag-and-drop control to be added after the legend. Defaults to false.
+`showCoordinates` | show the coordinates of the added layers directly, if _Show coordinates_ is available. Defaults to false.
 `styleByAttribute` | style features in the layer based on their `style`-attribute. Defaults to false.
 `zoomToExtent` | add zoom to extent option for layer menu. Defaults to true.
 `zoomToExtentOnLoad` | zoom to the layer extent when loaded. Defaults to true.
