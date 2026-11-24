@@ -305,6 +305,21 @@ origo.on('load', function (viewer) {
 });
 ```
 
+### Listen for coordinate system changes in the position control
+When the user changes the coordinate system in the [position control](controls.md#position), the control dispatches `change:projection` with the `projectionCode` and `projectionLabel` of the selected coordinate system. The event is dispatched on the control and not on the viewer.
+
+#### Example code for logging when the coordinate system is changed
+```javascript
+origo.on('load', function (viewer) {
+  var position = viewer.getControlByName('position');
+  if (position) {
+    position.on('change:projection', function (e) {
+      console.log('Changed to', e.projectionLabel, e.projectionCode);
+    });
+  }
+});
+```
+
 ### Refresh data on a layer
 If data for a layer changes constantly as for example when fetching temperatures from IoT sensors it can be useful to let the data be refreshed on a regular interval.
 
