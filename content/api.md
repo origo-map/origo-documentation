@@ -290,6 +290,36 @@ origo
   });
 ```
 
+### Listen for coordinates being shown
+When _Show coordinates_ is turned on or off in the layer menu, the viewer dispatches an event that can be used for instance for statistics. For a configured layer the event is `layer:coordinates` with `show` and the layer `name`. For a layer added by the drag-and-drop control it is `draganddrop:coordinates` with `show` and the file `format` (for instance gpx), but not the file name.
+
+#### Example code for logging when coordinates are shown or hidden
+```javascript
+origo.on('load', function (viewer) {
+  viewer.on('layer:coordinates', function (e) {
+    console.log(e.name, e.show ? 'shown' : 'hidden');
+  });
+  viewer.on('draganddrop:coordinates', function (e) {
+    console.log('File of type', e.format, e.show ? 'shown' : 'hidden');
+  });
+});
+```
+
+### Listen for coordinate system changes in the position control
+When the user changes the coordinate system in the [position control](controls.md#position), the control dispatches `change:projection` with the `projectionCode` and `projectionLabel` of the selected coordinate system. The event is dispatched on the control and not on the viewer.
+
+#### Example code for logging when the coordinate system is changed
+```javascript
+origo.on('load', function (viewer) {
+  var position = viewer.getControlByName('position');
+  if (position) {
+    position.on('change:projection', function (e) {
+      console.log('Changed to', e.projectionLabel, e.projectionCode);
+    });
+  }
+});
+```
+
 ### Refresh data on a layer
 If data for a layer changes constantly as for example when fetching temperatures from IoT sensors it can be useful to let the data be refreshed on a regular interval.
 
